@@ -6,6 +6,10 @@
 
 package de.ingrid.utils;
 
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Vector;
+
 
 /**
  * A Container for the query
@@ -48,6 +52,10 @@ public class IngridQuey extends IngridDocument {
 
     public IngridQuey[] getSubQueries() {
         return (IngridQuey[]) get(SUB_QUERIES);
+    }
+    
+    public Enumeration getFields(){
+        return null;
     }
 
 }
