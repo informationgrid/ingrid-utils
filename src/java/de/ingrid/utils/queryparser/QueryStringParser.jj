@@ -1,0 +1,82 @@
+/**
+ * Example of JavaCC file.
+ */
+
+options {
+LOOKAHEAD=1;
+STATIC=false;
+}
+
+PARSER_BEGIN(QueryStringParser)
+package de.ingrid.utils.queryparser;
+
+public class QueryStringParser {
+    public static void main(String args[]) throws ParseException {
+	
+    }
+}
+
+PARSER_END(QueryStringParser)
+
+<*> TOKEN : {
+  <#_NUM_CHAR:   ["0"-"9"] >
+// NOTE: keep this in sync with escape(String) above!
+| <#_ESCAPED_CHAR: "\\" [ "\\", "+", "-", "!", "(", ")", ":", "^",
+                          "[", "]", "\"", "{", "}", "~", "*", "?" ] >
+| <#_TERM_START_CHAR: ( ~[ " ", "\t", "\n", "\r", "+", "-", "!", "(", ")", ":", "^",
+                           "[", "]", "\"", "{", "}", "~", "*", "?" ]
+                       | <_ESCAPED_CHAR> ) >
+| <#_TERM_CHAR: ( <_TERM_START_CHAR> | <_ESCAPED_CHAR> | "-" | "+" ) >
+| <#_WHITESPACE: ( " " | "\t" | "\n" | "\r") >
+}
+
+<DEFAULT, RangeIn, RangeEx> SKIP : {
+  <<_WHITESPACE>>
+}
+
+// OG: to support prefix queries:
+// http://nagoya.apache.org/bugzilla/show_bug.cgi?id=12137
+// Change from:
+// | <WILDTERM:  <_TERM_START_CHAR>
+//              (<_TERM_CHAR> | ( [ "*", "?" ] ))* >
+// To:
+//
+// | <WILDTERM:  (<_TERM_CHAR> | ( [ "*", "?" ] ))* >
+
+<DEFAULT> TOKEN : {
+  <AND:       ("AND" | "&&") >
+| <OR:        ("OR" | "||") >
+| <NOT:       ("NOT" | "!") >
+| <PLUS:      "+" >
+| <MINUS:     "-" >
+| <LPAREN:    "(" >
+| <RPAREN:    ")" >
+| <COLON:     ":" >
+| <CARAT:     "^" > : Boost
+| <QUOTED:     "\"" (~["\""])+ "\"">
+| <TERM:      <_TERM_START_CHAR> (<_TERM_CHAR>)*  >
+| <FUZZY_SLOP:     "~" ( (<_NUM_CHAR>)+ ( "." (<_NUM_CHAR>)+ )? )? >
+| <PREFIXTERM:  <_TERM_START_CHAR> (<_TERM_CHAR>)* "*" >
+| <WILDTERM:  <_TERM_START_CHAR>
+              (<_TERM_CHAR> | ( [ "*", "?" ] ))* >
+| <RANGEIN_START: "[" > : RangeIn
+| <RANGEEX_START: "{" > : RangeEx
+}
+
+<Boost> TOKEN : {
+<NUMBER:    (<_NUM_CHAR>)+ ( "." (<_NUM_CHAR>)+ )? > : DEFAULT
+}
+
+<RangeIn> TOKEN : {
+<RANGEIN_TO: "TO">
+| <RANGEIN_END: "]"> : DEFAULT
+| <RANGEIN_QUOTED: "\"" (~["\""])+ "\"">
+| <RANGEIN_GOOP: (~[ " ", "]" ])+ >
+}
+
+<RangeEx> TOKEN : {
+<RANGEEX_TO: "TO">
+| <RANGEEX_END: "}"> : DEFAULT
+| <RANGEEX_QUOTED: "\"" (~["\""])+ "\"">
+| <RANGEEX_GOOP: (~[ " ", "}" ])+ >
+}
