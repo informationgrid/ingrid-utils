@@ -10,6 +10,10 @@ STATIC=false;
 PARSER_BEGIN(QueryStringParser)
 package de.ingrid.utils.queryparser;
 
+
+import java.util.Vector;
+import de.ingrid.utils.IngridQuery;
+
 public class QueryStringParser {
     public static void main(String args[]) throws ParseException {
 	
@@ -83,28 +87,57 @@ PARSER_END(QueryStringParser)
 | <RANGEEX_GOOP: (~[ " ", "}" ])+ >
 }
 
-void parse() :
-	{}
-	{
-	(<AND>|<OR>|<NOT>)? (term()|field()|clause())
+IngridQuery parse() :
+	{ 
+		// variables
+		Token token;
+		IngridQuery query = new IngridQuery();
+		IngridQuery subQuery;
 	}
+	{
+(
+subQuery = term()
+	{
+		query.addTerm(subQuery);
+		System.out.println(subQuery+"term");
+	}
+| subQuery = field()
+	{
+		query.addField(subQuery);
+		 System.out.println(subQuery+"field");
+	}
+| subQuery = clause()
+	{ 
+		query.addClause(subQuery);
+		System.out.println(subQuery+"clause"); 
+	}	
+
+)*
+	{return  query;}
+}
+
 	
-	void field() :
-	{}
+// field
+	IngridQuery field() :
+	{IngridQuery query = new IngridQuery();}
 	{
 	<FIELD>
+	{return query;}
 	}
 	
-	void term() :
-	{}
+// term	
+	IngridQuery term() :
+	{IngridQuery query; }
 	{
 	<TERM>
+	{query = new IngridQuery(IngridQuery.TERM, IngridQuery.AND);}
+	{return query;}
 	}
 
-	void clause() :
-	{}
+// clause...
+	IngridQuery clause() :
+	{IngridQuery query = new IngridQuery();}
 	{
-	<LPAREN> (<AND>|<OR>|<NOT>)? (term()|field()|clause()) <RPAREN>
-	
-	}
-	
+	<LPAREN> (<AND>|<OR>|<NOT>)? (term()|field()|clause())* <RPAREN>
+	{return  query;}
+	}	

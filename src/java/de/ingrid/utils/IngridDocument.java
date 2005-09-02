@@ -124,4 +124,5 @@ public class IngridDocument extends HashMap implements Externalizable {
 
         // just nothing .. :-)
     }
+
 }

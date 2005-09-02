@@ -8,11 +8,16 @@ package de.ingrid.utils.queryparser;
 
 import java.io.StringReader;
 
-import de.ingrid.utils.QueryParser;
-import de.ingrid.utils.QueryParserTest;
 import junit.framework.TestCase;
+import de.ingrid.utils.IngridQuery;
 
 public class TestQueryparser extends TestCase {
+    
+    public void testQuery() throws Exception {
+        IngridQuery query = new IngridQuery();
+        query.addClause(new IngridQuery(IngridQuery.CLAUSE, IngridQuery.AND));
+        new IngridQuery(IngridQuery.TERM, IngridQuery.AND)
+    }
 
     public void testSimpleTerms() throws Exception {
         String q = "hallo  welt";
@@ -53,9 +58,27 @@ public class TestQueryparser extends TestCase {
     }
 
     public void testBrace() throws Exception {
-        String q = "fische (halle OR magdegurg AND  ( Elbe OR Neise) AND FISCH:KARPFEN)";
-        QueryStringParser parser = new QueryStringParser(new StringReader(q));
-        parser.parse();
+        IngridQuery q = parse("fische");
+        assertEquals(1, q.getTerms().length);
+        q = parse("fische frösche");
+        assertEquals(2, q.getTerms().length);
+
+        q = parse("fische frösche ort:Halle");
+        assertEquals(2, q.getTerms().length);
+        assertEquals(1, q.getFields().length);
+        q = parse("fische frösche ort:Halle land:germany");
+        assertEquals(2, q.getTerms().length);
+        assertEquals(2, q.getFields().length);
+
+        q = parse("(ort:Halle land:germany) fische frösche ");
+        assertEquals(2, q.getTerms().length);
+        assertEquals(1, q.getClauses().length);
+
+        // parse("werner:müller AND (wasser OR feuer)");
+        // parse("(wasser OR feuer)");
+
+        // assertEquals("true", quey.get("AND"));
+        // System.out.println();
         // // Token token;
         // // for (int i = 0; i < 3; i++) {
         // // token = parser.Parse();
@@ -65,5 +88,13 @@ public class TestQueryparser extends TestCase {
         // // assertEquals(QueryStringParserConstants.TERM, token.kind);
         // // }
         // //
+    }
+
+    private IngridQuery parse(String q) throws ParseException {
+        QueryStringParser parser = new QueryStringParser(new StringReader(q));
+        IngridQuery query = parser.parse();
+        // assertNotNull(ingridQuery);
+
+        return query;
     }
 }
