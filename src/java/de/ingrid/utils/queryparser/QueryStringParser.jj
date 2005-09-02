@@ -30,6 +30,7 @@ PARSER_END(QueryStringParser)
 | <#_WHITESPACE: ( " " | "\t" | "\n" | "\r") >
 }
 
+
 <DEFAULT, RangeIn, RangeEx> SKIP : {
   <<_WHITESPACE>>
 }
@@ -55,6 +56,7 @@ PARSER_END(QueryStringParser)
 | <CARAT:     "^" > : Boost
 | <QUOTED:     "\"" (~["\""])+ "\"">
 | <TERM:      <_TERM_START_CHAR> (<_TERM_CHAR>)*  >
+| <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> (<_TERM_CHAR>)* >
 | <FUZZY_SLOP:     "~" ( (<_NUM_CHAR>)+ ( "." (<_NUM_CHAR>)+ )? )? >
 | <PREFIXTERM:  <_TERM_START_CHAR> (<_TERM_CHAR>)* "*" >
 | <WILDTERM:  <_TERM_START_CHAR>
@@ -80,3 +82,29 @@ PARSER_END(QueryStringParser)
 | <RANGEEX_QUOTED: "\"" (~["\""])+ "\"">
 | <RANGEEX_GOOP: (~[ " ", "}" ])+ >
 }
+
+void parse() :
+	{}
+	{
+	(<AND>|<OR>|<NOT>)? (term()|field()|clause())
+	}
+	
+	void field() :
+	{}
+	{
+	<FIELD>
+	}
+	
+	void term() :
+	{}
+	{
+	<TERM>
+	}
+
+	void clause() :
+	{}
+	{
+	<LPAREN> (<AND>|<OR>|<NOT>)? (term()|field()|clause()) <RPAREN>
+	
+	}
+	
