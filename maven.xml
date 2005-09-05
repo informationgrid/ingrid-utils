@@ -8,4 +8,11 @@
 		<j:set var="maven.test.failure.ignore" value="false"/>
 	</postGoal>
 	
+	<preGoal name="java:compile">
+		<j:set var="maven.javacc.javacc.grammar" value="src/java/de/ingrid/utils/queryparser/QueryStringParser.jj" />
+	    <j:set var="maven.javacc.javacc.target.dir" value="target" /> 
+	    <j:set var="maven.javacc.javacc.package" value="de.ingrid.utils.queryparser" /> 
+		<attainGoal name="javacc" />
+	</preGoal>
+	
 </project>
