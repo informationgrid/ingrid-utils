@@ -43,6 +43,15 @@
     <repository>
         <connection>scm:svn:http://torwald.gistec-online.de/svn/ingrid:ingrid-utils</connection>
     </repository>
+    <dependencies>
+    	<dependency>
+    		<groupId>maven</groupId>
+        	<artifactId>maven-javacc-plugin</artifactId>
+        	<version>1.1</version>
+        	<type>plugin</type>
+			<url>http://www.ibiblio.org/maven</url>
+    	</dependency>
+    </dependencies>
     <build>
         <sourceDirectory>src/java</sourceDirectory>
         <unitTestSourceDirectory>src/test</unitTestSourceDirectory>
