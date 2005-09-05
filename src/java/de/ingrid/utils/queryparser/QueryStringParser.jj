@@ -116,28 +116,68 @@ subQuery = term()
 	{return  query;}
 }
 
+
+
 	
 // field
 	IngridQuery field() :
-	{IngridQuery query = new IngridQuery();}
 	{
-	<FIELD>
+		IngridQuery query;
+		Token t;
+		int type = IngridQuery.AND;	
+	}
+	{
+	(<OR>{type =IngridQuery.OR; } | <NOT> {type =IngridQuery.NOT; })?
+	t=<FIELD>
+	{query = new IngridQuery(IngridQuery.FIELD, type, t.image);}
 	{return query;}
 	}
 	
+	
 // term	
 	IngridQuery term() :
-	{IngridQuery query; }
 	{
-	<TERM>
-	{query = new IngridQuery(IngridQuery.TERM, IngridQuery.AND);}
+		IngridQuery query;
+		Token t;
+		int type = IngridQuery.AND;
+	}
+	{
+
+	(<OR>{type =IngridQuery.OR; } | <NOT> {type =IngridQuery.NOT; })?
+		
+	t=<TERM>
+	{query = new IngridQuery(IngridQuery.TERM, type, t.image);}
 	{return query;}
 	}
 
 // clause...
 	IngridQuery clause() :
-	{IngridQuery query = new IngridQuery();}
 	{
-	<LPAREN> (<AND>|<OR>|<NOT>)? (term()|field()|clause())* <RPAREN>
+		IngridQuery query;
+		Token t;
+		int type = IngridQuery.AND;
+		IngridQuery subQuery;
+	}
+	{
+	(<OR>{type =IngridQuery.OR; } | <NOT> {type =IngridQuery.NOT; })?
+	{query =  new IngridQuery(IngridQuery.CLAUSE, type, "");}
+	<LPAREN>
+	// (<AND>|<OR>|<NOT>)? (term()|field()|clause())* 
+ (
+	 subQuery = term()
+	{
+		query.addTerm(subQuery);
+	}
+	| subQuery = field()
+	{
+		query.addField(subQuery);
+	}
+	| subQuery = clause()
+	{ 
+		query.addClause(subQuery);
+	}	
+ )*
+	 <RPAREN>
+	
 	{return  query;}
 	}	

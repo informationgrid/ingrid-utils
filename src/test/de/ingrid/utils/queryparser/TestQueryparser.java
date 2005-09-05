@@ -12,11 +12,11 @@ import junit.framework.TestCase;
 import de.ingrid.utils.IngridQuery;
 
 public class TestQueryparser extends TestCase {
-    
+
     public void testQuery() throws Exception {
         IngridQuery query = new IngridQuery();
-        query.addClause(new IngridQuery(IngridQuery.CLAUSE, IngridQuery.AND));
-        new IngridQuery(IngridQuery.TERM, IngridQuery.AND)
+        query.addClause(new IngridQuery(IngridQuery.CLAUSE, IngridQuery.AND, ""));
+        new IngridQuery(IngridQuery.TERM, IngridQuery.AND, "");
     }
 
     public void testSimpleTerms() throws Exception {
@@ -57,9 +57,10 @@ public class TestQueryparser extends TestCase {
         }
     }
 
-    public void testBrace() throws Exception {
+    public void testQueries() throws Exception {
         IngridQuery q = parse("fische");
         assertEquals(1, q.getTerms().length);
+        assertTrue("fische".equals(q.getTerms()[0].toString()));
         q = parse("fische frösche");
         assertEquals(2, q.getTerms().length);
 
@@ -70,9 +71,15 @@ public class TestQueryparser extends TestCase {
         assertEquals(2, q.getTerms().length);
         assertEquals(2, q.getFields().length);
 
+        q = parse("fische OR frösche");
+        assertEquals(2, q.getTerms().length);
+        assertEquals(IngridQuery.OR, q.getTerms()[1].getOperation());
+        
         q = parse("(ort:Halle land:germany) fische frösche ");
+        System.out.println(q.getDescription());
         assertEquals(2, q.getTerms().length);
         assertEquals(1, q.getClauses().length);
+//        assertEquals(2, q.getClauses()[0].getFields().length);
 
         // parse("werner:müller AND (wasser OR feuer)");
         // parse("(wasser OR feuer)");

@@ -62,9 +62,10 @@ public class IngridQuery extends IngridDocument {
         super(new Long(System.currentTimeMillis()), "");
     }
 
-    public IngridQuery(int type, int booleanOperation) {
-      fType = type;
-      fOperation = booleanOperation;
+    public IngridQuery(int type, int booleanOperation, String query) {
+        super(new Long(System.currentTimeMillis()), query);
+        fType = type;
+        fOperation = booleanOperation;
     }
 
     /*
@@ -75,7 +76,6 @@ public class IngridQuery extends IngridDocument {
     public String toString() {
         return (String) getContent();
     }
-
 
     public void addField(IngridQuery field) {
         fFields.add(field);
@@ -102,5 +102,33 @@ public class IngridQuery extends IngridDocument {
         return (IngridQuery[]) fClauses.toArray(new IngridQuery[this.fClauses.size()]);
 
     }
+    public String getDescription() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("(");
+        buffer.append(" terms: ");
+        appendToString(buffer, getTerms());
+        buffer.append(" fields: ");
+        appendToString(buffer, getFields());
+        buffer.append(" clauses: ");
+        IngridQuery[] clauses = getClauses();
+        for (int i = 0; i < clauses.length; i++) {
+            buffer.append(clauses[i].getDescription());
 
+        }
+        buffer.append(")");
+        return buffer.toString();
+
+    }
+    private void appendToString(StringBuffer buffer, IngridQuery[] terms) {
+        for (int i = 0; i < terms.length; i++) {
+            buffer.append(terms[i]);
+            buffer.append(" ");
+        }
+    }
+    public int getType() {
+        return fType;
+    }
+    public int getOperation() {
+        return fOperation;
+    }
 }
