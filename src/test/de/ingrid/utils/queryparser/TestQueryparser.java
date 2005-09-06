@@ -80,28 +80,13 @@ public class TestQueryparser extends TestCase {
         System.out.println(q.getDescription());
         assertEquals(2, q.getTerms().length);
         assertEquals(1, q.getClauses().length);
-//        assertEquals(2, q.getClauses()[0].getFields().length);
 
-        // parse("werner:müller AND (wasser OR feuer)");
-        // parse("(wasser OR feuer)");
-
-        // assertEquals("true", quey.get("AND"));
-        // System.out.println();
-        // // Token token;
-        // // for (int i = 0; i < 3; i++) {
-        // // token = parser.Parse();
-        // // if (i == 1) {
-        // // assertEquals(QueryStringParserConstants.OR, token.kind);
-        // // } else {
-        // // assertEquals(QueryStringParserConstants.TERM, token.kind);
-        // // }
-        // //
     }
 
     private IngridQuery parse(String q) throws ParseException {
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
         IngridQuery query = parser.parse();
-        // assertNotNull(ingridQuery);
+         assertNotNull(query);
 
         return query;
     }
