@@ -7,11 +7,9 @@
 package de.ingrid.utils;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Vector;
 
 /**
- * A Container for the query
+ * Container for Ingrid Query
  * 
  * created on 09.08.2005
  * 
@@ -20,12 +18,7 @@ import java.util.Vector;
  */
 public class IngridQuery extends IngridDocument {
 
-    // public static final String Terms = "QueryToken";
-    //
-    // public static final String OR_QUERIES = "OrQueries";
-    //
-    // public static final String SUB_QUERIES = "SubQueries";
-
+  
     public static final int NOT = -1;
 
     public static final int AND = 0;
@@ -48,60 +41,89 @@ public class IngridQuery extends IngridDocument {
 
     private int fType;
 
+
     /**
-     * Constructor
-     * 
-     * @param id
+     * Default constructor
+     */
+    public IngridQuery() {
+        super(new Long(System.currentTimeMillis()), null);
+    }
+
+    /**
+     * Constructor for subclasses
+     * @param type
+     * @param booleanOperation
      * @param query
      */
-    public IngridQuery(long id, final String query) {
-        super(new Long(id), query);
-    }
-
-    public IngridQuery() {
-        super(new Long(System.currentTimeMillis()), "");
-    }
-
     public IngridQuery(int type, int booleanOperation, String query) {
         super(new Long(System.currentTimeMillis()), query);
         this.fType = type;
         this.fOperation = booleanOperation;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
+    
+    /**
+     * @return the query type
      */
-    public String toString() {
-        return (String) getContent();
+    public int getType() {
+        return this.fType;
+    }
+    /**
+     * @return the boolean operation type of this query
+     */
+    public int getOperation() {
+        return this.fOperation;
     }
 
-    public void addField(IngridQuery field) {
-        fFields.add(field);
+    /**
+     * Adds a field query
+     * @param field
+     */
+    public void addField(FieldQuery field) {
+        this.fFields.add(field);
     }
 
-    public IngridQuery[] getFields() {
-        return (IngridQuery[]) fFields.toArray(new IngridQuery[this.fFields.size()]);
+    /**
+     * @return array of field queries 
+     */
+    public FieldQuery[] getFields() {
+        return (FieldQuery[]) this.fFields.toArray(new FieldQuery[this.fFields.size()]);
     }
 
-    public void addTerm(IngridQuery term) {
-        fTerms.add(term);
+    /**
+     * Adds a term Query
+     * @param term
+     */
+    public void addTerm(TermQuery term) {
+        this.fTerms.add(term);
     }
 
-    public IngridQuery[] getTerms() {
-        return (IngridQuery[]) fTerms.toArray(new IngridQuery[this.fTerms.size()]);
+    /**
+     * @return array of term queries
+     */
+    public TermQuery[] getTerms() {
+        return (TermQuery[]) this.fTerms.toArray(new TermQuery[this.fTerms.size()]);
 
     }
 
-    public void addClause(IngridQuery term) {
-        fClauses.add(term);
+    /**
+     * adds a clause query
+     * @param clauseQuery
+     */
+    public void addClause(ClauseQuery clauseQuery) {
+        this.fClauses.add(clauseQuery);
     }
 
-    public IngridQuery[] getClauses() {
-        return (IngridQuery[]) fClauses.toArray(new IngridQuery[this.fClauses.size()]);
+    /**
+     * @return array of clause queries
+     */
+    public ClauseQuery[] getClauses() {
+        return (ClauseQuery[]) this.fClauses.toArray(new ClauseQuery[this.fClauses.size()]);
 
     }
+    /**
+     * @return a description of this query object
+     */
     public String getDescription() {
         StringBuffer buffer = new StringBuffer();
         buffer.append("(");
@@ -119,16 +141,24 @@ public class IngridQuery extends IngridDocument {
         return buffer.toString();
 
     }
+    /**
+     * @param buffer
+     * @param terms
+     */
     private void appendToString(StringBuffer buffer, IngridQuery[] terms) {
         for (int i = 0; i < terms.length; i++) {
             buffer.append(terms[i]);
             buffer.append(" ");
         }
     }
-    public int getType() {
-        return fType;
-    }
-    public int getOperation() {
-        return fOperation;
+   
+    
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    public String toString() {
+        return (String) getContent();
     }
 }

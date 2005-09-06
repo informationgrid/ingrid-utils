@@ -24,7 +24,7 @@ PARSER_END(QueryStringParser)
 
 <*> TOKEN : {
   <#_NUM_CHAR:   ["0"-"9"] >
-// NOTE: keep this in sync with escape(String) above!
+
 | <#_ESCAPED_CHAR: "\\" [ "\\", "+", "-", "!", "(", ")", ":", "^",
                           "[", "]", "\"", "{", "}", "~", "*", "?" ] >
 | <#_TERM_START_CHAR: ( ~[ " ", "\t", "\n", "\r", "+", "-", "!", "(", ")", ":", "^",
@@ -34,19 +34,10 @@ PARSER_END(QueryStringParser)
 | <#_WHITESPACE: ( " " | "\t" | "\n" | "\r") >
 }
 
-
 <DEFAULT, RangeIn, RangeEx> SKIP : {
   <<_WHITESPACE>>
 }
 
-// OG: to support prefix queries:
-// http://nagoya.apache.org/bugzilla/show_bug.cgi?id=12137
-// Change from:
-// | <WILDTERM:  <_TERM_START_CHAR>
-//              (<_TERM_CHAR> | ( [ "*", "?" ] ))* >
-// To:
-//
-// | <WILDTERM:  (<_TERM_CHAR> | ( [ "*", "?" ] ))* >
 
 <DEFAULT> TOKEN : {
   <AND:       ("AND" | "&&") >
@@ -98,15 +89,15 @@ IngridQuery parse() :
 (
 subQuery = term()
 	{
-		query.addTerm(subQuery);
+		query.addTerm((TermQuery)subQuery);
 	}
 | subQuery = field()
 	{
-		query.addField(subQuery);
+		query.addField((FieldQuery)subQuery);
 	}
 | subQuery = clause()
 	{ 
-		query.addClause(subQuery);
+		query.addClause((ClauseQuery)subQuery);
 	}	
 
 )*
@@ -159,19 +150,20 @@ subQuery = term()
 	{query =  new ClauseQuery( booleanOperation );}
 	<LPAREN>
  (
-	 subQuery = term()
+subQuery = term()
 	{
-		query.addTerm(subQuery);
+		query.addTerm((TermQuery)subQuery);
 	}
-	| subQuery = field()
+| subQuery = field()
 	{
-		query.addField(subQuery);
+		query.addField((FieldQuery)subQuery);
 	}
-	| subQuery = clause()
+| subQuery = clause()
 	{ 
-		query.addClause(subQuery);
+		query.addClause((ClauseQuery)subQuery);
 	}	
- )*
+
+)*
 	 <RPAREN>
 	
 	{return  query;}

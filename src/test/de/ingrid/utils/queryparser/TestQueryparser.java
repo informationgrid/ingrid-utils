@@ -9,13 +9,14 @@ package de.ingrid.utils.queryparser;
 import java.io.StringReader;
 
 import junit.framework.TestCase;
+import de.ingrid.utils.ClauseQuery;
 import de.ingrid.utils.IngridQuery;
 
 public class TestQueryparser extends TestCase {
 
     public void testQuery() throws Exception {
         IngridQuery query = new IngridQuery();
-        query.addClause(new IngridQuery(IngridQuery.CLAUSE, IngridQuery.AND, ""));
+        query.addClause(new ClauseQuery(IngridQuery.AND));
         new IngridQuery(IngridQuery.TERM, IngridQuery.AND, "");
     }
 
