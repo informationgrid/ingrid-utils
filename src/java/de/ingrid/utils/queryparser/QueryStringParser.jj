@@ -12,7 +12,7 @@ package de.ingrid.utils.queryparser;
 
 
 import java.util.Vector;
-import de.ingrid.utils.IngridQuery;
+import de.ingrid.utils.*;
 
 public class QueryStringParser {
     public static void main(String args[]) throws ParseException {
@@ -99,17 +99,14 @@ IngridQuery parse() :
 subQuery = term()
 	{
 		query.addTerm(subQuery);
-		System.out.println(subQuery+"term");
 	}
 | subQuery = field()
 	{
 		query.addField(subQuery);
-		 System.out.println(subQuery+"field");
 	}
 | subQuery = clause()
 	{ 
 		query.addClause(subQuery);
-		System.out.println(subQuery+"clause"); 
 	}	
 
 )*
@@ -117,19 +114,18 @@ subQuery = term()
 }
 
 
-
 	
 // field
 	IngridQuery field() :
 	{
-		IngridQuery query;
+		FieldQuery query;
 		Token t;
-		int type = IngridQuery.AND;	
+		int booleanOperation = IngridQuery.AND;	
 	}
 	{
-	(<OR>{type =IngridQuery.OR; } | <NOT> {type =IngridQuery.NOT; })?
+	(<OR>{booleanOperation =IngridQuery.OR; } | <NOT> {booleanOperation =IngridQuery.NOT; })?
 	t=<FIELD>
-	{query = new IngridQuery(IngridQuery.FIELD, type, t.image);}
+	{query = new FieldQuery( booleanOperation, t.image);}
 	{return query;}
 	}
 	
@@ -137,32 +133,31 @@ subQuery = term()
 // term	
 	IngridQuery term() :
 	{
-		IngridQuery query;
+		TermQuery query;
 		Token t;
-		int type = IngridQuery.AND;
+		int booleanOperation = IngridQuery.AND;
 	}
 	{
 
-	(<OR>{type =IngridQuery.OR; } | <NOT> {type =IngridQuery.NOT; })?
+	(<OR>{booleanOperation =IngridQuery.OR; } | <NOT> {booleanOperation =IngridQuery.NOT; })?
 		
 	t=<TERM>
-	{query = new IngridQuery(IngridQuery.TERM, type, t.image);}
+	{query = new TermQuery(booleanOperation, t.image);}
 	{return query;}
 	}
 
 // clause...
 	IngridQuery clause() :
 	{
-		IngridQuery query;
+		ClauseQuery query;
 		Token t;
-		int type = IngridQuery.AND;
+		int booleanOperation = IngridQuery.AND;
 		IngridQuery subQuery;
 	}
 	{
-	(<OR>{type =IngridQuery.OR; } | <NOT> {type =IngridQuery.NOT; })?
-	{query =  new IngridQuery(IngridQuery.CLAUSE, type, "");}
+	(<OR>{booleanOperation =IngridQuery.OR; } | <NOT> {booleanOperation =IngridQuery.NOT; })?
+	{query =  new ClauseQuery( booleanOperation );}
 	<LPAREN>
-	// (<AND>|<OR>|<NOT>)? (term()|field()|clause())* 
  (
 	 subQuery = term()
 	{

@@ -64,8 +64,8 @@ public class IngridQuery extends IngridDocument {
 
     public IngridQuery(int type, int booleanOperation, String query) {
         super(new Long(System.currentTimeMillis()), query);
-        fType = type;
-        fOperation = booleanOperation;
+        this.fType = type;
+        this.fOperation = booleanOperation;
     }
 
     /*
