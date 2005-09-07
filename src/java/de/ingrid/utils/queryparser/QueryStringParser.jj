@@ -1,5 +1,5 @@
 /**
- * Example of JavaCC file.
+ * Ingrid Query String Parser
  */
 
 options {
@@ -10,13 +10,23 @@ STATIC=false;
 PARSER_BEGIN(QueryStringParser)
 package de.ingrid.utils.queryparser;
 
+import java.io.StringReader;
 
-import java.util.Vector;
-import de.ingrid.utils.*;
+import de.ingrid.utils.ClauseQuery;
+import de.ingrid.utils.FieldQuery;
+import de.ingrid.utils.IngridQuery;
+import de.ingrid.utils.TermQuery;
 
 public class QueryStringParser {
-    public static void main(String args[]) throws ParseException {
-	
+     /**
+     * Parses the string to a query object representation
+     * @param queryString
+     * @return ingrid query that contains subqueries
+     * @throws ParseException
+     */
+    public static IngridQuery parse(String queryString) throws ParseException {
+    	QueryStringParser parser = new QueryStringParser(new StringReader(queryString));
+    	return parser.parse();
     }
 }
 

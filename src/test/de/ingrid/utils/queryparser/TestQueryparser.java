@@ -75,7 +75,7 @@ public class TestQueryparser extends TestCase {
         q = parse("fische OR frösche");
         assertEquals(2, q.getTerms().length);
         assertEquals(IngridQuery.OR, q.getTerms()[1].getOperation());
-        
+
         q = parse("(ort:Halle land:germany) fische frösche ");
         System.out.println(q.getDescription());
         assertEquals(2, q.getTerms().length);
@@ -86,8 +86,13 @@ public class TestQueryparser extends TestCase {
     private IngridQuery parse(String q) throws ParseException {
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
         IngridQuery query = parser.parse();
-         assertNotNull(query);
+        assertNotNull(query);
 
         return query;
+    }
+
+    public void testStaticQueryParsing() throws Exception {
+        IngridQuery query = QueryStringParser.parse("a query");
+        assertNotNull(query);
     }
 }
