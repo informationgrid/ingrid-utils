@@ -37,7 +37,7 @@ public class IngridQuery extends IngridDocument {
 
     private ArrayList fClauses = new ArrayList();
 
-    private int fOperation;
+    private int fRequired;
 
     private int fType;
 
@@ -52,13 +52,13 @@ public class IngridQuery extends IngridDocument {
     /**
      * Constructor for subclasses
      * @param type
-     * @param booleanOperation
+     * @param required
      * @param query
      */
-    public IngridQuery(int type, int booleanOperation, String query) {
+    public IngridQuery(int type, int required, String query) {
         super(new Long(System.currentTimeMillis()), query);
         this.fType = type;
-        this.fOperation = booleanOperation;
+        this.fRequired = required;
     }
 
     
@@ -72,7 +72,7 @@ public class IngridQuery extends IngridDocument {
      * @return the boolean operation type of this query
      */
     public int getOperation() {
-        return this.fOperation;
+        return this.fRequired;
     }
 
     /**

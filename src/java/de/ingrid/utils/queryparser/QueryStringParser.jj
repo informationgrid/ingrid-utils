@@ -111,12 +111,12 @@ subQuery = term()
 	{
 		FieldQuery query;
 		Token t;
-		int booleanOperation = IngridQuery.AND;	
+		int required = IngridQuery.AND;	
 	}
 	{
-	(<OR>{booleanOperation =IngridQuery.OR; } | <NOT> {booleanOperation =IngridQuery.NOT; })?
+	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; })?
 	t=<FIELD>
-	{query = new FieldQuery( booleanOperation, t.image);}
+	{query = new FieldQuery( required, t.image);}
 	{return query;}
 	}
 	
@@ -126,14 +126,14 @@ subQuery = term()
 	{
 		TermQuery query;
 		Token t;
-		int booleanOperation = IngridQuery.AND;
+		int required = IngridQuery.AND;
 	}
 	{
 
-	(<OR>{booleanOperation =IngridQuery.OR; } | <NOT> {booleanOperation =IngridQuery.NOT; })?
+	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; })?
 		
 	t=<TERM>
-	{query = new TermQuery(booleanOperation, t.image);}
+	{query = new TermQuery(required, t.image);}
 	{return query;}
 	}
 
@@ -142,12 +142,12 @@ subQuery = term()
 	{
 		ClauseQuery query;
 		Token t;
-		int booleanOperation = IngridQuery.AND;
+		int required = IngridQuery.AND;
 		IngridQuery subQuery;
 	}
 	{
-	(<OR>{booleanOperation =IngridQuery.OR; } | <NOT> {booleanOperation =IngridQuery.NOT; })?
-	{query =  new ClauseQuery( booleanOperation );}
+	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; })?
+	{query =  new ClauseQuery( required );}
 	<LPAREN>
  (
 subQuery = term()
