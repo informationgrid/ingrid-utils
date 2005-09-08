@@ -41,6 +41,8 @@ public class IngridQuery extends IngridDocument {
 
     private int fType;
 
+    private String fDataType;
+
 
     /**
      * Default constructor
@@ -161,4 +163,20 @@ public class IngridQuery extends IngridDocument {
     public String toString() {
         return (String) getContent();
     }
+
+    /**
+     * @return the data type of this query
+     */
+    public String getDataType() {
+        return fDataType;
+    }
+    
+    /**
+     * Sets the data type
+     * @param dataType
+     */
+    public void setDataType(String dataType) {
+        fDataType = dataType;
+    }
+    
 }

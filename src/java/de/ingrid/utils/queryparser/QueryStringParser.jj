@@ -61,6 +61,7 @@ PARSER_END(QueryStringParser)
 | <CARAT:     "^" > : Boost
 | <QUOTED:     "\"" (~["\""])+ "\"">
 | <TERM:      <_TERM_START_CHAR> (<_TERM_CHAR>)*  >
+| <DATATYPE:      <_TERM_START_CHAR> "datatype" <COLON> (<_TERM_CHAR>)* >
 | <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> (<_TERM_CHAR>)* >
 | <FUZZY_SLOP:     "~" ( (<_NUM_CHAR>)+ ( "." (<_NUM_CHAR>)+ )? )? >
 | <PREFIXTERM:  <_TERM_START_CHAR> (<_TERM_CHAR>)* "*" >
@@ -94,6 +95,7 @@ IngridQuery parse() :
 		Token token;
 		IngridQuery query = new IngridQuery();
 		IngridQuery subQuery;
+		String dataType;
 	}
 	{
 (
@@ -103,7 +105,11 @@ subQuery = term()
 	}
 | subQuery = field()
 	{
-		query.addField((FieldQuery)subQuery);
+		if(((FieldQuery)subQuery).getFieldName().equals("datatype")){
+            query.setDataType(((FieldQuery)subQuery).getFieldValue());
+        } else {
+           query.addField((FieldQuery)subQuery); 
+        }
 	}
 | subQuery = clause()
 	{ 
@@ -178,3 +184,4 @@ subQuery = term()
 	
 	{return  query;}
 	}	
+	
