@@ -8,13 +8,8 @@ package de.ingrid.utils.queryparser;
 
 import java.io.StringReader;
 
-import org.apache.xalan.lib.sql.QueryParameter;
-
-import com.sun.rsasign.q;
-
 import junit.framework.TestCase;
 import de.ingrid.utils.ClauseQuery;
-import de.ingrid.utils.FieldQuery;
 import de.ingrid.utils.IngridQuery;
 
 public class TestQueryparser extends TestCase {
