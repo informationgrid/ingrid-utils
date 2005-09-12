@@ -51,6 +51,33 @@
         	<type>plugin</type>
 			<url>http://www.ibiblio.org/maven</url>
     	</dependency>
+    	   <dependency>
+            <groupId>commons-betwixt</groupId>
+            <artifactId>commons-betwixt</artifactId>
+            <version>0.7</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.0.2</version>
+            <type>jar</type>
+            <url>http://jakarta.apache.org/commons/logging/</url>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils-core</artifactId>
+            <version>1.7.0</version>
+            <type>jar</type>
+            <url>http://jakarta.apache.org/commons/beanutils/</url>
+        </dependency>
+        <dependency>
+            <groupId>commons-digester</groupId>
+            <artifactId>commons-digester</artifactId>
+            <version>1.6</version>
+            <type>jar</type>
+            <url>http://jakarta.apache.org/commons/digester/</url>
+        </dependency>
     </dependencies>
     <build>
         <sourceDirectory>src/java</sourceDirectory>
