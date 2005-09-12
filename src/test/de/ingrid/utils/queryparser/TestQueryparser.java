@@ -10,6 +10,8 @@ import java.io.StringReader;
 
 import junit.framework.TestCase;
 import de.ingrid.utils.ClauseQuery;
+import de.ingrid.utils.TermQuery;
+import de.ingrid.utils.FieldQuery;
 import de.ingrid.utils.IngridQuery;
 
 public class TestQueryparser extends TestCase {
@@ -29,25 +31,59 @@ public class TestQueryparser extends TestCase {
                 break;
             }
             assertEquals(QueryStringParserConstants.TERM, token.kind);
-
         }
     }
 
+    /**
+     * 
+     * @throws Exception
+     */
     public void testSimpleOr() throws Exception {
         String q = "hallo OR welt";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
+        testSimpleLogic(parser, QueryStringParserConstants.OR);
+        q = "hallo || welt";
+        parser = new QueryStringParser(new StringReader(q));
+        testSimpleLogic(parser, QueryStringParserConstants.OR);
+        
+    }
+    /**
+     * 
+     * @throws Exception
+     */
+    public void testSimpleAND() throws Exception {
+        String q = "hallo && welt";
+        QueryStringParser parser = new QueryStringParser(new StringReader(q));
+        testSimpleLogic(parser, QueryStringParserConstants.AND);
+        q = "hallo AND welt";
+        parser = new QueryStringParser(new StringReader(q));
+        testSimpleLogic(parser, QueryStringParserConstants.AND);
+    }
+    
+    public void testSimpleNot() throws Exception {
+        String q = "hallo NOT welt";
+        QueryStringParser parser = new QueryStringParser(new StringReader(q));
+        testSimpleLogic(parser, QueryStringParserConstants.NOT);
+        q = "hallo !welt";
+        parser = new QueryStringParser(new StringReader(q));
+        testSimpleLogic(parser, QueryStringParserConstants.NOT);
+        q = "hallo ! welt";
+        parser = new QueryStringParser(new StringReader(q));
+        testSimpleLogic(parser, QueryStringParserConstants.NOT);
+    }
+    
+    private void testSimpleLogic(QueryStringParser parser, int logic) {
         Token token;
         for (int i = 0; i < 3; i++) {
             token = parser.getNextToken();
             if (i == 1) {
-                assertEquals(QueryStringParserConstants.OR, token.kind);
+                assertEquals(logic, token.kind);
             } else {
                 assertEquals(QueryStringParserConstants.TERM, token.kind);
             }
-
         }
     }
-
+    
     public void testFields() throws Exception {
         String q = "field:Value";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -57,32 +93,49 @@ public class TestQueryparser extends TestCase {
             assertEquals(QueryStringParserConstants.FIELD, token.kind);
         }
     }
-
+    
     public void testQueries() throws Exception {
         IngridQuery q = parse("fische");
-        assertEquals(1, q.getTerms().length);
-        assertTrue("fische".equals(q.getTerms()[0].toString()));
-        q = parse("fische frösche");
-        assertEquals(2, q.getTerms().length);
+        testTerms(q.getTerms(), new String[]{"fische"}, new int[]{IngridQuery.AND});
 
+        q = parse("fische frösche");
+        testTerms(q.getTerms(), new String[]{"fische","frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
+        
         q = parse("fische frösche ort:Halle");
-        assertEquals(2, q.getTerms().length);
-        assertEquals(1, q.getFields().length);
+        testTerms(q.getTerms(), new String[]{"fische", "frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
+        testFields(q.getFields(), new String[]{"ort:Halle"});
+        
         q = parse("fische frösche ort:Halle land:germany");
-        assertEquals(2, q.getTerms().length);
-        assertEquals(2, q.getFields().length);
+        testTerms(q.getTerms(), new String[]{"fische", "frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
+        testFields(q.getFields(), new String[]{"ort:Halle", "land:germany"});
 
         q = parse("fische OR frösche");
-        assertEquals(2, q.getTerms().length);
-        assertEquals(IngridQuery.OR, q.getTerms()[1].getOperation());
-
+        testTerms(q.getTerms(), new String[]{"fische","frösche"}, new int[]{IngridQuery.AND, IngridQuery.OR});
+        
+        q = parse("fische AND frösche");
+        testTerms(q.getTerms(), new String[]{"fische","frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
+        
         q = parse("(ort:Halle land:germany) fische frösche ");
-        System.out.println(q.getDescription());
-        assertEquals(2, q.getTerms().length);
+        testTerms(q.getTerms(), new String[]{"fische", "frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
         assertEquals(1, q.getClauses().length);
-
+        testFields(q.getClauses()[0].getFields(), new String[]{"ort:Halle", "land:germany"});
     }
-
+    
+    private static void testTerms(TermQuery[] termQuery, String[] terms, int[] operations){
+        assertEquals(terms.length, termQuery.length);
+        for (int i = 0; i < termQuery.length; i++) {
+            assertEquals(termQuery[i].getTerm(), terms[i]);
+            assertEquals(termQuery[i].getOperation(), operations[i]);
+        }
+    }
+    private static void testFields(FieldQuery[] fieldQuery, String[] fields){
+        assertEquals(fields.length, fieldQuery.length);
+        for (int i = 0; i < fieldQuery.length; i++) {
+            assertTrue(fields[i].startsWith(fieldQuery[i].getFieldName().concat(":")));
+            assertTrue(":".concat(fields[i]).endsWith(fieldQuery[i].getFieldValue()));
+        }
+    }
+    
     private IngridQuery parse(String q) throws ParseException {
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
         IngridQuery query = parser.parse();
