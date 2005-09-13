@@ -54,7 +54,7 @@ public class DocumentMetaData extends Topic{
     
     /**
      * Allows getter access to the lower limit of the timerange.
-     * @return
+     * @return The value of property from.  
      */
     public String getFrom(){
         return (String) get(FROM);
@@ -70,7 +70,7 @@ public class DocumentMetaData extends Topic{
     
     /**
      *  Allows getter access to the upper limit of the timerange.
-     * @return
+     * @return The value of property to.
      */
     public String getTo(){
        return (String) get(TO);
@@ -85,7 +85,7 @@ public class DocumentMetaData extends Topic{
     
     /**
      * Allows getter access to the type property.
-     * @return
+     * @return The value of property type
      */
     public String getType(){
         return (String) get(TYPE);
@@ -101,7 +101,7 @@ public class DocumentMetaData extends Topic{
     
     /**
      *  Allows getter access to the administrativeID property.
-     * @return
+     * @return The value of property administrativeID.
      */
     public String getAdministrativeID(){
         return (String) get(ADMINISTRATIVE_ID);
