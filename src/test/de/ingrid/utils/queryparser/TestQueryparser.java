@@ -14,14 +14,29 @@ import de.ingrid.utils.TermQuery;
 import de.ingrid.utils.FieldQuery;
 import de.ingrid.utils.IngridQuery;
 
+/**
+ * Test cases for {@link QueryStringParser}
+ * created on 21.07.2005 <p>
+ *
+ * @author hs
+ */
+
 public class TestQueryparser extends TestCase {
 
+    /**
+     * 
+     * @throws Exception
+     */
     public void testQuery() throws Exception {
         IngridQuery query = new IngridQuery();
         query.addClause(new ClauseQuery(IngridQuery.AND));
         new IngridQuery(IngridQuery.TERM, IngridQuery.AND, "");
     }
 
+    /**
+     * 
+     * @throws Exception
+     */
     public void testSimpleTerms() throws Exception {
         String q = "hallo  welt";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -60,6 +75,10 @@ public class TestQueryparser extends TestCase {
         testSimpleLogic(parser, QueryStringParserConstants.AND);
     }
     
+    /**
+     * 
+     * @throws Exception
+     */
     public void testSimpleNot() throws Exception {
         String q = "hallo NOT welt";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -84,6 +103,10 @@ public class TestQueryparser extends TestCase {
         }
     }
     
+    /**
+     * 
+     * @throws Exception
+     */
     public void testFields() throws Exception {
         String q = "field:Value";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -94,6 +117,10 @@ public class TestQueryparser extends TestCase {
         }
     }
     
+    /**
+     * 
+     * @throws Exception
+     */
     public void testQueries() throws Exception {
         IngridQuery q = parse("fische");
         testTerms(q.getTerms(), new String[]{"fische"}, new int[]{IngridQuery.AND});
@@ -136,6 +163,12 @@ public class TestQueryparser extends TestCase {
         }
     }
     
+    /**
+     * 
+     * @param q
+     * @return The parsed {@link IngridQuery}
+     * @throws ParseException
+     */
     private IngridQuery parse(String q) throws ParseException {
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
         IngridQuery query = parser.parse();
@@ -144,11 +177,19 @@ public class TestQueryparser extends TestCase {
         return query;
     }
 
+    /**
+     * 
+     * @throws Exception
+     */
     public void testStaticQueryParsing() throws Exception {
         IngridQuery query = QueryStringParser.parse("a query");
         assertNotNull(query);
     }
 
+    /**
+     * 
+     * @throws Exception
+     */
     public void testDataType() throws Exception {
         IngridQuery query = QueryStringParser.parse("datatype:news wetter ort:Berlin");
         System.out.println(query.getDescription());
