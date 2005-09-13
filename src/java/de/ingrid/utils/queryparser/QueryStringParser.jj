@@ -130,7 +130,7 @@ subQuery = term()
 		int required = IngridQuery.AND;	
 	}
 	{
-	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; })?
+		(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
 	t=<FIELD>
 	{query = new FieldQuery( required, t.image);}
 	{return query;}
@@ -146,7 +146,7 @@ subQuery = term()
 	}
 	{
 
-	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; })?
+	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
 		
 	t=<TERM>
 	{query = new TermQuery(required, t.image);}
@@ -162,7 +162,7 @@ subQuery = term()
 		IngridQuery subQuery;
 	}
 	{
-	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; })?
+		(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
 	{query =  new ClauseQuery( required );}
 	<LPAREN>
  (
