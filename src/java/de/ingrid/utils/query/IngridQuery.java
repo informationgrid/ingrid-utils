@@ -4,9 +4,11 @@
  * $Source: /cvs/asp-search/src/java/com/ms/aspsearch/PermissionDeniedException.java,v $
  */
 
-package de.ingrid.utils;
+package de.ingrid.utils.query;
 
 import java.util.ArrayList;
+
+import de.ingrid.utils.IngridDocument;
 
 /**
  * Container for Ingrid Queries

@@ -4,7 +4,7 @@
  * $Source: /cvs/asp-search/src/java/com/ms/aspsearch/PermissionDeniedException.java,v $
  */
 
-package de.ingrid.utils;
+package de.ingrid.utils.query;
 
 /**
  * ClauseQuery are sub queries in brackets  
