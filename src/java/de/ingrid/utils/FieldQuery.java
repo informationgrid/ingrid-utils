@@ -8,15 +8,15 @@ package de.ingrid.utils;
 
 public class FieldQuery extends IngridQuery {
 
-    private String fFieldName;
+    private static final String FIELD_NAME = "fieldName";
 
-    private String fFieldValue;
+    private static final String FIELD_VALUE = "fieldValue";
 
     public FieldQuery(int booleanOperation, String field) {
         super(IngridQuery.FIELD, booleanOperation, field);
         int pos = field.indexOf(":");
-        this.fFieldName = field.substring(0, pos);
-        this.fFieldValue = field.substring(Math.min(pos + 1, field.length()), field.length());
+        put(FIELD_NAME, field.substring(0, pos));
+        put(FIELD_VALUE, field.substring(Math.min(pos + 1, field.length()), field.length()));
 
     }
 
@@ -24,14 +24,14 @@ public class FieldQuery extends IngridQuery {
      * @return the fieldname
      */
     public String getFieldName() {
-        return this.fFieldName;
+        return (String) get(FIELD_NAME);
     }
 
     /**
      * @return the field value
      */
     public String getFieldValue() {
-        return this.fFieldValue;
+        return (String) get(FIELD_VALUE);
     }
 
 }
