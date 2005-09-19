@@ -9,10 +9,10 @@ package de.ingrid.utils.queryparser;
 import java.io.StringReader;
 
 import junit.framework.TestCase;
-import de.ingrid.utils.ClauseQuery;
-import de.ingrid.utils.TermQuery;
-import de.ingrid.utils.FieldQuery;
-import de.ingrid.utils.IngridQuery;
+import de.ingrid.utils.query.ClauseQuery;
+import de.ingrid.utils.query.FieldQuery;
+import de.ingrid.utils.query.IngridQuery;
+import de.ingrid.utils.query.TermQuery;
 
 /**
  * Test cases for {@link QueryStringParser}
