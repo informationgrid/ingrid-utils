@@ -9,7 +9,7 @@ package de.ingrid.utils;
 import java.util.ArrayList;
 
 /**
- * Container for Ingrid Query
+ * Container for Ingrid Queries
  * 
  * created on 09.08.2005
  * 
@@ -42,16 +42,7 @@ public class IngridQuery extends IngridDocument {
 
     private static final String DATA_TYPE = "dataType";
 
-    // private ArrayList fTerms = new ArrayList();
-
-    // private ArrayList fClauses = new ArrayList();
-
-    // private int fRequired;
-
-    // private int fType;
-
-    // private String fDataType;
-
+   
     /**
      * Default constructor
      */
