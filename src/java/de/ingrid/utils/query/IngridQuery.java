@@ -93,6 +93,9 @@ public class IngridQuery extends IngridDocument {
      */
     public FieldQuery[] getFields() {
         ArrayList arrayList = getArrayList(FIELD_KEY);
+        if(arrayList==null) {
+            return new FieldQuery[0];
+        }
         return (FieldQuery[]) arrayList.toArray(new FieldQuery[arrayList.size()]);
     }
 
@@ -110,6 +113,9 @@ public class IngridQuery extends IngridDocument {
      */
     public TermQuery[] getTerms() {
         ArrayList arrayList = getArrayList(TERM_KEY);
+        if(arrayList==null) {
+            return new TermQuery[0];
+        }
         return (TermQuery[]) arrayList.toArray(new TermQuery[arrayList.size()]);
 
     }
