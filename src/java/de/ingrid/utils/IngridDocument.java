@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -115,6 +116,56 @@ public class IngridDocument extends HashMap implements Externalizable {
      */
     public Serializable getContent() {
         return (Serializable) get(DOCUMENT_CONTENT);
+    }
+
+    /**
+     * puts a int value
+     * 
+     * @param key
+     * @param value
+     */
+    public void putInt(Object key, int value) {
+        put(key, new Integer(value));
+
+    }
+
+    /**
+     * please use putInt for setting int values.
+     * 
+     * @param key
+     * @return a int value for a given key
+     * @throws ClassCastException
+     *             in case the value isn't a int
+     */
+    public int getInt(Object key) throws ClassCastException {
+        return ((Integer) get(key)).intValue();
+    }
+
+    /**
+     * @param key
+     * @return casts the value of a key to an arraylist
+     * @throws ClassCastException
+     */
+    public ArrayList getArrayList(Object key) throws ClassCastException {
+        return (ArrayList) get(key);
+    
+    }
+
+    /**
+     * Adds a value to array list, in case the arraylist does not exists under
+     * the given key, we create the list. In case a object under this key is
+     * already known we throw a ClasscastException
+     * 
+     * @param key
+     * @param value
+     */
+    public void addToList(Object key, Object value) {
+        ArrayList arrayList = getArrayList(key);
+        if (arrayList == null) {
+            arrayList = new ArrayList();
+            put(key, arrayList);
+        }
+        arrayList.add(value);
     }
 
     /**

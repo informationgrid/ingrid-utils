@@ -18,7 +18,6 @@ import java.util.ArrayList;
  */
 public class IngridQuery extends IngridDocument {
 
-  
     public static final int NOT = -1;
 
     public static final int AND = 0;
@@ -31,18 +30,27 @@ public class IngridQuery extends IngridDocument {
 
     public static final int CLAUSE = 4;
 
-    private ArrayList fTerms = new ArrayList();
+    private static final String TYPE = "type";
 
-    private ArrayList fFields = new ArrayList();
+    private static final String REQUIRED = "required";
 
-    private ArrayList fClauses = new ArrayList();
+    private static final String FIELD_KEY = "field";
 
-    private int fRequired;
+    private static final String TERM_KEY = "term";
 
-    private int fType;
+    private static final String CLAUSE_KEY = "clause";
 
-    private String fDataType;
+    private static final String DATA_TYPE = "dataType";
 
+    // private ArrayList fTerms = new ArrayList();
+
+    // private ArrayList fClauses = new ArrayList();
+
+    // private int fRequired;
+
+    // private int fType;
+
+    // private String fDataType;
 
     /**
      * Default constructor
@@ -53,76 +61,87 @@ public class IngridQuery extends IngridDocument {
 
     /**
      * Constructor for subclasses
+     * 
      * @param type
      * @param required
      * @param query
      */
     public IngridQuery(int type, int required, String query) {
         super(new Long(System.currentTimeMillis()), query);
-        this.fType = type;
-        this.fRequired = required;
+        putInt(TYPE, type);
+        putInt(REQUIRED, required);
     }
 
-    
     /**
      * @return the query type
      */
     public int getType() {
-        return this.fType;
+        return getInt(TYPE);
     }
+
     /**
      * @return the boolean operation type of this query
      */
     public int getOperation() {
-        return this.fRequired;
+        return getInt(REQUIRED);
     }
 
     /**
      * Adds a field query
+     * 
      * @param field
      */
     public void addField(FieldQuery field) {
-        this.fFields.add(field);
+        addToList(FIELD_KEY, field);
     }
 
     /**
-     * @return array of field queries 
+     * @return array of field queries
      */
     public FieldQuery[] getFields() {
-        return (FieldQuery[]) this.fFields.toArray(new FieldQuery[this.fFields.size()]);
+        ArrayList arrayList = getArrayList(FIELD_KEY);
+        return (FieldQuery[]) arrayList.toArray(new FieldQuery[arrayList.size()]);
     }
 
     /**
      * Adds a term Query
+     * 
      * @param term
      */
     public void addTerm(TermQuery term) {
-        this.fTerms.add(term);
+        addToList(TERM_KEY, term);
     }
 
     /**
      * @return array of term queries
      */
     public TermQuery[] getTerms() {
-        return (TermQuery[]) this.fTerms.toArray(new TermQuery[this.fTerms.size()]);
+        ArrayList arrayList = getArrayList(TERM_KEY);
+        return (TermQuery[]) arrayList.toArray(new TermQuery[arrayList.size()]);
 
     }
 
     /**
      * adds a clause query
+     * 
      * @param clauseQuery
      */
     public void addClause(ClauseQuery clauseQuery) {
-        this.fClauses.add(clauseQuery);
+        addToList(CLAUSE_KEY, clauseQuery);
     }
 
     /**
      * @return array of clause queries
      */
     public ClauseQuery[] getClauses() {
-        return (ClauseQuery[]) this.fClauses.toArray(new ClauseQuery[this.fClauses.size()]);
+        ArrayList arrayList = getArrayList(CLAUSE_KEY);
+        if (arrayList == null) {
+            return new ClauseQuery[0];
+        }
+        return (ClauseQuery[]) arrayList.toArray(new ClauseQuery[arrayList.size()]);
 
     }
+
     /**
      * @return a description of this query object
      */
@@ -143,6 +162,7 @@ public class IngridQuery extends IngridDocument {
         return buffer.toString();
 
     }
+
     /**
      * @param buffer
      * @param terms
@@ -153,8 +173,7 @@ public class IngridQuery extends IngridDocument {
             buffer.append(" ");
         }
     }
-   
-    
+
     /*
      * (non-Javadoc)
      * 
@@ -168,15 +187,16 @@ public class IngridQuery extends IngridDocument {
      * @return the data type of this query
      */
     public String getDataType() {
-        return fDataType;
+        return (String) get(DATA_TYPE);
     }
-    
+
     /**
      * Sets the data type
+     * 
      * @param dataType
      */
     public void setDataType(String dataType) {
-        fDataType = dataType;
+        put(DATA_TYPE, dataType);
     }
-    
+
 }
