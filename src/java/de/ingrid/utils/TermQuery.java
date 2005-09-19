@@ -6,6 +6,13 @@
 
 package de.ingrid.utils;
 
+/**
+ * Term queries are queries having just one term
+ * 
+ * created on 09.08.2005
+ * @author  sg
+ * @version $Revision: 1.3 $
+ */
 public class TermQuery extends IngridQuery {
 
    
