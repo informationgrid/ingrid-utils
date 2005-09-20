@@ -169,6 +169,28 @@ public class IngridDocument extends HashMap implements Externalizable {
     }
 
     /**
+     * @param key
+     * @return a boolean value to a key, in case the key does not exists we throws a illegal argument excetption
+     */
+    public boolean getBoolean(String key) {
+        Boolean booleanObj = (Boolean) get(key);
+        if (booleanObj == null) {
+            throw new IllegalArgumentException("unknown key");
+        }
+        return booleanObj.booleanValue();
+    }
+
+    /**
+     * Sets a boolean value, @see IngridDocument#getBoolean(String)
+     * @param key
+     * @param value
+     */
+    public void setBoolean(String key, boolean value) {
+        put(key, new Boolean(value));
+    
+    }
+
+    /**
      * Just a place holder for <code>null</code> inside a stream
      */
     public class NullWritable implements Serializable {
