@@ -51,14 +51,14 @@ public class DescribableValue {
      * @param description The description to set.
      */
     public void setDescription(String description) {
-        fDescription = description;
+        this.fDescription = description;
     }
 
     /**
      * @param value The value to set.
      */
     public void setValue(String value) {
-        fValue = value;
+        this.fValue = value;
     }
 
 }
