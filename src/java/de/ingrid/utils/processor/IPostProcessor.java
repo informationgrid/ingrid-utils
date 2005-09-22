@@ -11,12 +11,12 @@ import de.ingrid.utils.IngridDocument;
 public interface IPostProcessor {
 
     /**
-     * post process a ingrid document, we directly manipulating the document
+     * post process a ingrid documents, we directly manipulating the documents
      * parameter for performance reasons.
      * 
-     * @param document
+     * @param documents
      * @throws Exception
      */
-    public void process(IngridDocument document) throws Exception;
+    public void process(IngridDocument[] documents) throws Exception;
 
 }

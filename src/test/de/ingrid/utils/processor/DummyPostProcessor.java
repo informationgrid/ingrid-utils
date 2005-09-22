@@ -10,8 +10,8 @@ import de.ingrid.utils.IngridDocument;
 
 public class DummyPostProcessor implements IPostProcessor {
 
-    public void process(IngridDocument document) throws Exception {
-        document.put("marker", "blu");
+    public void process(IngridDocument[] documents) throws Exception {
+        documents[0].put("marker", "blu");
     }
 
 }

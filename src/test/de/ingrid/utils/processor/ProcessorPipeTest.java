@@ -66,7 +66,7 @@ public class ProcessorPipeTest extends TestCase {
         ProcessorPipe pipe = new ProcessorPipe();
         pipe.addPostProcessor(new DummyPostProcessor());
         IngridDocument document = new IngridDocument();
-        pipe.postProcess(document);
+        pipe.postProcess(new IngridDocument[]{document});
         assertNotNull(document.get("marker"));
     }
 

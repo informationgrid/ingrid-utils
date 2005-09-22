@@ -116,17 +116,17 @@ public class ProcessorPipe {
     /**
      * post processes the query, we directly manipulate the query parameter..
      * 
-     * @param document
+     * @param documents
      * @throws Exception
      */
-    public void postProcess(IngridDocument document) throws Exception {
+    public void postProcess(IngridDocument[] documents) throws Exception {
         IPostProcessor[] postProcessors = getPostProcessors();
         for (int i = 0; i < postProcessors.length; i++) {
             if (log.isDebugEnabled()) {
                 log.debug("run postprocessor: " + postProcessors[i].getClass().getName());
             }
             long start = System.currentTimeMillis();
-            postProcessors[i].process(document);
+            postProcessors[i].process(documents);
             if (log.isTraceEnabled()) {
                 log.trace(postProcessors[i].getClass().getName() + " execution time (ms): "
                         + (System.currentTimeMillis() - start));
