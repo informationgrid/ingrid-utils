@@ -1,5 +1,4 @@
 /*
- * Copyright (c) 2003 by media style GmbH
  * 
  * $Source: /cvs/SiemensPI/ms_codetemplates.xml,v $
  */
@@ -76,7 +75,7 @@ public class ProcessorPipe {
      * 
      * @param processor
      */
-    public void removePreProcessor(DummyPreProcessor processor) {
+    public void removePreProcessor(IPreProcessor processor) {
         if (log.isDebugEnabled()) {
             log.debug("remove preprocessor: " + processor.getClass().getName());
         }
