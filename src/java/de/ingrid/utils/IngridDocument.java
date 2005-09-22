@@ -137,8 +137,13 @@ public class IngridDocument extends HashMap implements Externalizable {
      * @throws ClassCastException
      *             in case the value isn't a int
      */
-    public int getInt(Object key) throws ClassCastException {
-        return ((Integer) get(key)).intValue();
+    public int getInt(Object key) {
+        try {
+            return ((Integer) get(key)).intValue();
+        } catch (ClassCastException e) {
+            throw new IllegalArgumentException("value to key is not int or wasn's setted with putInt");
+        }
+
     }
 
     /**
@@ -146,9 +151,14 @@ public class IngridDocument extends HashMap implements Externalizable {
      * @return casts the value of a key to an arraylist
      * @throws ClassCastException
      */
-    public ArrayList getArrayList(Object key) throws ClassCastException {
-        return (ArrayList) get(key);
-    
+    public ArrayList getArrayList(Object key)  {
+        try {
+            return (ArrayList) get(key);    
+        } catch (ClassCastException e) {
+            throw new IllegalArgumentException("value to key is not an arraylist");
+        }
+        
+
     }
 
     /**
@@ -170,7 +180,8 @@ public class IngridDocument extends HashMap implements Externalizable {
 
     /**
      * @param key
-     * @return a boolean value to a key, in case the key does not exists we throws a illegal argument excetption
+     * @return a boolean value to a key, in case the key does not exists we
+     *         throws a illegal argument excetption
      */
     public boolean getBoolean(String key) {
         Boolean booleanObj = (Boolean) get(key);
@@ -181,13 +192,15 @@ public class IngridDocument extends HashMap implements Externalizable {
     }
 
     /**
-     * Sets a boolean value, @see IngridDocument#getBoolean(String)
+     * Sets a boolean value,
+     * 
+     * @see IngridDocument#getBoolean(String)
      * @param key
      * @param value
      */
     public void setBoolean(String key, boolean value) {
         put(key, new Boolean(value));
-    
+
     }
 
     /**
