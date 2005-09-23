@@ -134,8 +134,6 @@ public class IngridDocument extends HashMap implements Externalizable {
      * 
      * @param key
      * @return a int value for a given key
-     * @throws ClassCastException
-     *             in case the value isn't a int
      */
     public int getInt(Object key) {
         try {
@@ -147,17 +145,42 @@ public class IngridDocument extends HashMap implements Externalizable {
     }
 
     /**
+     * puts a long value
+     * 
+     * @param key
+     * @param value
+     */
+    public void putLong(Object key, long value) {
+        put(key, new Long(value));
+
+    }
+
+    /**
+     * please use putLong for setting int values.
+     * 
+     * @param key
+     * @return a long value for a given key
+     */
+    public long getLong(Object key) {
+        try {
+            return ((Long) get(key)).longValue();
+        } catch (ClassCastException e) {
+            throw new IllegalArgumentException("value to key is not long or wasn's setted with putInt");
+        }
+
+    }
+
+    /**
      * @param key
      * @return casts the value of a key to an arraylist
      * @throws ClassCastException
      */
-    public ArrayList getArrayList(Object key)  {
+    public ArrayList getArrayList(Object key) {
         try {
-            return (ArrayList) get(key);    
+            return (ArrayList) get(key);
         } catch (ClassCastException e) {
             throw new IllegalArgumentException("value to key is not an arraylist");
         }
-        
 
     }
 
