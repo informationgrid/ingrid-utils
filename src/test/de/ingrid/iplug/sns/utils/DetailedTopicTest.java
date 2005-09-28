@@ -13,7 +13,7 @@ import junit.framework.TestCase;
  *
  * @author hs
  */
-public class DocumentMetaDataTest extends TestCase {
+public class DetailedTopicTest extends TestCase {
     private static final String ADMIN = "KREIS065";
     private static final String TYPE = "anyType";
     private static final String TO = "2005";
@@ -23,15 +23,15 @@ public class DocumentMetaDataTest extends TestCase {
      * 
      */
     public void testGetter(){
-        DocumentMetaData metaData = new DocumentMetaData(null, null);
+        DetailedTopic metaData = new DetailedTopic(null, null);
         valid(null, metaData.getFrom());
         valid(null, metaData.getTo());
         valid(null, metaData.getType());
         valid(null, metaData.getAdministrativeID());
-        metaData.put(DocumentMetaData.FROM, FROM);
-        metaData.put(DocumentMetaData.TO, TO);
-        metaData.put(DocumentMetaData.TYPE, TYPE);
-        metaData.put(DocumentMetaData.ADMINISTRATIVE_ID, ADMIN);
+        metaData.put(DetailedTopic.FROM, FROM);
+        metaData.put(DetailedTopic.TO, TO);
+        metaData.put(DetailedTopic.TYPE, TYPE);
+        metaData.put(DetailedTopic.ADMINISTRATIVE_ID, ADMIN);
         valid(FROM, metaData.getFrom());
         valid(TO, metaData.getTo());
         valid(TYPE, metaData.getType());
@@ -42,16 +42,16 @@ public class DocumentMetaDataTest extends TestCase {
      * 
      */
     public void testSetter(){
-        DocumentMetaData metaData = new DocumentMetaData(null, null);
+        DetailedTopic metaData = new DetailedTopic(null, null);
         // tests initial setting
         metaData.setFrom(FROM);
         metaData.setTo(TO);
         metaData.setType(TYPE);
         metaData.setAdministrativeID(ADMIN);
-        valid(FROM, metaData.get(DocumentMetaData.FROM));
-        valid(TO, metaData.get(DocumentMetaData.TO));
-        valid(TYPE, metaData.get(DocumentMetaData.TYPE));
-        valid(ADMIN, metaData.get(DocumentMetaData.ADMINISTRATIVE_ID));
+        valid(FROM, metaData.get(DetailedTopic.FROM));
+        valid(TO, metaData.get(DetailedTopic.TO));
+        valid(TYPE, metaData.get(DetailedTopic.TYPE));
+        valid(ADMIN, metaData.get(DetailedTopic.ADMINISTRATIVE_ID));
         
         //tests owerwriting
         final String newFrom = "1999";
@@ -62,10 +62,10 @@ public class DocumentMetaDataTest extends TestCase {
         metaData.setTo(newTo);
         metaData.setType(newType);
         metaData.setAdministrativeID(newAdmin);
-        valid(newFrom, metaData.get(DocumentMetaData.FROM));
-        valid(newTo, metaData.get(DocumentMetaData.TO));
-        valid(newType, metaData.get(DocumentMetaData.TYPE));
-        valid(newAdmin, metaData.get(DocumentMetaData.ADMINISTRATIVE_ID));
+        valid(newFrom, metaData.get(DetailedTopic.FROM));
+        valid(newTo, metaData.get(DetailedTopic.TO));
+        valid(newType, metaData.get(DetailedTopic.TYPE));
+        valid(newAdmin, metaData.get(DetailedTopic.ADMINISTRATIVE_ID));
     }
     
     /**
