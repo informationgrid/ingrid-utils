@@ -160,7 +160,7 @@ public class TestQueryparser extends TestCase {
     private static void testFields(FieldQuery[] fieldQuery, String[] fields) {
         assertEquals(fields.length, fieldQuery.length);
         for (int i = 0; i < fieldQuery.length; i++) {
-            assertTrue(fields[i].startsWith(fieldQuery[i].getFieldName().concat(":")));
+            assertTrue(fields[i].startsWith(fieldQuery[i].getFieldName()));
             assertTrue(":".concat(fields[i]).endsWith(fieldQuery[i].getFieldValue()));
         }
     }
@@ -203,11 +203,17 @@ public class TestQueryparser extends TestCase {
         assertEquals(2, query.getFields().length);
         query = QueryStringParser.parse("ort:Halle AND t0:1990");
         assertEquals(2, query.getFields().length);
-        
-        query = QueryStringParser.parse( "fische ort:halle NOT (saale OR Hufeisensee)");
+
+        query = QueryStringParser.parse("fische ort:halle NOT (saale OR Hufeisensee)");
         assertEquals(1, query.getTerms().length);
         assertEquals(1, query.getFields().length);
         assertEquals(1, query.getClauses().length);
+    }
+
+    public void testWildCardQuiers() throws Exception {
+        IngridQuery query = QueryStringParser.parse("ort:Hal*  ort:Darmstadt");
+        assertEquals(2, query.getFields().length);
+
     }
 
 }

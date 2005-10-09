@@ -63,7 +63,8 @@ PARSER_END(QueryStringParser)
 | <QUOTED:     "\"" (~["\""])+ "\"">
 | <TERM:      <_TERM_START_CHAR> (<_TERM_CHAR>)*  >
 | <DATATYPE:      <_TERM_START_CHAR> "datatype" <COLON> (<_TERM_CHAR>)* >
-| <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> (<_TERM_CHAR>)* >
+//| <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> (<_TERM_CHAR>)* >
+| <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> >
 | <FUZZY_SLOP:     "~" ( (<_NUM_CHAR>)+ ( "." (<_NUM_CHAR>)+ )? )? >
 | <PREFIXTERM:  <_TERM_START_CHAR> (<_TERM_CHAR>)* "*" >
 | <WILDTERM:  <_TERM_START_CHAR>
@@ -128,13 +129,16 @@ subQuery = term()
 	IngridQuery field() :
 	{
 		FieldQuery query;
-		Token t;
+		Token key;
+		Token value;
+		
 		int required = IngridQuery.AND;	
 	}
 	{
 	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
-	t=<FIELD>
-	{query = new FieldQuery( required, t.image);}
+	key=<FIELD>
+	(value=<TERM>|value=<PREFIXTERM>)
+	{query = new FieldQuery( required, key.image.substring(0, key.image.length() -1), value.image);}
 	{return query;}
 	}
 	
@@ -148,7 +152,7 @@ subQuery = term()
 	}
 	{
 	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
-	t=<TERM>
+	(t=<TERM>|t=<PREFIXTERM>)
 	{query = new TermQuery(required, t.image);}
 	{return query;}
 	}

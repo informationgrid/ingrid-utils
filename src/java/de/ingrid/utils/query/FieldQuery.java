@@ -12,11 +12,10 @@ public class FieldQuery extends IngridQuery {
 
     private static final String FIELD_VALUE = "fieldValue";
 
-    public FieldQuery(int booleanOperation, String field) {
-        super(IngridQuery.FIELD, booleanOperation, field);
-        int pos = field.indexOf(":");
-        put(FIELD_NAME, field.substring(0, pos));
-        put(FIELD_VALUE, field.substring(Math.min(pos + 1, field.length()), field.length()));
+    public FieldQuery(int booleanOperation, String fieldKey, String fieldValue) {
+        super(IngridQuery.FIELD, booleanOperation, fieldKey+":"+fieldValue);
+        put(FIELD_NAME, fieldKey);
+        put(FIELD_VALUE, fieldValue);
 
     }
 
