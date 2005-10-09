@@ -15,9 +15,9 @@ import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.TermQuery;
 
 /**
- * Test cases for {@link QueryStringParser}
- * created on 21.07.2005 <p>
- *
+ * Test cases for {@link QueryStringParser} created on 21.07.2005
+ * <p>
+ * 
  * @author hs
  */
 
@@ -60,8 +60,9 @@ public class TestQueryparser extends TestCase {
         q = "hallo || welt";
         parser = new QueryStringParser(new StringReader(q));
         testSimpleLogic(parser, QueryStringParserConstants.OR);
-        
+
     }
+
     /**
      * 
      * @throws Exception
@@ -74,7 +75,7 @@ public class TestQueryparser extends TestCase {
         parser = new QueryStringParser(new StringReader(q));
         testSimpleLogic(parser, QueryStringParserConstants.AND);
     }
-    
+
     /**
      * 
      * @throws Exception
@@ -90,7 +91,7 @@ public class TestQueryparser extends TestCase {
         parser = new QueryStringParser(new StringReader(q));
         testSimpleLogic(parser, QueryStringParserConstants.NOT);
     }
-    
+
     private void testSimpleLogic(QueryStringParser parser, int logic) {
         Token token;
         for (int i = 0; i < 3; i++) {
@@ -102,7 +103,7 @@ public class TestQueryparser extends TestCase {
             }
         }
     }
-    
+
     /**
      * 
      * @throws Exception
@@ -116,53 +117,54 @@ public class TestQueryparser extends TestCase {
             assertEquals(QueryStringParserConstants.FIELD, token.kind);
         }
     }
-    
+
     /**
      * 
      * @throws Exception
      */
     public void testQueries() throws Exception {
         IngridQuery q = parse("fische");
-        testTerms(q.getTerms(), new String[]{"fische"}, new int[]{IngridQuery.AND});
+        testTerms(q.getTerms(), new String[] { "fische" }, new int[] { IngridQuery.AND });
 
         q = parse("fische frösche");
-        testTerms(q.getTerms(), new String[]{"fische","frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
-        
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
+
         q = parse("fische frösche ort:Halle");
-        testTerms(q.getTerms(), new String[]{"fische", "frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
-        testFields(q.getFields(), new String[]{"ort:Halle"});
-        
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
+        testFields(q.getFields(), new String[] { "ort:Halle" });
+
         q = parse("fische frösche ort:Halle land:germany");
-        testTerms(q.getTerms(), new String[]{"fische", "frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
-        testFields(q.getFields(), new String[]{"ort:Halle", "land:germany"});
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
+        testFields(q.getFields(), new String[] { "ort:Halle", "land:germany" });
 
         q = parse("fische OR frösche");
-        testTerms(q.getTerms(), new String[]{"fische","frösche"}, new int[]{IngridQuery.AND, IngridQuery.OR});
-        
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.OR });
+
         q = parse("fische AND frösche");
-        testTerms(q.getTerms(), new String[]{"fische","frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
-        
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
+
         q = parse("(ort:Halle land:germany) fische frösche ");
-        testTerms(q.getTerms(), new String[]{"fische", "frösche"}, new int[]{IngridQuery.AND, IngridQuery.AND});
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
         assertEquals(1, q.getClauses().length);
-        testFields(q.getClauses()[0].getFields(), new String[]{"ort:Halle", "land:germany"});
+        testFields(q.getClauses()[0].getFields(), new String[] { "ort:Halle", "land:germany" });
     }
-    
-    private static void testTerms(TermQuery[] termQuery, String[] terms, int[] operations){
+
+    private static void testTerms(TermQuery[] termQuery, String[] terms, int[] operations) {
         assertEquals(terms.length, termQuery.length);
         for (int i = 0; i < termQuery.length; i++) {
             assertEquals(termQuery[i].getTerm(), terms[i]);
             assertEquals(termQuery[i].getOperation(), operations[i]);
         }
     }
-    private static void testFields(FieldQuery[] fieldQuery, String[] fields){
+
+    private static void testFields(FieldQuery[] fieldQuery, String[] fields) {
         assertEquals(fields.length, fieldQuery.length);
         for (int i = 0; i < fieldQuery.length; i++) {
             assertTrue(fields[i].startsWith(fieldQuery[i].getFieldName().concat(":")));
             assertTrue(":".concat(fields[i]).endsWith(fieldQuery[i].getFieldValue()));
         }
     }
-    
+
     /**
      * 
      * @param q
@@ -195,4 +197,17 @@ public class TestQueryparser extends TestCase {
         System.out.println(query.getDescription());
         assertEquals("news", query.getDataType());
     }
+
+    public void testMoreQueries() throws Exception {
+        IngridQuery query = QueryStringParser.parse("ort:Halle OR ort:Darmstadt");
+        assertEquals(2, query.getFields().length);
+        query = QueryStringParser.parse("ort:Halle AND t0:1990");
+        assertEquals(2, query.getFields().length);
+        
+        query = QueryStringParser.parse( "fische ort:halle NOT (saale OR Hufeisensee)");
+        assertEquals(1, query.getTerms().length);
+        assertEquals(1, query.getFields().length);
+        assertEquals(1, query.getClauses().length);
+    }
+
 }

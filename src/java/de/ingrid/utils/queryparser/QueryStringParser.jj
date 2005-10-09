@@ -3,7 +3,7 @@
  */
 
 options {
-LOOKAHEAD=1;
+LOOKAHEAD=2;
 STATIC=false;
 }
 
@@ -11,6 +11,7 @@ PARSER_BEGIN(QueryStringParser)
 package de.ingrid.utils.queryparser;
 
 import java.io.StringReader;
+
 
 import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
@@ -102,11 +103,12 @@ IngridQuery parse() :
 subQuery = term()
 	{
 		query.addTerm((TermQuery)subQuery);
+
 	}
 | subQuery = field()
 	{
 		if(((FieldQuery)subQuery).getFieldName().equals("datatype")){
-            query.setDataType(((FieldQuery)subQuery).getFieldValue());
+           query.setDataType(((FieldQuery)subQuery).getFieldValue());
         } else {
            query.addField((FieldQuery)subQuery); 
         }
@@ -130,7 +132,7 @@ subQuery = term()
 		int required = IngridQuery.AND;	
 	}
 	{
-		(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
+	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
 	t=<FIELD>
 	{query = new FieldQuery( required, t.image);}
 	{return query;}
@@ -145,9 +147,7 @@ subQuery = term()
 		int required = IngridQuery.AND;
 	}
 	{
-
 	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
-		
 	t=<TERM>
 	{query = new TermQuery(required, t.image);}
 	{return query;}
@@ -162,24 +162,24 @@ subQuery = term()
 		IngridQuery subQuery;
 	}
 	{
-		(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
+	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
 	{query =  new ClauseQuery( required );}
 	<LPAREN>
- (
-subQuery = term()
-	{
-		query.addTerm((TermQuery)subQuery);
-	}
-| subQuery = field()
-	{
-		query.addField((FieldQuery)subQuery);
-	}
-| subQuery = clause()
-	{ 
-		query.addClause((ClauseQuery)subQuery);
-	}	
-
-)*
+	 (
+	subQuery = term()
+		{
+			query.addTerm((TermQuery)subQuery);
+		}
+	| subQuery = field()
+		{
+			query.addField((FieldQuery)subQuery);
+		}
+	| subQuery = clause()
+		{ 
+			query.addClause((ClauseQuery)subQuery);
+		}	
+	
+	)*
 	 <RPAREN>
 	
 	{return  query;}
