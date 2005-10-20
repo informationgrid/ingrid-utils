@@ -9,7 +9,6 @@ package de.ingrid.utils.queryparser;
 import java.io.StringReader;
 
 import junit.framework.TestCase;
-import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.TermQuery;
@@ -21,17 +20,7 @@ import de.ingrid.utils.query.TermQuery;
  * @author hs
  */
 
-public class TestQueryparser extends TestCase {
-
-    /**
-     * 
-     * @throws Exception
-     */
-    public void testQuery() throws Exception {
-        IngridQuery query = new IngridQuery();
-        query.addClause(new ClauseQuery(IngridQuery.AND));
-        new IngridQuery(IngridQuery.TERM, IngridQuery.AND, "");
-    }
+public class QueryStringParserTest extends TestCase {
 
     /**
      * 
@@ -194,10 +183,12 @@ public class TestQueryparser extends TestCase {
      */
     public void testDataType() throws Exception {
         IngridQuery query = QueryStringParser.parse("datatype:news wetter ort:Berlin");
-        System.out.println(query.getDescription());
         assertEquals("news", query.getDataType());
     }
 
+    /**
+     * @throws Exception
+     */
     public void testMoreQueries() throws Exception {
         IngridQuery query = QueryStringParser.parse("ort:Halle OR ort:Darmstadt");
         assertEquals(2, query.getFields().length);
@@ -210,6 +201,9 @@ public class TestQueryparser extends TestCase {
         assertEquals(1, query.getClauses().length);
     }
 
+    /**
+     * @throws Exception
+     */
     public void testWildCardQuiers() throws Exception {
         IngridQuery query = QueryStringParser.parse("ort:Hal*  ort:Darmstadt");
         assertEquals(2, query.getFields().length);
