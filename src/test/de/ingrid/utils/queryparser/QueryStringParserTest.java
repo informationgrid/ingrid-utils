@@ -204,9 +204,29 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
-    public void testWildCardQuiers() throws Exception {
+    public void testWildCardQueries() throws Exception {
         IngridQuery query = QueryStringParser.parse("ort:Hal*  ort:Darmstadt");
         assertEquals(2, query.getFields().length);
+
+    }
+    
+    
+    /**
+     * @throws Exception
+     */
+    public void testCoordinateQueries() throws Exception {
+        
+        IngridQuery query = QueryStringParser.parse("x1:31.0");
+        
+        assertEquals("Query contains no fields.", 1, query.getFields().length);
+        assertEquals("The expected field 'x1:31.0' does not exist.", "x1:31.0", query.getFields()[0].toString());
+        
+        query = QueryStringParser.parse("x1:-31.0");
+        
+        assertEquals("Query contains no fields.", 1, query.getFields().length);
+        assertEquals("The expected field 'x1:-31.0' does not exist.", "x1:-31.0", query.getFields()[0].toString());
+        
+       
 
     }
 
