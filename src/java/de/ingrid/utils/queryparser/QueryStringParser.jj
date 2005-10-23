@@ -61,6 +61,7 @@ PARSER_END(QueryStringParser)
 | <COLON:     ":" >
 | <CARAT:     "^" > : Boost
 | <QUOTED:     "\"" (~["\""])+ "\"">
+| <FLOAT:     ("-")?(<_NUM_CHAR>)+"."(<_NUM_CHAR>)+>
 | <TERM:      <_TERM_START_CHAR> (<_TERM_CHAR>)*  >
 | <DATATYPE:      <_TERM_START_CHAR> "datatype" <COLON> (<_TERM_CHAR>)* >
 //| <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> (<_TERM_CHAR>)* >
@@ -131,13 +132,12 @@ subQuery = term()
 		FieldQuery query;
 		Token key;
 		Token value;
-		
 		int required = IngridQuery.AND;	
 	}
 	{
 	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
 	key=<FIELD>
-	(value=<TERM>|value=<PREFIXTERM>)
+	(value=<FLOAT>|value=<TERM>|value=<PREFIXTERM>)
 	{query = new FieldQuery( required, key.image.substring(0, key.image.length() -1), value.image);}
 	{return query;}
 	}
