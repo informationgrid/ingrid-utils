@@ -13,39 +13,34 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.apache.commons.betwixt.io.BeanReader;
-import org.apache.commons.betwixt.io.BeanWriter;
 import org.xml.sax.SAXException;
 
-import de.ingrid.utils.DescribableValue;
+import com.thoughtworks.xstream.XStream;
 
 /**
- * Serialize and de serialize objects to / from xml 
+ * Serialize and de serialize objects to / from xml
  * 
  * created on 09.08.2005
- * @author  sg
+ * 
+ * @author sg
  * @version $Revision: 1.3 $
  */
 public class XMLSerializer {
 
     /**
      * serialize a java bean as xml
-     * @param description
+     * 
+     * @param object
      * @param target
      * @throws IOException
-     * @throws SAXException
-     * @throws IntrospectionException
      */
-    public static void serializeAsXML(Object description, File target) throws IOException, SAXException,
-            IntrospectionException {
+    public static void serializeAsXML(Object object, File target) throws IOException {
         FileWriter writer = new FileWriter(target);
-        writer.write("<?xml version='1.0' ?>");
-        BeanWriter beanWriter = new BeanWriter(writer);
-        beanWriter.getXMLIntrospector().getConfiguration().setAttributesForPrimitives(false);
-        beanWriter.getBindingConfiguration().setMapIDs(true);
-        beanWriter.enablePrettyPrint();
-        // beanWriter.setWriteEmptyElements(true);
-        beanWriter.write(description.getClass().getName(), description);
+        XStream xstream = new XStream();
+        xstream.alias(object.getClass().getName(), object.getClass());
+        String xml = xstream.toXML(object);
+        System.out.println(xml);
+        writer.write(xml);
         writer.close();
     }
 
@@ -57,21 +52,35 @@ public class XMLSerializer {
      * @throws IOException
      * @throws SAXException
      */
-    public static Object loadDescriptionFromXML(Class clazz, File target) throws IntrospectionException, IOException,
-            SAXException {
-        FileReader fileReader = new FileReader(target);
-        BufferedReader xmlReader = new BufferedReader(fileReader);
+    public static Object loadDescriptionFromXML(Class clazz, File target) throws IOException {
+        XStream xstream = new XStream();
+        xstream.alias(clazz.getName(), clazz);
+        String xml = getContents(target);
+        return xstream.fromXML(xml);
+    }
 
-        BeanReader beanReader = new BeanReader();
-        beanReader.getXMLIntrospector().getConfiguration().setAttributesForPrimitives(false);
-        beanReader.getBindingConfiguration().setMapIDs(true);
-        beanReader.registerBeanClass(clazz.getName(), clazz);
-        beanReader.registerBeanClass(DescribableValue.class.getName(), DescribableValue.class);
+    /**
+     * @param aFile
+     * @return text content from a given file
+     * @throws IOException
+     */
+    private static String getContents(File aFile) throws IOException {
+        StringBuffer contents = new StringBuffer();
+        BufferedReader input = null;
+        try {
+            input = new BufferedReader(new FileReader(aFile));
+            String line = null; // not declared within while loop
+            while ((line = input.readLine()) != null) {
+                contents.append(line);
+                contents.append(System.getProperty("line.separator"));
+            }
 
-        Object object = beanReader.parse(xmlReader);
-        xmlReader.close();
-        return object;
-
+        } finally {
+            if (input != null) {
+                input.close();
+            }
+        }
+        return contents.toString();
     }
 
 }

@@ -44,18 +44,24 @@
         <connection>scm:svn:http://torwald.gistec-online.de/svn/ingrid:ingrid-utils</connection>
     </repository>
     <dependencies>
-    	<dependency>
-    		<groupId>maven</groupId>
-        	<artifactId>maven-javacc-plugin</artifactId>
-        	<version>1.1</version>
-        	<type>plugin</type>
-			<url>http://www.ibiblio.org/maven</url>
-    	</dependency>
-    	   <dependency>
-            <groupId>commons-betwixt</groupId>
-            <artifactId>commons-betwixt</artifactId>
-            <version>0.7</version>
+        <dependency>
+            <groupId>xpp3</groupId>
+            <artifactId>xpp3</artifactId>
+            <version>1.1.2a</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>maven</groupId>
+            <artifactId>maven-javacc-plugin</artifactId>
+            <version>1.1</version>
+            <type>plugin</type>
+            <url>http://www.ibiblio.org/maven</url>
         </dependency>
         <dependency>
             <groupId>commons-logging</groupId>
@@ -63,20 +69,6 @@
             <version>1.0.2</version>
             <type>jar</type>
             <url>http://jakarta.apache.org/commons/logging/</url>
-        </dependency>
-        <dependency>
-            <groupId>commons-beanutils</groupId>
-            <artifactId>commons-beanutils-core</artifactId>
-            <version>1.7.0</version>
-            <type>jar</type>
-            <url>http://jakarta.apache.org/commons/beanutils/</url>
-        </dependency>
-        <dependency>
-            <groupId>commons-digester</groupId>
-            <artifactId>commons-digester</artifactId>
-            <version>1.6</version>
-            <type>jar</type>
-            <url>http://jakarta.apache.org/commons/digester/</url>
         </dependency>
     </dependencies>
     <build>
