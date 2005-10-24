@@ -6,14 +6,11 @@
 
 package de.ingrid.utils.xml;
 
-import java.beans.IntrospectionException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
-import org.xml.sax.SAXException;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -27,18 +24,26 @@ import com.thoughtworks.xstream.XStream;
  */
 public class XMLSerializer {
 
+    private XStream fXStream;
+
+    public XMLSerializer() {
+        this.fXStream = new XStream();
+    }
+
     /**
-     * serialize a java bean as xml
+     * sets an alias name of a class, that is used until serialization as node
+     * name
      * 
-     * @param object
-     * @param target
-     * @throws IOException
+     * @param name
+     * @param clazz
      */
-    public static void serializeAsXML(Object object, File target) throws IOException {
+    public void aliasClass(String name, Class clazz) {
+        this.fXStream.alias(name, clazz);
+    }
+
+    public void serialize(Object object, File target) throws IOException {
         FileWriter writer = new FileWriter(target);
-        XStream xstream = new XStream();
-        xstream.alias(object.getClass().getName(), object.getClass());
-        String xml = xstream.toXML(object);
+        String xml = this.fXStream.toXML(object);
         System.out.println(xml);
         writer.write(xml);
         writer.close();
@@ -48,15 +53,11 @@ public class XMLSerializer {
      * @param clazz
      * @param target
      * @return bean loaded from a xml file
-     * @throws IntrospectionException
      * @throws IOException
-     * @throws SAXException
      */
-    public static Object loadDescriptionFromXML(Class clazz, File target) throws IOException {
-        XStream xstream = new XStream();
-        xstream.alias(clazz.getName(), clazz);
+    public Object deSerialize(File target) throws IOException {
         String xml = getContents(target);
-        return xstream.fromXML(xml);
+        return this.fXStream.fromXML(xml);
     }
 
     /**
@@ -64,7 +65,7 @@ public class XMLSerializer {
      * @return text content from a given file
      * @throws IOException
      */
-    private static String getContents(File aFile) throws IOException {
+    public static String getContents(File aFile) throws IOException {
         StringBuffer contents = new StringBuffer();
         BufferedReader input = null;
         try {
