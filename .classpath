@@ -8,5 +8,6 @@
 	<classpathentry kind="var" path="MAVEN_REPO/commons-logging/jars/commons-logging-1.0.2.jar"/>
 	<classpathentry kind="var" path="MAVEN_REPO/commons-betwixt/jars/commons-betwixt-0.7.jar"/>
 	<classpathentry kind="var" path="MAVEN_REPO/commons-digester/jars/commons-digester-1.6.jar"/>
+	<classpathentry kind="var" path="MAVEN_REPO/xstream/jars/xstream-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
