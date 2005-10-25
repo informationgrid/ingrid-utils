@@ -19,17 +19,22 @@ import de.ingrid.utils.IngridDocument;
  * @version $Revision: 1.3 $
  */
 public class IngridQuery extends IngridDocument {
-
+    /***/
     public static final int NOT = -1;
 
+    /***/
     public static final int AND = 0;
 
+    /***/
     public static final int OR = 1;
 
+    /***/
     public static final int TERM = 2;
 
+    /***/
     public static final int FIELD = 3;
 
+    /***/
     public static final int CLAUSE = 4;
 
     private static final String TYPE = "type";
@@ -44,7 +49,6 @@ public class IngridQuery extends IngridDocument {
 
     private static final String DATA_TYPE = "dataType";
 
-   
     /**
      * Default constructor
      */
@@ -93,7 +97,7 @@ public class IngridQuery extends IngridDocument {
      */
     public FieldQuery[] getFields() {
         ArrayList arrayList = getArrayList(FIELD_KEY);
-        if(arrayList==null) {
+        if (arrayList == null) {
             return new FieldQuery[0];
         }
         return (FieldQuery[]) arrayList.toArray(new FieldQuery[arrayList.size()]);
@@ -113,7 +117,7 @@ public class IngridQuery extends IngridDocument {
      */
     public TermQuery[] getTerms() {
         ArrayList arrayList = getArrayList(TERM_KEY);
-        if(arrayList==null) {
+        if (arrayList == null) {
             return new TermQuery[0];
         }
         return (TermQuery[]) arrayList.toArray(new TermQuery[arrayList.size()]);
@@ -168,7 +172,7 @@ public class IngridQuery extends IngridDocument {
      */
     private void appendToString(StringBuffer buffer, IngridQuery[] terms) {
         for (int i = 0; i < terms.length; i++) {
-            buffer.append(terms[i]);
+            buffer.append(terms[i].getContent());
             buffer.append(" ");
         }
     }
@@ -179,7 +183,7 @@ public class IngridQuery extends IngridDocument {
      * @see java.lang.Object#toString()
      */
     public String toString() {
-        return (String) getContent();
+        return getDescription();
     }
 
     /**
