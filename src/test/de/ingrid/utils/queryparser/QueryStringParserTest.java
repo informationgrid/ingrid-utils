@@ -219,15 +219,12 @@ public class QueryStringParserTest extends TestCase {
         IngridQuery query = QueryStringParser.parse("x1:31.0");
         
         assertEquals("Query contains no fields.", 1, query.getFields().length);
-        assertEquals("The expected field 'x1:31.0' does not exist.", "x1:31.0", query.getFields()[0].toString());
+        assertEquals("The expected field 'x1:31.0' does not exist.", "x1:31.0", query.getFields()[0].getContent().toString());
         
         query = QueryStringParser.parse("x1:-31.0");
         
         assertEquals("Query contains no fields.", 1, query.getFields().length);
-        assertEquals("The expected field 'x1:-31.0' does not exist.", "x1:-31.0", query.getFields()[0].toString());
-        
-       
-
+        assertEquals("The expected field 'x1:-31.0' does not exist.", "x1:-31.0", query.getFields()[0].getContent().toString());
     }
 
 }
