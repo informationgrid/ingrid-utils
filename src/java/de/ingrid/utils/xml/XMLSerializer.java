@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -59,6 +61,17 @@ public class XMLSerializer {
         String xml = getContents(target);
         return this.fXStream.fromXML(xml);
     }
+    
+
+    /**
+     * @param inputStream
+     * @return object loaded from xml of a stream
+     * @throws IOException
+     */
+    public Object deSerialize(InputStream inputStream) throws IOException {
+        String xml = getContents(inputStream);
+        return this.fXStream.fromXML(xml);
+    }
 
     /**
      * @param aFile
@@ -66,10 +79,21 @@ public class XMLSerializer {
      * @throws IOException
      */
     public static String getContents(File aFile) throws IOException {
+        return readContent(new BufferedReader(new FileReader(aFile)));
+    }
+
+    /**
+     * @param inputStream
+     * @return text content from a inputstream
+     * @throws IOException
+     */
+    public static String getContents(InputStream inputStream) throws IOException {
+        return readContent(new BufferedReader(new InputStreamReader(inputStream)));
+    }
+
+    private static String readContent(BufferedReader input) throws IOException {
         StringBuffer contents = new StringBuffer();
-        BufferedReader input = null;
         try {
-            input = new BufferedReader(new FileReader(aFile));
             String line = null; // not declared within while loop
             while ((line = input.readLine()) != null) {
                 contents.append(line);

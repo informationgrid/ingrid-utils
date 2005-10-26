@@ -8,6 +8,7 @@ package de.ingrid.utils.config;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,9 +121,29 @@ public class Configuration {
      * @throws IOException
      */
     public void load(File file) throws IOException {
+        load(null, file);
+    }
+
+    /**
+     * Overloads the loca values with them in a xml configuration file read from
+     * a inputstream
+     * 
+     * @param inputStream
+     * @throws IOException
+     */
+    public void load(InputStream inputStream) throws IOException {
+        load(inputStream, null);
+    }
+
+    private void load(InputStream inputStream, File file) throws IOException {
         XMLSerializer serializer = new XMLSerializer();
         setAliases(serializer);
-        Configuration loadedConf = (Configuration) serializer.deSerialize(file);
+        Configuration loadedConf;
+        if (file != null) {
+            loadedConf = (Configuration) serializer.deSerialize(file);
+        } else {
+            loadedConf = (Configuration) serializer.deSerialize(inputStream);
+        }
         int count = loadedConf.size();
         for (int i = 0; i < count; i++) {
             Property value = loadedConf.get(i);
