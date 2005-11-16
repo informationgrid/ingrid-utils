@@ -16,8 +16,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * A data container for general usage in ingrid. Children should store all
- * values via put in the mother to be available via get.
+ * A data container for general usage in ingrid. Children should store all values via put in the mother to be available
+ * via get.
  * 
  * 
  * created on 09.08.2005
@@ -27,8 +27,14 @@ import java.util.Iterator;
  */
 public class IngridDocument extends HashMap implements Externalizable {
 
+    /**
+     * Comment for <code>DOCUMENT_ID</code>
+     */
     public static final Integer DOCUMENT_ID = new Integer(0);
 
+    /**
+     * Comment for <code>DOCUMENT_CONTENT</code>
+     */
     public static final Integer DOCUMENT_CONTENT = new Integer(1);
 
     /**
@@ -40,7 +46,6 @@ public class IngridDocument extends HashMap implements Externalizable {
     public IngridDocument(Serializable id, Serializable content) {
         put(DOCUMENT_ID, id);
         put(DOCUMENT_CONTENT, content);
-
     }
 
     /**
@@ -50,9 +55,7 @@ public class IngridDocument extends HashMap implements Externalizable {
         // default constructor, use only to read values from Streams
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
      * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
      */
     public void writeExternal(ObjectOutput out) throws IOException {
@@ -70,9 +73,7 @@ public class IngridDocument extends HashMap implements Externalizable {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
      * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
      */
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
@@ -88,9 +89,7 @@ public class IngridDocument extends HashMap implements Externalizable {
 
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
      * @see java.util.Map#put(java.lang.Object, java.lang.Object)
      */
     public Object put(Object key, Object value) {
@@ -185,9 +184,8 @@ public class IngridDocument extends HashMap implements Externalizable {
     }
 
     /**
-     * Adds a value to array list, in case the arraylist does not exists under
-     * the given key, we create the list. In case a object under this key is
-     * already known we throw a ClasscastException
+     * Adds a value to array list, in case the arraylist does not exists under the given key, we create the list. In
+     * case a object under this key is already known we throw a ClasscastException
      * 
      * @param key
      * @param value
@@ -203,8 +201,7 @@ public class IngridDocument extends HashMap implements Externalizable {
 
     /**
      * @param key
-     * @return a boolean value to a key, in case the key does not exists we
-     *         throws a illegal argument excetption
+     * @return a boolean value to a key, in case the key does not exists we throws a illegal argument excetption
      */
     public boolean getBoolean(String key) {
         Boolean booleanObj = (Boolean) get(key);
