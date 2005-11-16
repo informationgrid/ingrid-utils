@@ -13,10 +13,13 @@ public class FieldQuery extends IngridQuery {
     private static final String FIELD_VALUE = "fieldValue";
 
     public FieldQuery(int booleanOperation, String fieldKey, String fieldValue) {
-        super(IngridQuery.FIELD, booleanOperation, fieldKey+":"+fieldValue);
+        super(IngridQuery.FIELD, booleanOperation, fieldKey + ":" + fieldValue);
         put(FIELD_NAME, fieldKey);
         put(FIELD_VALUE, fieldValue);
+    }
 
+    public FieldQuery() {
+        // to be serializable
     }
 
     /**

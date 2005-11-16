@@ -7,7 +7,7 @@
 package de.ingrid.utils.query;
 
 /**
- * Term queries are queries having just one term
+ * Term queries are queries having just one term.
  * 
  * created on 09.08.2005
  * @author  sg
@@ -15,7 +15,7 @@ package de.ingrid.utils.query;
  */
 public class TermQuery extends IngridQuery {
 
-   
+    
     /**
      * Constructs a term query
      * @param booleanOperation
@@ -23,6 +23,13 @@ public class TermQuery extends IngridQuery {
      */
     public TermQuery(int booleanOperation, String term) {
         super(IngridQuery.TERM, booleanOperation, term);
+    }
+
+    /**
+     * 
+     */
+    public TermQuery() {
+        // be serializable
     }
 
     /**

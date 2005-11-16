@@ -7,13 +7,25 @@
 package de.ingrid.utils.query;
 
 /**
- * ClauseQuery are sub queries in brackets  
+ * ClauseQuery are sub queries in brackets
  * 
  * created on 09.08.2005
- * @author  sg
+ * 
+ * @author sg
  * @version $Revision: 1.3 $
  */
 public class ClauseQuery extends IngridQuery {
+
+    /**
+     * 
+     */
+    public ClauseQuery() {
+        // to be serializable
+    }
+
+    /**
+     * @param booleanOperator
+     */
     public ClauseQuery(int booleanOperator) {
         super(IngridQuery.CLAUSE, booleanOperator, null);
     }
