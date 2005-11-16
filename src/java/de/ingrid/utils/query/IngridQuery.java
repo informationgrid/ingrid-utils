@@ -19,6 +19,7 @@ import de.ingrid.utils.IngridDocument;
  * @version $Revision: 1.3 $
  */
 public class IngridQuery extends IngridDocument {
+
     /***/
     public static final int NOT = -1;
 
@@ -163,7 +164,6 @@ public class IngridQuery extends IngridDocument {
         }
         buffer.append(")");
         return buffer.toString();
-
     }
 
     /**
@@ -177,9 +177,7 @@ public class IngridQuery extends IngridDocument {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
      * @see java.lang.Object#toString()
      */
     public String toString() {
