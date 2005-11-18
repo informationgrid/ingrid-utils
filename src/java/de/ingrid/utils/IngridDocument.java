@@ -224,6 +224,24 @@ public class IngridDocument extends HashMap implements Externalizable {
     }
 
     /**
+	 * sets a array
+	 * @param key
+	 * @param values
+	 */
+	public void setArray(String key, Serializable[] values) {
+		put(key, values);
+	
+	}
+
+	/**
+	 * @param key
+	 * @return an array
+	 */
+	public Object[] getArray(String key) {
+		return (Object[]) get(key);
+	}
+
+	/**
      * Just a place holder for <code>null</code> inside a stream
      */
     public class NullWritable implements Serializable {
