@@ -242,6 +242,25 @@ public class IngridDocument extends HashMap implements Externalizable {
 	}
 
 	/**
+	 * stores a value as float
+	 * 
+	 * @param key
+	 * @param value
+	 */
+	public void putFloat(String key, float value) {
+		put(key, new Float(value));
+	}
+
+	/**
+	 * @param key
+	 * @return a float value
+	 */
+	public float getFloat(String key) {
+		return ((Float) get(key)).floatValue();
+	
+	}
+
+	/**
      * Just a place holder for <code>null</code> inside a stream
      */
     public class NullWritable implements Serializable {
