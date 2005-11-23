@@ -28,13 +28,15 @@ public class XMLSerializer {
 
     private XStream fXStream;
 
+    /**
+     *  
+     */
     public XMLSerializer() {
         this.fXStream = new XStream();
     }
 
     /**
-     * sets an alias name of a class, that is used until serialization as node
-     * name
+     * sets an alias name of a class, that is used until serialization as node name
      * 
      * @param name
      * @param clazz
@@ -43,16 +45,23 @@ public class XMLSerializer {
         this.fXStream.alias(name, clazz);
     }
 
+    /**
+     * @param object
+     * @param target
+     * @throws IOException
+     */
     public void serialize(Object object, File target) throws IOException {
         FileWriter writer = new FileWriter(target);
         String xml = this.fXStream.toXML(object);
+
+        //TODO: log here or disable this output
         System.out.println(xml);
+
         writer.write(xml);
         writer.close();
     }
 
     /**
-     * @param clazz
      * @param target
      * @return bean loaded from a xml file
      * @throws IOException
@@ -61,7 +70,6 @@ public class XMLSerializer {
         String xml = getContents(target);
         return this.fXStream.fromXML(xml);
     }
-    
 
     /**
      * @param inputStream
