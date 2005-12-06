@@ -23,7 +23,7 @@ public class XMLToolsTest extends TestCase {
         System.out.println(System.getProperty("user.dir"));
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            dom = db.parse("test.xml");
+            dom = db.parse("./src/test/de/ingrid/utils/xml/test.xml");
         } catch (Exception e) {
             e.printStackTrace();
         }
