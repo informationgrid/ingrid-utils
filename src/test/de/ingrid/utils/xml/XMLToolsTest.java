@@ -74,32 +74,4 @@ public class XMLToolsTest extends TestCase {
         assertTrue(XMLTools.getTextNodeValuesNS(docElement, "stuff", "name").length == 2);
     }
     
-    public void testCreateXMLDoc() {
-        Document MyDom = null;
-        try {
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            MyDom = db.newDocument();
-        } catch (ParserConfigurationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        
-        Element root = MyDom.createElement("InGridDocuments");
-        MyDom.appendChild(root);
-        
-        Element indoc = MyDom.createElement("Test:InGridDocument");
-        indoc.setAttribute("id", "1354687534");
-        root.appendChild(indoc);
-        
-        XMLTools.printToFile(MyDom, null);
-    }
-    
-    
-    
-    
-    public void testPrintToFile() {
-        //XMLTools.printToFile(dom, "output.xml");
-        //XMLTools.printToFile(dom, null);
-    }
-    
 }
