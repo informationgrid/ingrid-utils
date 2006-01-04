@@ -15,13 +15,13 @@ package de.ingrid.utils;
  * @author sg
  * @version $Revision: 1.3 $
  */
-public class Hit extends IngridDocument {
+public class IngridHit extends IngridDocument {
 
 	private static final String PROVIDER = "provider";
 
 	private static final String SCORE = "score";
 
-	public Hit(String provider, int documentId, float score) {
+	public IngridHit(String provider, int documentId, float score) {
 		setProvider(provider);
 		setDocumentId(documentId);
 		setScore(score);
