@@ -17,64 +17,68 @@ package de.ingrid.utils;
  */
 public class IngridHit extends IngridDocument {
 
-	private static final String PROVIDER = "provider";
+    private static final String PROVIDER = "provider";
 
-	private static final String SCORE = "score";
+    private static final String SCORE = "score";
 
-	public IngridHit(String provider, int documentId, float score) {
-		setProvider(provider);
-		setDocumentId(documentId);
-		setScore(score);
-	}
+    public IngridHit() {
+        // default constructor for serialization
+    }
 
-	/**
-	 * @return the unique provider Id
-	 */
-	public String getProvider() {
-		return (String) get(PROVIDER);
-	}
+    public IngridHit(String provider, int documentId, float score) {
+        setProvider(provider);
+        setDocumentId(documentId);
+        setScore(score);
+    }
 
-	/**
-	 * Sets a unique provider Id
-	 * 
-	 * @param providerId
-	 */
-	public void setProvider(String providerId) {
-		put(PROVIDER, providerId);
+    /**
+     * @return the unique provider Id
+     */
+    public String getProvider() {
+        return (String) get(PROVIDER);
+    }
 
-	}
+    /**
+     * Sets a unique provider Id
+     * 
+     * @param providerId
+     */
+    public void setProvider(String providerId) {
+        put(PROVIDER, providerId);
 
-	/**
-	 * @return a provider specific document id
-	 */
-	public int getDocumentId() {
-		return getInt(DOCUMENT_ID);
-	}
+    }
 
-	/**
-	 * sets a provider specific document id
-	 * 
-	 * @param documentId
-	 */
-	public void setDocumentId(int documentId) {
-		putInt(DOCUMENT_ID, documentId);
-	}
+    /**
+     * @return a provider specific document id
+     */
+    public int getDocumentId() {
+        return getInt(DOCUMENT_ID);
+    }
 
-	/**
-	 * Sets the score of a document
-	 * 
-	 * @param score
-	 */
-	public void setScore(float score) {
-		putFloat(SCORE, score);
-	}
+    /**
+     * sets a provider specific document id
+     * 
+     * @param documentId
+     */
+    public void setDocumentId(int documentId) {
+        putInt(DOCUMENT_ID, documentId);
+    }
 
-	/**
-	 * @return the score of this document
-	 * 
-	 */
-	public float getScore() {
-		return getFloat(SCORE);
+    /**
+     * Sets the score of a document
+     * 
+     * @param score
+     */
+    public void setScore(float score) {
+        putFloat(SCORE, score);
+    }
 
-	}
+    /**
+     * @return the score of this document
+     * 
+     */
+    public float getScore() {
+        return getFloat(SCORE);
+
+    }
 }
