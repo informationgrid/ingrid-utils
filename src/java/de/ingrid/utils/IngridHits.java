@@ -21,6 +21,11 @@ public class IngridHits extends IngridDocument {
 
     private static final String HITS = "hits";
 
+    public IngridHits() {
+        // default constructor for serialization
+    }
+
+    
     /**
      * @param provider
      * @param length
