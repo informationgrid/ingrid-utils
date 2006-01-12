@@ -31,7 +31,7 @@ public class IngridHits extends IngridDocument {
      * @param length
      * @param hits
      */
-    public IngridHits(String provider, int length, IngridHit[] hits) {
+    public IngridHits(String provider, long length, IngridHit[] hits) {
         setProvider(provider);
         setLength(length);
         setHits(hits);
@@ -54,8 +54,8 @@ public class IngridHits extends IngridDocument {
     /**
      * @param length
      */
-    private void setLength(int length) {
-        putInt(LENGTH, length);
+    private void setLength(long length) {
+        putLong(LENGTH, length);
     }
 
     /**
@@ -63,8 +63,8 @@ public class IngridHits extends IngridDocument {
      *         equals to number of <code>Hit</code>s stored in this
      *         container.
      */
-    public int length() {
-        return getInt(LENGTH);
+    public long length() {
+        return getLong(LENGTH);
     }
 
     /**
