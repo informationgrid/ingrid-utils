@@ -17,68 +17,89 @@ package de.ingrid.utils;
  */
 public class IngridHit extends IngridDocument {
 
-    private static final String PROVIDER = "provider";
+	private static final String PROVIDER = "provider";
 
-    private static final String SCORE = "score";
+	private static final String SCORE = "score";
 
-    public IngridHit() {
-        // default constructor for serialization
-    }
+	private static final String DATA_SOURCE_ID = "dataSourceId";
 
-    public IngridHit(String provider, int documentId, float score) {
-        setProvider(provider);
-        setDocumentId(documentId);
-        setScore(score);
-    }
+	public IngridHit() {
+		// default constructor for serialization
+	}
 
-    /**
-     * @return the unique provider Id
-     */
-    public String getProvider() {
-        return (String) get(PROVIDER);
-    }
+	public IngridHit(String provider, int documentId, int dataSourceId,
+			float score) {
+		setProvider(provider);
+		setDocumentId(documentId);
+		setDataSourceId(dataSourceId);
+		setScore(score);
+	}
 
-    /**
-     * Sets a unique provider Id
-     * 
-     * @param providerId
-     */
-    public void setProvider(String providerId) {
-        put(PROVIDER, providerId);
+	/**
+	 * sets a id of the internal datasource split
+	 * 
+	 * @param dataSourceId
+	 */
+	public void setDataSourceId(int dataSourceId) {
+		putInt(DATA_SOURCE_ID, dataSourceId);
 
-    }
+	}
 
-    /**
-     * @return a provider specific document id
-     */
-    public int getDocumentId() {
-        return getInt(DOCUMENT_ID);
-    }
+	/**
+	 * @return a data source id, that is used interanaly for one datasource
+	 */
+	public int getDataSourceId() {
+		return getInt(DATA_SOURCE_ID);
+	}
 
-    /**
-     * sets a provider specific document id
-     * 
-     * @param documentId
-     */
-    public void setDocumentId(int documentId) {
-        putInt(DOCUMENT_ID, documentId);
-    }
+	/**
+	 * @return the unique provider Id
+	 */
+	public String getProvider() {
+		return (String) get(PROVIDER);
+	}
 
-    /**
-     * Sets the score of a document
-     * 
-     * @param score
-     */
-    public void setScore(float score) {
-        putFloat(SCORE, score);
-    }
+	/**
+	 * Sets a unique provider Id
+	 * 
+	 * @param providerId
+	 */
+	public void setProvider(String providerId) {
+		put(PROVIDER, providerId);
 
-    /**
-     * @return the score of this document
-     * 
-     */
-    public float getScore() {
-        return getFloat(SCORE);
+	}
 
-    }
+	/**
+	 * @return a provider specific document id
+	 */
+	public int getDocumentId() {
+		return getInt(DOCUMENT_ID);
+	}
+
+	/**
+	 * sets a provider specific document id
+	 * 
+	 * @param documentId
+	 */
+	public void setDocumentId(int documentId) {
+		putInt(DOCUMENT_ID, documentId);
+	}
+
+	/**
+	 * Sets the score of a document
+	 * 
+	 * @param score
+	 */
+	public void setScore(float score) {
+		putFloat(SCORE, score);
+	}
+
+	/**
+	 * @return the score of this document
+	 * 
+	 */
+	public float getScore() {
+		return getFloat(SCORE);
+
+	}
 }
