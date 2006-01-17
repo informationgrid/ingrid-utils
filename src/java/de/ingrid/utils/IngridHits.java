@@ -25,7 +25,6 @@ public class IngridHits extends IngridDocument {
         // default constructor for serialization
     }
 
-    
     /**
      * @param provider
      * @param length
