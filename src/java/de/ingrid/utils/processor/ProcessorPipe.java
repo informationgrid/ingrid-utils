@@ -5,6 +5,7 @@
 
 package de.ingrid.utils.processor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.apache.commons.logging.Log;
@@ -22,13 +23,19 @@ import de.ingrid.utils.query.IngridQuery;
  * @version $Revision: 1.2 $
  * 
  */
-public class ProcessorPipe {
+public class ProcessorPipe implements Serializable {
 
     private static Log log = LogFactory.getLog(ProcessorPipe.class);
 
     private ArrayList fPreProcessors = new ArrayList();
 
     private ArrayList fPostProcessors = new ArrayList();
+
+    /**
+     */
+    public ProcessorPipe() {
+        // for serialization
+    }
 
     /**
      * Adds a pre processors
