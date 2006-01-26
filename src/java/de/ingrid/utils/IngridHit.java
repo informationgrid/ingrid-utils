@@ -95,16 +95,16 @@ public class IngridHit extends IngridDocument {
     }
 
     /**
-     * Sets the score of a document
+     * Sets the score of a document. This score must be between 0 and 1.
      * 
-     * @param score
+     * @param score Range from 0 to 1.
      */
     public void setScore(float score) {
         putFloat(SCORE, score);
     }
 
     /**
-     * @return the score of this document
+     * @return The score of the current document from 0 to 1.
      * 
      */
     public float getScore() {
