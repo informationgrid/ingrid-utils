@@ -11,6 +11,6 @@ public interface IDetailer {
 	 * @return a detailed document of a hit
 	 * @throws Exception
 	 */
-	public IngridDocument getDetails(IngridHit hit) throws Exception;
+	public IngridHitDetail  getDetails(IngridHit hit) throws Exception;
 
 }
