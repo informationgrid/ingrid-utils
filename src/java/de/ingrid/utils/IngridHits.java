@@ -15,11 +15,11 @@ package de.ingrid.utils;
  */
 public class IngridHits extends IngridDocument {
 
-    private static final String PROVIDER = "provider";
-
     private static final String LENGTH = "length";
 
     private static final String HITS = "hits";
+
+    private static final String IPLUG_ID = "iPlugId";
 
     public IngridHits() {
         // default constructor for serialization
@@ -30,8 +30,8 @@ public class IngridHits extends IngridDocument {
      * @param length
      * @param hits
      */
-    public IngridHits(String provider, long length, IngridHit[] hits) {
-        setProvider(provider);
+    public IngridHits(String plugId, long length, IngridHit[] hits) {
+        setPlugId(plugId);
         setLength(length);
         setHits(hits);
     }
@@ -67,20 +67,17 @@ public class IngridHits extends IngridDocument {
     }
 
     /**
-     * @return the unique provider Id
+     * @return
      */
-    public String getProvider() {
-        return (String) get(PROVIDER);
+    public String getPlugId() {
+        return (String) get(IPLUG_ID);
     }
 
     /**
-     * Sets a unique provider Id
-     * 
-     * @param providerId
+     * @param id
      */
-    public void setProvider(String providerId) {
-        put(PROVIDER, providerId);
-
+    public void setPlugId(String id) {
+        put(IPLUG_ID, id);
     }
 
 }
