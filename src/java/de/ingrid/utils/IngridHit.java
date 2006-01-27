@@ -17,8 +17,6 @@ package de.ingrid.utils;
  */
 public class IngridHit extends IngridDocument {
 
-    private static final String PROVIDER = "provider";
-
     private static final String SCORE = "score";
 
     private static final String DATA_SOURCE_ID = "dataSourceId";
@@ -33,14 +31,14 @@ public class IngridHit extends IngridDocument {
     }
 
     /**
-     * @param provider
+     * @param plugId
      * @param documentId
      * @param dataSourceId
      * @param score
      */
-    public IngridHit(String provider, int documentId, int dataSourceId, float score) {
+    public IngridHit(String plugId, int documentId, int dataSourceId, float score) {
         // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
-        setProvider(provider);
+        setPlugId(plugId);
         setDocumentId(documentId);
         setDataSourceId(dataSourceId);
         setScore(score);
@@ -63,22 +61,7 @@ public class IngridHit extends IngridDocument {
         return getInt(DATA_SOURCE_ID);
     }
 
-    /**
-     * @return the unique provider Id
-     */
-    public String getProvider() {
-        return (String) get(PROVIDER);
-    }
-
-    /**
-     * Sets a unique provider Id
-     * 
-     * @param providerId
-     */
-    public void setProvider(String providerId) {
-        put(PROVIDER, providerId);
-
-    }
+    
 
     /**
      * @return a provider specific document id
