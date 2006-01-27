@@ -23,6 +23,8 @@ public class IngridHit extends IngridDocument {
 
     private static final String DATA_SOURCE_ID = "dataSourceId";
 
+    private static final Object IPLUG_ID = "iPlugId";
+
     /**
      * 
      */
@@ -55,7 +57,7 @@ public class IngridHit extends IngridDocument {
     }
 
     /**
-     * @return a data source id, that is used interanaly for one datasource
+     * @return A data source id, that is used internaly for one datasource.
      */
     public int getDataSourceId() {
         return getInt(DATA_SOURCE_ID);
@@ -97,7 +99,8 @@ public class IngridHit extends IngridDocument {
     /**
      * Sets the score of a document. This score must be between 0 and 1.
      * 
-     * @param score Range from 0 to 1.
+     * @param score
+     *            Range from 0 to 1.
      */
     public void setScore(float score) {
         putFloat(SCORE, score);
@@ -109,5 +112,19 @@ public class IngridHit extends IngridDocument {
      */
     public float getScore() {
         return getFloat(SCORE);
+    }
+
+    /**
+     * @return
+     */
+    public String getIPlugId() {
+        return (String) get(IPLUG_ID);
+    }
+    
+    /**
+     * @param id
+     */
+    public void setIPlugId(String id) {
+        put(IPLUG_ID, id);
     }
 }
