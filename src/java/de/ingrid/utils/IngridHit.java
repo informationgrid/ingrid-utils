@@ -23,7 +23,7 @@ public class IngridHit extends IngridDocument {
 
     private static final String DATA_SOURCE_ID = "dataSourceId";
 
-    private static final Object IPLUG_ID = "iPlugId";
+    private static final String IPLUG_ID = "iPlugId";
 
     /**
      * 
@@ -117,14 +117,14 @@ public class IngridHit extends IngridDocument {
     /**
      * @return
      */
-    public String getIPlugId() {
+    public String getPlugId() {
         return (String) get(IPLUG_ID);
     }
     
     /**
      * @param id
      */
-    public void setIPlugId(String id) {
+    public void setPlugId(String id) {
         put(IPLUG_ID, id);
     }
 }
