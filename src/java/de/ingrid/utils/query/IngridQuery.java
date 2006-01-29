@@ -20,6 +20,8 @@ import de.ingrid.utils.IngridDocument;
  */
 public class IngridQuery extends IngridDocument {
 
+    private static final long serialVersionUID = 9L;
+
     /***/
     public static final int NOT = -1;
 

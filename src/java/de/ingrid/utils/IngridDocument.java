@@ -27,6 +27,9 @@ import java.util.Iterator;
  */
 public class IngridDocument extends HashMap implements Externalizable {
 
+   
+    private static final long serialVersionUID = 2L;
+
     /**
      * Comment for <code>DOCUMENT_ID</code>
      */
@@ -264,6 +267,10 @@ public class IngridDocument extends HashMap implements Externalizable {
      * Just a place holder for <code>null</code> inside a stream
      */
     public class NullWritable implements Serializable {
+
+        private static final long serialVersionUID = 1L;
+        
+        
 
         // just nothing .. :-)
     }

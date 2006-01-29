@@ -15,6 +15,8 @@ import de.ingrid.utils.IngridDocument;
  * @author hs
  */
 public class Topic extends IngridDocument {
+    private static final long serialVersionUID = 12L;
+
     /**
      * Constant for topicID.
      */

@@ -16,6 +16,8 @@ package de.ingrid.utils.query;
 public class TermQuery extends IngridQuery {
 
     
+    private static final long serialVersionUID = 10L;
+
     /**
      * Constructs a term query
      * @param booleanOperation

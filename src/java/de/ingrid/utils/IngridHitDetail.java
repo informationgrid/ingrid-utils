@@ -8,6 +8,11 @@ package de.ingrid.utils;
 
 public class IngridHitDetail extends IngridHit {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 4L;
+
     private static final String SUMMARY = "abstract";
 
     private static final String TITLE = "title";

@@ -25,6 +25,8 @@ import de.ingrid.utils.query.IngridQuery;
  */
 public class ProcessorPipe implements Serializable {
 
+    private static final long serialVersionUID = 6L;
+
     private static Log log = LogFactory.getLog(ProcessorPipe.class);
 
     private ArrayList fPreProcessors = new ArrayList();

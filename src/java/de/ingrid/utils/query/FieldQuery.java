@@ -8,6 +8,8 @@ package de.ingrid.utils.query;
 
 public class FieldQuery extends IngridQuery {
 
+    private static final long serialVersionUID = 8L;
+
     private static final String FIELD_NAME = "fieldName";
 
     private static final String FIELD_VALUE = "fieldValue";

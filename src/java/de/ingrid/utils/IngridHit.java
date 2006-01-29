@@ -17,6 +17,9 @@ package de.ingrid.utils;
  */
 public class IngridHit extends IngridDocument {
 
+    
+    private static final long serialVersionUID = 3L;
+
     private static final String SCORE = "score";
 
     private static final String DATA_SOURCE_ID = "dataSourceId";

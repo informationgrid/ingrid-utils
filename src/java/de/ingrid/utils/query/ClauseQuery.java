@@ -19,6 +19,11 @@ public class ClauseQuery extends IngridQuery {
     /**
      * 
      */
+    private static final long serialVersionUID = 7L;
+
+    /**
+     * 
+     */
     public ClauseQuery() {
         // to be serializable
     }

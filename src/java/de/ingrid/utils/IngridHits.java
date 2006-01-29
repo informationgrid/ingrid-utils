@@ -15,6 +15,9 @@ package de.ingrid.utils;
  */
 public class IngridHits extends IngridDocument {
 
+    
+    private static final long serialVersionUID = 5L;
+
     private static final String LENGTH = "length";
 
     private static final String HITS = "hits";
