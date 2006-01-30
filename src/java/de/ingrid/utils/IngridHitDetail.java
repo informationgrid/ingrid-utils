@@ -17,6 +17,10 @@ public class IngridHitDetail extends IngridHit {
 
     private static final String TITLE = "title";
 
+    
+    public IngridHitDetail() {
+     // for serializing...
+    }
     /**
      * @param hit
      * @param title
