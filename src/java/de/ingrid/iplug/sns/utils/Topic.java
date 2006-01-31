@@ -5,7 +5,7 @@
  */
 package de.ingrid.iplug.sns.utils;
 
-import de.ingrid.utils.IngridDocument;
+import de.ingrid.utils.IngridHit;
 
 /**
  * 
@@ -14,8 +14,18 @@ import de.ingrid.utils.IngridDocument;
  * 
  * @author hs
  */
-public class Topic extends IngridDocument {
-    private static final long serialVersionUID = 12L;
+public class Topic extends IngridHit{
+    
+    public static final String REQUEST_TYPE = "sns_request_type";
+
+    public static final int TOPIC_FROM_TERM = 0;
+
+    public static final int TOPIC_FROM_TEXT = 1;
+
+    public static final int TOPIC_FROM_TOPIC = 2;
+    
+    
+    private static final long serialVersionUID = Topic.class.getName().hashCode();
 
     /**
      * Constant for topicID.

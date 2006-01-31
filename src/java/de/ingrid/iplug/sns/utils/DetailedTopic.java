@@ -12,7 +12,7 @@ package de.ingrid.iplug.sns.utils;
  * @author hs
  */
 public class DetailedTopic extends Topic{
-    private static final long serialVersionUID = 11L;
+    private static final long serialVersionUID = DetailedTopic.class.getName().hashCode();
     /**
      * Constant for administrative identifier.
      */
