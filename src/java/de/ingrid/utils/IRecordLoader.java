@@ -6,7 +6,7 @@
 
 package de.ingrid.utils;
 
-import de.ingrid.utils.dbschema.Record;
+import de.ingrid.utils.dsc.Record;
 
 /**
  * Interface that can implemented to support complete record loading..
