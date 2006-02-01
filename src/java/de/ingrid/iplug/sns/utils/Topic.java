@@ -14,17 +14,43 @@ import de.ingrid.utils.IngridHit;
  * 
  * @author hs
  */
-public class Topic extends IngridHit{
-    
+public class Topic extends IngridHit {
+
+    /**
+     * 
+     */
     public static final String REQUEST_TYPE = "sns_request_type";
 
+    /**
+     * 
+     */
     public static final int TOPIC_FROM_TERM = 0;
 
+    /**
+     * 
+     */
     public static final int TOPIC_FROM_TEXT = 1;
 
+    /**
+     * 
+     */
     public static final int TOPIC_FROM_TOPIC = 2;
-    
-    
+
+    /**
+     * 
+     */
+    public static final int ANNIVERSARY_FROM_TOPIC = 3;
+
+    /**
+     * 
+     */
+    public static final int EVENT_FROM_TOPIC = 4;
+
+    /**
+     * 
+     */
+    public static final int SIMILARTERMS_FROM_TOPIC = 5;
+
     private static final long serialVersionUID = Topic.class.getName().hashCode();
 
     /**
@@ -45,11 +71,11 @@ public class Topic extends IngridHit{
         put(TOPIC_ID, topicID);
         put(TOPIC_NAME, topicName);
     }
-    
+
     /**
      * 
      */
-    public Topic(){
+    public Topic() {
         super();
     }
 
@@ -66,23 +92,23 @@ public class Topic extends IngridHit{
     public String getTopicName() {
         return (String) get(TOPIC_NAME);
     }
-    
+
     /**
      * 
      * @param topicID
      */
-    public void setTopicID(String topicID){
+    public void setTopicID(String topicID) {
         put(TOPIC_ID, topicID);
     }
-    
+
     /**
      * 
      * @param topicName
      */
-    public void setTopicName(String topicName){
+    public void setTopicName(String topicName) {
         put(TOPIC_NAME, topicName);
     }
-    
+
     /**
      * @return The topicName if this attribute is set.
      */
