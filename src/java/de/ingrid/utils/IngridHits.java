@@ -24,6 +24,8 @@ public class IngridHits extends IngridDocument {
 
     private static final String IPLUG_ID = "iPlugId";
 
+    private static final String RANKED = "ranked";
+
     public IngridHits() {
         // default constructor for serialization
     }
@@ -33,10 +35,11 @@ public class IngridHits extends IngridDocument {
      * @param length
      * @param hits
      */
-    public IngridHits(String plugId, long length, IngridHit[] hits) {
+    public IngridHits(String plugId, long length, IngridHit[] hits, boolean isRanked) {
         setPlugId(plugId);
         setLength(length);
         setHits(hits);
+        setBoolean(RANKED, isRanked);
     }
 
     /**
@@ -81,6 +84,13 @@ public class IngridHits extends IngridDocument {
      */
     public void setPlugId(String id) {
         put(IPLUG_ID, id);
+    }
+    
+    /**
+     * @return true if hits are ranked.
+     */
+    public boolean isRanked(){
+        return getBoolean(RANKED);
     }
 
 }
