@@ -52,7 +52,8 @@ public class Topic extends IngridHitDetail {
      */
     public static final int SIMILARTERMS_FROM_TOPIC = 5;
 
-    private static final long serialVersionUID = Topic.class.getName().hashCode();
+    private static final long serialVersionUID = Topic.class.getName()
+            .hashCode();
 
     /**
      * Constant for topicID.
@@ -67,8 +68,14 @@ public class Topic extends IngridHitDetail {
     /**
      * @param topicID
      * @param topicName
+     * @param hit
      */
-    public Topic(String topicID, String topicName) {
+    public Topic(String topicID, String topicName, IngridHit hit) {
+        if (hit != null) {
+            setPlugId(hit.getPlugId());
+            setDocumentId(hit.getDocumentId());
+        }
+
         put(TOPIC_ID, topicID);
         put(TOPIC_NAME, topicName);
     }

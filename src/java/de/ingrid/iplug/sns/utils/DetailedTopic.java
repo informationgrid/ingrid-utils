@@ -5,6 +5,8 @@
  */
 package de.ingrid.iplug.sns.utils;
 
+import de.ingrid.utils.IngridHit;
+
 /**
  * 
  * created on 21.07.2005 <p>
@@ -33,9 +35,10 @@ public class DetailedTopic extends Topic{
     /**
      * @param topicID
      * @param topicName
+     * @param hit 
      */
-    public DetailedTopic(String topicID, String topicName) {
-        super(topicID, topicName);
+    public DetailedTopic(String topicID, String topicName, IngridHit hit) {
+        super(topicID, topicName, hit);
     }
     
     /**
