@@ -140,7 +140,7 @@ public class IngridDocument extends HashMap implements Externalizable {
     public int getInt(Object key) {
         try {
             return ((Integer) get(key)).intValue();
-        } catch (ClassCastException e) {
+        } catch (Exception e) {
             throw new IllegalArgumentException("value to key is not int or wasn's setted with putInt");
         }
 
