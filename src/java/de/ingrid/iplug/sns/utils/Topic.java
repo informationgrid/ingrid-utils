@@ -6,6 +6,7 @@
 package de.ingrid.iplug.sns.utils;
 
 import de.ingrid.utils.IngridHit;
+import de.ingrid.utils.IngridHitDetail;
 
 /**
  * 
@@ -14,7 +15,7 @@ import de.ingrid.utils.IngridHit;
  * 
  * @author hs
  */
-public class Topic extends IngridHit {
+public class Topic extends IngridHitDetail {
 
     /**
      * 
