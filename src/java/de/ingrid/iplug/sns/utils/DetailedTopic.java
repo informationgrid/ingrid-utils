@@ -14,6 +14,7 @@ import de.ingrid.utils.IngridHit;
  * @author hs
  */
 public class DetailedTopic extends Topic{
+   
     private static final long serialVersionUID = DetailedTopic.class.getName().hashCode();
     /**
      * Constant for administrative identifier.
