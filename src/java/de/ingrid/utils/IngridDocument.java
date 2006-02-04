@@ -259,7 +259,12 @@ public class IngridDocument extends HashMap implements Externalizable {
 	 * @return a float value
 	 */
 	public float getFloat(String key) {
-		return ((Float) get(key)).floatValue();
+        try {
+         return ((Float) get(key)).floatValue();   
+        } catch (Exception e) {
+            throw new IllegalArgumentException("value to key is not float or wasn's setted with putInt");
+        }
+		
 	
 	}
 
