@@ -39,7 +39,7 @@ public class IngridHits extends IngridDocument {
         setPlugId(plugId);
         setLength(length);
         setHits(hits);
-        setBoolean(RANKED, isRanked);
+        putBoolean(RANKED, isRanked);
     }
 
     /**

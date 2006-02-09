@@ -22,14 +22,14 @@ public class IngridQuery extends IngridDocument {
 
     private static final long serialVersionUID = 9L;
 
-    /***/
-    public static final int NOT = -1;
-
-    /***/
-    public static final int AND = 0;
-
-    /***/
-    public static final int OR = 1;
+//    /***/
+//    public static final int NOT = -1;
+//
+//    /***/
+//    public static final int AND = 0;
+//
+//    /***/
+//    public static final int OR = 1;
 
     /***/
     public static final int TERM = 2;
@@ -50,7 +50,9 @@ public class IngridQuery extends IngridDocument {
 
     private static final String CLAUSE_KEY = "clause";
 
-    private static final String DATA_TYPE = "dataType";
+    private static final String DATA_TYPE = "datatype";
+
+    private static final String PROHIBITED = "prohibited";
 
     /**
      * Default constructor
@@ -66,12 +68,22 @@ public class IngridQuery extends IngridDocument {
      * @param required
      * @param query
      */
-    public IngridQuery(int type, int required, String query) {
+    public IngridQuery(boolean required, boolean prohibited, int type, String query) {
         super(new Long(System.currentTimeMillis()), query);
+        putBoolean(REQUIRED, required);
+        putBoolean(PROHIBITED, prohibited);
         putInt(TYPE, type);
-        putInt(REQUIRED, required);
+        
+    }
+    
+    public boolean isRequred () {
+        return getBoolean(REQUIRED);
     }
 
+    public boolean isProhibited() {
+        return getBoolean(PROHIBITED);
+    }
+    
     /**
      * @return the query type
      */
@@ -79,12 +91,6 @@ public class IngridQuery extends IngridDocument {
         return getInt(TYPE);
     }
 
-    /**
-     * @return the boolean operation type of this query
-     */
-    public int getOperation() {
-        return getInt(REQUIRED);
-    }
 
     /**
      * Adds a field query
@@ -187,19 +193,34 @@ public class IngridQuery extends IngridDocument {
     }
 
     /**
-     * @return the data type of this query
+     * @return the positive data type's of this query 
      */
-    public String getDataType() {
-        return (String) get(DATA_TYPE);
+    public String[] getPositiveDataTypes() {
+        FieldQuery[] fields = getFields();
+        int count = fields.length;
+        ArrayList arraylist = new ArrayList();
+        for (int i = 0; i < count; i++) {
+            if (fields[i].getFieldName().toLowerCase().equals(DATA_TYPE)
+                    && !fields[i].isProhibited()) {
+                arraylist.add(fields[i].getFieldValue());
+            }
+        }
+        return (String[]) arraylist.toArray(new String[arraylist.size()]);
     }
-
+    
     /**
-     * Sets the data type
-     * 
-     * @param dataType
+     * @return the negative data type's of this query 
      */
-    public void setDataType(String dataType) {
-        put(DATA_TYPE, dataType);
+    public String[] getNegativeDataTypes() {
+        FieldQuery[] fields = getFields();
+        int count = fields.length;
+        ArrayList arraylist = new ArrayList();
+        for (int i = 0; i < count; i++) {
+            if (fields[i].getFieldName().toLowerCase().equals(DATA_TYPE)
+                    && fields[i].isProhibited()) {
+                arraylist.add(fields[i].getFieldValue());
+            }
+        }
+        return (String[]) arraylist.toArray(new String[arraylist.size()]);
     }
-
 }

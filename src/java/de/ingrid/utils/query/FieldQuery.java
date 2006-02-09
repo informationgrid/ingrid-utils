@@ -8,14 +8,14 @@ package de.ingrid.utils.query;
 
 public class FieldQuery extends IngridQuery {
 
-    private static final long serialVersionUID = 8L;
+    private static final long serialVersionUID = FieldQuery.class.getName().hashCode();
 
     private static final String FIELD_NAME = "fieldName";
 
     private static final String FIELD_VALUE = "fieldValue";
 
-    public FieldQuery(int booleanOperation, String fieldKey, String fieldValue) {
-        super(IngridQuery.FIELD, booleanOperation, fieldKey + ":" + fieldValue);
+    public FieldQuery(boolean required, boolean prohibited, String fieldKey, String fieldValue) {
+        super(required, prohibited,IngridQuery.FIELD, fieldKey + ":" + fieldValue);
         put(FIELD_NAME, fieldKey);
         put(FIELD_VALUE, fieldValue);
     }

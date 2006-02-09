@@ -19,7 +19,7 @@ public class ClauseQuery extends IngridQuery {
     /**
      * 
      */
-    private static final long serialVersionUID = 7L;
+    private static final long serialVersionUID = ClauseQuery.class.getName().hashCode();
 
     /**
      * 
@@ -31,7 +31,7 @@ public class ClauseQuery extends IngridQuery {
     /**
      * @param booleanOperator
      */
-    public ClauseQuery(int booleanOperator) {
-        super(IngridQuery.CLAUSE, booleanOperator, null);
+    public ClauseQuery(boolean required, boolean prohibited) {
+        super(required, prohibited, IngridQuery.CLAUSE, null);
     }
 }

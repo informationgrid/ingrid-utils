@@ -63,7 +63,7 @@ PARSER_END(QueryStringParser)
 | <QUOTED:     "\"" (~["\""])+ "\"">
 | <FLOAT:     ("-")?(<_NUM_CHAR>)+"."(<_NUM_CHAR>)+>
 | <TERM:      <_TERM_START_CHAR> (<_TERM_CHAR>)*  >
-| <DATATYPE:      <_TERM_START_CHAR> "datatype" <COLON> (<_TERM_CHAR>)* >
+//| <DATATYPE:      <_TERM_START_CHAR> "datatype" <COLON> (<_TERM_CHAR>)* >
 //| <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> (<_TERM_CHAR>)* >
 | <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> >
 | <FUZZY_SLOP:     "~" ( (<_NUM_CHAR>)+ ( "." (<_NUM_CHAR>)+ )? )? >
@@ -98,7 +98,7 @@ IngridQuery parse() :
 		Token token;
 		IngridQuery query = new IngridQuery();
 		IngridQuery subQuery;
-		String dataType;
+//		String dataType;
 	}
 	{
 (
@@ -109,11 +109,8 @@ subQuery = term()
 	}
 | subQuery = field()
 	{
-		if(((FieldQuery)subQuery).getFieldName().equals("datatype")){
-           query.setDataType(((FieldQuery)subQuery).getFieldValue());
-        } else {
-           query.addField((FieldQuery)subQuery); 
-        }
+         query.addField((FieldQuery)subQuery); 
+
 	}
 | subQuery = clause()
 	{ 
@@ -132,13 +129,14 @@ subQuery = term()
 		FieldQuery query;
 		Token key;
 		Token value;
-		int required = IngridQuery.AND;	
+		boolean required = true;	
+		boolean prohibited = false;
 	}
 	{
-	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
+	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
 	key=<FIELD>
 	(value=<FLOAT>|value=<TERM>|value=<PREFIXTERM>)
-	{query = new FieldQuery( required, key.image.substring(0, key.image.length() -1), value.image);}
+	{query = new FieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1), value.image);}
 	{return query;}
 	}
 	
@@ -148,12 +146,13 @@ subQuery = term()
 	{
 		TermQuery query;
 		Token t;
-		int required = IngridQuery.AND;
+		boolean required = true;	
+		boolean prohibited = false;
 	}
 	{
-	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
+	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
 	(t=<TERM>|t=<PREFIXTERM>)
-	{query = new TermQuery(required, t.image);}
+	{query = new TermQuery(required,prohibited, t.image);}
 	{return query;}
 	}
 
@@ -162,12 +161,13 @@ subQuery = term()
 	{
 		ClauseQuery query;
 		Token t;
-		int required = IngridQuery.AND;
+		boolean required = true;	
+		boolean prohibited = false;
 		IngridQuery subQuery;
 	}
 	{
-	(<OR>{required =IngridQuery.OR; } | <NOT> {required =IngridQuery.NOT; }| <AND> {required =IngridQuery.AND; })?
-	{query =  new ClauseQuery( required );}
+	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+	{query =  new ClauseQuery( required, prohibited );}
 	<LPAREN>
 	 (
 	subQuery = term()

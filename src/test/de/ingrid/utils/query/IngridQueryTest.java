@@ -38,12 +38,12 @@ public class IngridQueryTest extends TestCase {
      */
     public void testQuery() throws Exception {
         IngridQuery query = new IngridQuery();
-        query.addClause(new ClauseQuery(IngridQuery.AND));
+        query.addClause(new ClauseQuery(true, false));
         assertEquals(1,query.getClauses().length);
         
-        query=new IngridQuery(IngridQuery.TERM, IngridQuery.AND, "content");
+        query=new IngridQuery(true, false, IngridQuery.TERM,  "content");
         assertEquals(IngridQuery.TERM,query.getType());
         assertEquals("content",query.getContent());
-        assertEquals(IngridQuery.AND,query.getOperation());
+        assertEquals(true,query.isRequred());
     }
 }

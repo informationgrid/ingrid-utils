@@ -113,36 +113,37 @@ public class QueryStringParserTest extends TestCase {
      */
     public void testQueries() throws Exception {
         IngridQuery q = parse("fische");
-        testTerms(q.getTerms(), new String[] { "fische" }, new int[] { IngridQuery.AND });
+        testTerms(q.getTerms(), new String[] { "fische" }, new boolean[][] {{true, false}});
 
         q = parse("fische frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] {{true, false}, {true, false}});
 
         q = parse("fische frösche ort:Halle");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] {{true, false}, {true, false}});
         testFields(q.getFields(), new String[] { "ort:Halle" });
 
         q = parse("fische frösche ort:Halle land:germany");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] {{true, false},{true, false}});
         testFields(q.getFields(), new String[] { "ort:Halle", "land:germany" });
 
         q = parse("fische OR frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.OR });
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { {true, false},{false, false} });
 
         q = parse("fische AND frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { {true, false},{true, false} });
 
         q = parse("(ort:Halle land:germany) fische frösche ");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new int[] { IngridQuery.AND, IngridQuery.AND });
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { {true, false},{true, false} });
         assertEquals(1, q.getClauses().length);
         testFields(q.getClauses()[0].getFields(), new String[] { "ort:Halle", "land:germany" });
     }
 
-    private static void testTerms(TermQuery[] termQuery, String[] terms, int[] operations) {
+    private static void testTerms(TermQuery[] termQuery, String[] terms, boolean[][] booleans) {
         assertEquals(terms.length, termQuery.length);
         for (int i = 0; i < termQuery.length; i++) {
             assertEquals(termQuery[i].getTerm(), terms[i]);
-            assertEquals(termQuery[i].getOperation(), operations[i]);
+            assertEquals(termQuery[i].isRequred(), booleans[i][0]);
+            assertEquals(termQuery[i].isProhibited(), booleans[i][1]);
         }
     }
 
@@ -183,7 +184,7 @@ public class QueryStringParserTest extends TestCase {
      */
     public void testDataType() throws Exception {
         IngridQuery query = QueryStringParser.parse("datatype:news wetter ort:Berlin");
-        assertEquals("news", query.getDataType());
+        assertEquals("news", query.getPositiveDataTypes()[0]);
     }
 
     /**
