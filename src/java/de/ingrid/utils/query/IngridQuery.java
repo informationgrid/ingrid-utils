@@ -98,6 +98,9 @@ public class IngridQuery extends IngridDocument {
      * @param field
      */
     public void addField(FieldQuery field) {
+        if(field.getFieldName().toLowerCase().equals(DATA_TYPE)){
+            addToList(DATA_TYPE, field);
+        }
         addToList(FIELD_KEY, field);
     }
 
@@ -196,7 +199,7 @@ public class IngridQuery extends IngridDocument {
      * @return the positive data type's of this query 
      */
     public String[] getPositiveDataTypes() {
-        FieldQuery[] fields = getFields();
+        FieldQuery[] fields = getDataTypes();
         int count = fields.length;
         ArrayList arraylist = new ArrayList();
         for (int i = 0; i < count; i++) {
@@ -209,10 +212,22 @@ public class IngridQuery extends IngridDocument {
     }
     
     /**
+     * @return 
+     */
+    public FieldQuery[] getDataTypes() {
+        ArrayList arrayList = getArrayList(DATA_TYPE);
+        if(arrayList==null){
+            arrayList = new ArrayList();
+        }
+        return (FieldQuery[]) arrayList.toArray(new FieldQuery[arrayList.size()]);
+        
+    }
+
+    /**
      * @return the negative data type's of this query 
      */
     public String[] getNegativeDataTypes() {
-        FieldQuery[] fields = getFields();
+        FieldQuery[] fields = getDataTypes();
         int count = fields.length;
         ArrayList arraylist = new ArrayList();
         for (int i = 0; i < count; i++) {
