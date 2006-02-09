@@ -22,14 +22,14 @@ public class IngridQuery extends IngridDocument {
 
     private static final long serialVersionUID = 9L;
 
-//    /***/
-//    public static final int NOT = -1;
-//
-//    /***/
-//    public static final int AND = 0;
-//
-//    /***/
-//    public static final int OR = 1;
+    // /***/
+    // public static final int NOT = -1;
+    //
+    // /***/
+    // public static final int AND = 0;
+    //
+    // /***/
+    // public static final int OR = 1;
 
     /***/
     public static final int TERM = 2;
@@ -73,17 +73,17 @@ public class IngridQuery extends IngridDocument {
         putBoolean(REQUIRED, required);
         putBoolean(PROHIBITED, prohibited);
         putInt(TYPE, type);
-        
+
     }
-    
-    public boolean isRequred () {
+
+    public boolean isRequred() {
         return getBoolean(REQUIRED);
     }
 
     public boolean isProhibited() {
         return getBoolean(PROHIBITED);
     }
-    
+
     /**
      * @return the query type
      */
@@ -91,17 +91,17 @@ public class IngridQuery extends IngridDocument {
         return getInt(TYPE);
     }
 
-
     /**
      * Adds a field query
      * 
      * @param field
      */
     public void addField(FieldQuery field) {
-        if(field.getFieldName().toLowerCase().equals(DATA_TYPE)){
+        if (field.getFieldName().toLowerCase().equals(DATA_TYPE)) {
             addToList(DATA_TYPE, field);
+        } else {
+            addToList(FIELD_KEY, field);
         }
-        addToList(FIELD_KEY, field);
     }
 
     /**
@@ -196,43 +196,41 @@ public class IngridQuery extends IngridDocument {
     }
 
     /**
-     * @return the positive data type's of this query 
+     * @return the positive data type's of this query
      */
     public String[] getPositiveDataTypes() {
         FieldQuery[] fields = getDataTypes();
         int count = fields.length;
         ArrayList arraylist = new ArrayList();
         for (int i = 0; i < count; i++) {
-            if (fields[i].getFieldName().toLowerCase().equals(DATA_TYPE)
-                    && !fields[i].isProhibited()) {
+            if (fields[i].getFieldName().toLowerCase().equals(DATA_TYPE) && !fields[i].isProhibited()) {
                 arraylist.add(fields[i].getFieldValue());
             }
         }
         return (String[]) arraylist.toArray(new String[arraylist.size()]);
     }
-    
+
     /**
-     * @return 
+     * @return
      */
     public FieldQuery[] getDataTypes() {
         ArrayList arrayList = getArrayList(DATA_TYPE);
-        if(arrayList==null){
+        if (arrayList == null) {
             arrayList = new ArrayList();
         }
         return (FieldQuery[]) arrayList.toArray(new FieldQuery[arrayList.size()]);
-        
+
     }
 
     /**
-     * @return the negative data type's of this query 
+     * @return the negative data type's of this query
      */
     public String[] getNegativeDataTypes() {
         FieldQuery[] fields = getDataTypes();
         int count = fields.length;
         ArrayList arraylist = new ArrayList();
         for (int i = 0; i < count; i++) {
-            if (fields[i].getFieldName().toLowerCase().equals(DATA_TYPE)
-                    && fields[i].isProhibited()) {
+            if (fields[i].getFieldName().toLowerCase().equals(DATA_TYPE) && fields[i].isProhibited()) {
                 arraylist.add(fields[i].getFieldValue());
             }
         }
