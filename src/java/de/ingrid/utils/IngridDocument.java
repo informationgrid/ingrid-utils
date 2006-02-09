@@ -221,7 +221,7 @@ public class IngridDocument extends HashMap implements Externalizable {
      * @param key
      * @param value
      */
-    public void setBoolean(String key, boolean value) {
+    public void putBoolean(String key, boolean value) {
         put(key, new Boolean(value));
 
     }
