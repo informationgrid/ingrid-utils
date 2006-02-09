@@ -37,5 +37,9 @@ public class FieldQuery extends IngridQuery {
     public String getFieldValue() {
         return (String) get(FIELD_VALUE);
     }
+    
+    public String toString() {
+        return getFieldName()+":"+getFieldValue();
+    }
 
 }
