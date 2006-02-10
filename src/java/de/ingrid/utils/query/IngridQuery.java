@@ -97,7 +97,7 @@ public class IngridQuery extends IngridDocument {
      * @param field
      */
     public void addField(FieldQuery field) {
-        if (field.getFieldName().toLowerCase().equals(DATA_TYPE)) {
+        if (field.getFieldName().equals(DATA_TYPE)) {
             addToList(DATA_TYPE, field);
         } else {
             addToList(FIELD_KEY, field);
