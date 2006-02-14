@@ -9,6 +9,8 @@ package de.ingrid.utils.dsc;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import sun.security.krb5.internal.ccache.ar;
+
 import de.ingrid.utils.IngridDocument;
 
 /**
@@ -55,6 +57,8 @@ public class Record extends IngridDocument {
 	 */
 	public String toString() {
 		StringBuffer buffer = new StringBuffer();
+		buffer.append("new record: " );
+
 		int count = numberOfColumns();
 		for (int i = 0; i < count; i++) {
 			buffer.append(getArrayList(COLUMNS).get(i));
@@ -63,15 +67,17 @@ public class Record extends IngridDocument {
 			buffer.append(" ");
 		}
 		buffer.append("\n");
+		
 		Record[] subRecords = getSubRecords();
 		if (subRecords != null) {
 			for (int i = 0; i < subRecords.length; i++) {
 				buffer.append("\t");
 				buffer.append(subRecords[i].toString());
+				buffer.append("\n");
 			}
 		}
 
-		buffer.append(" | ");
+		buffer.append("\n");
 		return buffer.toString();
 	}
 
@@ -164,11 +170,14 @@ public class Record extends IngridDocument {
 	
 	public Column[] getColumns() {
 		ArrayList arrayList = getArrayList(COLUMNS);
-		Record[] subRecords = getSubRecords();
-		for (int i = 0; i < subRecords.length; i++) {
-			Record subRecord = subRecords[i];
-			arrayList.addAll(Arrays.asList(subRecord.getColumns()));
+		if(arrayList==null){
+			arrayList = new ArrayList();
 		}
+//		Record[] subRecords = getSubRecords();
+//		for (int i = 0; i < subRecords.length; i++) {
+//			Record subRecord = subRecords[i];
+//			arrayList.addAll(Arrays.asList(subRecord.getColumns()));
+//		}
 		return (Column[]) arrayList.toArray(new Column[arrayList.size()]);
 	}
 
