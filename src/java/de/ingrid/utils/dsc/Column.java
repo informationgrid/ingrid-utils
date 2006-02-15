@@ -7,6 +7,7 @@
 package de.ingrid.utils.dsc;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * bean for database column information.
@@ -40,7 +41,7 @@ public class Column extends UniqueObject implements Serializable {
 
 	private String fType;
 
-	private Filter fFilter;
+	private ArrayList fFilters = new ArrayList();
 
 	private boolean fToIndex;
 
@@ -178,20 +179,20 @@ public class Column extends UniqueObject implements Serializable {
 		fToIndex = b;
 	}
 
-	/**
-	 * @return the filter or <code>null</code>
-	 * 
-	 */
-	public Filter getFilter() {
-		return fFilter;
-	}
-
-	/**
-	 * set a filter
-	 * 
-	 * @param filter
-	 */
-	public void setFilter(Filter filter) {
-		fFilter = filter;
-	}
+    /**
+     * add a filter
+     * @param filter
+     */
+    public void addFilter(Filter filter) {
+       this.fFilters.add(filter);
+    }
+    
+    public Filter[] getFilters(){
+        return (Filter[]) this.fFilters.toArray(new Filter[this.fFilters.size()]);
+    }
+    
+    public void removeFilter(Filter filter){
+        this.fFilters.remove(filter);
+    }
+    
 }
