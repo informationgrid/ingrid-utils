@@ -67,6 +67,8 @@ public class PlugDescription extends IngridDocument {
 
     public static final String  MOTHER_IBUS_URL = "motherIbusUrl";
 
+    private static final String BUSES = "busUrls";
+
 	/**
 	 * @return Returns the connection.
 	 */
@@ -385,4 +387,33 @@ public class PlugDescription extends IngridDocument {
 	public String getIPlugClass() {
 		return  (String) get(IPLUG_CLASS);
 	}
+
+    /**
+     * adds bus url
+     * @param url
+     */
+    public void addBusUrl(String url) {
+        addToList(BUSES, url);
+    }
+
+    /**
+     * @return a list of bus urls as string array
+     */
+    public String[] getBusUrls() {
+        ArrayList arrayList = getArrayList(BUSES);
+        if(arrayList==null){
+            arrayList = new ArrayList();
+        }
+        return (String[]) arrayList.toArray(new String[arrayList.size()]);
+    }
+
+    public void removeBusUrl(String string) {
+        ArrayList arrayList = getArrayList(BUSES);
+        if(arrayList!=null){
+            arrayList.remove(string);    
+        }
+    }
+    
+    
+    
 }
