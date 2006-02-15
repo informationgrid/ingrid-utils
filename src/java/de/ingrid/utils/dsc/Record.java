@@ -9,7 +9,6 @@ package de.ingrid.utils.dsc;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import sun.security.krb5.internal.ccache.ar;
 
 import de.ingrid.utils.IngridDocument;
 
