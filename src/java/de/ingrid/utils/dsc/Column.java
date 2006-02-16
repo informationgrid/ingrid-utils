@@ -45,6 +45,8 @@ public class Column extends UniqueObject implements Serializable {
 
 	private boolean fToIndex;
 
+	private boolean fFilterIsRequred;
+
 	/**
 	 * @param tableName
 	 * @param columnName
@@ -179,6 +181,14 @@ public class Column extends UniqueObject implements Serializable {
 		fToIndex = b;
 	}
 
+	public void setFilterIsRequred(boolean required){
+		this.fFilterIsRequred = required;
+	}
+	
+	public boolean filterIsRequired(){
+		return this.fFilterIsRequred;
+	}
+	
     /**
      * add a filter
      * @param filter
