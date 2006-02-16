@@ -181,7 +181,7 @@ public class Column extends UniqueObject implements Serializable {
 		fToIndex = b;
 	}
 
-	public void setFilterIsRequred(boolean required){
+	public void setFilterIsRequired(boolean required){
 		this.fFilterIsRequred = required;
 	}
 	
