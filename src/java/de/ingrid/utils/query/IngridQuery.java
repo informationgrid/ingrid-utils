@@ -8,6 +8,8 @@ package de.ingrid.utils.query;
 
 import java.util.ArrayList;
 
+import javax.swing.text.FieldView;
+
 import de.ingrid.utils.IngridDocument;
 
 /**
@@ -54,6 +56,14 @@ public class IngridQuery extends IngridDocument {
 
     private static final String PROHIBITED = "prohibited";
 
+    public static final String SCORE_RANKED = "score";
+
+	public static final String RANKED = "ranking";
+
+	public static final String DATE_RANKED = "date";
+
+	public static final String NOT_RANKED = "off";
+
     /**
      * Default constructor
      */
@@ -99,6 +109,9 @@ public class IngridQuery extends IngridDocument {
     public void addField(FieldQuery field) {
         if (field.getFieldName().equals(DATA_TYPE)) {
             addToList(DATA_TYPE, field);
+        }      else if (field.getFieldName().equals(RANKED)){
+            	put(RANKED, field.getFieldValue().toLowerCase());
+            	
         } else {
             addToList(FIELD_KEY, field);
         }
@@ -236,4 +249,20 @@ public class IngridQuery extends IngridDocument {
         }
         return (String[]) arraylist.toArray(new String[arraylist.size()]);
     }
+
+	public boolean isScoreRanked() {
+		return get(RANKED)!=null && get(RANKED).equals(SCORE_RANKED);
+	}
+	
+	public boolean isDateRanked() {
+		return get(RANKED)!=null && get(RANKED).equals(DATE_RANKED);
+	}
+	public boolean isNotRanked() {
+		return get(RANKED)!=null && get(RANKED).equals(NOT_RANKED);
+	}
+
+	public String getRankingType() {
+		return (String) get(RANKED);
+	}
+	
 }

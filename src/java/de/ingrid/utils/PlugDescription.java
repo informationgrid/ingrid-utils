@@ -9,6 +9,8 @@ package de.ingrid.utils;
 import java.io.File;
 import java.util.ArrayList;
 
+import de.ingrid.utils.query.IngridQuery;
+
 /**
  * PlugDescription contains describing values of an
  * {@link de.ingrid.iplug.IPlug}. Standard values could be stored and retrieved
@@ -70,7 +72,6 @@ public class PlugDescription extends IngridDocument {
 
 	private static final String BUSES = "busUrls";
 
-	private static final String RANKED = "ranked";
 
 	/**
 	 * @return Returns the connection.
@@ -418,12 +419,26 @@ public class PlugDescription extends IngridDocument {
 		}
 	}
 
-	public void setRanked(boolean isRanked) {
-		putBoolean(RANKED, isRanked);
+	public void setRankinTypes(boolean score, boolean date, boolean notRanked) {
+		if (score) {
+			addToList(IngridQuery.RANKED, IngridQuery.SCORE_RANKED);
+		}
+		if (date) {
+			addToList(IngridQuery.RANKED, IngridQuery.DATE_RANKED);
+		}
+		if (notRanked) {
+			addToList(IngridQuery.RANKED, IngridQuery.NOT_RANKED);
+		}
 	}
 	
-	public boolean isRanked(){
-		return getBoolean(RANKED);
+	
+	public String[] getRankingTypes() {
+		ArrayList arrayList = getArrayList(IngridQuery.RANKED);
+		if(arrayList==null){
+			arrayList = new ArrayList();
+		}
+		return (String[]) arrayList.toArray(new String[arrayList.size()]);
+		
 	}
 
 }

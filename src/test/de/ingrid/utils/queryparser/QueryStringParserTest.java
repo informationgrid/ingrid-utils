@@ -227,5 +227,11 @@ public class QueryStringParserTest extends TestCase {
         assertEquals("Query contains no fields.", 1, query.getFields().length);
         assertEquals("The expected field 'x1:-31.0' does not exist.", "x1:-31.0", query.getFields()[0].getContent().toString());
     }
+    
+    public void testRanked() throws Exception {
+		assertTrue( QueryStringParser.parse("bla ranking:score").isScoreRanked());
+		assertTrue( QueryStringParser.parse("bla ranking:date").isDateRanked());
+		assertTrue( QueryStringParser.parse("bla ranking:off").isNotRanked());
+	}
 
 }
