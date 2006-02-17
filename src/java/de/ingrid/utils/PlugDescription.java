@@ -25,9 +25,10 @@ import java.util.ArrayList;
  */
 public class PlugDescription extends IngridDocument {
 
-    private static final long serialVersionUID = PlugDescription.class.getName().hashCode();
+	private static final long serialVersionUID = PlugDescription.class
+			.getName().hashCode();
 
-    public static final String CONNECTION = "connection";
+	public static final String CONNECTION = "connection";
 
 	private static final String IS_CRONBASED_INDEXING = "cronbasedIndexing";
 
@@ -52,8 +53,8 @@ public class PlugDescription extends IngridDocument {
 	public static final String PERSON_PHONE = "personPhone";
 
 	public static final String PERSON_TITLE = "personTitle";
-    
-    public static final String PARTNER = "partner";
+
+	public static final String PARTNER = "partner";
 
 	public static final String IPLUG_ID = "plugId";
 
@@ -65,9 +66,11 @@ public class PlugDescription extends IngridDocument {
 
 	public static final String IPLUG_CLASS = "iPlugClass";
 
-    public static final String  MOTHER_IBUS_URL = "motherIbusUrl";
+	public static final String MOTHER_IBUS_URL = "motherIbusUrl";
 
-    private static final String BUSES = "busUrls";
+	private static final String BUSES = "busUrls";
+
+	private static final String RANKED = "ranked";
 
 	/**
 	 * @return Returns the connection.
@@ -101,15 +104,15 @@ public class PlugDescription extends IngridDocument {
 
 	/**
 	 * @return Returns list of supported dataTypes.
-     * 
+	 * 
 	 */
 	public String[] getDataTypes() {
-        ArrayList arrayList = getArrayList(DATA_TYPE);
-        if (arrayList != null) {
-            return (String[]) arrayList.toArray(new String[arrayList.size()]);
-        }
-        return new String[0];
-    }
+		ArrayList arrayList = getArrayList(DATA_TYPE);
+		if (arrayList != null) {
+			return (String[]) arrayList.toArray(new String[arrayList.size()]);
+		}
+		return new String[0];
+	}
 
 	/**
 	 * @param dataType
@@ -121,6 +124,7 @@ public class PlugDescription extends IngridDocument {
 
 	/**
 	 * sets the data source name
+	 * 
 	 * @param dataSourceName
 	 */
 	public void setDataSourceName(String dataSourceName) {
@@ -136,9 +140,10 @@ public class PlugDescription extends IngridDocument {
 		return (String) get(DATA_SOURCE_DESCRIPTION);
 
 	}
-	
+
 	/**
 	 * sets the data source description
+	 * 
 	 * @param dataSourceDescription
 	 */
 	public void setDataSourceDescription(String dataSourceDescription) {
@@ -179,26 +184,26 @@ public class PlugDescription extends IngridDocument {
 
 	/**
 	 * @param organisation
-	 *            The organisation  to set.
+	 *            The organisation to set.
 	 */
 	public void setOrganisation(String organisation) {
 		put(ORGANISATION, organisation);
 	}
-    
-    /**
-     * @return Returns the partner.
-     */
-    public String getPartner() {
-        return (String) get(PARTNER);
-    }
 
-    /**
-     * @param partner
-     *            The partner to set.
-     */
-    public void setPartner(String partner) {
-        put(PARTNER, partner);
-    }
+	/**
+	 * @return Returns the partner.
+	 */
+	public String getPartner() {
+		return (String) get(PARTNER);
+	}
+
+	/**
+	 * @param partner
+	 *            The partner to set.
+	 */
+	public void setPartner(String partner) {
+		put(PARTNER, partner);
+	}
 
 	/**
 	 * @return Returns the organisation abbreviation.
@@ -355,23 +360,21 @@ public class PlugDescription extends IngridDocument {
 	public String getProxyServiceURL() {
 		return (String) get(PROXY_SERVICE_URL);
 	}
-    
-    
-    /**
-     * @param motherIbusUrl
-     *            The URL of the mother Ibus.
-     */
-    public void setMotherIBusURL(String motherIbusUrl) {
-        put(MOTHER_IBUS_URL, motherIbusUrl);
-    }
 
-    /**
-     * @return The URL of the proxy service.
-     */
-    public String getMotherIBusURL() {
-        return (String) get(MOTHER_IBUS_URL);
-    }
-    
+	/**
+	 * @param motherIbusUrl
+	 *            The URL of the mother Ibus.
+	 */
+	public void setMotherIBusURL(String motherIbusUrl) {
+		put(MOTHER_IBUS_URL, motherIbusUrl);
+	}
+
+	/**
+	 * @return The URL of the proxy service.
+	 */
+	public String getMotherIBusURL() {
+		return (String) get(MOTHER_IBUS_URL);
+	}
 
 	/**
 	 * @param iPlugClass
@@ -385,35 +388,42 @@ public class PlugDescription extends IngridDocument {
 	 * @return The class of the used IPlug.
 	 */
 	public String getIPlugClass() {
-		return  (String) get(IPLUG_CLASS);
+		return (String) get(IPLUG_CLASS);
 	}
 
-    /**
-     * adds bus url
-     * @param url
-     */
-    public void addBusUrl(String url) {
-        addToList(BUSES, url);
-    }
+	/**
+	 * adds bus url
+	 * 
+	 * @param url
+	 */
+	public void addBusUrl(String url) {
+		addToList(BUSES, url);
+	}
 
-    /**
-     * @return a list of bus urls as string array
-     */
-    public String[] getBusUrls() {
-        ArrayList arrayList = getArrayList(BUSES);
-        if(arrayList==null){
-            arrayList = new ArrayList();
-        }
-        return (String[]) arrayList.toArray(new String[arrayList.size()]);
-    }
+	/**
+	 * @return a list of bus urls as string array
+	 */
+	public String[] getBusUrls() {
+		ArrayList arrayList = getArrayList(BUSES);
+		if (arrayList == null) {
+			arrayList = new ArrayList();
+		}
+		return (String[]) arrayList.toArray(new String[arrayList.size()]);
+	}
 
-    public void removeBusUrl(String string) {
-        ArrayList arrayList = getArrayList(BUSES);
-        if(arrayList!=null){
-            arrayList.remove(string);    
-        }
-    }
-    
-    
-    
+	public void removeBusUrl(String string) {
+		ArrayList arrayList = getArrayList(BUSES);
+		if (arrayList != null) {
+			arrayList.remove(string);
+		}
+	}
+
+	public void setRanked(boolean isRanked) {
+		putBoolean(RANKED, isRanked);
+	}
+	
+	public boolean isRanked(){
+		return getBoolean(RANKED);
+	}
+
 }
