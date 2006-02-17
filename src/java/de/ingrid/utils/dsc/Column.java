@@ -203,8 +203,12 @@ public class Column extends UniqueObject implements Serializable {
 	}
 
 	public Filter[] getFilters() {
-		return (Filter[]) this.fFilters
-				.toArray(new Filter[this.fFilters.size()]);
+		if (fFilters != null) {
+			return (Filter[]) this.fFilters.toArray(new Filter[this.fFilters
+					.size()]);
+		} else {
+			return new Filter[0];
+		}
 	}
 
 	public void removeFilter(Filter filter) {
