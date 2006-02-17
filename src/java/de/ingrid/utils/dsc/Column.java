@@ -19,9 +19,10 @@ import java.util.ArrayList;
  */
 public class Column extends UniqueObject implements Serializable {
 
-    private static final long serialVersionUID = (long)Column.class.getName().hashCode();
+	private static final long serialVersionUID = (long) Column.class.getName()
+			.hashCode();
 
-    public static final String TEXT = "text";
+	public static final String TEXT = "text";
 
 	public static final String INTEGER = "int"; // not supported yet
 
@@ -181,28 +182,33 @@ public class Column extends UniqueObject implements Serializable {
 		fToIndex = b;
 	}
 
-	public void setFilterIsRequired(boolean required){
+	public void setFilterIsRequired(boolean required) {
 		this.fFilterIsRequired = required;
 	}
-	
-	public boolean filterIsRequired(){
+
+	public boolean filterIsRequired() {
 		return this.fFilterIsRequired;
 	}
-	
-    /**
-     * add a filter
-     * @param filter
-     */
-    public void addFilter(Filter filter) {
-       this.fFilters.add(filter);
-    }
-    
-    public Filter[] getFilters(){
-        return (Filter[]) this.fFilters.toArray(new Filter[this.fFilters.size()]);
-    }
-    
-    public void removeFilter(Filter filter){
-        this.fFilters.remove(filter);
-    }
-    
+
+	/**
+	 * add a filter
+	 * 
+	 * @param filter
+	 */
+	public void addFilter(Filter filter) {
+		if (this.fFilters == null) {
+			this.fFilters = new ArrayList();
+		}
+		this.fFilters.add(filter);
+	}
+
+	public Filter[] getFilters() {
+		return (Filter[]) this.fFilters
+				.toArray(new Filter[this.fFilters.size()]);
+	}
+
+	public void removeFilter(Filter filter) {
+		this.fFilters.remove(filter);
+	}
+
 }
