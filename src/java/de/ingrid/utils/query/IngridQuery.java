@@ -116,10 +116,21 @@ public class IngridQuery extends IngridDocument {
             addToList(FIELD_KEY, field);
         }
     }
+    
+    /**
+     * removes a fieldquery from the query
+     * @param fieldQuery
+     */
+    public void removeField(FieldQuery fieldQuery) {
+		ArrayList arrayList = getArrayList(FIELD_KEY);
+		if (arrayList != null) {
+			arrayList.remove(fieldQuery);
+		}
+	}
 
     /**
-     * @return array of field queries
-     */
+	 * @return array of field queries
+	 */
     public FieldQuery[] getFields() {
         ArrayList arrayList = getArrayList(FIELD_KEY);
         if (arrayList == null) {
