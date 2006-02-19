@@ -5,7 +5,6 @@
  */
 package de.ingrid.iplug.sns.utils;
 
-import de.ingrid.utils.IngridHit;
 import de.ingrid.utils.IngridHitDetail;
 
 /**
@@ -65,20 +64,22 @@ public class Topic extends IngridHitDetail {
      */
     public static final String TOPIC_NAME = "topicName";
 
-    /**
-     * @param topicID
-     * @param topicName
-     * @param hit
-     */
-    public Topic(String topicID, String topicName, IngridHit hit) {
-        if (hit != null) {
-            setPlugId(hit.getPlugId());
-            setDocumentId(hit.getDocumentId());
-        }
 
-        put(TOPIC_ID, topicID);
-        put(TOPIC_NAME, topicName);
-    }
+    
+    /**
+     * @param plugId
+     * @param documentId
+     * @param topicId
+     * @param title the name of the topic
+     * @param summary
+     */
+    public Topic(String plugId, int documentId, String topicId, String title,
+			String summary) {
+		super(plugId, documentId, 0, /*we have only one sns*/
+				-1f/* topics are unranked==no scores */, title, summary);
+		setTopicID(topicId);
+		setTopicName(title);
+	}
 
     /**
      * 

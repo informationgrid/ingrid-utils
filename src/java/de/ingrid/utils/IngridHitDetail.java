@@ -32,6 +32,12 @@ public class IngridHitDetail extends IngridHit {
         put(SUMMARY, summary);
     }
 
+    public IngridHitDetail(String plugId, int documentId, int dataSourceId, float score, String title, String summary) {
+        super(plugId, documentId,dataSourceId, score);
+        put(TITLE, title);
+        put(SUMMARY, summary);
+    }
+    
     /**
      * @return a title
      */

@@ -33,13 +33,9 @@ public class DetailedTopic extends Topic{
      */
     public static final String FROM = "from";
     
-    /**
-     * @param topicID
-     * @param topicName
-     * @param hit 
-     */
-    public DetailedTopic(String topicID, String topicName, IngridHit hit) {
-        super(topicID, topicName, hit);
+   
+    public DetailedTopic(String plugId, int documentId, String topicId, String title, String summary) {
+        super(plugId, documentId, topicId, title, summary);
     }
     
     /**
