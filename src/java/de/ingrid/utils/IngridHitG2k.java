@@ -63,21 +63,9 @@ public class IngridHitG2k extends IngridHit {
     
     
     public IngridHitG2k() {
-     // for serializing...
+        // for serializing...
     }
     
-    /**
-     * @param plugId
-     * @param documentId
-     * @param dataSourceId
-     * @param score
-     */
-    public IngridHitG2k(String plugId, String title, String summary, String uri) {
-        super(plugId, 0, 0, (float) 1.0);
-        put(SUMMARY, summary);
-        put(TITLE, title);
-        put(URI, uri);
-    }
     
     /**
      * @param plugId
@@ -91,9 +79,23 @@ public class IngridHitG2k extends IngridHit {
         put(SUMMARY, summary);
         put(TITLE, title);
         put(URI, uri);
-        put(META_HITS, noOfHits);
+        put(META_HITS, noOfHits);      
     }
-    
+     
+    /**
+     * @param plugId
+     * @param documentId
+     * @param dataSourceId
+     * @param score
+     */
+    public IngridHitG2k(String plugId, String title, String summary, String uri) {
+        super(plugId, 0, 0, (float) 1.0);
+        put(SUMMARY, summary);
+        put(TITLE, title);
+        put(URI, uri);
+        put(META_HITS, new String("1"));
+    }
+      
     /**
      * @return a title
      */
