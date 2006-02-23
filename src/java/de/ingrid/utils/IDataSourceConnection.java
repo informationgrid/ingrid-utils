@@ -6,9 +6,11 @@
 
 package de.ingrid.utils;
 
+import java.io.Serializable;
+
 /**
  * 
  */
-public interface IDataSourceConnection {
+public interface IDataSourceConnection extends Serializable{
 
 }
