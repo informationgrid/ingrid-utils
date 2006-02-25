@@ -46,4 +46,13 @@ public class IngridQueryTest extends TestCase {
         assertEquals("content",query.getContent());
         assertEquals(true,query.isRequred());
     }
+    
+    public void testRemoveDataTypes() throws Exception {
+		IngridQuery query = new IngridQuery();
+		FieldQuery dataType = new FieldQuery(true, false, IngridQuery.DATA_TYPE, "bla"); 
+		query.addField(dataType);
+		assertEquals(1, query.getDataTypes().length);
+		query.removeDataType("bla");
+		assertEquals(0, query.getDataTypes().length);
+	}
 }
