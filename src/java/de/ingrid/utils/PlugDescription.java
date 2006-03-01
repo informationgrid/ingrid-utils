@@ -72,6 +72,8 @@ public class PlugDescription extends IngridDocument {
 
 	private static final String BUSES = "busUrls";
 
+	private boolean fIsActivated;
+
 
 	/**
 	 * @return Returns the connection.
@@ -439,6 +441,27 @@ public class PlugDescription extends IngridDocument {
 		}
 		return (String[]) arrayList.toArray(new String[arrayList.size()]);
 		
+	}
+
+	/**
+	 * activates a iplug, Attention this state is not serialized
+	 */
+	public void activate() {
+		this.fIsActivated = true;
+	}
+	
+	/**
+	 * deactivate a iplug @see PlugDescription#activate()
+	 */
+	public void deActivate() {
+		this.fIsActivated = false;
+	}
+	
+	/**
+	 * @return true if the plug is activated @see PlugDescription#activate()
+	 */
+	public boolean isActivate() {
+		return this.fIsActivated;
 	}
 
 }
