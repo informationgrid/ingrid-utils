@@ -28,6 +28,10 @@ public interface IDetailer
      * @throws Exception
      */
     public IngridHitDetail[]  getDetails(IngridHit[] hits, IngridQuery query, String[] requestedFields) throws Exception;
+
+
+
+	public void close() throws Exception;
     
     
 }
