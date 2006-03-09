@@ -24,4 +24,6 @@ public interface IPlug extends ISearcher, IDetailer {
      * @param plugDescription
      */
     void configure(PlugDescription plugDescription) throws Exception;
+    
+    public void close() throws Exception;
 }

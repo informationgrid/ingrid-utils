@@ -31,7 +31,5 @@ public interface IDetailer
 
 
 
-	public void close() throws Exception;
-    
-    
+    public void close() throws Exception;    
 }

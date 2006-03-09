@@ -167,7 +167,7 @@ public class IngridDocument extends HashMap implements Externalizable {
         try {
             return ((Long) get(key)).longValue();
         } catch (ClassCastException e) {
-            throw new IllegalArgumentException("value to key is not long or wasn's setted with putInt");
+            throw new IllegalArgumentException("value to key is not long or wasn's setted with putLong");
         }
 
     }
