@@ -24,7 +24,7 @@ import junit.framework.TestCase;
  */
 public class UpdateTest extends TestCase {
 
-    private static final boolean ENABLED = true;
+    private static final boolean ENABLED = false;
 
     private static final String REPOSITORY = "http://weta-3:8080/maven2/";
 
@@ -39,7 +39,7 @@ public class UpdateTest extends TestCase {
      */
     public void testWrongRepository() throws Exception {
         try {
-            Update.main(new String[] { "http://unknown:8080/maven2/", "ingrid/iplug.xml", "target/jarDir", "", "" });
+            Update.main(new String[] { "http://unknown:8080/maven2/", "ingrid/iplug.xml",  "", "" });
             fail("wrong repository");
         } catch (UnknownHostException e) {
             //
