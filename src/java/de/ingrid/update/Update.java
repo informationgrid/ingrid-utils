@@ -7,17 +7,14 @@
 package de.ingrid.update;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -25,11 +22,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-
-import de.ingrid.update.Dependency;
-import de.ingrid.update.MD5Util;
-import de.ingrid.update.PomParser;
-import de.ingrid.update.Project;
 
 /**
  * Tool for updating a local directory of jars from a maven2 repository with
@@ -62,51 +54,71 @@ public class Update {
     /**
      * @param repositoryUrl
      * @param updateXmlPath
-     * @param jarDir
      * @throws SAXException
      * @throws IOException
      * @throws ParserConfigurationException
      */
-    public void execute(URL repositoryUrl, String updateXmlPath, File jarDir) throws SAXException, IOException,
+    public void execute(URL repositoryUrl, String updateXmlPath) throws SAXException, IOException,
             ParserConfigurationException {
         LOG.info("update started");
-        jarDir.mkdirs();
         URL updateXml = getUpdateXmlUrl(repositoryUrl, updateXmlPath);
-        LOG.info("local jar directory: '" + jarDir.getAbsolutePath() + "'");
         LOG.info("retrieving update informations from '" + updateXml + "'");
 
         PomParser pomParser = new PomParser(new InputSource(getAuthenticatedStream(updateXml)));
         Dependency[] dependencies = pomParser.getDependencies();
         LOG.info("found " + dependencies.length + " dependencies");
-        downloadMissingDependencies(jarDir, repositoryUrl, dependencies);
+        downloadMissingDependencies(repositoryUrl, dependencies);
         LOG.info("update finished");
     }
 
-    private void downloadMissingDependencies(File jarDir, URL repoUrl, Dependency[] dependencies) throws IOException {
-        List localJarNames = getLocalJarsNames(jarDir);
+    private void downloadMissingDependencies(URL repoUrl, Dependency[] dependencies) throws IOException {
         for (int i = 0; i < dependencies.length; i++) {
-            String jarName = Project.extractJarName(dependencies[i]);
-            LOG.info("checking '" + jarName + "'");
-            String dependencyJarUrl = Project.constructJarUrl(repoUrl, dependencies[i], jarName);
-            String md5Url = dependencyJarUrl + ".md5";
-            File localJar = new File(jarDir, jarName);
-            if (!localJarNames.contains(jarName)) {
+            String resourceName = Project.extractResourceName(dependencies[i]);
+            LOG.info("checking '" + resourceName + "'");
+            String resourceUrl = Project.constructJarUrl(repoUrl, dependencies[i], resourceName);
+            File localResource = getLocalResourcePath(dependencies[i], resourceName);
+            if (!localResource.exists()) {
                 LOG.info("no local copy");
-                downloadJar(dependencyJarUrl, localJar);
+                downloadResource(resourceUrl, localResource);
             }
-            if (!MD5Util.isEqual(getAuthenticatedStream(new URL(md5Url)), new File(jarDir, jarName))) {
+            String md5Url = resourceUrl + ".md5";
+            String md5;
+            try {
+                InputStream md5FileStream = getAuthenticatedStream(new URL(md5Url));
+                md5 = MD5Util.readMD5File(md5FileStream);
+            } catch (FileNotFoundException e) {
+                LOG.info("cannot find md5 file, calculatting own md5");
+                md5 = MD5Util.getMD5(getAuthenticatedStream(new URL(resourceUrl)));
+            }
+            if (!MD5Util.isEqual(md5, localResource)) {
                 LOG.info("new version found");
-                localJar.delete();
-                downloadJar(dependencyJarUrl, localJar);
+                localResource.delete();
+                downloadResource(resourceUrl, localResource);
             }
         }
     }
 
-    private void downloadJar(String dependencyJarUrl, File localJar) throws IOException {
+    private File getLocalResourcePath(Dependency dependency, String resourceName) {
+        String target = dependency.getElement(Dependency.TARGET);
+        File localResource;
+        if (target == null) {
+            localResource = new File(resourceName);
+            LOG.warn("no target entry found for '" + resourceName + "' - copying resource to '"
+                    + localResource.getAbsolutePath() + "'");
+        } else {
+            localResource = new File(target, resourceName);
+        }
+        return localResource;
+    }
+
+    private void downloadResource(String dependencyJarUrl, File localResource) throws IOException {
         LOG.info("start download of '" + dependencyJarUrl + "'");
         URL url = new URL(dependencyJarUrl);
         InputStream inputStream = getAuthenticatedStream(url);
-        FileOutputStream outputStream = new FileOutputStream(localJar);
+        if (localResource.getParentFile() != null) {
+            localResource.getParentFile().mkdirs();
+        }
+        FileOutputStream outputStream = new FileOutputStream(localResource);
         int length = -1;
         byte[] bytes = new byte[4096];
         int readBytes = 0;
@@ -117,7 +129,7 @@ public class Update {
         }
         System.out.println(" downloaded (" + (readBytes / 1024) + " kB)");
         outputStream.close();
-        LOG.info("finished download of '" + localJar.getName() + "'");
+        LOG.info("downloaded '" + localResource.getName() + "' to " + localResource.getAbsoluteFile());
     }
 
     /**
@@ -127,11 +139,11 @@ public class Update {
      * @throws SAXException
      */
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
-        if (args.length < 5) {
+        if (args.length < 4) {
             printUsage();
         }
-        Update update = new Update(args[3], args[4]);
-        update.execute(new URL(args[0]), args[1], new File(args[2]));
+        Update update = new Update(args[2], args[3]);
+        update.execute(new URL(args[0]), args[1]);
     }
 
     private InputStream getAuthenticatedStream(URL url) throws IOException {
@@ -139,7 +151,6 @@ public class Update {
         String authentication = (new sun.misc.BASE64Encoder()).encode((this.fUserName + ":" + this.fPassword)
                 .getBytes());
         connection.addRequestProperty("Authorization", "Basic " + authentication);
-        // TODO catch 401 exc
         InputStream inputStream = null;
         try {
             inputStream = connection.getInputStream();
@@ -158,24 +169,8 @@ public class Update {
                 + "/" + updateXmlPath);
     }
 
-    private static List getLocalJarsNames(File jarDir) {
-        String[] jarNames = jarDir.list(new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                if (name.endsWith(".jar")) {
-                    return true;
-                }
-                return false;
-            }
-        });
-        List localJarList = new ArrayList();
-        if (jarNames != null) {
-            localJarList.addAll(Arrays.asList(jarNames));
-        }
-        return localJarList;
-    }
-
     private static void printUsage() {
-        System.err.println("Usage: <repository> <path of update.xml> <jarDir> <user> <password>");
+        System.err.println("Usage: <repository> <path of update.xml> <user> <password>");
         System.err
                 .println("Example: http://localhost:8080/maven2/ ingrid/iplugA/update.xml /home/ingrid/jars mike ekim");
         System.exit(0);

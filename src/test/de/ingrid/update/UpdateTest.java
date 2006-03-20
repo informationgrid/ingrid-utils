@@ -24,7 +24,7 @@ import junit.framework.TestCase;
  */
 public class UpdateTest extends TestCase {
 
-    private static final boolean ENABLED = false;
+    private static final boolean ENABLED = true;
 
     private static final String REPOSITORY = "http://weta-3:8080/maven2/";
 
@@ -33,8 +33,6 @@ public class UpdateTest extends TestCase {
     private static final String PASSWORD = "m2";
 
     private static final String UPDATE_XML = "ingrid/iplug.xml";
-
-    private static final String LOCAL_JAR_DIR = "target/jarDir";
 
     /**
      * @throws Exception
@@ -47,7 +45,7 @@ public class UpdateTest extends TestCase {
             //
         }
     }
-    
+
     /**
      * @throws Exception
      */
@@ -57,7 +55,7 @@ public class UpdateTest extends TestCase {
             return;
         }
         try {
-            Update.main(new String[] { REPOSITORY, UPDATE_XML, LOCAL_JAR_DIR, USER_NAME, PASSWORD +"hihi"});
+            Update.main(new String[] { REPOSITORY, UPDATE_XML, USER_NAME, PASSWORD + "hihi" });
             fail("wrong repository");
         } catch (SecurityException e) {
             //
@@ -72,7 +70,7 @@ public class UpdateTest extends TestCase {
             System.out.println("skipping " + getName());
             return;
         }
-        Update.main(new String[] { REPOSITORY, UPDATE_XML, LOCAL_JAR_DIR, USER_NAME, PASSWORD });
+        Update.main(new String[] { REPOSITORY, UPDATE_XML, USER_NAME, PASSWORD });
     }
 
 }

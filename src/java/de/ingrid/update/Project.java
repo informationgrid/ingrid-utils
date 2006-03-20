@@ -36,6 +36,9 @@ public class Project {
     /***/
     public static String DESCRIPTION = "description";
 
+    /***/
+    public static String TYPE = "type";
+
     private Map fDependencyElement = new HashMap(4);
 
     /**
@@ -55,6 +58,20 @@ public class Project {
     }
 
     /**
+     * @param name
+     * @param defaultElement
+     * @return the dependency element with the given name or if not existent the
+     *         given default value
+     */
+    public String getElement(String name, String defaultElement) {
+        String element = (String) this.fDependencyElement.get(name);
+        if (element == null) {
+            element = defaultElement;
+        }
+        return element;
+    }
+
+    /**
      * @return true if all needed elemnts are contained
      */
     public boolean isValid() {
@@ -68,11 +85,15 @@ public class Project {
      * @param project
      * @return the name of the jar
      */
-    public static String extractJarName(Project project) {
+    public static String extractResourceName(Project project) {
         StringBuffer buffer = new StringBuffer(project.getElement(Project.ARTEFACT_ID));
-        buffer.append('-');
-        buffer.append(project.getElement(Project.VERSION));
-        buffer.append(".jar");
+        String versio = project.getElement(Project.VERSION);
+        if (versio != null) {
+            buffer.append('-');
+            buffer.append(versio);
+        }
+        buffer.append(".");
+        buffer.append(project.getElement(Project.TYPE, "jar"));
         return buffer.toString();
     }
 
@@ -81,18 +102,24 @@ public class Project {
      * @param project
      * @return the repository directory of the jar as url
      */
-    public static String extractJarDirUrl(URL repositoryPath, Project project) {
+    public static String extractResourceDirUrl(URL repositoryPath, Project project) {
         String repoPathAsString = repositoryPath.toString();
         if (project.getElement(Dependency.URL) != null) {
             repoPathAsString = project.getElement(Dependency.URL);
         }
         StringBuffer buffer = new StringBuffer(repoPathAsString);
-        buffer.append('/');
+        if (!repoPathAsString.endsWith("/")) {
+            buffer.append('/');
+        }
         buffer.append(project.getElement(Project.GROUP_ID));
         buffer.append('/');
         buffer.append(project.getElement(Project.ARTEFACT_ID));
-        buffer.append('/');
-        buffer.append(project.getElement(Project.VERSION));
+
+        String version = project.getElement(Project.VERSION);
+        if (version != null) {
+            buffer.append('/');
+            buffer.append(version);
+        }
         buffer.append('/');
         return buffer.toString();
     }
@@ -104,7 +131,7 @@ public class Project {
      * @return the url path to the jar of the dependency
      */
     public static String constructJarUrl(URL repositoryPath, Project project, String jarName) {
-        String dir = extractJarDirUrl(repositoryPath, project);
+        String dir = extractResourceDirUrl(repositoryPath, project);
         StringBuffer buffer = new StringBuffer(dir);
         if (!dir.endsWith("/")) {
             buffer.append('/');

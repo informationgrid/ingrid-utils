@@ -31,8 +31,17 @@ public class MD5Util {
      * @throws IOException
      */
     public static String getMD5(File file) throws IOException {
-        MessageDigest md = createMD5MessageDigest();
         FileInputStream inputStream = new FileInputStream(file);
+        return getMD5(inputStream);
+    }
+    
+    /**
+     * @param inputStream
+     * @return the md5 digest of the given stream resource
+     * @throws IOException
+     */
+    public static String getMD5(InputStream inputStream) throws IOException {
+        MessageDigest md = createMD5MessageDigest();
         int length = -1;
         byte[] bytes = new byte[4096];
         while ((length = inputStream.read(bytes)) != -1) {
@@ -43,18 +52,14 @@ public class MD5Util {
     }
 
     /**
-     * @param md5File 
-     * @param file
+     * @param md5Digest 
+     * @param localFile
      * @return true if the content of the md5-file athe the given url euqals the
      *         md5 checksum of the given file
      * @throws IOException
      */
-    public static boolean isEqual(InputStream md5File, File file) throws IOException {
-        byte[] bytes = new byte[4096];
-        int length = md5File.read(bytes);
-        byte[] digest = new byte[length];
-        System.arraycopy(bytes, 0, digest, 0, length);
-        return new String(digest).equals(getMD5(file));
+    public static boolean isEqual(String md5Digest, File localFile) throws IOException {
+        return new String(md5Digest).equals(getMD5(localFile));
     }
 
     private static MessageDigest createMD5MessageDigest() {
@@ -93,5 +98,18 @@ public class MD5Util {
         }
 
         return retValue.trim();
+    }
+
+    /**
+     * @param inputStream 
+     * @return the md5 digest from a md5 file at the given url
+     * @throws IOException
+     */
+    public static String readMD5File(InputStream inputStream) throws IOException {
+        byte[] bytes = new byte[4096];
+        int length = inputStream.read(bytes);
+        byte[] digest = new byte[length];
+        System.arraycopy(bytes, 0, digest, 0, length);
+        return new String(digest);
     }
 }

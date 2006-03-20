@@ -70,8 +70,8 @@ public class PomParserTest extends TestCase {
      */
     public void testExtractJarName() throws Exception {
         Dependency[] dependencies = this.fParser.getDependencies();
-        assertEquals("junit-3.8.1.jar", Project.extractJarName(dependencies[0]));
-        assertEquals("servlet-api-2.3.jar", Project.extractJarName(dependencies[1]));
+        assertEquals("junit-3.8.1.jar", Project.extractResourceName(dependencies[0]));
+        assertEquals("servlet-api-2.3.jar", Project.extractResourceName(dependencies[1]));
     }
 
     /**
@@ -79,9 +79,9 @@ public class PomParserTest extends TestCase {
      */
     public void testExtractJarDir() throws Exception {
         Dependency[] dependencies = this.fParser.getDependencies();
-        assertEquals("http://www.url.net/junit/junit/3.8.1/", Project.extractJarDirUrl(new URL("http://www.web.net/maven2"),
+        assertEquals("http://www.url.net/junit/junit/3.8.1/", Project.extractResourceDirUrl(new URL("http://www.web.net/maven2"),
                 dependencies[0]));
-        assertEquals("http://www.web.net/maven2/javax.servlet/servlet-api/2.3/", Project.extractJarDirUrl(new URL(
+        assertEquals("http://www.web.net/maven2/javax.servlet/servlet-api/2.3/", Project.extractResourceDirUrl(new URL(
                 "http://www.web.net/maven2"), dependencies[1]));
     }
 
@@ -91,9 +91,9 @@ public class PomParserTest extends TestCase {
     public void testExtractJarPath() throws Exception {
         Dependency[] dependencies = this.fParser.getDependencies();
         assertEquals("http://www.url.net/junit/junit/3.8.1/junit-3.8.1.jar", Project.constructJarUrl(
-                new URL("http://www.web.net/maven2"), dependencies[0], Project.extractJarName(dependencies[0])));
+                new URL("http://www.web.net/maven2"), dependencies[0], Project.extractResourceName(dependencies[0])));
         assertEquals("http://www.web.net/maven2/javax.servlet/servlet-api/2.3/servlet-api-2.3.jar", Project
                 .constructJarUrl(new URL("http://www.web.net/maven2"), dependencies[1], Project
-                        .extractJarName(dependencies[1])));
+                        .extractResourceName(dependencies[1])));
     }
 }
