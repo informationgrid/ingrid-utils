@@ -7,6 +7,7 @@
 package de.ingrid.utils.messages;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Properties;
@@ -17,10 +18,14 @@ public class CategorizedKeys {
 
     private HashMap fCategories = new HashMap();
 
-    public CategorizedKeys(String bundle_name) throws IOException {
-        loadCategorizedProperties(bundle_name);
+    private CategorizedKeys(String bundle_name) throws IOException {
+      InputStream resourceAsStream = CategorizedKeys.class.getResourceAsStream(bundle_name);
+      loadCategorizedProperties(resourceAsStream);
     }
 
+    private CategorizedKeys(InputStream inputStream) throws IOException {
+      loadCategorizedProperties(inputStream);
+    }
     /**
      * loads one property file and parse the categories and store the keys and
      * values in different category belonning properties objects
@@ -28,10 +33,10 @@ public class CategorizedKeys {
      * @param bundle_name
      * @throws IOException
      */
-    private void loadCategorizedProperties(String bundle_name)
+    private void loadCategorizedProperties(InputStream inputStream)
             throws IOException {
         Properties properties = new Properties();
-        properties.load(CategorizedKeys.class.getResourceAsStream(bundle_name));
+        properties.load(inputStream);
 
         Enumeration enumeration = properties.keys();
         while (enumeration.hasMoreElements()) {
@@ -52,7 +57,7 @@ public class CategorizedKeys {
     }
 
     /**
-     * @param bundle_name
+     * @param bundle_name (this name will be used as key for the cache)
      * @return a cached CategorizedKeys Object or creates a new one.
      * @throws IOException
      */
@@ -64,6 +69,18 @@ public class CategorizedKeys {
         return (CategorizedKeys) fCache.get(bundle_name);
     }
 
+    /**
+     * @param bundle_name
+     * @return a cached CategorizedKeys Object or creates a new one.
+     * @throws IOException
+     */
+    public static CategorizedKeys get(String cacheKey, InputStream inputStream) throws IOException {
+      if (!fCache.containsKey(cacheKey)) {
+        CategorizedKeys keys = new CategorizedKeys(inputStream);
+        fCache.put(cacheKey, keys);
+    }
+    return (CategorizedKeys) fCache.get(cacheKey);
+    }
     /**
      * @param key
      * @return the first value from a category properties object that is found
