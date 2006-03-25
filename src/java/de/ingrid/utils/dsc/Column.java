@@ -142,6 +142,14 @@ public class Column extends UniqueObject implements Serializable {
 	public String getType() {
 		return fType;
 	}
+    
+    /**
+     * sets the type
+     * @param type
+     */
+    public void setType(String type) {
+        fType = type;
+    }
 
 	/*
 	 * (non-Javadoc)
