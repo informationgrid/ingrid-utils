@@ -169,7 +169,7 @@ public class Column extends UniqueObject implements Serializable {
 	 * @return return a quate char in case the column of type text
 	 */
 	public String getQuoteChar() {
-		if (getType().equals(TEXT)) {
+		if (getType().equals(TEXT) || getType().equals(KEYWORD)) {
 			return "'";
 		}
 		return "";
