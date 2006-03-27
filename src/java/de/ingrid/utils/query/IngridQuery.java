@@ -289,20 +289,46 @@ public class IngridQuery extends IngridDocument {
 		return (String[]) arraylist.toArray(new String[arraylist.size()]);
 	}
 
+	/**
+	 * @return true if the score is ranked
+	 */
 	public boolean isScoreRanked() {
-		return get(RANKED) != null && get(RANKED).equals(SCORE_RANKED);
+    return isRanked(SCORE_RANKED);
 	}
 
+	/**
+	 * @return true if the date is ranked
+	 */
 	public boolean isDateRanked() {
-		return get(RANKED) != null && get(RANKED).equals(DATE_RANKED);
+    return isRanked(DATE_RANKED);
 	}
 
+	/**
+	 * @return true if nothing is ranked
+	 */
 	public boolean isNotRanked() {
-		return get(RANKED) != null && get(RANKED).equals(NOT_RANKED);
+    return isRanked(NOT_RANKED);
 	}
 
-	public String getRankingType() {
-		return (String) get(RANKED);
+   /**
+   * @param rankValue 
+   * @return true if the rankValue ranked.
+   */
+  public boolean isRanked(String rankValue) {
+    boolean ranked = false;
+    ArrayList arrayList = getArrayList(RANKED);
+    for (int i = 0; i < arrayList.size(); i++) {
+      String element = (String) arrayList.get(i);
+      if(rankValue.equals(element)) {
+        ranked = true;
+        break;
+      }
+    }
+    return ranked;
+  }
+  
+	public ArrayList getRankingType() {
+		return (ArrayList) get(RANKED);
 	}
 
 }
