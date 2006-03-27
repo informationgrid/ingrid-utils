@@ -7,7 +7,6 @@
 package de.ingrid.utils.query;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import de.ingrid.utils.IngridDocument;
 
@@ -222,8 +221,15 @@ public class IngridQuery extends IngridDocument {
 			buffer.append(clauses[i].getDescription());
 
 		}
-		buffer.append(")");
-		return buffer.toString();
+        buffer.append(" datatypes: ");
+        FieldQuery[] dataTypes = getDataTypes();
+        for (int i = 0; i < dataTypes.length; i++) {
+             buffer.append(dataTypes[i].toString());
+        }
+        buffer.append(" ranking: ");
+        buffer.append(getRankingType());
+        buffer.append(")");
+        return buffer.toString();
 	}
 
 	/**
@@ -315,12 +321,12 @@ public class IngridQuery extends IngridDocument {
    * @return true if the rankValue ranked.
    */
   public boolean isRanked(String rankValue) {
-    String  ranked = (String) get(RANKED);
-    return rankValue.equalsIgnoreCase(ranked);
-  }
-  
-	public ArrayList getRankingType() {
-		return (ArrayList) get(RANKED);
-	}
+        String ranked = (String) get(RANKED);
+        return rankValue.equalsIgnoreCase(ranked);
+    }
+
+    public String getRankingType() {
+      return (String) get(RANKED);
+    }
 
 }
