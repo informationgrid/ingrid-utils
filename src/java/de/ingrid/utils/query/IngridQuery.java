@@ -7,6 +7,7 @@
 package de.ingrid.utils.query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.ingrid.utils.IngridDocument;
 
@@ -100,8 +101,7 @@ public class IngridQuery extends IngridDocument {
 		if (field.getFieldName().equals(DATA_TYPE)) {
 			addToList(DATA_TYPE, field);
 		} else if (field.getFieldName().equals(RANKED)) {
-			put(RANKED, field.getFieldValue().toLowerCase());
-
+      addToList(RANKED, field.getFieldValue().toLowerCase());
 		} else {
 			addToList(FIELD_KEY, field);
 		}
