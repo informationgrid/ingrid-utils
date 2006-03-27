@@ -181,7 +181,7 @@ public class IngridDocument extends HashMap implements Externalizable {
         try {
             return (ArrayList) get(key);
         } catch (ClassCastException e) {
-            throw new IllegalArgumentException("value to key is not an arraylist");
+            throw new IllegalArgumentException("value to key is not an arraylist, the value class is: " + get(key).getClass().getName());
         }
 
     }
