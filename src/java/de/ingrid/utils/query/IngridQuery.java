@@ -193,6 +193,18 @@ public class IngridQuery extends IngridDocument {
 				.size()]);
 
 	}
+    
+    /**
+     * Removes a <code>ClauseQuery</code> from the query
+     * 
+     * @param clauseQuery Clause to be removed
+     */
+    public void removeClause(ClauseQuery clauseQuery) {
+        ArrayList arrayList = getArrayList(CLAUSE_KEY);
+        if (arrayList != null) {
+            arrayList.remove(clauseQuery);
+        }
+    }
 
 	/**
 	 * @return a description of this query object

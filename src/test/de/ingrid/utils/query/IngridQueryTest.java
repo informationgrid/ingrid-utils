@@ -18,6 +18,7 @@
 
 package de.ingrid.utils.query;
 
+import de.ingrid.utils.queryparser.QueryStringParser;
 import junit.framework.TestCase;
 
 /**
@@ -55,4 +56,12 @@ public class IngridQueryTest extends TestCase {
 		query.removeDataType("bla");
 		assertEquals(0, query.getDataTypes().length);
 	}
+    
+    public void testRemoveClause() throws Exception {
+        IngridQuery query = new IngridQuery();
+        ClauseQuery clause = new ClauseQuery(false, true);
+        query.addClause(clause);        
+        query.removeClause(clause);        
+        assertEquals(0, query.getClauses().length);
+    }
 }
