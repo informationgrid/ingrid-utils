@@ -101,7 +101,7 @@ public class IngridQuery extends IngridDocument {
 		if (field.getFieldName().equals(DATA_TYPE)) {
 			addToList(DATA_TYPE, field);
 		} else if (field.getFieldName().equals(RANKED)) {
-      addToList(RANKED, field.getFieldValue().toLowerCase());
+      put(RANKED, field.getFieldValue().toLowerCase());
 		} else {
 			addToList(FIELD_KEY, field);
 		}
@@ -315,16 +315,8 @@ public class IngridQuery extends IngridDocument {
    * @return true if the rankValue ranked.
    */
   public boolean isRanked(String rankValue) {
-    boolean ranked = false;
-    ArrayList arrayList = getArrayList(RANKED);
-    for (int i = 0; i < arrayList.size(); i++) {
-      String element = (String) arrayList.get(i);
-      if(rankValue.equals(element)) {
-        ranked = true;
-        break;
-      }
-    }
-    return ranked;
+    String  ranked = (String) get(RANKED);
+    return rankValue.equalsIgnoreCase(ranked);
   }
   
 	public ArrayList getRankingType() {
