@@ -12,27 +12,47 @@ import junit.framework.TestCase;
 import de.ingrid.utils.PlugDescription;
 import de.ingrid.utils.xml.XMLSerializer;
 
+/**
+ * Test for {@link de.ingrid.utils.PlugDescription}.
+ * 
+ * <p/>created on 29.03.2006
+ * 
+ * @version $Revision: $
+ * @author jz
+ * @author $Author: ${lastedit}
+ * 
+ */
 public class PlugDescriptionTest extends TestCase {
 
+    private File fXmlFile = new File("target/testFile.xml");
+
+    protected void setUp() throws Exception {
+        this.fXmlFile.getParentFile().mkdirs();
+    }
+    
+    protected void tearDown() throws Exception {
+//        this.fXmlFile.delete();
+    }
+
+    /**
+     * @throws Exception
+     */
     public void testSerialize() throws Exception {
-        File target = new File("./testFile.xml");
         PlugDescription description1 = new PlugDescription();
         description1.setPersonName("bla");
 
         XMLSerializer serializer = new XMLSerializer();
-        serializer.aliasClass(PlugDescription.class.getName(),
-                PlugDescription.class);
-        serializer.serialize(description1, target);
+        serializer.aliasClass(PlugDescription.class.getName(), PlugDescription.class);
+        serializer.serialize(description1, this.fXmlFile);
 
-        PlugDescription description2 = (PlugDescription) serializer.deSerialize(target);
-
+        PlugDescription description2 = (PlugDescription) serializer.deSerialize(this.fXmlFile);
         assertEquals(description1, description2);
-        target.delete();
-
     }
-    
+
+    /**
+     * @throws Exception
+     */
     public void testDataType() throws Exception {
-        File target = new File("./testFile.xml");
         PlugDescription description = new PlugDescription();
         description.addDataType("A");
         description.addDataType("B");
@@ -40,27 +60,28 @@ public class PlugDescriptionTest extends TestCase {
         assertEquals("A", description.getDataTypes()[0]);
         assertEquals("B", description.getDataTypes()[1]);
         XMLSerializer serializer = new XMLSerializer();
-        serializer.aliasClass(PlugDescription.class.getName(),
-                PlugDescription.class);
-        serializer.serialize(description, target);
+        serializer.aliasClass(PlugDescription.class.getName(), PlugDescription.class);
+        serializer.serialize(description, this.fXmlFile);
 
-        PlugDescription description2 = (PlugDescription) serializer.deSerialize(target);
+        PlugDescription description2 = (PlugDescription) serializer.deSerialize(this.fXmlFile);
         assertEquals(2, description2.getDataTypes().length);
         assertEquals("A", description2.getDataTypes()[0]);
         assertEquals("B", description2.getDataTypes()[1]);
     }
-    
+
+    /**
+     * @throws Exception
+     */
     public void testAddBus() throws Exception {
         PlugDescription description = new PlugDescription();
         for (int i = 0; i < 100; i++) {
-            description.addBusUrl(""+i);
-            assertEquals(i+1, description.getBusUrls().length);
+            description.addBusUrl("" + i);
+            assertEquals(i + 1, description.getBusUrls().length);
         }
-        
+
         for (int i = 100; i >= 0; i--) {
-            description.removeBusUrl(""+i);
+            description.removeBusUrl("" + i);
             assertEquals(i, description.getBusUrls().length);
         }
     }
-
 }
