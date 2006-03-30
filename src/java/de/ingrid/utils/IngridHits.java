@@ -66,10 +66,13 @@ public class IngridHits extends IngridDocument {
     /**
      * @return number of all hits found for the search request Attention is not
      *         equals to number of <code>Hit</code>s stored in this
-     *         container.
+     *         container, if this is not setted we return 0;
      */
     public long length() {
-        return getLong(LENGTH);
+        if (get(LENGTH) != null) {
+            return getLong(LENGTH);
+        }
+        return 0;
     }
 
     /**
