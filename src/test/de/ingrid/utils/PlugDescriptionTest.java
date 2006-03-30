@@ -31,7 +31,7 @@ public class PlugDescriptionTest extends TestCase {
     }
     
     protected void tearDown() throws Exception {
-//        this.fXmlFile.delete();
+        this.fXmlFile.delete();
     }
 
     /**

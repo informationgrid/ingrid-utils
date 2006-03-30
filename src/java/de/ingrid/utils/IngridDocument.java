@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * A data container for general usage in ingrid. Children should store all values via put in the mother to be available
@@ -186,6 +187,23 @@ public class IngridDocument extends HashMap implements Externalizable {
           + key.getClass().getName() + "(" + key.toString() + ") :"
           + get(key).getClass().getName() + "(" + get(key).toString() + ")");
         }
+    }
+    
+    /**
+     * @param key
+     * @param value
+     * @return true if document contained the given key
+     */
+    public boolean removeFromList(Object key, String value) {
+        boolean contained=false;
+        List list=getArrayList(key);
+        if(list!=null) {
+            contained= list.remove(value);
+            if(list.isEmpty()){
+                remove(key);
+            }
+        }
+        return contained;
     }
 
     /**

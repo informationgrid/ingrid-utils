@@ -401,14 +401,12 @@ public class PlugDescription extends IngridDocument {
         return getArrayListAsArray(BUSES);
     }
 
+    
     /**
      * @param string
      */
     public void removeBusUrl(String string) {
-        ArrayList arrayList = getArrayList(BUSES);
-        if (arrayList != null) {
-            arrayList.remove(string);
-        }
+        removeFromList(BUSES,string);
     }
 
     /**

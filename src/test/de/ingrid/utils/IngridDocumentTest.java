@@ -10,11 +10,25 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.List;
 
 import junit.framework.TestCase;
 
+/**
+ * Test for {@link de.ingrid.utils.IngridDocument}
+ * 
+ * <p/>created on 30.03.2006
+ * 
+ * @version $Revision: $
+ * @author jz
+ * @author $Author: ${lastedit}
+ * 
+ */
 public class IngridDocumentTest extends TestCase {
 
+    /**
+     * @throws Exception
+     */
     public void testGetValues() throws Exception {
         String aId = "aId";
         String content = "content";
@@ -24,7 +38,34 @@ public class IngridDocumentTest extends TestCase {
         document.put("foo", "bar");
         assertEquals("bar", document.get("foo"));
     }
+    
+    /**
+     * @throws Exception
+     */
+    public void testGetList() throws Exception {
+        String key=new String();
+        IngridDocument document = new IngridDocument("aId", "content");
+        document.addToList(key,"1");
+        document.addToList(key,"2");
+        List list=document.getArrayList(key);
+        assertTrue(list.contains("1"));
+        assertTrue(list.contains("2"));
+        
+        //remove
+        assertTrue(document.removeFromList(key,"1"));
+        list=document.getArrayList(key);
+        assertFalse(list.contains("1"));
+        assertTrue(list.contains("2"));
+        
+        //removed all
+        assertTrue(document.removeFromList(key,"2"));
+        assertFalse(document.removeFromList(key,"2"));
+        assertNull(list=document.getArrayList(key));
+    }
 
+    /**
+     * @throws Exception
+     */
     public void testGetter() throws Exception {
         Integer id = new Integer(Integer.MAX_VALUE);
         Integer content = new Integer(Integer.MIN_VALUE);
@@ -33,6 +74,9 @@ public class IngridDocumentTest extends TestCase {
         assertEquals(document.getContent(), content);
     }
 
+    /**
+     * @throws Exception
+     */
     public void testSerializbaleCheck() throws Exception {
         Integer id = new Integer(Integer.MAX_VALUE);
         Integer content = new Integer(Integer.MIN_VALUE);
@@ -48,11 +92,14 @@ public class IngridDocumentTest extends TestCase {
             document.put("", new Object());
             fail("value must be serializable");
         } catch (Exception e) {
-            // TODO: handle exception
+            //
         }
 
     }
 
+    /**
+     * @throws Exception
+     */
     public void testReadAndWrite() throws Exception {
         // write
         Integer id = new Integer(Integer.MAX_VALUE);
@@ -62,7 +109,6 @@ public class IngridDocumentTest extends TestCase {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayStream);
         writeDocument.put("foo", null);
         writeDocument.writeExternal(objectOutputStream);
-      
 
         // read
         IngridDocument readedDocument = new IngridDocument();
