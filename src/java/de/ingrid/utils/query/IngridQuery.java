@@ -33,6 +33,9 @@ public class IngridQuery extends IngridDocument {
 
     /***/
     public static final int RANGE = 5;
+    
+    /***/
+    public static final int WILDCARD = 6;
 
     private static final String TYPE = "type";
 
@@ -43,6 +46,8 @@ public class IngridQuery extends IngridDocument {
     private static final String TERM_KEY = "term";
 
     private static final String RANGE_KEY = "range";
+    
+    private static final String WILDCARD_KEY = "wildcard";
 
     private static final String CLAUSE_KEY = "clause";
 
@@ -172,11 +177,21 @@ public class IngridQuery extends IngridDocument {
         }
         return (TermQuery[]) arrayList.toArray(new TermQuery[arrayList.size()]);
     }
-
     
-    public void addRangeQuery (RangeQuery query){
+    /**
+     * @param query
+     */
+    public void addRangeQuery(RangeQuery query){
         addToList(RANGE_KEY, query);
     }
+
+    /**
+     * @param query
+     */
+    public void addWildCardQuery(WildCardQuery query) {
+      addToList(WILDCARD_KEY, query);
+    }
+    
     /**
      * @return an array of range queries
      */
@@ -188,6 +203,17 @@ public class IngridQuery extends IngridDocument {
         return (RangeQuery[]) arrayList.toArray(new RangeQuery[arrayList.size()]);
     }
 
+    /**
+     * @return an array of range queries
+     */
+    public WildCardQuery[] getWildCardQueries() {
+        ArrayList arrayList = getArrayList(WILDCARD_KEY);
+        if (arrayList == null) {
+            return new WildCardQuery[0];
+        }
+        return (WildCardQuery[]) arrayList.toArray(new WildCardQuery[arrayList.size()]);
+    }
+    
     /**
      * adds a clause query
      * 
