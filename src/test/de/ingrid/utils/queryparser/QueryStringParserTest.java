@@ -233,5 +233,17 @@ public class QueryStringParserTest extends TestCase {
 		assertTrue( QueryStringParser.parse("bla ranking:date").isDateRanked());
 		assertTrue( QueryStringParser.parse("bla ranking:off").isNotRanked());
 	}
+    
+    
+    public void testPhrase() throws Exception {
+       String qSt = "\"halle saale\"";
+       IngridQuery query = QueryStringParser.parse(qSt);
+       System.out.println(query);
+       assertEquals(1,query.getTerms().length);
+       qSt = "ort:\"halle saale\"";
+       query = QueryStringParser.parse(qSt);
+       System.out.println(query);
+       assertEquals(1,query.getFields().length);
+    }
 
 }

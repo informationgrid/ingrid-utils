@@ -135,7 +135,7 @@ subQuery = term()
 	{
 	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
 	key=<FIELD>
-	(value=<FLOAT>|value=<TERM>|value=<PREFIXTERM>)
+	(value=<FLOAT>|value=<TERM>|value=<PREFIXTERM>|value=<QUOTED>)
 	{query = new FieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image);}
 	{return query;}
 	}
@@ -151,7 +151,7 @@ subQuery = term()
 	}
 	{
 	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
-	(t=<TERM>|t=<PREFIXTERM>)
+	(t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
 	{query = new TermQuery(required,prohibited, t.image);}
 	{return query;}
 	}
