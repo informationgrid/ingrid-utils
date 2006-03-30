@@ -30,6 +30,9 @@ public class IngridQuery extends IngridDocument {
 
 	/***/
 	public static final int CLAUSE = 4;
+  
+  /***/
+  public static final int RANGE = 5;
 
 	private static final String TYPE = "type";
 
@@ -38,6 +41,8 @@ public class IngridQuery extends IngridDocument {
 	private static final String FIELD_KEY = "field";
 
 	private static final String TERM_KEY = "term";
+  
+  private static final String RANGE_KEY = "range";
 
 	private static final String CLAUSE_KEY = "clause";
 
@@ -168,9 +173,15 @@ public class IngridQuery extends IngridDocument {
 			return new TermQuery[0];
 		}
 		return (TermQuery[]) arrayList.toArray(new TermQuery[arrayList.size()]);
-
 	}
 
+  public RangeQuery[] getRangeQueries() {
+    ArrayList arrayList = getArrayList(RANGE_KEY);
+    if (arrayList == null) {
+      return new RangeQuery[0];
+    }
+    return (RangeQuery[]) arrayList.toArray(new RangeQuery[arrayList.size()]);
+  }
 	/**
 	 * adds a clause query
 	 * 
