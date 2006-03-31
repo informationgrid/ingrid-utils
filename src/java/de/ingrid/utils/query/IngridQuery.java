@@ -267,6 +267,10 @@ public class IngridQuery extends IngridDocument {
         buffer.append(" ranges: ");
         appendToString(buffer, getRangeQueries());
 
+        buffer.append(" wildcard: ");
+        appendToString(buffer, getWildCardQueries());
+
+        
         buffer.append(" datatypes: ");
         FieldQuery[] dataTypes = getDataTypes();
         for (int i = 0; i < dataTypes.length; i++) {
