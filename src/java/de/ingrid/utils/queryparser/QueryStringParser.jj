@@ -52,9 +52,9 @@ PARSER_END(QueryStringParser)
 
 
 <DEFAULT> TOKEN : {
-  <AND:       ("AND" | "&&") >
+  <AND:       ("AND" | "&&" | "+") >
 | <OR:        ("OR" | "||") >
-| <NOT:       ("NOT" | "!") >
+| <NOT:       ("NOT" | "!" | "-") >
 | <PLUS:      "+" >
 | <MINUS:     "-" >
 | <LPAREN:    "(" >
