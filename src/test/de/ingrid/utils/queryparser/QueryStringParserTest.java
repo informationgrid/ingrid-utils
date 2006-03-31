@@ -238,12 +238,17 @@ public class QueryStringParserTest extends TestCase {
     public void testPhrase() throws Exception {
        String qSt = "\"halle saale\"";
        IngridQuery query = QueryStringParser.parse(qSt);
-       System.out.println(query);
        assertEquals(1,query.getTerms().length);
        qSt = "ort:\"halle saale\"";
        query = QueryStringParser.parse(qSt);
-       System.out.println(query);
        assertEquals(1,query.getFields().length);
+    }
+    
+    public void testRangeQuery() throws Exception {
+        String qSt = "date:[12 TO 23]";
+        IngridQuery query = QueryStringParser.parse(qSt);
+        System.out.println(query);
+        assertEquals(1,query.getRangeQueries().length);
     }
 
 }

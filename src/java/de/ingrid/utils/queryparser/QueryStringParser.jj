@@ -17,6 +17,7 @@ import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.TermQuery;
+import de.ingrid.utils.query.RangeQuery;
 
 public class QueryStringParser {
      /**
@@ -46,7 +47,7 @@ PARSER_END(QueryStringParser)
 }
 
 <DEFAULT, RangeIn, RangeEx> SKIP : {
-  <<_WHITESPACE>>
+ <<_WHITESPACE>>
 }
 
 
@@ -110,7 +111,10 @@ subQuery = term()
 | subQuery = field()
 	{
          query.addField((FieldQuery)subQuery); 
-
+    }
+| subQuery = range()
+	{
+         query.addRangeQuery((RangeQuery)subQuery); 
 	}
 | subQuery = clause()
 	{ 
@@ -155,10 +159,38 @@ subQuery = term()
 	{query = new TermQuery(required,prohibited, t.image);}
 	{return query;}
 	}
+	
+// range queries
+
+	IngridQuery range() :
+	{
+		RangeQuery query;
+		Token key;
+		Token goop1;
+		Token goop2;
+
+		boolean in;
+		boolean required = true;	
+		boolean prohibited = false;
+	}
+	
+	{
+	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+	key=<FIELD>
+	<RANGEIN_START> ( goop1=<RANGEIN_GOOP>|goop1=<RANGEIN_QUOTED> )
+    [ <RANGEIN_TO> ] ( goop2=<RANGEIN_GOOP>|goop2=<RANGEIN_QUOTED> )
+    <RANGEIN_END> 
+    	
+	// angeQuery(boolean required, boolean prohibited, String fieldName,  String from, String to, boolean inclusive)
+	{query =new RangeQuery(required,prohibited, key.image.substring(0, key.image.length() -1).toLowerCase(), goop1.image, goop2.image, true );}
+	{return query;}
+	}
+	
 
 // clause...
 	IngridQuery clause() :
 	{
+		
 		ClauseQuery query;
 		Token t;
 		boolean required = true;	
