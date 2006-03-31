@@ -15,7 +15,7 @@ public class FieldQuery extends IngridQuery {
     private static final String FIELD_VALUE = "fieldValue";
 
     public FieldQuery(boolean required, boolean prohibited, String fieldKey, String fieldValue) {
-        super(required, prohibited,IngridQuery.FIELD, fieldKey + ":" + fieldValue);
+        super(required, prohibited, IngridQuery.FIELD, fieldKey + ":" + fieldValue);
         put(FIELD_NAME, fieldKey);
         put(FIELD_VALUE, fieldValue);
     }

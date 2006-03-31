@@ -64,4 +64,27 @@ public class IngridQueryTest extends TestCase {
         query.removeClause(clause);        
         assertEquals(0, query.getClauses().length);
     }
+    
+    public void testDataTypes() throws Exception {
+        IngridQuery query = new IngridQuery(true, true, IngridQuery.TERM, "ba");
+        assertTrue(query.isProhibited());
+        
+        query = new IngridQuery();
+        FieldQuery fieldQuery = new FieldQuery(true, true, "datatype", "UDK");
+        assertTrue(fieldQuery.isProhibited());
+        
+        query.addField(fieldQuery );
+        assertEquals(1, query.getDataTypes().length);
+        assertTrue(query.getDataTypes()[0].isProhibited());
+        
+        
+         query = QueryStringParser.parse("bla datatype:a");
+        assertEquals(1, query.getDataTypes().length);
+        assertFalse(query.getDataTypes()[0].isProhibited());
+        
+        query = QueryStringParser.parse("bla -datatype:a");
+        assertEquals(1, query.getDataTypes().length);
+        assertTrue(query.getDataTypes()[0].isProhibited());
+        
+    }
 }
