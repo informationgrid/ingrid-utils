@@ -44,8 +44,19 @@ public class Record extends IngridDocument {
         setType(type);
     }
 
+    /**
+     * sets the type of the record
+     * @param type
+     */
     public void setType(int type) {
         putInt(RECORD_TYPE, type);
+    }
+    
+    /**
+     * @return record type (db or xml)
+     */
+    public int getType() {
+        return  getInt(RECORD_TYPE);
     }
 
     /**
@@ -198,6 +209,8 @@ public class Record extends IngridDocument {
         return (Column[]) arrayList.toArray(new Column[arrayList.size()]);
     }
 
+    
+    
     /**
      * Sets the xml content of the record
      * @param value
