@@ -248,6 +248,10 @@ public class QueryStringParserTest extends TestCase {
         String qSt = "date:[12 TO 23]";
         IngridQuery query = QueryStringParser.parse(qSt);
         assertEquals(1,query.getRangeQueries().length);
+        
+        qSt = "foo:[1 TO 2]";
+        query = QueryStringParser.parse(qSt);
+        assertEquals(1,query.getRangeQueries().length);
     }
     
     public void testBooleanFieldQueries() throws Exception {
