@@ -206,9 +206,8 @@ public class QueryStringParserTest extends TestCase {
      * @throws Exception
      */
     public void testWildCardQueries() throws Exception {
-        IngridQuery query = QueryStringParser.parse("ort:Hal*  ort:Darmstadt");
-        assertEquals(2, query.getFields().length);
-
+        IngridQuery query = QueryStringParser.parse("ort:Hal*  ort:Darmst?dt");
+        assertEquals(2, query.getWildCardQueries().length);
     }
     
     

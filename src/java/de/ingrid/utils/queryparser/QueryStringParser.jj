@@ -3,7 +3,7 @@
  */
 
 options {
-LOOKAHEAD=2;
+LOOKAHEAD=3;
 STATIC=false;
 }
 
@@ -18,6 +18,7 @@ import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.TermQuery;
 import de.ingrid.utils.query.RangeQuery;
+import de.ingrid.utils.query.WildCardQuery;
 
 public class QueryStringParser {
      /**
@@ -55,8 +56,8 @@ PARSER_END(QueryStringParser)
   <AND:       ("AND" | "&&" | "+") >
 | <OR:        ("OR" | "||") >
 | <NOT:       ("NOT" | "!" | "-") >
-| <PLUS:      "+" >
-| <MINUS:     "-" >
+//| <PLUS:      "+" >
+//| <MINUS:     "-" >
 | <LPAREN:    "(" >
 | <RPAREN:    ")" >
 | <COLON:     ":" >
@@ -107,6 +108,10 @@ subQuery = term()
 	{
 		query.addTerm((TermQuery)subQuery);
 
+	}
+| subQuery = wildCard()
+	{
+         query.addWildCardQuery((WildCardQuery)subQuery); 
 	}
 | subQuery = field()
 	{
@@ -185,6 +190,26 @@ subQuery = term()
 	{query =new RangeQuery(required,prohibited, key.image.substring(0, key.image.length() -1).toLowerCase(), goop1.image, goop2.image, true );}
 	{return query;}
 	}
+	
+	
+// wildcard queries
+
+	IngridQuery wildCard() :
+	{
+		WildCardQuery query;
+		Token key;
+		Token value;
+		boolean required = true;	
+		boolean prohibited = false;
+	}
+	{
+	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+	key=<FIELD>
+	(value=<WILDTERM>|value=<PREFIXTERM>)
+	{query = new WildCardQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image);}
+	{return query;}
+	}
+	
 	
 
 // clause...
