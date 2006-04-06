@@ -8,7 +8,10 @@ package de.ingrid.utils.queryparser;
 
 import java.io.StringReader;
 
+import com.sun.rsasign.q;
+
 import junit.framework.TestCase;
+import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.TermQuery;
@@ -263,5 +266,22 @@ public class QueryStringParserTest extends TestCase {
         System.out.println(query);
         assertEquals(1, query.getFields().length);
     }
+    
+    public void testOr() throws Exception {
+        IngridQuery query = QueryStringParser.parse("wasser OR erde");
+        assertEquals(query.getTerms().length, 2);
+        assertEquals(query.getTerms()[0].isRequred(), true);
+        assertEquals(query.getTerms()[1].isRequred(), false);
+        
+        query = new IngridQuery();
+        query.addTerm(new TermQuery(true, false, "wasser"));
+        ClauseQuery cq = new ClauseQuery(true, false);
+        cq.addField(new FieldQuery(false, false, "type", "value1"));
+        cq.addField(new FieldQuery(false, false, "type", "value2"));
+        query.addClause(cq);
+        System.out.println(query);
+    }
+    
+    
 
 }
