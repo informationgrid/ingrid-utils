@@ -313,7 +313,10 @@ public class PlugDescription extends IngridDocument {
      */
     public File getWorkinDirectory() {
         String folder = (String) get(WORKING_DIRECTORY);
+        if(folder != null){
         return new File(folder);
+        } 
+        return null;
     }
 
     /**
