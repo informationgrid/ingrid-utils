@@ -63,6 +63,16 @@ public class IngridQuery extends IngridDocument {
 
     public static final String NOT_RANKED = "off";
 
+    private static final String GROUPED = "grouped";
+
+    public static final String GROUPED_OFF = "grouped_off";
+
+    public static final String GROUPED_BY_PLUGID = "grouped_by_plugId";
+
+    public static final String GROUPED_BY_ORGANISATION = "grouped_by_organisation";
+
+    public static final String GROUPED_BY_PARTNER = "grouped_by_partner";
+
     /**
      * Default constructor
      */
@@ -110,6 +120,8 @@ public class IngridQuery extends IngridDocument {
             addToList(DATA_TYPE, field);
         } else if (field.getFieldName().equals(RANKED)) {
             put(RANKED, field.getFieldValue().toLowerCase());
+        } else if (field.getFieldName().equals(GROUPED)) {
+            put(GROUPED, field.getFieldValue().toLowerCase());
         } else {
             addToList(FIELD_KEY, field);
         }
@@ -374,6 +386,13 @@ public class IngridQuery extends IngridDocument {
 
     public String getRankingType() {
         return (String) get(RANKED);
+    }
+    
+    /**
+     * @return the grouped value
+     */
+    public String getGrouped() {
+        return (String) get(GROUPED);
     }
 
 }

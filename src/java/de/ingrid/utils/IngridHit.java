@@ -6,6 +6,8 @@
 
 package de.ingrid.utils;
 
+import java.util.ArrayList;
+
 /**
  * An container for iplug hits This container does not contain any document details just the information that are
  * required to rank all hits
@@ -25,6 +27,10 @@ public class IngridHit extends IngridDocument {
     private static final String DATA_SOURCE_ID = "dataSourceId";
 
     private static final String IPLUG_ID = "iPlugId";
+
+    private static final String GROUPED_BY_FILED = "groupedBy";
+
+    private static final String GROUP_HIT = "groupHit";
 
     /**
      * 
@@ -112,5 +118,43 @@ public class IngridHit extends IngridDocument {
      */
     public void setPlugId(String id) {
         put(IPLUG_ID, id);
+    }
+
+    /**
+     * sets the value that used to group hits
+     * @param value
+     */
+    public void addGroupedField(String value) {
+        addToList(GROUPED_BY_FILED, value);
+    }
+    
+    /**
+     * @return values that is used to group hits
+     */
+    public String[] getGroupedFileds(){
+      ArrayList arrayList = getArrayList(GROUPED_BY_FILED);
+      if(arrayList!=null){
+          return (String[]) arrayList.toArray(new String[arrayList.size()]);
+      }
+      return null;
+    }
+
+    /**
+     * adds a hit to the group of this hit
+     * @param hit
+     */
+    public void addGroupHit(IngridHit hit) {
+        addToList(GROUP_HIT, hit);
+    }
+    
+    /**
+     * @return all members of this group
+     */
+    public IngridHit[] getGroupHits() {
+        ArrayList arrayList = getArrayList(GROUP_HIT);
+        if(arrayList==null){
+            arrayList = new ArrayList();
+        }
+        return (IngridHit[]) arrayList.toArray(new IngridHit[arrayList.size()]);
     }
 }
