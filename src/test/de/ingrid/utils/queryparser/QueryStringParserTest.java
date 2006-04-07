@@ -256,6 +256,19 @@ public class QueryStringParserTest extends TestCase {
         assertEquals(1,query.getRangeQueries().length);
     }
     
+    public void testMoreRangeQueries() throws Exception {
+        
+    	String qSt = "time:[9 TO 5] AND ( date:[12 TO 23] OR date:[25 TO 30] )";
+    
+    	IngridQuery query = QueryStringParser.parse(qSt);
+        
+    	assertEquals(1,query.getClauses().length);
+      
+       
+    }
+    
+    
+    
     public void testBooleanFieldQueries() throws Exception {
         String q = "aa field:value";
         IngridQuery query = QueryStringParser.parse(q);
