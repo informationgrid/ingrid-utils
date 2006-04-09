@@ -31,6 +31,8 @@ public class IngridHit extends IngridDocument {
     private static final String GROUPED_BY_FILED = "groupedBy";
 
     private static final String GROUP_HIT = "groupHit";
+    
+    private static final String DATE = "date";
 
     /**
      * 
@@ -51,6 +53,29 @@ public class IngridHit extends IngridDocument {
         setDocumentId(documentId);
         setDataSourceId(dataSourceId);
         setScore(score);
+    }
+    
+    
+    /**
+     * @param plugId
+     * @param documentId
+     * @param dataSourceId
+     * @param date
+     */
+    public IngridHit(String plugId, int documentId, int dataSourceId, int date) {
+      // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
+      setPlugId(plugId);
+      setDocumentId(documentId);
+      setDataSourceId(dataSourceId);
+      setDate(date);
+  }
+    
+
+    /**
+     * @param date
+     */
+    private void setDate(int date) {
+      putInt(DATE, date);
     }
 
     /**
