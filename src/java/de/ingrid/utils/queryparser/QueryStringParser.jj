@@ -228,18 +228,26 @@ subQuery = term()
 	<LPAREN>
 	 (
 	subQuery = term()
-		{
-			query.addTerm((TermQuery)subQuery);
-		}
-	| subQuery = field()
-		{
-			query.addField((FieldQuery)subQuery);
-		}
-	| subQuery = clause()
-		{ 
-			query.addClause((ClauseQuery)subQuery);
-		}	
-	
+	{
+		query.addTerm((TermQuery)subQuery);
+
+	}
+| subQuery = wildCard()
+	{
+         query.addWildCardQuery((WildCardQuery)subQuery); 
+	}
+| subQuery = field()
+	{
+         query.addField((FieldQuery)subQuery); 
+    }
+| subQuery = range()
+	{
+         query.addRangeQuery((RangeQuery)subQuery); 
+	}
+| subQuery = clause()
+	{ 
+		query.addClause((ClauseQuery)subQuery);
+	}	
 	)*
 	 <RPAREN>
 	
