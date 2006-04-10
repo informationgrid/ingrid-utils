@@ -276,7 +276,6 @@ public class QueryStringParserTest extends TestCase {
         
          q = "aa -field:value";
         query = QueryStringParser.parse(q);
-        System.out.println(query);
         assertEquals(1, query.getFields().length);
     }
     
@@ -292,7 +291,22 @@ public class QueryStringParserTest extends TestCase {
         cq.addField(new FieldQuery(false, false, "type", "value1"));
         cq.addField(new FieldQuery(false, false, "type", "value2"));
         query.addClause(cq);
-        System.out.println(query);
+    }
+    
+    public void testParserVsApi() throws Exception {
+        String s = "wasser +datatype:topics +(topic:gentechnik topic:abfall) ";
+        IngridQuery q1 = QueryStringParser.parse(s);
+        IngridQuery q2 = new IngridQuery(); 
+        q2.addTerm(new TermQuery(true, false, "wasser")); 
+        q2.addField(new FieldQuery(true, false, "datatype", "topics")); 
+        ClauseQuery cq = new ClauseQuery(true, false); 
+        cq.addField(new FieldQuery(false, false, "topic", "gentechnik")); 
+        cq.addField(new FieldQuery(false, false, "topic", "abfall")); 
+        q2.addClause(cq); 
+        System.out.println(q1.toString());
+        System.out.println(q2.toString());
+        assertEquals(q1.toString(), q2.toString());
+        
     }
     
     
