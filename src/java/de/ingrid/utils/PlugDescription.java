@@ -75,10 +75,14 @@ public class PlugDescription extends IngridDocument {
     private boolean fIsActivated;
 
     /**
-     * @return Returns the connection.
+     * @return Returns first connection or null
      */
     public IDataSourceConnection getConnection() {
-        return (IDataSourceConnection) get(CONNECTION);
+        IDataSourceConnection[] connections = getConnections();
+        if (connections.length > 0) {
+            return connections[0];
+        }
+        return null;
     }
 
     /**
@@ -86,8 +90,35 @@ public class PlugDescription extends IngridDocument {
      *            The connection to set.
      */
     public void setConnection(IDataSourceConnection connection) {
-        put(CONNECTION, connection);
+        ArrayList arrayList = getArrayList(CONNECTION);
+        if(arrayList == null){
+         addToList(CONNECTION, connection);
+        }
+        arrayList.set(0, connection);
     }
+    
+    
+    /**
+     * @return Returns the connections.
+     */
+    public IDataSourceConnection[] getConnections() {
+         ArrayList arrayList = getArrayList(CONNECTION);
+         if(arrayList == null){
+             arrayList = new ArrayList();
+         }
+         return (IDataSourceConnection[]) arrayList.toArray(new IDataSourceConnection[arrayList.size()]);
+    }
+
+    /**
+     * @param connection
+     *          connection to add
+     */
+    public void addConnection(IDataSourceConnection connection) {
+        addToList(CONNECTION, connection);
+    }
+    
+    
+    
 
     /**
      * @return Returns the cronBasedIndexing.
