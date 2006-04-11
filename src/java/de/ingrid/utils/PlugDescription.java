@@ -117,7 +117,17 @@ public class PlugDescription extends IngridDocument {
         addToList(CONNECTION, connection);
     }
     
-    
+
+    /**
+     * remove connection...
+     * @param connection
+     */
+    public void removeConnection(IDataSourceConnection connection){
+    	ArrayList arrayList = getArrayList(CONNECTION);
+    	if(arrayList != null){
+    		arrayList.remove(connection);
+    	}
+    }
     
 
     /**
