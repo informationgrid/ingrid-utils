@@ -33,6 +33,12 @@ public class DetailedTopic extends Topic{
      */
     public static final String FROM = "from";
     
+    public static final String DESCRIPTION_OCC = "descriptionOcc";
+
+    public  static final String SAMPLE_OCC = "sampleOcc";
+
+    public static final String ASSICIATED_OCC = "associatedTermsOcc";
+    
    
     public DetailedTopic(String plugId, int documentId, String topicId, String title, String summary) {
         super(plugId, documentId, topicId, title, summary);
