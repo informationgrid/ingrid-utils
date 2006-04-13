@@ -53,6 +53,7 @@ public class IngridHit extends IngridDocument {
         setDocumentId(documentId);
         setDataSourceId(dataSourceId);
         setScore(score);
+        setDate(0);
     }
     
     
@@ -68,6 +69,7 @@ public class IngridHit extends IngridDocument {
       setDocumentId(documentId);
       setDataSourceId(dataSourceId);
       setDate(date);
+      setScore(0.0f);
   }
     
 
