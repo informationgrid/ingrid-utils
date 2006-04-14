@@ -282,8 +282,9 @@ public class IngridQueryTools {
     }
     
     /**
-     * Returns a <code>String[]</code> including all <code>TermQuery</code>s that match
-     * the given conditions, described by <code>prohibited</code> and <code>required</code>.
+     * Returns a <code>String[]</code> including all terms that match
+     * the given conditions, described by <code>prohibited</code> and
+     * <code>required</code>.
      * 
      * @param query The query to get the terms from
      * @param prohibited Condition one
@@ -294,7 +295,7 @@ public class IngridQueryTools {
         Vector v = getTermsAsVector(query, prohibited, required);
         String[] s = new String[v.size()];
         for (int i = 0; i < v.size(); i++) {
-            s[i] = (String) v.get(i);
+            s[i] = ((TermQuery) v.get(i)).getTerm();
         }
         return s;
     }
@@ -323,7 +324,7 @@ public class IngridQueryTools {
     }
     
     /**
-     * Returns a <code>String[]</code> including all <code>TermQuery</code>s
+     * Returns a <code>String[]</code> including all terms
      * including sub clauses.
      * 
      * @param query The query to get the terms from
@@ -333,7 +334,7 @@ public class IngridQueryTools {
         Vector v = getTermsAsVector(query);
         String[] s = new String[v.size()];
         for (int i = 0; i < v.size(); i++) {
-            s[i] = (String) v.get(i);
+            s[i] = ((TermQuery) v.get(i)).getTerm();
         }
         return s;
     }
@@ -366,24 +367,6 @@ public class IngridQueryTools {
     }   
     
     /**
-     * Returns a <code>String[]</code> including all <code>FieldQuery</code>s that match
-     * the given conditions, described by <code>prohibited</code> and <code>required</code>.
-     * 
-     * @param query The query to get the fields from
-     * @param prohibited Condition one
-     * @param required Condition two
-     * @return <code>String[]</code> with extracted <code>FiledQuery</code>
-     */
-    public String[] getFields(final IngridQuery query, final boolean prohibited, final boolean required) {
-        Vector v = getFieldsAsVector(query, prohibited, required);
-        String[] s = new String[v.size()];
-        for (int i = 0; i < v.size(); i++) {
-            s[i] = ((FieldQuery) v.get(i)).getFieldValue();
-        }
-        return s;
-    }
-    
-    /**
      * Returns a <code>Vector</code> including all <code>FieldQuery</code>s
      * including sub clauses.
      * 
@@ -405,24 +388,6 @@ public class IngridQueryTools {
         }        
         return extracted;
     }   
-    
-    /**
-     * Returns a <code>String[]</code> including all <code>FieldQuery</code>s that match
-     * the given conditions, described by <code>prohibited</code> and <code>required</code>.
-     * 
-     * @param query The query to get the fields from
-     * @param prohibited Condition one
-     * @param required Condition two
-     * @return <code>String[]</code> with extracted <code>FiledQuery</code>
-     */
-    public String[] getFields(final IngridQuery query) {
-        Vector v = getFieldsAsVector(query);
-        String[] s = new String[v.size()];
-        for (int i = 0; i < v.size(); i++) {
-            s[i] = ((FieldQuery) v.get(i)).getFieldValue();
-        }
-        return s;
-    }
     
     /**
      * Returns a <code>Vector</code> including all <code>Clause</code>s that match
