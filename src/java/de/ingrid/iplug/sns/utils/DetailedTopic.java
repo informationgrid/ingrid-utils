@@ -38,6 +38,7 @@ public class DetailedTopic extends Topic{
     public  static final String SAMPLE_OCC = "sampleOcc";
 
     public static final String ASSICIATED_OCC = "associatedTermsOcc";
+    public static final String INSTANCE_OF = "href";
     
    
     public DetailedTopic(String plugId, int documentId, String topicId, String title, String summary) {
