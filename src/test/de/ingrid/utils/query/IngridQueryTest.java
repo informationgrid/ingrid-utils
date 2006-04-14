@@ -87,4 +87,11 @@ public class IngridQueryTest extends TestCase {
         assertTrue(query.getDataTypes()[0].isProhibited());
         
     }
+    
+    public void testProvider() throws Exception {
+        IngridQuery query = new IngridQuery();
+        assertEquals(query.getProviders().length, 0);
+        query.addField(new FieldQuery(true, false, "provider", "anhalt"));
+        assertEquals(query.getProviders().length, 1);
+    }
 }
