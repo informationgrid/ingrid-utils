@@ -90,8 +90,8 @@ public class IngridQueryTest extends TestCase {
     
     public void testProvider() throws Exception {
         IngridQuery query = new IngridQuery();
-        assertEquals(query.getProviders().length, 0);
+        assertEquals(query.getPositiveProvider().length, 0);
         query.addField(new FieldQuery(true, false, "provider", "anhalt"));
-        assertEquals(query.getProviders().length, 1);
+        assertEquals(query.getPositiveProvider().length, 1);
     }
 }
