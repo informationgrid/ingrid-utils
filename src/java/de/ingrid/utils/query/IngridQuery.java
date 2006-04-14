@@ -8,6 +8,7 @@ package de.ingrid.utils.query;
 
 import java.util.ArrayList;
 
+
 import de.ingrid.utils.IngridDocument;
 
 /**
@@ -73,6 +74,8 @@ public class IngridQuery extends IngridDocument {
 
     public static final String GROUPED_BY_PARTNER = "grouped_by_partner";
 
+    private static final String PROVIDER = "provider";
+
     /**
      * Default constructor
      */
@@ -122,6 +125,8 @@ public class IngridQuery extends IngridDocument {
             put(RANKED, field.getFieldValue().toLowerCase());
         } else if (field.getFieldName().equals(GROUPED)) {
             put(GROUPED, field.getFieldValue().toLowerCase());
+        } else if (field.getFieldName().equals(PROVIDER)) {
+            addToList(PROVIDER, field.getFieldValue().toLowerCase());
         } else {
             addToList(FIELD_KEY, field);
         }
@@ -393,6 +398,17 @@ public class IngridQuery extends IngridDocument {
      */
     public String getGrouped() {
         return (String) get(GROUPED);
+    }
+    
+    /**
+     * @return added providers of the query
+     */
+    public String[] getProviders() {
+        ArrayList arrayList = getArrayList(PROVIDER);
+        if(arrayList==null){
+            arrayList = new ArrayList();
+        }
+        return (String[]) arrayList.toArray(new String[arrayList.size()]);
     }
 
 }
