@@ -72,6 +72,8 @@ public class PlugDescription extends IngridDocument {
 
     private static final String BUSES = "busUrls";
 
+    private static final String PROVIDER = "provider";
+
     private boolean fIsActivated;
 
     /**
@@ -508,5 +510,24 @@ public class PlugDescription extends IngridDocument {
             list = new ArrayList();
         }
         return (String[]) list.toArray(new String[list.size()]);
+    }
+    
+    /**
+     * add a provider
+     * @param provider
+     */
+    public void addProvider(String provider) {
+        addToList(PROVIDER, provider);
+    }
+
+    /**
+     * @return all provider
+     */
+    public String[] getProviders() {
+        ArrayList arrayList = getArrayList(PROVIDER);
+        if (arrayList == null) {
+            arrayList = new ArrayList();
+        }
+        return (String[]) arrayList.toArray(new String[arrayList.size()]);
     }
 }
