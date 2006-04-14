@@ -287,12 +287,20 @@ public class IngridQuery extends IngridDocument {
         buffer.append(" wildcard: ");
         appendToString(buffer, getWildCardQueries());
 
+        buffer.append(" providers: ");
+        ArrayList arrayList = getArrayList(PROVIDER);
+        if (arrayList == null) {
+            arrayList = new ArrayList();
+        }
+        IngridQuery[] provider = (IngridQuery[]) arrayList.toArray(new IngridQuery[arrayList.size()]);
+        appendToString(buffer, provider);
         
         buffer.append(" datatypes: ");
         FieldQuery[] dataTypes = getDataTypes();
         for (int i = 0; i < dataTypes.length; i++) {
             buffer.append(dataTypes[i].toString());
         }
+        
         buffer.append(" ranking: ");
         buffer.append(getRankingType());
         buffer.append(")");
