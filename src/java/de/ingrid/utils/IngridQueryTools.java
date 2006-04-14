@@ -51,7 +51,9 @@ import org.apache.commons.logging.LogFactory;
 import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
+import de.ingrid.utils.query.RangeQuery;
 import de.ingrid.utils.query.TermQuery;
+import de.ingrid.utils.query.WildCardQuery;
 
 /**
  * This class is used for checking incomming <code>IngridQuery</code>s. Furthermore
@@ -101,6 +103,48 @@ public class IngridQueryTools {
         }       
         return found || query.getFields().length > 0;
     }
+    
+    
+    /**
+     * Checks whether <code>wildCardQuery</code>s exists in the <code>query</code>. 
+     * If <code>subClause</code>s are found, the search will be continued 
+     * recursivly in all clauses. If at least one wildcard was found, <code>true</code>
+     * will be returned. In every other case the result will be <code>false</code>. 
+     * 
+     * @param query Query to check
+     * @return <code>true</code> if at least one <code>wildCardQuery</code> was found
+     */
+    public boolean hasWildCards(final IngridQuery query) {
+        boolean found = false;
+        for (int i = 0; i < query.getClauses().length; i++) {
+            found |= hasWildCards(query.getClauses()[i]);
+            if (found) break;
+        }       
+        return found || query.getWildCardQueries().length > 0;
+    }
+    
+    
+    
+    /**
+     * Checks whether <code>rangeQuery</code>s exists in the <code>query</code>. 
+     * If <code>subClause</code>s are found, the search will be continued 
+     * recursivly in all clauses. If at least one range was found, <code>true</code>
+     * will be returned. In every other case the result will be <code>false</code>. 
+     * 
+     * @param query Query to check
+     * @return <code>true</code> if at least one <code>rangeQuery</code> was found
+     */
+    public boolean hasRanges(final IngridQuery query) {
+        boolean found = false;
+        for (int i = 0; i < query.getClauses().length; i++) {
+            found |= hasRanges(query.getClauses()[i]);
+            if (found) break;
+        }       
+        return found || query.getRangeQueries().length > 0;
+    }
+    
+    
+    
     
     /**
      * Checks whether <code>aubClauses</code>s exists in the <code>query</code>. If,
@@ -388,6 +432,56 @@ public class IngridQueryTools {
         }        
         return extracted;
     }   
+    
+    
+    /**
+     * Returns a <code>Vector</code> including all <code>WildCardQuery</code>s
+     * including sub clauses.
+     * 
+     * @param query The query to get the wildcardqueries from
+     * @return <code>Vector</code> with extracted <code>WildCardQuery</code>
+     */
+    public Vector getWildCardsAsVector(final IngridQuery query) {
+        Vector extracted = new Vector();
+        
+        // look for recurivly found terms to add to the result
+        for (int i = 0; i < query.getClauses().length; i++) {
+            extracted.addAll(getWildCardsAsVector(query.getClauses()[i]));
+        }
+        
+        // add terms of the current clause
+        WildCardQuery[] wildcards = query.getWildCardQueries();
+        for (int i = 0; i < wildcards.length; i++) {
+            extracted.add(wildcards[i]);
+        }        
+        return extracted; 
+    }
+    
+    
+    
+    /**
+     * Returns a <code>Vector</code> including all <code>RangeQuery</code>s
+     * including sub clauses.
+     * 
+     * @param query The query to get the rangequeries from
+     * @return <code>Vector</code> with extracted <code>RangeQuery</code>
+     */
+    public Vector getRangesAsVector(final IngridQuery query) {
+        Vector extracted = new Vector();
+        
+        // look for recurivly found terms to add to the result
+        for (int i = 0; i < query.getClauses().length; i++) {
+            extracted.addAll(getRangesAsVector(query.getClauses()[i]));
+        }
+        
+        // add terms of the current clause
+        RangeQuery[] ranges = query.getRangeQueries();
+        for (int i = 0; i < ranges.length; i++) {
+            extracted.add(ranges[i]);
+        }        
+        return extracted; 
+    }
+    
     
     /**
      * Returns a <code>Vector</code> including all <code>Clause</code>s that match
