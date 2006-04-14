@@ -6,7 +6,9 @@ import java.util.Vector;
 import de.ingrid.utils.IngridQueryTools;
 import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
+import de.ingrid.utils.query.RangeQuery;
 import de.ingrid.utils.query.TermQuery;
+import de.ingrid.utils.query.WildCardQuery;
 import de.ingrid.utils.queryparser.QueryStringParser;
 import junit.framework.TestCase;
 
@@ -41,6 +43,15 @@ public class IngridQueryToolsTest extends TestCase {
         query = QueryStringParser.parse("(a AND b) OR (c OR d OR f AND (a:1) OR d AND (a AND a:2))");
         assertTrue(tools.hasFieldQueries(query));
         assertTrue(tools.hasTerms(query));
+        
+        query = QueryStringParser.parse("(t:f* OR t:4*) OR (b:a* OR b:a* OR (b:c*) OR ((a:i*) AND (wasser))))");
+        assertTrue(tools.hasWildCards(query));
+        assertTrue(tools.hasTerms(query));
+        
+        query = QueryStringParser.parse("(t:[20 TO 30] OR t:[40 TO 50]) OR (b:[2000 TO 2006] OR b:[1939 TO 1945] AND (wasser))))");
+        assertTrue(tools.hasRanges(query));
+        assertTrue(tools.hasTerms(query));
+        
     }
     
     /***/
@@ -90,6 +101,39 @@ public class IngridQueryToolsTest extends TestCase {
         assertEquals("t", ((FieldQuery) i.next()).getFieldName());
         assertEquals("b", ((FieldQuery) i.next()).getFieldName());
     }
+    
+    
+    /***/
+    public void testGetWildCards() throws Exception {
+    	
+        IngridQuery query = QueryStringParser.parse("(t:f* OR t:4*) OR (b:a* OR b:a* OR (b:c*) OR ((a:i*) AND (wasser))))");
+        
+        Vector v = tools.getWildCardsAsVector(query);
+        Iterator i = v.iterator();
+        assertEquals("t", ((WildCardQuery) i.next()).getFieldName());
+        assertEquals("t", ((WildCardQuery) i.next()).getFieldName()); 
+        assertEquals("b", ((WildCardQuery) i.next()).getFieldName()); 
+        assertEquals("a", ((WildCardQuery) i.next()).getFieldName()); 
+       
+       
+    }
+    
+    
+    /***/
+    public void testGetRanges() throws Exception {
+    	
+        IngridQuery query = QueryStringParser.parse("(t:[20 TO 30] OR t:[40 TO 50]) OR (b:[2000 TO 2006] OR b:[1939 TO 1945] AND (wasser))))");
+        
+        Vector v = tools.getRangesAsVector(query);
+        Iterator i = v.iterator();
+        assertEquals("t", ((RangeQuery) i.next()).getRangeName());
+        assertEquals("t", ((RangeQuery) i.next()).getRangeName());
+        assertEquals("b", ((RangeQuery) i.next()).getRangeName());
+        assertEquals("b", ((RangeQuery) i.next()).getRangeName());
+       
+       
+    } 
+    
     
     /***/
     public void testGetClauses() throws Exception {
