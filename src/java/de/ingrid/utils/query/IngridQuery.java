@@ -126,7 +126,7 @@ public class IngridQuery extends IngridDocument {
         } else if (field.getFieldName().equals(GROUPED)) {
             put(GROUPED, field.getFieldValue().toLowerCase());
         } else if (field.getFieldName().equals(PROVIDER)) {
-            addToList(PROVIDER, field.getFieldValue().toLowerCase());
+            addToList(PROVIDER, field);
         } else {
             addToList(FIELD_KEY, field);
         }
@@ -400,15 +400,27 @@ public class IngridQuery extends IngridDocument {
         return (String) get(GROUPED);
     }
     
-    /**
-     * @return added providers of the query
-     */
-    public String[] getProviders() {
+    public String[] getPositiveProvider() {
+        return getProvider(false);
+    }
+
+    public String[] getNegativeProvider() {
+        return getProvider(true);
+    }
+
+    private String[] getProvider(boolean prohibited) {
         ArrayList arrayList = getArrayList(PROVIDER);
-        if(arrayList==null){
+        ArrayList list = new ArrayList();
+        if (arrayList == null) {
             arrayList = new ArrayList();
         }
-        return (String[]) arrayList.toArray(new String[arrayList.size()]);
+        for (int i = 0; i < arrayList.size(); i++) {
+            FieldQuery query = (FieldQuery) arrayList.get(i);
+            if (query.isProhibited() == prohibited) {
+                list.add(query.getFieldValue().toLowerCase());
+            }
+        }
+        return (String[]) list.toArray(new String[list.size()]);
     }
 
 }
