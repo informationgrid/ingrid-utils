@@ -245,7 +245,7 @@ public class IngridQueryTools {
      */
     public Hashtable getFieldsAsHashtable(final IngridQuery query) {
     	Hashtable ht = new Hashtable();
-    	Vector fields = getFields(query);
+    	Vector fields = getFieldsAsVector(query);
     	FieldQuery fq = null;
     	for (Enumeration e = fields.elements(); e.hasMoreElements(); ) {
     		fq = (FieldQuery)e.nextElement();
@@ -263,12 +263,12 @@ public class IngridQueryTools {
      * @param required Condition two
      * @return <code>Vector</code> with extracted <code>TermQuery</code>
      */
-    public Vector getTerms(final IngridQuery query, final boolean prohibited, final boolean required) {
+    public Vector getTermsAsVector(final IngridQuery query, final boolean prohibited, final boolean required) {
         Vector extracted = new Vector();
         
         // look for recurivly found terms to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
-            extracted.addAll(getTerms(query.getClauses()[i], prohibited, required));
+            extracted.addAll(getTermsAsVector(query.getClauses()[i], prohibited, required));
         }
         
         // add terms of the current clause
@@ -282,18 +282,36 @@ public class IngridQueryTools {
     }
     
     /**
+     * Returns a <code>String[]</code> including all <code>TermQuery</code>s that match
+     * the given conditions, described by <code>prohibited</code> and <code>required</code>.
+     * 
+     * @param query The query to get the terms from
+     * @param prohibited Condition one
+     * @param required Condition two
+     * @return <code>String[]</code> with extracted <code>TermQuery</code>
+     */
+    public String[] getTerms(final IngridQuery query, final boolean prohibited, final boolean required) {
+        Vector v = getTermsAsVector(query, prohibited, required);
+        String[] s = new String[v.size()];
+        for (int i = 0; i < v.size(); i++) {
+            s[i] = (String) v.get(i);
+        }
+        return s;
+    }
+    
+    /**
      * Returns a <code>Vector</code> including all <code>TermQuery</code>s
      * including sub clauses.
      * 
      * @param query The query to get the terms from
      * @return <code>Vector</code> with extracted <code>TermQuery</code>
      */
-    public Vector getTerms(final IngridQuery query) {
+    public Vector getTermsAsVector(final IngridQuery query) {
         Vector extracted = new Vector();
         
         // look for recurivly found terms to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
-            extracted.addAll(getTerms(query.getClauses()[i]));
+            extracted.addAll(getTermsAsVector(query.getClauses()[i]));
         }
         
         // add terms of the current clause
@@ -305,6 +323,22 @@ public class IngridQueryTools {
     }
     
     /**
+     * Returns a <code>String[]</code> including all <code>TermQuery</code>s
+     * including sub clauses.
+     * 
+     * @param query The query to get the terms from
+     * @return <code>String[]</code> with extracted <code>TermQuery</code>
+     */
+    public String[] getTerms(final IngridQuery query) {
+        Vector v = getTermsAsVector(query);
+        String[] s = new String[v.size()];
+        for (int i = 0; i < v.size(); i++) {
+            s[i] = (String) v.get(i);
+        }
+        return s;
+    }
+    
+    /**
      * Returns a <code>Vector</code> including all <code>FieldQuery</code>s that match
      * the given conditions, described by <code>prohibited</code> and <code>required</code>.
      * 
@@ -313,12 +347,12 @@ public class IngridQueryTools {
      * @param required Condition two
      * @return <code>Vector</code> with extracted <code>FiledQuery</code>
      */
-    public Vector getFields(final IngridQuery query, final boolean prohibited, final boolean required) {
+    public Vector getFieldsAsVector(final IngridQuery query, final boolean prohibited, final boolean required) {
         Vector extracted = new Vector();
         
         // look for recurivly found fields to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
-            extracted.addAll(getFields(query.getClauses()[i], prohibited, required));
+            extracted.addAll(getFieldsAsVector(query.getClauses()[i], prohibited, required));
         }
         
         // add fields of the current clause
@@ -332,18 +366,36 @@ public class IngridQueryTools {
     }   
     
     /**
+     * Returns a <code>String[]</code> including all <code>FieldQuery</code>s that match
+     * the given conditions, described by <code>prohibited</code> and <code>required</code>.
+     * 
+     * @param query The query to get the fields from
+     * @param prohibited Condition one
+     * @param required Condition two
+     * @return <code>String[]</code> with extracted <code>FiledQuery</code>
+     */
+    public String[] getFields(final IngridQuery query, final boolean prohibited, final boolean required) {
+        Vector v = getFieldsAsVector(query, prohibited, required);
+        String[] s = new String[v.size()];
+        for (int i = 0; i < v.size(); i++) {
+            s[i] = ((FieldQuery) v.get(i)).getFieldValue();
+        }
+        return s;
+    }
+    
+    /**
      * Returns a <code>Vector</code> including all <code>FieldQuery</code>s
      * including sub clauses.
      * 
      * @param query The query to get the fields from
      * @return <code>Vector</code> with extracted <code>FiledQuery</code>
      */
-    public Vector getFields(final IngridQuery query) {
+    public Vector getFieldsAsVector(final IngridQuery query) {
         Vector extracted = new Vector();
         
         // look for recurivly found fields to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
-            extracted.addAll(getFields(query.getClauses()[i]));
+            extracted.addAll(getFieldsAsVector(query.getClauses()[i]));
         }
         
         // add fields of the current clause
@@ -355,6 +407,24 @@ public class IngridQueryTools {
     }   
     
     /**
+     * Returns a <code>String[]</code> including all <code>FieldQuery</code>s that match
+     * the given conditions, described by <code>prohibited</code> and <code>required</code>.
+     * 
+     * @param query The query to get the fields from
+     * @param prohibited Condition one
+     * @param required Condition two
+     * @return <code>String[]</code> with extracted <code>FiledQuery</code>
+     */
+    public String[] getFields(final IngridQuery query) {
+        Vector v = getFieldsAsVector(query);
+        String[] s = new String[v.size()];
+        for (int i = 0; i < v.size(); i++) {
+            s[i] = ((FieldQuery) v.get(i)).getFieldValue();
+        }
+        return s;
+    }
+    
+    /**
      * Returns a <code>Vector</code> including all <code>Clause</code>s that match
      * the given conditions, described by <code>prohibited</code> and <code>required</code>.
      * 
@@ -363,12 +433,12 @@ public class IngridQueryTools {
      * @param required Condition two
      * @return <code>Vector</code> with extracted <code>ClauseQuery</code>
      */
-    public Vector getClauses(final IngridQuery query, final boolean prohibited, final boolean required) {
+    public Vector getClausesAsVector(final IngridQuery query, final boolean prohibited, final boolean required) {
     	Vector extracted = new Vector();
         
         // look for recurivly found clauses to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
-            extracted.addAll(getClauses(query.getClauses()[i], prohibited, required));
+            extracted.addAll(getClausesAsVector(query.getClauses()[i], prohibited, required));
         }
         
         // add clauses of the current clause
@@ -389,12 +459,12 @@ public class IngridQueryTools {
      * @param query The query to get the clauses from
      * @return <code>Vector</code> with extracted <code>ClauseQuery</code>
      */
-    public Vector getClauses(final IngridQuery query) {
+    public Vector getClausesAsVector(final IngridQuery query) {
         Vector extracted = new Vector();
         
         // looking for recurivly found clauses to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
-            extracted.addAll(getClauses(query.getClauses()[i]));
+            extracted.addAll(getClausesAsVector(query.getClauses()[i]));
         }
         
         // add fields of the current clause
