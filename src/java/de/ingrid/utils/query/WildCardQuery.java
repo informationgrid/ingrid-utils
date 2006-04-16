@@ -17,6 +17,10 @@ public class WildCardQuery extends IngridQuery {
   private static final String FIELD_NAME = "wildcardName";
 
   private static final String FIELD_VALUE = "wildcardValue";
+  
+  public WildCardQuery() {
+        super();
+    }
 
   /**
    * @param required

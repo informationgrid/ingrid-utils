@@ -21,6 +21,11 @@ public class RangeQuery extends IngridQuery {
   private static final String RANGE_TO = "toValue";
 
   private boolean fInclusive;
+  
+  
+  public RangeQuery() {
+      super();
+  }
 
   /**
    * @param required
