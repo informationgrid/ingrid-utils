@@ -558,6 +558,24 @@ public class IngridQueryTools {
         return query;
     }
     
+    /**
+     * Returns a <code>Vector</code> including only <code>ClauseQuery</code>s
+     * without sub clauses.
+     * 
+     * @param query The query to get the clauses from
+     * @return <code>Vector</code> with extracted <code>ClauseQuery</code>
+     */
+    public Vector getLevelClauses(final IngridQuery query) {
+        Vector extracted = new Vector();
+        
+        // add fields of the current clause
+        ClauseQuery[] clauses = query.getClauses();
+        for (int i = 0; i < clauses.length; i++) {
+            extracted.add(clauses[i]);
+        }        
+        return extracted;
+    } 
+    
 }
 
 
