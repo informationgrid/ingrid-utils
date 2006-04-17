@@ -15,7 +15,6 @@ package de.ingrid.utils;
  */
 public class IngridHits extends IngridDocument {
 
-    
     private static final long serialVersionUID = 5L;
 
     private static final String LENGTH = "length";
@@ -88,12 +87,16 @@ public class IngridHits extends IngridDocument {
     public void setPlugId(String id) {
         put(IPLUG_ID, id);
     }
-    
+
     /**
      * @return true if hits are ranked.
      */
-    public boolean isRanked(){
-        return getBoolean(RANKED);
+    public boolean isRanked() {
+        if (get(RANKED) != null) {
+            return getBoolean(RANKED);
+        } else {
+            return false;
+        }
     }
 
 }
