@@ -51,8 +51,12 @@ public class Topic extends IngridHitDetail {
      */
     public static final int SIMILARTERMS_FROM_TOPIC = 5;
 
-    private static final long serialVersionUID = Topic.class.getName()
-            .hashCode();
+    /**
+     * 
+     */
+    public static final int SIMILARLOCATIONS_FROM_TOPIC = 6;
+
+    private static final long serialVersionUID = Topic.class.getName().hashCode();
 
     /**
      * Constant for topicID.
@@ -64,22 +68,20 @@ public class Topic extends IngridHitDetail {
      */
     public static final String TOPIC_NAME = "topicName";
 
-
-    
     /**
      * @param plugId
      * @param documentId
      * @param topicId
-     * @param title the name of the topic
+     * @param title
+     *            the name of the topic
      * @param summary
      */
-    public Topic(String plugId, int documentId, String topicId, String title,
-			String summary) {
-		super(plugId, documentId, 0, /*we have only one sns*/
-				-1f/* topics are unranked==no scores */, title, summary);
-		setTopicID(topicId);
-		setTopicName(title);
-	}
+    public Topic(String plugId, int documentId, String topicId, String title, String summary) {
+        super(plugId, documentId, 0, /* we have only one sns */
+        -1f/* topics are unranked==no scores */, title, summary);
+        setTopicID(topicId);
+        setTopicName(title);
+    }
 
     /**
      * 
