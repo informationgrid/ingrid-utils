@@ -3,7 +3,7 @@
  */
 
 options {
-LOOKAHEAD=3;
+LOOKAHEAD=1;
 STATIC=false;
 }
 
@@ -56,8 +56,6 @@ PARSER_END(QueryStringParser)
   <AND:       ("AND" | "&&" | "+") >
 | <OR:        ("OR" | "||") >
 | <NOT:       ("NOT" | "!" | "-") >
-//| <PLUS:      "+" >
-//| <MINUS:     "-" >
 | <LPAREN:    "(" >
 | <RPAREN:    ")" >
 | <COLON:     ":" >
@@ -65,8 +63,6 @@ PARSER_END(QueryStringParser)
 | <QUOTED:     "\"" (~["\""])+ "\"">
 | <FLOAT:     ("-")?(<_NUM_CHAR>)+"."(<_NUM_CHAR>)+>
 | <TERM:      <_TERM_START_CHAR> (<_TERM_CHAR>)*  >
-//| <DATATYPE:      <_TERM_START_CHAR> "datatype" <COLON> (<_TERM_CHAR>)* >
-//| <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> (<_TERM_CHAR>)* >
 | <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> >
 | <FUZZY_SLOP:     "~" ( (<_NUM_CHAR>)+ ( "." (<_NUM_CHAR>)+ )? )? >
 | <PREFIXTERM:  <_TERM_START_CHAR> (<_TERM_CHAR>)* "*" >
@@ -99,158 +95,152 @@ IngridQuery parse() :
 		// variables
 		Token token;
 		IngridQuery query = new IngridQuery();
-		IngridQuery subQuery;
-//		String dataType;
 	}
-	{
-(
-subQuery = term()
-	{
-		query.addTerm((TermQuery)subQuery);
+	{	
+	 
+		
+		(
+			LOOKAHEAD(2) term(query)
+			| LOOKAHEAD(3) wildCard(query) // we need to process wildcarde before field
+			| LOOKAHEAD(3) field(query)
+			| LOOKAHEAD(5) range(query)
+			| LOOKAHEAD(30) clause(query)
+			| LOOKAHEAD(30) singleClause(query)
+			
+		)*
+	
+		{return  query;}
+	}
 
-	}
-| subQuery = wildCard()
+	
+// term	
+	void term(IngridQuery q) :
 	{
-         query.addWildCardQuery((WildCardQuery)subQuery); 
+		Token t;
+		boolean required = true;	
+		boolean prohibited = false;
 	}
-| subQuery = field()
 	{
-         query.addField((FieldQuery)subQuery); 
-    }
-| subQuery = range()
-	{
-         query.addRangeQuery((RangeQuery)subQuery); 
+		(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		(t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
+		{q.addTerm(new TermQuery(required,prohibited, t.image));}
 	}
-| subQuery = clause()
-	{ 
-		query.addClause((ClauseQuery)subQuery);
-	}	
-
-)*
-	{return  query;}
-}
-
+	
 
 	
 // field
-	IngridQuery field() :
+	void field(IngridQuery q) :
 	{
-		FieldQuery query;
 		Token key;
 		Token value;
 		boolean required = true;	
 		boolean prohibited = false;
 	}
 	{
-	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
-	key=<FIELD>
-	(value=<FLOAT>|value=<TERM>|value=<PREFIXTERM>|value=<QUOTED>)
-	{query = new FieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image);}
-	{return query;}
+		(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		key=<FIELD>
+		(value=<FLOAT>|value=<TERM>|value=<PREFIXTERM>|value=<QUOTED>)
+		{q.addField(new FieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image));}
 	}
 	
-	
-// term	
-	IngridQuery term() :
-	{
-		TermQuery query;
-		Token t;
-		boolean required = true;	
-		boolean prohibited = false;
-	}
-	{
-	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
-	(t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
-	{query = new TermQuery(required,prohibited, t.image);}
-	{return query;}
-	}
-	
+
 // range queries
 
-	IngridQuery range() :
+	void range(IngridQuery q) :
 	{
-		RangeQuery query;
 		Token key;
 		Token goop1;
 		Token goop2;
-
 		boolean in;
 		boolean required = true;	
 		boolean prohibited = false;
 	}
 	
 	{
-	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
-	key=<FIELD>
-	<RANGEIN_START> ( goop1=<RANGEIN_GOOP>|goop1=<RANGEIN_QUOTED> )
-    [ <RANGEIN_TO> ] ( goop2=<RANGEIN_GOOP>|goop2=<RANGEIN_QUOTED> )
-    <RANGEIN_END> 
-    	
-	// angeQuery(boolean required, boolean prohibited, String fieldName,  String from, String to, boolean inclusive)
-	{query =new RangeQuery(required,prohibited, key.image.substring(0, key.image.length() -1).toLowerCase(), goop1.image, goop2.image, true );}
-	{return query;}
+		(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		key=<FIELD>
+		<RANGEIN_START> ( goop1=<RANGEIN_GOOP>|goop1=<RANGEIN_QUOTED> )
+	    [ <RANGEIN_TO> ] ( goop2=<RANGEIN_GOOP>|goop2=<RANGEIN_QUOTED> )
+	    <RANGEIN_END> 
+		{q.addRangeQuery(new RangeQuery(required,prohibited, key.image.substring(0, key.image.length() -1).toLowerCase(), goop1.image, goop2.image, true ));}
 	}
 	
 	
 // wildcard queries
-
-	IngridQuery wildCard() :
+	void wildCard(IngridQuery q) :
 	{
-		WildCardQuery query;
 		Token key;
 		Token value;
 		boolean required = true;	
 		boolean prohibited = false;
 	}
 	{
-	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
-	key=<FIELD>
-	(value=<WILDTERM>|value=<PREFIXTERM>)
-	{query = new WildCardQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image);}
-	{return query;}
+		(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		key=<FIELD>
+		(value=<WILDTERM>|value=<PREFIXTERM>)
+		{q.addWildCardQuery(new WildCardQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image));}
 	}
-	
 	
 
 // clause...
-	IngridQuery clause() :
+	void singleClause(IngridQuery q) :
 	{
-		
 		ClauseQuery query;
 		Token t;
 		boolean required = true;	
 		boolean prohibited = false;
-		IngridQuery subQuery;
 	}
 	{
-	(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
-	{query =  new ClauseQuery( required, prohibited );}
-	<LPAREN>
-	 (
-	subQuery = term()
-	{
-		query.addTerm((TermQuery)subQuery);
+			{System.out.println("test single clause");}
+		(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		{query =  new ClauseQuery( required, prohibited );}
+		<LPAREN>
+		 (
+		 		LOOKAHEAD(3) term(q)
+				| LOOKAHEAD(5) wildCard(q)
+				| LOOKAHEAD(3) field(q)
+				| LOOKAHEAD(5) range(q)
+				| LOOKAHEAD(30) singleClause(q)
+				| LOOKAHEAD(30) clause(q)
+				
+		)
+		<RPAREN> 
+		{System.out.println("single clause");}
+	}
+		
 
-	}
-| subQuery = wildCard()
+// clause...
+	void clause(IngridQuery q) :
 	{
-         query.addWildCardQuery((WildCardQuery)subQuery); 
+		ClauseQuery query;
+		Token t;
+		boolean required = true;	
+		boolean prohibited = false;
 	}
-| subQuery = field()
 	{
-         query.addField((FieldQuery)subQuery); 
-    }
-| subQuery = range()
-	{
-         query.addRangeQuery((RangeQuery)subQuery); 
-	}
-| subQuery = clause()
-	{ 
-		query.addClause((ClauseQuery)subQuery);
-	}	
-	)*
-	 <RPAREN>
-	
-	{return  query;}
+	{System.out.println("test clause");}
+		(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		{query =  new ClauseQuery( required, prohibited );}
+		<LPAREN>
+		 (
+		 		LOOKAHEAD(3) term(query) 
+				| LOOKAHEAD(3) wildCard(query)
+				| LOOKAHEAD(3) field(query)
+				| LOOKAHEAD(5) range(query)
+				| LOOKAHEAD(30) singleClause(q)
+				| LOOKAHEAD(30) clause(query)
+		)
+		(
+		 		LOOKAHEAD(3) term(query) 
+				| LOOKAHEAD(3) wildCard(query)
+				| LOOKAHEAD(3) field(query)
+				| LOOKAHEAD(5) range(query)
+				| LOOKAHEAD(30) singleClause(q)
+				| LOOKAHEAD(30) clause(query)
+		)+
+		 
+		<RPAREN> 
+		{System.out.println("clause");}
+		{q.addClause(query);}
 	}	
 	

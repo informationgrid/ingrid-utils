@@ -261,7 +261,7 @@ public class QueryStringParserTest extends TestCase {
     	String qSt = "time:[9 TO 5] AND ( date:[12 TO 23] OR date:[25 TO 30] )";
     
     	IngridQuery query = QueryStringParser.parse(qSt);
-        
+        System.out.println(query);
     	assertEquals(1,query.getClauses().length);
       
        
@@ -309,6 +309,10 @@ public class QueryStringParserTest extends TestCase {
         
     }
     
+    public void testStarngeClauses() throws Exception {
+        IngridQuery query = QueryStringParser.parse("( foo )");
+        assertEquals(1, query.getTerms().length);
+    }
     
 
 }

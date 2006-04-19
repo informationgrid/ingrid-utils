@@ -37,7 +37,7 @@ public class IngridQueryToolsTest extends TestCase {
         assertFalse(tools.hasTerms(query));
         assertTrue(tools.hasFieldQueries(query));
         
-        query = QueryStringParser.parse("(t:f AND t:4) OR (b:a AND b:a OR (b:c) OR ((a:i) AND (wasser))))");
+        query = QueryStringParser.parse("(t:f AND t:4) OR (b:a AND b:a OR (b:c) OR ((a:i) AND (wasser)))");
         assertTrue(tools.hasTerms(query));
         
         query = QueryStringParser.parse("(a AND b) OR (c OR d OR f AND (a:1) OR d AND (a AND a:2))");
@@ -113,6 +113,7 @@ public class IngridQueryToolsTest extends TestCase {
         assertEquals("t", ((WildCardQuery) i.next()).getFieldName());
         assertEquals("t", ((WildCardQuery) i.next()).getFieldName()); 
         assertEquals("b", ((WildCardQuery) i.next()).getFieldName()); 
+        assertEquals("b", ((WildCardQuery) i.next()).getFieldName()); 
         assertEquals("a", ((WildCardQuery) i.next()).getFieldName()); 
        
        
@@ -139,23 +140,23 @@ public class IngridQueryToolsTest extends TestCase {
     public void testGetClauses() throws Exception {
         IngridQuery query = QueryStringParser.parse("A AND (A AND B) AND ((B AND C AND (C AND D)))");
         Vector v = tools.getClausesAsVector(query, false, true);
-        assertEquals(4, v.size());
+        assertEquals(3, v.size()); // (( ... )) is now handled as ( ...)
         v = tools.getClausesAsVector(query);
-        assertEquals(4, v.size());
+        assertEquals(3, v.size());
         
         query = QueryStringParser.parse("A OR (A AND B) AND ((B AND C OR (C AND D)))");
         v = tools.getClausesAsVector(query, false, true);
-        assertEquals(2, v.size());
+        assertEquals(1, v.size());
 
         query = QueryStringParser.parse("A OR (A OR B) OR ((B OR C OR (C OR D)))");
         v = tools.getClausesAsVector(query, false, false);
-        assertEquals(3, v.size());
+        assertEquals(2, v.size());
         
         query = QueryStringParser.parse("(A OR (A AND B) AND ((B AND C OR (C OR D))))");
         v = tools.getClausesAsVector(query, false, true);
-        assertEquals(3, v.size());
+        assertEquals(2, v.size());
         v = tools.getClausesAsVector(query);
-        assertEquals(5, v.size());
+        assertEquals(4, v.size());
         
         query = QueryStringParser.parse("A OR A AND B AND B AND C OR C OR D");
         v = tools.getClausesAsVector(query, false, true);
