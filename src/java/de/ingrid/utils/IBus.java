@@ -37,5 +37,14 @@ public interface IBus extends Serializable, IDetailer, IRecordLoader {
      */
     public void addPlugDescription(PlugDescription plugDescripion);
 
-   
+    /**
+     * @param plugId
+     * @return The IPlug description.
+     */
+    public PlugDescription getIPlug(String plugId);
+
+    /**
+     * @return all iplugs regested in the regestry
+     */
+    public PlugDescription[] getAllIPlugs();
 }
