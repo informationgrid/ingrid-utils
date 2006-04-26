@@ -93,9 +93,10 @@ public class PlugDescription extends IngridDocument {
      */
     public void setConnection(IDataSourceConnection connection) {
         ArrayList arrayList = getArrayList(CONNECTION);
-        if(arrayList == null){
-         addToList(CONNECTION, connection);
-        }
+        if(arrayList == null){         
+        	addToList(CONNECTION, connection);
+        	arrayList = getArrayList(CONNECTION);
+        }       
         arrayList.set(0, connection);
     }
     
