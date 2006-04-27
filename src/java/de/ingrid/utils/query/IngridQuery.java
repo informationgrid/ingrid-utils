@@ -36,7 +36,17 @@ public class IngridQuery extends IngridDocument {
     public static final int RANGE = 5;
     
     /***/
-    public static final int WILDCARD = 6;
+    public static final int WILDCARD_FIELD = 6;
+    
+    /***/
+    public static final int FUZZY_FIELD = 7;
+    
+    /***/
+    public static final int WILDCARD_TERM = 8;
+    
+    /***/
+    public static final int FUZZY_TERM = 9;
+    
 
     private static final String TYPE = "type";
 
@@ -48,8 +58,14 @@ public class IngridQuery extends IngridDocument {
 
     private static final String RANGE_KEY = "range";
     
-    private static final String WILDCARD_KEY = "wildcard";
+    private static final String WILDCARD_FIELD_KEY = "wildcard_field";
+    
+    private static final String WILDCARD_TERM_KEY = "wildcard_term";
 
+    private static final String FUZZY_FIELD_KEY = "fuzzy_field";
+    
+    private static final String FUZZY_TERM_KEY = "fuzzy_term";
+    
     private static final String CLAUSE_KEY = "clause";
 
     public static final String DATA_TYPE = "datatype";
@@ -205,8 +221,29 @@ public class IngridQuery extends IngridDocument {
     /**
      * @param query
      */
-    public void addWildCardQuery(WildCardQuery query) {
-      addToList(WILDCARD_KEY, query);
+    public void addWildCardFieldQuery(WildCardFieldQuery query) {
+      addToList(WILDCARD_FIELD_KEY, query);
+    }
+    
+    /**
+     * @param query
+     */
+    public void addWildCardTermQuery(WildCardTermQuery query) {
+      addToList(WILDCARD_TERM_KEY, query);
+    }
+    
+    /**
+     * @param query
+     */
+    public void addFuzzyFieldQuery(FuzzyFieldQuery query) {
+      addToList(FUZZY_FIELD_KEY, query);
+    }
+    
+    /**
+     * @param query
+     */
+    public void addFuzzyTermQuery(FuzzyTermQuery query) {
+      addToList(FUZZY_TERM_KEY, query);
     }
     
     /**
@@ -223,12 +260,46 @@ public class IngridQuery extends IngridDocument {
     /**
      * @return an array of range queries
      */
-    public WildCardQuery[] getWildCardQueries() {
-        ArrayList arrayList = getArrayList(WILDCARD_KEY);
+    public WildCardFieldQuery[] getWildCardFieldQueries() {
+        ArrayList arrayList = getArrayList(WILDCARD_FIELD_KEY);
         if (arrayList == null) {
-            return new WildCardQuery[0];
+            return new WildCardFieldQuery[0];
         }
-        return (WildCardQuery[]) arrayList.toArray(new WildCardQuery[arrayList.size()]);
+        return (WildCardFieldQuery[]) arrayList.toArray(new WildCardFieldQuery[arrayList.size()]);
+    }
+    
+    /**
+     * @return an array of range queries
+     */
+    public WildCardTermQuery[] getWildCardTermQueries() {
+        ArrayList arrayList = getArrayList(WILDCARD_TERM_KEY);
+        if (arrayList == null) {
+            return new WildCardTermQuery[0];
+        }
+        return (WildCardTermQuery[]) arrayList.toArray(new WildCardTermQuery[arrayList.size()]);
+    }
+    
+    
+    /**
+     * @return an array of range queries
+     */
+    public FuzzyFieldQuery[] getFuzzyFieldQueries() {
+        ArrayList arrayList = getArrayList(FUZZY_FIELD_KEY);
+        if (arrayList == null) {
+            return new FuzzyFieldQuery[0];
+        }
+        return (FuzzyFieldQuery[]) arrayList.toArray(new FuzzyFieldQuery[arrayList.size()]);
+    }
+    
+    /**
+     * @return an array of range queries
+     */
+    public FuzzyTermQuery[] getFuzzyTermQueries() {
+        ArrayList arrayList = getArrayList(WILDCARD_TERM_KEY);
+        if (arrayList == null) {
+            return new FuzzyTermQuery[0];
+        }
+        return (FuzzyTermQuery[]) arrayList.toArray(new FuzzyTermQuery[arrayList.size()]);
     }
     
     /**
@@ -284,9 +355,18 @@ public class IngridQuery extends IngridDocument {
         buffer.append(" ranges: ");
         appendToString(buffer, getRangeQueries());
 
-        buffer.append(" wildcard: ");
-        appendToString(buffer, getWildCardQueries());
+        buffer.append(" wildcardFields: ");
+        appendToString(buffer, getWildCardFieldQueries());
 
+        buffer.append(" wildcardTerms: ");
+        appendToString(buffer, getWildCardTermQueries());
+        
+        buffer.append(" fuzzyFields: ");
+        appendToString(buffer, getFuzzyFieldQueries());
+
+        buffer.append(" fuzzyTerms: ");
+        appendToString(buffer, getFuzzyTermQueries());
+        
         buffer.append(" providers: ");
         ArrayList arrayList = getArrayList(PROVIDER);
         if (arrayList == null) {

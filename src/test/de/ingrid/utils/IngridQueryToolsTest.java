@@ -8,7 +8,7 @@ import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.RangeQuery;
 import de.ingrid.utils.query.TermQuery;
-import de.ingrid.utils.query.WildCardQuery;
+import de.ingrid.utils.query.WildCardFieldQuery;
 import de.ingrid.utils.queryparser.QueryStringParser;
 import junit.framework.TestCase;
 
@@ -110,11 +110,11 @@ public class IngridQueryToolsTest extends TestCase {
         
         Vector v = tools.getWildCardsAsVector(query);
         Iterator i = v.iterator();
-        assertEquals("t", ((WildCardQuery) i.next()).getFieldName());
-        assertEquals("t", ((WildCardQuery) i.next()).getFieldName()); 
-        assertEquals("b", ((WildCardQuery) i.next()).getFieldName()); 
-        assertEquals("b", ((WildCardQuery) i.next()).getFieldName()); 
-        assertEquals("a", ((WildCardQuery) i.next()).getFieldName()); 
+        assertEquals("t", ((WildCardFieldQuery) i.next()).getFieldName());
+        assertEquals("t", ((WildCardFieldQuery) i.next()).getFieldName()); 
+        assertEquals("b", ((WildCardFieldQuery) i.next()).getFieldName()); 
+        assertEquals("b", ((WildCardFieldQuery) i.next()).getFieldName()); 
+        assertEquals("a", ((WildCardFieldQuery) i.next()).getFieldName()); 
        
        
     }

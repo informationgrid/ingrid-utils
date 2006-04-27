@@ -53,7 +53,7 @@ import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.RangeQuery;
 import de.ingrid.utils.query.TermQuery;
-import de.ingrid.utils.query.WildCardQuery;
+import de.ingrid.utils.query.WildCardFieldQuery;
 
 /**
  * This class is used for checking incomming <code>IngridQuery</code>s. Furthermore
@@ -120,7 +120,7 @@ public class IngridQueryTools {
             found |= hasWildCards(query.getClauses()[i]);
             if (found) break;
         }       
-        return found || query.getWildCardQueries().length > 0;
+        return found || query.getWildCardFieldQueries().length > 0;
     }
     
     
@@ -450,7 +450,7 @@ public class IngridQueryTools {
         }
         
         // add terms of the current clause
-        WildCardQuery[] wildcards = query.getWildCardQueries();
+        WildCardFieldQuery[] wildcards = query.getWildCardFieldQueries();
         for (int i = 0; i < wildcards.length; i++) {
             extracted.add(wildcards[i]);
         }        
