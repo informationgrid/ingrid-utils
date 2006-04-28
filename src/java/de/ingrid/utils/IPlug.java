@@ -22,6 +22,7 @@ public interface IPlug extends ISearcher, IDetailer {
      * default construtor to setup fields.
      * 
      * @param plugDescription
+     * @throws Exception 
      */
     void configure(PlugDescription plugDescription) throws Exception;
     

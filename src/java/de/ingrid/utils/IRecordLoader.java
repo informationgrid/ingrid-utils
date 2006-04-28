@@ -19,7 +19,7 @@ import de.ingrid.utils.dsc.Record;
 public interface IRecordLoader {
     /**
      * @param hit
-     * @return
+     * @return the record
      * @throws Exception
      */
     public Record getRecord(IngridHit hit) throws Exception;

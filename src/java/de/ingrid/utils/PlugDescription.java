@@ -30,50 +30,76 @@ public class PlugDescription extends IngridDocument {
 
     private static final long serialVersionUID = PlugDescription.class.getName().hashCode();
 
+    /***/
     public static final String CONNECTION = "connection";
 
+    /***/
     private static final String IS_CRONBASED_INDEXING = "cronbasedIndexing";
 
+    /***/
     public static final String DATA_TYPE = "dataType";
 
+    /***/
     public static final String DATA_SOURCE_NAME = "dataSourceName";
 
+    /***/
     public static final String DATA_SOURCE_DESCRIPTION = "dataSourceDescription";
 
+    /***/
     public static final String MAPPING = "mapping";
 
+    /***/
     public static final String ORGANISATION = "organisation";
 
+    /***/
     public static final String ORGANISATION_ABBR = "organisationAbbr";
 
+    /***/
     public static final String PERSON_MAIL = "personMail";
 
+    /***/
     public static final String PERSON_NAME = "personName";
 
+    /***/
     public static final String PERSON_SURE_NAME = "personSureName";
 
+    /***/
     public static final String PERSON_PHONE = "personPhone";
 
+    /***/
     public static final String PERSON_TITLE = "personTitle";
 
+    /***/
     public static final String PARTNER = "partner";
 
+    /***/
     public static final String IPLUG_ID = "plugId";
 
+    /***/
     public static final String WORKING_DIRECTORY = "workingDirectory";
 
+    /***/
     public static final String FIELDS = "fields";
 
+    /***/
     public static final String PROXY_SERVICE_URL = "proxyServiceUrl";
 
+    /***/
     public static final String IPLUG_CLASS = "iPlugClass";
 
+    /***/
     public static final String MOTHER_IBUS_URL = "motherIbusUrl";
 
+    /***/
+    public static final String IS_RECORD_LOADER = "isRecordLoader";
+
+    /***/
     private static final String BUSES = "busUrls";
 
+    /***/
     private static final String PROVIDER = "provider";
 
+    /***/
     private boolean fIsActivated;
 
     /**
@@ -93,45 +119,43 @@ public class PlugDescription extends IngridDocument {
      */
     public void setConnection(IDataSourceConnection connection) {
         ArrayList arrayList = getArrayList(CONNECTION);
-        if(arrayList == null){         
-        	addToList(CONNECTION, connection);
-        	arrayList = getArrayList(CONNECTION);
-        }       
+        if (arrayList == null) {
+            addToList(CONNECTION, connection);
+            arrayList = getArrayList(CONNECTION);
+        }
         arrayList.set(0, connection);
     }
-    
-    
+
     /**
      * @return Returns the connections.
      */
     public IDataSourceConnection[] getConnections() {
-         ArrayList arrayList = getArrayList(CONNECTION);
-         if(arrayList == null){
-             arrayList = new ArrayList();
-         }
-         return (IDataSourceConnection[]) arrayList.toArray(new IDataSourceConnection[arrayList.size()]);
+        ArrayList arrayList = getArrayList(CONNECTION);
+        if (arrayList == null) {
+            arrayList = new ArrayList();
+        }
+        return (IDataSourceConnection[]) arrayList.toArray(new IDataSourceConnection[arrayList.size()]);
     }
 
     /**
      * @param connection
-     *          connection to add
+     *            connection to add
      */
     public void addConnection(IDataSourceConnection connection) {
         addToList(CONNECTION, connection);
     }
-    
 
     /**
      * remove connection...
+     * 
      * @param connection
      */
-    public void removeConnection(IDataSourceConnection connection){
-    	ArrayList arrayList = getArrayList(CONNECTION);
-    	if(arrayList != null){
-    		arrayList.remove(connection);
-    	}
+    public void removeConnection(IDataSourceConnection connection) {
+        ArrayList arrayList = getArrayList(CONNECTION);
+        if (arrayList != null) {
+            arrayList.remove(connection);
+        }
     }
-    
 
     /**
      * @return Returns the cronBasedIndexing.
@@ -357,9 +381,9 @@ public class PlugDescription extends IngridDocument {
      */
     public File getWorkinDirectory() {
         String folder = (String) get(WORKING_DIRECTORY);
-        if(folder != null){
-        return new File(folder);
-        } 
+        if (folder != null) {
+            return new File(folder);
+        }
         return null;
     }
 
@@ -448,12 +472,11 @@ public class PlugDescription extends IngridDocument {
         return getArrayListAsArray(BUSES);
     }
 
-    
     /**
      * @param string
      */
     public void removeBusUrl(String string) {
-        removeFromList(BUSES,string);
+        removeFromList(BUSES, string);
     }
 
     /**
@@ -505,6 +528,20 @@ public class PlugDescription extends IngridDocument {
         return this.fIsActivated;
     }
 
+    /**
+     * @return true if the plug implements {@link IRecordLoader}.
+     */
+    public boolean isRecordloader() {
+        return getBoolean(IS_RECORD_LOADER);
+    }
+
+    /**
+     * @param isRecordLoader
+     */
+    public void setRecordLoader(boolean isRecordLoader) {
+        putBoolean(IS_RECORD_LOADER, isRecordLoader);
+    }
+
     private String[] getArrayListAsArray(String key) {
         List list = getArrayList(key);
         if (list == null) {
@@ -512,9 +549,10 @@ public class PlugDescription extends IngridDocument {
         }
         return (String[]) list.toArray(new String[list.size()]);
     }
-    
+
     /**
      * add a provider
+     * 
      * @param provider
      */
     public void addProvider(String provider) {
