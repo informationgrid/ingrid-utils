@@ -365,15 +365,17 @@ public class PlugDescription extends IngridDocument {
      * @return Returns the plugId.
      */
     public String getPlugId() {
-        return (String) get(IPLUG_ID);
+        return (String) get(PROXY_SERVICE_URL);
     }
 
     /**
      * @param plugId
      *            The plugId to set.
+     * @deprecated
      */
     public void setPlugId(String plugId) {
-        put(IPLUG_ID, plugId);
+        //use proxy url
+        // put(IPLUG_ID, plugId);
     }
 
     /**
