@@ -54,6 +54,7 @@ import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.RangeQuery;
 import de.ingrid.utils.query.TermQuery;
 import de.ingrid.utils.query.WildCardFieldQuery;
+import de.ingrid.utils.query.WildCardTermQuery;
 
 /**
  * This class is used for checking incomming <code>IngridQuery</code>s. Furthermore
@@ -106,18 +107,50 @@ public class IngridQueryTools {
     
     
     /**
-     * Checks whether <code>wildCardQuery</code>s exists in the <code>query</code>. 
+     * Checks whether wildCardQueries exists in the <code>query</code>. 
      * If <code>subClause</code>s are found, the search will be continued 
      * recursivly in all clauses. If at least one wildcard was found, <code>true</code>
      * will be returned. In every other case the result will be <code>false</code>. 
      * 
      * @param query Query to check
-     * @return <code>true</code> if at least one <code>wildCardQuery</code> was found
+     * @return <code>true</code> if at least one wildCardQuery was found
      */
     public boolean hasWildCards(final IngridQuery query) {
+    	return hasWildCardTerms(query) || hasWildCardFields(query);
+    }
+    
+    
+    /**
+     * Checks whether <code>WildCardTermQuery</code>s exists in the <code>query</code>. 
+     * If <code>subClause</code>s are found, the search will be continued 
+     * recursivly in all clauses. If at least one wildCardTermQuery was found, <code>true</code>
+     * will be returned. In every other case the result will be <code>false</code>. 
+     * 
+     * @param query Query to check
+     * @return <code>true</code> if at least one <code>WildCardTermQuery</code> was found
+     */
+    public boolean hasWildCardTerms(final IngridQuery query) {
         boolean found = false;
         for (int i = 0; i < query.getClauses().length; i++) {
-            found |= hasWildCards(query.getClauses()[i]);
+            found |= hasWildCardTerms(query.getClauses()[i]);
+            if (found) break;
+        }       
+        return found || query.getWildCardTermQueries().length > 0;
+    }
+    
+    /**
+     * Checks whether <code>WildCardFieldQuery</code>s exists in the <code>query</code>. 
+     * If <code>subClause</code>s are found, the search will be continued 
+     * recursivly in all clauses. If at least one wildCardFieldQuery was found, <code>true</code>
+     * will be returned. In every other case the result will be <code>false</code>. 
+     * 
+     * @param query Query to check
+     * @return <code>true</code> if at least one <code>WildCardFieldQuery</code> was found
+     */
+    public boolean hasWildCardFields(final IngridQuery query) {
+        boolean found = false;
+        for (int i = 0; i < query.getClauses().length; i++) {
+            found |= hasWildCardFields(query.getClauses()[i]);
             if (found) break;
         }       
         return found || query.getWildCardFieldQueries().length > 0;
@@ -435,24 +468,66 @@ public class IngridQueryTools {
     
     
     /**
-     * Returns a <code>Vector</code> including all <code>WildCardQuery</code>s
+     * Returns a <code>Vector</code> including all WildCardQueries
      * including sub clauses.
      * 
      * @param query The query to get the wildcardqueries from
-     * @return <code>Vector</code> with extracted <code>WildCardQuery</code>
+     * @return <code>Vector</code> with extracted WildCardQuery
      */
     public Vector getWildCardsAsVector(final IngridQuery query) {
+     
+    	Vector extracted = new Vector();
+        
+    	extracted.addAll(getWildCardTermsAsVector(query));
+    	extracted.addAll(getWildCardFieldsAsVector(query));
+     
+        return extracted; 
+    }
+    
+    
+    /**
+     * Returns a <code>Vector</code> including all <code>WildCardFieldQuery</code>s
+     * including sub clauses.
+     * 
+     * @param query The query to get the wildcardfieldqueries from
+     * @return <code>Vector</code> with extracted <code>WildCardFieldQuery</code>
+     */
+    public Vector getWildCardFieldsAsVector(final IngridQuery query) {
         Vector extracted = new Vector();
         
         // look for recurivly found terms to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
-            extracted.addAll(getWildCardsAsVector(query.getClauses()[i]));
+            extracted.addAll(getWildCardFieldsAsVector(query.getClauses()[i]));
         }
         
         // add terms of the current clause
-        WildCardFieldQuery[] wildcards = query.getWildCardFieldQueries();
-        for (int i = 0; i < wildcards.length; i++) {
-            extracted.add(wildcards[i]);
+        WildCardFieldQuery[] wildcardfields = query.getWildCardFieldQueries();
+        for (int i = 0; i < wildcardfields.length; i++) {
+            extracted.add(wildcardfields[i]);
+        }        
+        return extracted; 
+    }
+    
+    
+    /**
+     * Returns a <code>Vector</code> including all <code>WildCardTermQuery</code>s
+     * including sub clauses.
+     * 
+     * @param query The query to get the wildcardtermqueries from
+     * @return <code>Vector</code> with extracted <code>WildCardTermQuery</code>
+     */
+    public Vector getWildCardTermsAsVector(final IngridQuery query) {
+        Vector extracted = new Vector();
+        
+        // look for recurivly found terms to add to the result
+        for (int i = 0; i < query.getClauses().length; i++) {
+            extracted.addAll(getWildCardTermsAsVector(query.getClauses()[i]));
+        }
+        
+        // add terms of the current clause
+        WildCardTermQuery[] wildcardterms = query.getWildCardTermQueries();
+        for (int i = 0; i < wildcardterms.length; i++) {
+            extracted.add(wildcardterms[i]);
         }        
         return extracted; 
     }

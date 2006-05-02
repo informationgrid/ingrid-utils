@@ -106,7 +106,7 @@ public class IngridQueryToolsTest extends TestCase {
     /***/
     public void testGetWildCards() throws Exception {
     	
-        IngridQuery query = QueryStringParser.parse("(t:f* OR t:4*) OR (b:a* OR b:a* OR (b:c*) OR ((a:i*) AND (wasser))))");
+        IngridQuery query = QueryStringParser.parse("(t:f* OR t:4*) OR (b:a* OR b:a* OR (b:c*) OR ((a:i*) AND (wasser*))))");
         
         Vector v = tools.getWildCardsAsVector(query);
         Iterator i = v.iterator();
@@ -116,7 +116,8 @@ public class IngridQueryToolsTest extends TestCase {
         assertEquals("b", ((WildCardFieldQuery) i.next()).getFieldName()); 
         assertEquals("a", ((WildCardFieldQuery) i.next()).getFieldName()); 
        
-       
+         
+        
     }
     
     
