@@ -96,7 +96,7 @@ public class Column extends UniqueObject implements Serializable {
 	 */
 	public String getTargetName() {
 		if (fTargetName != null) {
-			return fTargetName;
+			return fTargetName.toLowerCase();
 		} else {
 			return toString();
 		}
