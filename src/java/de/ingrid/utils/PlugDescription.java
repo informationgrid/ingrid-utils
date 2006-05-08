@@ -94,10 +94,10 @@ public class PlugDescription extends IngridDocument {
     public static final String IS_RECORD_LOADER = "isRecordLoader";
 
     /***/
-    private static final String BUSES = "busUrls";
+    public static final String BUSES = "busUrls";
 
     /***/
-    private static final String PROVIDER = "provider";
+    public static final String PROVIDER = "provider";
 
     /***/
     private boolean fIsActivated;
@@ -374,6 +374,7 @@ public class PlugDescription extends IngridDocument {
      * @deprecated
      */
     public void setPlugId(String plugId) {
+        System.out.println("setting of plugId "+plugId+" ignored, cause deprecated");
         //use proxy url
         // put(IPLUG_ID, plugId);
     }
