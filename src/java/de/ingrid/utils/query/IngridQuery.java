@@ -7,7 +7,7 @@
 package de.ingrid.utils.query;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 import de.ingrid.utils.IngridDocument;
 
@@ -34,19 +34,18 @@ public class IngridQuery extends IngridDocument {
 
     /***/
     public static final int RANGE = 5;
-    
+
     /***/
     public static final int WILDCARD_FIELD = 6;
-    
+
     /***/
     public static final int FUZZY_FIELD = 7;
-    
+
     /***/
     public static final int WILDCARD_TERM = 8;
-    
+
     /***/
     public static final int FUZZY_TERM = 9;
-    
 
     private static final String TYPE = "type";
 
@@ -57,40 +56,55 @@ public class IngridQuery extends IngridDocument {
     private static final String TERM_KEY = "term";
 
     private static final String RANGE_KEY = "range";
-    
+
     private static final String WILDCARD_FIELD_KEY = "wildcard_field";
-    
+
     private static final String WILDCARD_TERM_KEY = "wildcard_term";
 
     private static final String FUZZY_FIELD_KEY = "fuzzy_field";
-    
+
     private static final String FUZZY_TERM_KEY = "fuzzy_term";
-    
+
     private static final String CLAUSE_KEY = "clause";
 
+    /***/
     public static final String DATA_TYPE = "datatype";
 
+    /***/
     private static final String PROHIBITED = "prohibited";
 
+    /***/
     public static final String SCORE_RANKED = "score";
 
+    /***/
     public static final String RANKED = "ranking";
 
+    /***/
     public static final String DATE_RANKED = "date";
 
+    /***/
     public static final String NOT_RANKED = "off";
 
+    /***/
     private static final String GROUPED = "grouped";
 
+    /***/
     public static final String GROUPED_OFF = "grouped_off";
 
+    /***/
     public static final String GROUPED_BY_PLUGID = "grouped_by_plugId";
 
+    /***/
     public static final String GROUPED_BY_ORGANISATION = "grouped_by_organisation";
 
+    /***/
     public static final String GROUPED_BY_PARTNER = "grouped_by_partner";
 
-    private static final String PROVIDER = "provider";
+    /***/
+    public static final String PROVIDER = "provider";
+
+    /***/
+    public static final String IPLUGS = "iplugs";
 
     /**
      * Default constructor
@@ -104,6 +118,7 @@ public class IngridQuery extends IngridDocument {
      * 
      * @param type
      * @param required
+     * @param prohibited
      * @param query
      */
     public IngridQuery(boolean required, boolean prohibited, int type, String query) {
@@ -114,10 +129,16 @@ public class IngridQuery extends IngridDocument {
 
     }
 
+    /**
+     * @return if required
+     */
     public boolean isRequred() {
         return getBoolean(REQUIRED);
     }
 
+    /**
+     * @return true if prohibited
+     */
     public boolean isProhibited() {
         return getBoolean(PROHIBITED);
     }
@@ -143,6 +164,8 @@ public class IngridQuery extends IngridDocument {
             put(GROUPED, field.getFieldValue().toLowerCase());
         } else if (field.getFieldName().equals(PROVIDER)) {
             addToList(PROVIDER, field);
+        } else if (field.getFieldName().equals(IPLUGS)) {
+            addToList(IPLUGS, field);
         } else {
             addToList(FIELD_KEY, field);
         }
@@ -163,7 +186,7 @@ public class IngridQuery extends IngridDocument {
     /**
      * removes a data type from the query
      * 
-     * @param fieldQuery
+     * @param dataType
      */
     public void removeDataType(String dataType) {
         ArrayList arrayList = getArrayList(DATA_TYPE);
@@ -210,11 +233,11 @@ public class IngridQuery extends IngridDocument {
         }
         return (TermQuery[]) arrayList.toArray(new TermQuery[arrayList.size()]);
     }
-    
+
     /**
      * @param query
      */
-    public void addRangeQuery(RangeQuery query){
+    public void addRangeQuery(RangeQuery query) {
         addToList(RANGE_KEY, query);
     }
 
@@ -222,30 +245,30 @@ public class IngridQuery extends IngridDocument {
      * @param query
      */
     public void addWildCardFieldQuery(WildCardFieldQuery query) {
-      addToList(WILDCARD_FIELD_KEY, query);
+        addToList(WILDCARD_FIELD_KEY, query);
     }
-    
+
     /**
      * @param query
      */
     public void addWildCardTermQuery(WildCardTermQuery query) {
-      addToList(WILDCARD_TERM_KEY, query);
+        addToList(WILDCARD_TERM_KEY, query);
     }
-    
+
     /**
      * @param query
      */
     public void addFuzzyFieldQuery(FuzzyFieldQuery query) {
-      addToList(FUZZY_FIELD_KEY, query);
+        addToList(FUZZY_FIELD_KEY, query);
     }
-    
+
     /**
      * @param query
      */
     public void addFuzzyTermQuery(FuzzyTermQuery query) {
-      addToList(FUZZY_TERM_KEY, query);
+        addToList(FUZZY_TERM_KEY, query);
     }
-    
+
     /**
      * @return an array of range queries
      */
@@ -267,7 +290,7 @@ public class IngridQuery extends IngridDocument {
         }
         return (WildCardFieldQuery[]) arrayList.toArray(new WildCardFieldQuery[arrayList.size()]);
     }
-    
+
     /**
      * @return an array of range queries
      */
@@ -278,8 +301,7 @@ public class IngridQuery extends IngridDocument {
         }
         return (WildCardTermQuery[]) arrayList.toArray(new WildCardTermQuery[arrayList.size()]);
     }
-    
-    
+
     /**
      * @return an array of range queries
      */
@@ -290,7 +312,7 @@ public class IngridQuery extends IngridDocument {
         }
         return (FuzzyFieldQuery[]) arrayList.toArray(new FuzzyFieldQuery[arrayList.size()]);
     }
-    
+
     /**
      * @return an array of range queries
      */
@@ -301,7 +323,7 @@ public class IngridQuery extends IngridDocument {
         }
         return (FuzzyTermQuery[]) arrayList.toArray(new FuzzyTermQuery[arrayList.size()]);
     }
-    
+
     /**
      * adds a clause query
      * 
@@ -360,13 +382,13 @@ public class IngridQuery extends IngridDocument {
 
         buffer.append(" wildcardTerms: ");
         appendToString(buffer, getWildCardTermQueries());
-        
+
         buffer.append(" fuzzyFields: ");
         appendToString(buffer, getFuzzyFieldQueries());
 
         buffer.append(" fuzzyTerms: ");
         appendToString(buffer, getFuzzyTermQueries());
-        
+
         buffer.append(" providers: ");
         ArrayList arrayList = getArrayList(PROVIDER);
         if (arrayList == null) {
@@ -374,13 +396,13 @@ public class IngridQuery extends IngridDocument {
         }
         IngridQuery[] provider = (IngridQuery[]) arrayList.toArray(new IngridQuery[arrayList.size()]);
         appendToString(buffer, provider);
-        
+
         buffer.append(" datatypes: ");
         FieldQuery[] dataTypes = getDataTypes();
         for (int i = 0; i < dataTypes.length; i++) {
             buffer.append(dataTypes[i].toString());
         }
-        
+
         buffer.append(" ranking: ");
         buffer.append(getRankingType());
         buffer.append(")");
@@ -421,7 +443,7 @@ public class IngridQuery extends IngridDocument {
     }
 
     /**
-     * @return
+     * @return all data types
      */
     public FieldQuery[] getDataTypes() {
         ArrayList arrayList = getArrayList(DATA_TYPE);
@@ -477,21 +499,30 @@ public class IngridQuery extends IngridDocument {
         return rankValue.equalsIgnoreCase(ranked);
     }
 
+    /**
+     * @return the rank type
+     */
     public String getRankingType() {
         return (String) get(RANKED);
     }
-    
+
     /**
      * @return the grouped value
      */
     public String getGrouped() {
         return (String) get(GROUPED);
     }
-    
+
+    /**
+     * @return all unprohibeted providers
+     */
     public String[] getPositiveProvider() {
         return getProvider(false);
     }
 
+    /**
+     * @return all prohibeted providers
+     */
     public String[] getNegativeProvider() {
         return getProvider(true);
     }
@@ -509,6 +540,22 @@ public class IngridQuery extends IngridDocument {
             }
         }
         return (String[]) list.toArray(new String[list.size()]);
+    }
+
+    /**
+     * @return all iplugs the query is restricted to
+     */
+    public String[] getIPlugs() {
+        ArrayList plugTerms = getArrayList(IPLUGS);
+        if (plugTerms == null) {
+            return new String[0];
+        }
+        List iplugs = new ArrayList(plugTerms.size());
+        for (int i = 0; i < plugTerms.size(); i++) {
+            FieldQuery query = (FieldQuery) plugTerms.get(i);
+            iplugs.add(query.getFieldValue().toLowerCase());
+        }
+        return (String[]) iplugs.toArray(new String[iplugs.size()]);
     }
 
 }

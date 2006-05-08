@@ -48,6 +48,9 @@ public class IngridQueryTest extends TestCase {
         assertEquals(true,query.isRequred());
     }
     
+    /**
+     * @throws Exception
+     */
     public void testRemoveDataTypes() throws Exception {
 		IngridQuery query = new IngridQuery();
 		FieldQuery dataType = new FieldQuery(true, false, IngridQuery.DATA_TYPE, "bla"); 
@@ -57,6 +60,9 @@ public class IngridQueryTest extends TestCase {
 		assertEquals(0, query.getDataTypes().length);
 	}
     
+    /**
+     * @throws Exception
+     */
     public void testRemoveClause() throws Exception {
         IngridQuery query = new IngridQuery();
         ClauseQuery clause = new ClauseQuery(false, true);
@@ -65,6 +71,9 @@ public class IngridQueryTest extends TestCase {
         assertEquals(0, query.getClauses().length);
     }
     
+    /**
+     * @throws Exception
+     */
     public void testDataTypes() throws Exception {
         IngridQuery query = new IngridQuery(true, true, IngridQuery.TERM, "ba");
         assertTrue(query.isProhibited());
@@ -88,10 +97,23 @@ public class IngridQueryTest extends TestCase {
         
     }
     
+    /**
+     * @throws Exception
+     */
     public void testProvider() throws Exception {
         IngridQuery query = new IngridQuery();
         assertEquals(query.getPositiveProvider().length, 0);
         query.addField(new FieldQuery(true, false, "provider", "anhalt"));
         assertEquals(query.getPositiveProvider().length, 1);
+    }
+    
+    /**
+     * @throws Exception
+     */
+    public void testIPugs() throws Exception {
+        IngridQuery query = new IngridQuery();
+        assertEquals(query.getIPlugs().length, 0);
+        query.addField(new FieldQuery(true, false, IngridQuery.IPLUGS, "plugOne"));
+        assertEquals(query.getIPlugs().length, 1);
     }
 }
