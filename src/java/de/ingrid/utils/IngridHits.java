@@ -25,20 +25,40 @@ public class IngridHits extends IngridDocument {
 
     private static final String RANKED = "ranked";
 
+    private static final String GROUPED_HITS_LENGTH = "groupedHitsLength";
+
+    /**
+     * 
+     */
     public IngridHits() {
         // default constructor for serialization
     }
 
     /**
-     * @param provider
+     * @param plugId 
      * @param length
      * @param hits
+     * @param isRanked 
      */
     public IngridHits(String plugId, long length, IngridHit[] hits, boolean isRanked) {
         setPlugId(plugId);
         setLength(length);
         setHits(hits);
         putBoolean(RANKED, isRanked);
+    }
+    /**
+     * @param plugId 
+     * @param length
+     * @param hits
+     * @param isRanked 
+     * @param groupedHitsLength 
+     */
+    public IngridHits(String plugId, long length, IngridHit[] hits, boolean isRanked,int groupedHitsLength) {
+        setPlugId(plugId);
+        setLength(length);
+        setHits(hits);
+        putBoolean(RANKED, isRanked);
+        putInt(GROUPED_HITS_LENGTH,groupedHitsLength);
     }
 
     /**
@@ -75,7 +95,7 @@ public class IngridHits extends IngridDocument {
     }
 
     /**
-     * @return
+     * @return the plugId
      */
     public String getPlugId() {
         return (String) get(IPLUG_ID);
@@ -94,9 +114,18 @@ public class IngridHits extends IngridDocument {
     public boolean isRanked() {
         if (get(RANKED) != null) {
             return getBoolean(RANKED);
-        } else {
-            return false;
         }
+        return false;
     }
 
+    /**
+     * @return the number of hit which has been used by grouping to create this
+     *         hit container
+     */
+    public int getGoupedHitsLength() {
+        if (containsKey(GROUPED_HITS_LENGTH)) {
+            return getInt(GROUPED_HITS_LENGTH);
+        }
+        return 0;
+    }
 }
