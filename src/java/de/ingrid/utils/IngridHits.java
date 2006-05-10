@@ -27,6 +27,8 @@ public class IngridHits extends IngridDocument {
 
     private static final String GROUPED_HITS_LENGTH = "groupedHitsLength";
 
+    private static final String INVOLVED_PLUGS = "involvedPlugs";
+
     /**
      * 
      */
@@ -35,10 +37,10 @@ public class IngridHits extends IngridDocument {
     }
 
     /**
-     * @param plugId 
+     * @param plugId
      * @param length
      * @param hits
-     * @param isRanked 
+     * @param isRanked
      */
     public IngridHits(String plugId, long length, IngridHit[] hits, boolean isRanked) {
         setPlugId(plugId);
@@ -46,19 +48,25 @@ public class IngridHits extends IngridDocument {
         setHits(hits);
         putBoolean(RANKED, isRanked);
     }
+
     /**
-     * @param plugId 
-     * @param length
+     * @param totalHits
      * @param hits
-     * @param isRanked 
-     * @param groupedHitsLength 
      */
-    public IngridHits(String plugId, long length, IngridHit[] hits, boolean isRanked,int groupedHitsLength) {
-        setPlugId(plugId);
-        setLength(length);
+    public IngridHits(int totalHits, IngridHit[] hits) {
+        setLength(totalHits);
         setHits(hits);
-        putBoolean(RANKED, isRanked);
-        putInt(GROUPED_HITS_LENGTH,groupedHitsLength);
+    }
+
+    /**
+     * @param totalHits
+     * @param hits
+     * @param groupedHitsLength
+     */
+    public IngridHits(int totalHits, IngridHit[] hits, int groupedHitsLength) {
+        setLength(totalHits);
+        setHits(hits);
+        putInt(GROUPED_HITS_LENGTH, groupedHitsLength);
     }
 
     /**
@@ -117,9 +125,16 @@ public class IngridHits extends IngridDocument {
         }
         return false;
     }
+    
+    /**
+     * @param ranked
+     */
+    public void setRanked(boolean ranked) {
+        putBoolean(RANKED,ranked);
+    }
 
     /**
-     * @return the number of hit which has been used by grouping to create this
+     * @return the number of hits which has been used by grouping to create this
      *         hit container
      */
     public int getGoupedHitsLength() {
@@ -127,5 +142,22 @@ public class IngridHits extends IngridDocument {
             return getInt(GROUPED_HITS_LENGTH);
         }
         return 0;
+    }
+
+    /**
+     * @return the number of different iplugs the hits come from
+     */
+    public int getInVolvedPlugs() {
+        if (containsKey(INVOLVED_PLUGS)) {
+            return getInt(INVOLVED_PLUGS);
+        }
+        return 0;
+    }
+
+    /**
+     * @param howMany
+     */
+    public void setInVolvedPlugs(int howMany) {
+        putInt(INVOLVED_PLUGS, howMany);
     }
 }
