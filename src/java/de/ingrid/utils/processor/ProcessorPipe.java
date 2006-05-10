@@ -125,6 +125,7 @@ public class ProcessorPipe implements Serializable {
     /**
      * post processes the query, we directly manipulate the query parameter..
      * 
+     * @param ingridQuery
      * @param documents
      * @throws Exception
      */
