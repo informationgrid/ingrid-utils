@@ -21,6 +21,8 @@ import de.ingrid.utils.query.IngridQuery;
  */
 public interface IBus extends Serializable, IDetailer, IRecordLoader {
     /**
+     * Multicast the query to all connected IPlugs and return founded results.
+     * 
      * @param query
      * @param hitsPerPage
      * @param currentPage
