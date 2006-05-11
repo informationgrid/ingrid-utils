@@ -35,6 +35,12 @@ public interface IBus extends Serializable, IDetailer, IRecordLoader {
             throws Exception;
 
     /**
+     * @param md5Hash
+     * @return true if bus contains a plugDescription with the following md5 hash
+     */
+    public boolean containsPlugDescription(String md5Hash);
+    
+    /**
      * @param plugDescripion
      */
     public void addPlugDescription(PlugDescription plugDescripion);
