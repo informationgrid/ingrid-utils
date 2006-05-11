@@ -102,6 +102,8 @@ public class PlugDescription extends IngridDocument {
     /***/
     private boolean fIsActivated;
 
+    private String fMd5Hash;
+
     /**
      * @return Returns first connection or null
      */
@@ -374,8 +376,8 @@ public class PlugDescription extends IngridDocument {
      * @deprecated
      */
     public void setPlugId(String plugId) {
-        System.out.println("setting of plugId "+plugId+" ignored, cause deprecated");
-        //use proxy url
+        System.out.println("setting of plugId " + plugId + " ignored, cause deprecated");
+        // use proxy url
         // put(IPLUG_ID, plugId);
     }
 
@@ -524,6 +526,13 @@ public class PlugDescription extends IngridDocument {
     }
 
     /**
+     * @param activate
+     */
+    public void setActivate(boolean activate) {
+        this.fIsActivated = activate;
+    }
+
+    /**
      * @return true if the plug is activated
      * @see PlugDescription#activate()
      */
@@ -571,5 +580,19 @@ public class PlugDescription extends IngridDocument {
             arrayList = new ArrayList();
         }
         return (String[]) arrayList.toArray(new String[arrayList.size()]);
+    }
+
+    /**
+     * @return md5 of pligDescription file anf plug id
+     */
+    public String getMd5Hash() {
+        return this.fMd5Hash;
+    }
+
+    /**
+     * @param md5Hash
+     */
+    public void setMd5Hash(String md5Hash) {
+        this.fMd5Hash = md5Hash;
     }
 }
