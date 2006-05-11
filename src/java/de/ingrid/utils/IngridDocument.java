@@ -194,7 +194,7 @@ public class IngridDocument extends HashMap implements Externalizable {
      * @param value
      * @return true if document contained the given key
      */
-    public boolean removeFromList(Object key, String value) {
+    public boolean removeFromList(Object key, Object value) {
         boolean contained=false;
         List list=getArrayList(key);
         if(list!=null) {
