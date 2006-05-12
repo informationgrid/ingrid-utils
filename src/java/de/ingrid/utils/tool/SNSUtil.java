@@ -15,7 +15,7 @@ public class SNSUtil {
     /**
      * Transforms a SNS location topicId to the internal used ingrid format. 
      * This format follows the 8-digit kgs-Format (KreisGemeindeSchlüssel) for 
-     * the topic references "GEMEINDE, LAND, KREIS".
+     * the topic references "GEMEINDE, BUNDESLAND, KREIS".
      * 
      * Other topic references remain unchanged. 
      * 
@@ -23,7 +23,7 @@ public class SNSUtil {
      * @return The location reference.
      */
     public static String transformSpacialReference(String topicId) {
-        final String[] TOPIC_REFS = {"GEMEINDE", "LAND", "KREIS"};
+        final String[] TOPIC_REFS = {"GEMEINDE", "BUNDESLAND", "KREIS"};
         
         String kgsCode = topicId;  
         
