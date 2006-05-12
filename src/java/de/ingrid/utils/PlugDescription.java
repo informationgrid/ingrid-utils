@@ -100,9 +100,10 @@ public class PlugDescription extends IngridDocument {
     public static final String PROVIDER = "provider";
 
     /***/
-    private boolean fIsActivated;
+    public static final String MD5_HASH = "md5Hash";
 
-    private String fMd5Hash;
+    /***/
+    private boolean fIsActivated;
 
     /**
      * @return Returns first connection or null
@@ -422,6 +423,9 @@ public class PlugDescription extends IngridDocument {
      */
     public void setProxyServiceURL(String proxyServiceUrl) {
         put(PROXY_SERVICE_URL, proxyServiceUrl);
+        if (getMd5Hash() == null) {
+            setMd5Hash(proxyServiceUrl);
+        }
     }
 
     /**
@@ -586,13 +590,13 @@ public class PlugDescription extends IngridDocument {
      * @return md5 of pligDescription file anf plug id
      */
     public String getMd5Hash() {
-        return this.fMd5Hash;
+        return (String) get(MD5_HASH);
     }
 
     /**
      * @param md5Hash
      */
     public void setMd5Hash(String md5Hash) {
-        this.fMd5Hash = md5Hash;
+        put(MD5_HASH, md5Hash);
     }
 }
