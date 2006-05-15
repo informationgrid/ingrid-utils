@@ -3,8 +3,6 @@
  */
 package de.ingrid.utils.tool;
 
-import org.apache.commons.lang.StringUtils;
-
 /**
  * TODO Describe your created type (class, etc.) here.
  *
@@ -33,8 +31,6 @@ public class SNSUtil {
                 if (kgsCode.length() == 10) {
                     kgsCode = topicId.substring(TOPIC_REFS[i].length(), TOPIC_REFS[i].length() + 6);
                     kgsCode = kgsCode.concat(topicId.substring(TOPIC_REFS[i].length()+8));
-                } else if (kgsCode.length() < 8) {
-                    kgsCode = StringUtils.rightPad(kgsCode, 8, "0");
                 }
                 break;
             }

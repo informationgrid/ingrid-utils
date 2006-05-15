@@ -9,7 +9,8 @@ public class SNSUtilTest extends TestCase {
      */
     public void testTransformSpacialReference() {
         assertEquals("12345690", SNSUtil.transformSpacialReference("GEMEINDE1234567890"));
-        assertEquals("12000000", SNSUtil.transformSpacialReference("BUNDESLAND12"));
+        assertEquals("12", SNSUtil.transformSpacialReference("BUNDESLAND12"));
+        assertEquals("12345", SNSUtil.transformSpacialReference("KREIS12345"));
         assertEquals("SCHUTZGEBIET170", SNSUtil.transformSpacialReference("SCHUTZGEBIET170"));
     }
 
