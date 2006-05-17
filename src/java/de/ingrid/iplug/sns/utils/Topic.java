@@ -69,6 +69,11 @@ public class Topic extends IngridHitDetail {
     public static final String TOPIC_NAME = "topicName";
 
     /**
+     * Constant for topic association type.
+     */
+    public static final String TOPIC_ASSOCIATION_TYPE = "topicAssociationType";
+
+    /**
      * @param plugId
      * @param documentId
      * @param topicId
@@ -84,10 +89,41 @@ public class Topic extends IngridHitDetail {
     }
 
     /**
+     * @param plugId
+     * @param documentId
+     * @param topicId
+     * @param title
+     *            the name of the topic
+     * @param summary
+     * @param associationType
+     */
+    public Topic(String plugId, int documentId, String topicId, String title, String summary, String associationType) {
+        super(plugId, documentId, 0, /* we have only one sns */
+        -1f/* topics are unranked==no scores */, title, summary);
+        setTopicID(topicId);
+        setTopicName(title);
+        setTopicAssoc(associationType);
+    }
+
+    /**
+     * @param associationType
+     */
+    public void setTopicAssoc(String associationType) {
+        put(TOPIC_ASSOCIATION_TYPE, associationType);
+    }
+
+    /**
      * 
      */
     public Topic() {
         super();
+    }
+
+    /**
+     * @return The association type.
+     */
+    public String getTopicAssoc() {
+        return (String) get(TOPIC_ASSOCIATION_TYPE);
     }
 
     /**
