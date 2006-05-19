@@ -172,15 +172,49 @@ public class IngridQuery extends IngridDocument {
     }
 
     /**
+     * @param fieldName
+     * @return true if query contains a field with the given name
+     */
+    public boolean containsField(String fieldName) {
+        ArrayList fields = getArrayList(FIELD_KEY);
+        if (fields != null) {
+            int size = fields.size();
+            for (int i = 0; i < size; i++) {
+                if (((FieldQuery) fields.get(i)).getFieldName().equals(fieldName)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * removes a fieldquery from the query
      * 
      * @param fieldQuery
      */
     public void removeField(FieldQuery fieldQuery) {
-        ArrayList arrayList = getArrayList(FIELD_KEY);
-        if (arrayList != null) {
-            arrayList.remove(fieldQuery);
+        ArrayList fields = getArrayList(FIELD_KEY);
+        if (fields != null) {
+            fields.remove(fieldQuery);
         }
+    }
+
+    /**
+     * @param fieldName
+     * @return null or a removed field query with the given field name
+     */
+    public FieldQuery removeField(String fieldName) {
+        ArrayList fields = getArrayList(FIELD_KEY);
+        if (fields != null) {
+            int size = fields.size();
+            for (int i = 0; i < size; i++) {
+                if (((FieldQuery) fields.get(i)).getFieldName().equals(fieldName)) {
+                    return (FieldQuery) fields.remove(i);
+                }
+            }
+        }
+        return null;
     }
 
     /**
