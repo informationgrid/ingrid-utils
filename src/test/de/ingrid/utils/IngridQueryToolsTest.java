@@ -68,9 +68,9 @@ public class IngridQueryToolsTest extends TestCase {
 
         Vector v = tools.getTermsAsVector(query, false, false);
         Iterator i = v.iterator();
+        assertEquals("c", ((TermQuery) i.next()).getTerm());
         assertEquals("d", ((TermQuery) i.next()).getTerm());
-        assertEquals("f", ((TermQuery) i.next()).getTerm());
-        assertEquals("c", ((TermQuery) i.next()).getTerm());       
+        assertEquals("f", ((TermQuery) i.next()).getTerm());       
         
         v = tools.getTermsAsVector(query, false, true);
         i = v.iterator();

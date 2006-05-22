@@ -121,7 +121,7 @@ IngridQuery parse() :
 		boolean prohibited = false;
 	}
 	{
-		(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		(<OR>{required = false; q.setLastTermRequired(); } | <NOT> {prohibited =true; }| <AND> {required =true; })?
 		(t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
 		{q.addTerm(new TermQuery(required,prohibited, t.image));}
 	}
@@ -191,7 +191,6 @@ IngridQuery parse() :
 		boolean prohibited = false;
 	}
 	{
-			{System.out.println("test single clause");}
 		(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
 		{query =  new ClauseQuery( required, prohibited );}
 		<LPAREN>
@@ -205,7 +204,6 @@ IngridQuery parse() :
 				
 		)
 		<RPAREN> 
-		{System.out.println("single clause");}
 	}
 		
 
@@ -218,7 +216,6 @@ IngridQuery parse() :
 		boolean prohibited = false;
 	}
 	{
-	{System.out.println("test clause");}
 		(<OR>{required = false; } | <NOT> {prohibited =true; }| <AND> {required =true; })?
 		{query =  new ClauseQuery( required, prohibited );}
 		<LPAREN>
@@ -240,7 +237,6 @@ IngridQuery parse() :
 		)+
 		 
 		<RPAREN> 
-		{System.out.println("clause");}
 		{q.addClause(query);}
 	}	
 	

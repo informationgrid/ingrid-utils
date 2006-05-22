@@ -137,6 +137,13 @@ public class IngridQuery extends IngridDocument {
     }
 
     /**
+     * @param required
+     */
+    public void setRequired(boolean required) {
+        putBoolean(REQUIRED, required);
+    }
+
+    /**
      * @return true if prohibited
      */
     public boolean isProhibited() {
@@ -255,6 +262,19 @@ public class IngridQuery extends IngridDocument {
      */
     public void addTerm(TermQuery term) {
         addToList(TERM_KEY, term);
+    }
+
+    /**
+     * 
+     */
+    public void setLastTermRequired() {
+        System.out.println("IngridQuery.setLastTermRequired()");
+        ArrayList terms = getArrayList(TERM_KEY);
+        if (terms == null || terms.isEmpty()) {
+            return;
+        }
+        TermQuery term = (TermQuery) terms.get(terms.size() - 1);
+        term.setRequired(false);
     }
 
     /**

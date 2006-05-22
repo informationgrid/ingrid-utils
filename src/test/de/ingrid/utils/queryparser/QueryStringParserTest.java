@@ -8,8 +8,6 @@ package de.ingrid.utils.queryparser;
 
 import java.io.StringReader;
 
-import com.sun.rsasign.q;
-
 import junit.framework.TestCase;
 import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
@@ -52,7 +50,6 @@ public class QueryStringParserTest extends TestCase {
         q = "hallo || welt";
         parser = new QueryStringParser(new StringReader(q));
         testSimpleLogic(parser, QueryStringParserConstants.OR);
-
     }
 
     /**
@@ -116,27 +113,33 @@ public class QueryStringParserTest extends TestCase {
      */
     public void testQueries() throws Exception {
         IngridQuery q = parse("fische");
-        testTerms(q.getTerms(), new String[] { "fische" }, new boolean[][] {{true, false}});
+        testTerms(q.getTerms(), new String[] { "fische" }, new boolean[][] { { true, false } });
 
         q = parse("fische frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] {{true, false}, {true, false}});
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+                { true, false } });
 
         q = parse("fische frösche ort:Halle");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] {{true, false}, {true, false}});
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+                { true, false } });
         testFields(q.getFields(), new String[] { "ort:Halle" });
 
         q = parse("fische frösche ort:Halle land:germany");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] {{true, false},{true, false}});
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+                { true, false } });
         testFields(q.getFields(), new String[] { "ort:Halle", "land:germany" });
 
         q = parse("fische OR frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { {true, false},{false, false} });
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { false, false },
+                { false, false } });
 
         q = parse("fische AND frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { {true, false},{true, false} });
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+                { true, false } });
 
         q = parse("(ort:Halle land:germany) fische frösche ");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { {true, false},{true, false} });
+        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+                { true, false } });
         assertEquals(1, q.getClauses().length);
         testFields(q.getClauses()[0].getFields(), new String[] { "ort:Halle", "land:germany" });
     }
@@ -212,79 +215,76 @@ public class QueryStringParserTest extends TestCase {
         IngridQuery query = QueryStringParser.parse("ort:Hal*  ort:Darmst?dt");
         assertEquals(2, query.getWildCardFieldQueries().length);
     }
-    
-    
+
     /**
      * @throws Exception
      */
     public void testCoordinateQueries() throws Exception {
-        
+
         IngridQuery query = QueryStringParser.parse("x1:31.0");
-        
+
         assertEquals("Query contains no fields.", 1, query.getFields().length);
-        assertEquals("The expected field 'x1:31.0' does not exist.", "x1:31.0", query.getFields()[0].getContent().toString());
-        
+        assertEquals("The expected field 'x1:31.0' does not exist.", "x1:31.0", query.getFields()[0].getContent()
+                .toString());
+
         query = QueryStringParser.parse("x1:-31.0");
-        
+
         assertEquals("Query contains no fields.", 1, query.getFields().length);
-        assertEquals("The expected field 'x1:-31.0' does not exist.", "x1:-31.0", query.getFields()[0].getContent().toString());
+        assertEquals("The expected field 'x1:-31.0' does not exist.", "x1:-31.0", query.getFields()[0].getContent()
+                .toString());
     }
-    
+
     public void testRanked() throws Exception {
-		assertTrue( QueryStringParser.parse("bla ranking:score").isScoreRanked());
-		assertTrue( QueryStringParser.parse("bla ranking:date").isDateRanked());
-		assertTrue( QueryStringParser.parse("bla ranking:off").isNotRanked());
-	}
-    
-    
-    public void testPhrase() throws Exception {
-       String qSt = "\"halle saale\"";
-       IngridQuery query = QueryStringParser.parse(qSt);
-       assertEquals(1,query.getTerms().length);
-       qSt = "ort:\"halle saale\"";
-       query = QueryStringParser.parse(qSt);
-       assertEquals(1,query.getFields().length);
+        assertTrue(QueryStringParser.parse("bla ranking:score").isScoreRanked());
+        assertTrue(QueryStringParser.parse("bla ranking:date").isDateRanked());
+        assertTrue(QueryStringParser.parse("bla ranking:off").isNotRanked());
     }
-    
+
+    public void testPhrase() throws Exception {
+        String qSt = "\"halle saale\"";
+        IngridQuery query = QueryStringParser.parse(qSt);
+        assertEquals(1, query.getTerms().length);
+        qSt = "ort:\"halle saale\"";
+        query = QueryStringParser.parse(qSt);
+        assertEquals(1, query.getFields().length);
+    }
+
     public void testRangeQuery() throws Exception {
         String qSt = "date:[12 TO 23]";
         IngridQuery query = QueryStringParser.parse(qSt);
-        assertEquals(1,query.getRangeQueries().length);
-        
+        assertEquals(1, query.getRangeQueries().length);
+
         qSt = "foo:[1 TO 2]";
         query = QueryStringParser.parse(qSt);
-        assertEquals(1,query.getRangeQueries().length);
+        assertEquals(1, query.getRangeQueries().length);
     }
-    
+
     public void testMoreRangeQueries() throws Exception {
-        
-    	String qSt = "time:[9 TO 5] AND ( date:[12 TO 23] OR date:[25 TO 30] )";
-    
-    	IngridQuery query = QueryStringParser.parse(qSt);
+
+        String qSt = "time:[9 TO 5] AND ( date:[12 TO 23] OR date:[25 TO 30] )";
+
+        IngridQuery query = QueryStringParser.parse(qSt);
         System.out.println(query);
-    	assertEquals(1,query.getClauses().length);
-      
-       
+        assertEquals(1, query.getClauses().length);
+
     }
-    
-    
-    
+
     public void testBooleanFieldQueries() throws Exception {
         String q = "aa field:value";
         IngridQuery query = QueryStringParser.parse(q);
         assertEquals(1, query.getFields().length);
-        
-         q = "aa -field:value";
+
+        q = "aa -field:value";
         query = QueryStringParser.parse(q);
         assertEquals(1, query.getFields().length);
     }
-    
+
     public void testOr() throws Exception {
         IngridQuery query = QueryStringParser.parse("wasser OR erde");
         assertEquals(query.getTerms().length, 2);
-        assertEquals(query.getTerms()[0].isRequred(), true);
+        assertEquals(query.getTerms()[0].isRequred(), false);
         assertEquals(query.getTerms()[1].isRequred(), false);
-        
+
         query = new IngridQuery();
         query.addTerm(new TermQuery(true, false, "wasser"));
         ClauseQuery cq = new ClauseQuery(true, false);
@@ -292,27 +292,26 @@ public class QueryStringParserTest extends TestCase {
         cq.addField(new FieldQuery(false, false, "type", "value2"));
         query.addClause(cq);
     }
-    
+
     public void testParserVsApi() throws Exception {
         String s = "wasser +datatype:topics +(topic:gentechnik topic:abfall) ";
         IngridQuery q1 = QueryStringParser.parse(s);
-        IngridQuery q2 = new IngridQuery(); 
-        q2.addTerm(new TermQuery(true, false, "wasser")); 
-        q2.addField(new FieldQuery(true, false, "datatype", "topics")); 
-        ClauseQuery cq = new ClauseQuery(true, false); 
-        cq.addField(new FieldQuery(false, false, "topic", "gentechnik")); 
-        cq.addField(new FieldQuery(false, false, "topic", "abfall")); 
-        q2.addClause(cq); 
+        IngridQuery q2 = new IngridQuery();
+        q2.addTerm(new TermQuery(true, false, "wasser"));
+        q2.addField(new FieldQuery(true, false, "datatype", "topics"));
+        ClauseQuery cq = new ClauseQuery(true, false);
+        cq.addField(new FieldQuery(false, false, "topic", "gentechnik"));
+        cq.addField(new FieldQuery(false, false, "topic", "abfall"));
+        q2.addClause(cq);
         System.out.println(q1.toString());
         System.out.println(q2.toString());
         assertEquals(q1.toString(), q2.toString());
-        
+
     }
-    
+
     public void testStarngeClauses() throws Exception {
         IngridQuery query = QueryStringParser.parse("( foo )");
         assertEquals(1, query.getTerms().length);
     }
-    
 
 }
