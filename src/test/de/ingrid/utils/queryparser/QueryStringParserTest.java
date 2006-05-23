@@ -234,12 +234,18 @@ public class QueryStringParserTest extends TestCase {
                 .toString());
     }
 
+    /**
+     * @throws Exception
+     */
     public void testRanked() throws Exception {
         assertTrue(QueryStringParser.parse("bla ranking:score").isScoreRanked());
         assertTrue(QueryStringParser.parse("bla ranking:date").isDateRanked());
         assertTrue(QueryStringParser.parse("bla ranking:off").isNotRanked());
     }
 
+    /**
+     * @throws Exception
+     */
     public void testPhrase() throws Exception {
         String qSt = "\"halle saale\"";
         IngridQuery query = QueryStringParser.parse(qSt);
@@ -249,6 +255,9 @@ public class QueryStringParserTest extends TestCase {
         assertEquals(1, query.getFields().length);
     }
 
+    /**
+     * @throws Exception
+     */
     public void testRangeQuery() throws Exception {
         String qSt = "date:[12 TO 23]";
         IngridQuery query = QueryStringParser.parse(qSt);
@@ -259,6 +268,9 @@ public class QueryStringParserTest extends TestCase {
         assertEquals(1, query.getRangeQueries().length);
     }
 
+    /**
+     * @throws Exception
+     */
     public void testMoreRangeQueries() throws Exception {
 
         String qSt = "time:[9 TO 5] AND ( date:[12 TO 23] OR date:[25 TO 30] )";
@@ -269,6 +281,9 @@ public class QueryStringParserTest extends TestCase {
 
     }
 
+    /**
+     * @throws Exception
+     */
     public void testBooleanFieldQueries() throws Exception {
         String q = "aa field:value";
         IngridQuery query = QueryStringParser.parse(q);
@@ -279,6 +294,9 @@ public class QueryStringParserTest extends TestCase {
         assertEquals(1, query.getFields().length);
     }
 
+    /**
+     * @throws Exception
+     */
     public void testOr() throws Exception {
         IngridQuery query = QueryStringParser.parse("wasser OR erde");
         assertEquals(query.getTerms().length, 2);
@@ -293,6 +311,44 @@ public class QueryStringParserTest extends TestCase {
         query.addClause(cq);
     }
 
+    /**
+     * @throws Exception
+     */
+    public void testOrWithClause() throws Exception {
+        IngridQuery query = QueryStringParser.parse("(wasser OR feuer) OR erde");
+        for (int i = 0; i < query.getTerms().length; i++) {
+            assertFalse(query.getTerms()[i].isRequred());
+        }
+        for (int i = 0; i < query.getClauses().length; i++) {
+            assertFalse(query.getClauses()[i].isRequred());
+        }
+    }
+
+    /**
+     * @throws Exception
+     */
+    public void testOrWithSingleClause() throws Exception {
+        IngridQuery query = QueryStringParser.parse("a OR (-b)");
+        assertFalse(query.getTerms()[0].isRequred());
+        assertFalse(query.getTerms()[0].isProhibited());
+        assertFalse(query.getTerms()[1].isRequred());
+        assertTrue(query.getTerms()[1].isProhibited());
+    }
+
+    /**
+     * @throws Exception
+     */
+    public void testNOT() throws Exception {
+        IngridQuery query = QueryStringParser.parse("b NOT b");
+        assertTrue(query.getTerms()[0].isRequred());
+        assertFalse(query.getTerms()[0].isProhibited());
+        assertTrue(query.getTerms()[1].isRequred());
+        assertTrue(query.getTerms()[1].isProhibited());
+    }
+
+    /**
+     * @throws Exception
+     */
     public void testParserVsApi() throws Exception {
         String s = "wasser +datatype:topics +(topic:gentechnik topic:abfall) ";
         IngridQuery q1 = QueryStringParser.parse(s);
@@ -303,12 +359,13 @@ public class QueryStringParserTest extends TestCase {
         cq.addField(new FieldQuery(false, false, "topic", "gentechnik"));
         cq.addField(new FieldQuery(false, false, "topic", "abfall"));
         q2.addClause(cq);
-        System.out.println(q1.toString());
-        System.out.println(q2.toString());
         assertEquals(q1.toString(), q2.toString());
 
     }
 
+    /**
+     * @throws Exception
+     */
     public void testStarngeClauses() throws Exception {
         IngridQuery query = QueryStringParser.parse("( foo )");
         assertEquals(1, query.getTerms().length);

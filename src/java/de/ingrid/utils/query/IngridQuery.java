@@ -106,6 +106,8 @@ public class IngridQuery extends IngridDocument {
     /***/
     public static final String IPLUGS = "iplugs";
 
+    private transient IngridQuery fLastAddedQuery;
+
     /**
      * Default constructor
      */
@@ -176,6 +178,7 @@ public class IngridQuery extends IngridDocument {
         } else {
             addToList(FIELD_KEY, field);
         }
+        this.fLastAddedQuery = field;
     }
 
     /**
@@ -262,19 +265,17 @@ public class IngridQuery extends IngridDocument {
      */
     public void addTerm(TermQuery term) {
         addToList(TERM_KEY, term);
+        this.fLastAddedQuery = term;
     }
 
     /**
      * 
      */
-    public void setLastTermRequired() {
-        System.out.println("IngridQuery.setLastTermRequired()");
-        ArrayList terms = getArrayList(TERM_KEY);
-        if (terms == null || terms.isEmpty()) {
+    public void setLastQueryUnrequired() {
+        if (this.fLastAddedQuery == null) {
             return;
         }
-        TermQuery term = (TermQuery) terms.get(terms.size() - 1);
-        term.setRequired(false);
+        this.fLastAddedQuery.setRequired(false);
     }
 
     /**
@@ -293,6 +294,7 @@ public class IngridQuery extends IngridDocument {
      */
     public void addRangeQuery(RangeQuery query) {
         addToList(RANGE_KEY, query);
+        this.fLastAddedQuery = query;
     }
 
     /**
@@ -300,6 +302,7 @@ public class IngridQuery extends IngridDocument {
      */
     public void addWildCardFieldQuery(WildCardFieldQuery query) {
         addToList(WILDCARD_FIELD_KEY, query);
+        this.fLastAddedQuery = query;
     }
 
     /**
@@ -307,6 +310,7 @@ public class IngridQuery extends IngridDocument {
      */
     public void addWildCardTermQuery(WildCardTermQuery query) {
         addToList(WILDCARD_TERM_KEY, query);
+        this.fLastAddedQuery = query;
     }
 
     /**
@@ -314,6 +318,7 @@ public class IngridQuery extends IngridDocument {
      */
     public void addFuzzyFieldQuery(FuzzyFieldQuery query) {
         addToList(FUZZY_FIELD_KEY, query);
+        this.fLastAddedQuery = query;
     }
 
     /**
@@ -321,6 +326,7 @@ public class IngridQuery extends IngridDocument {
      */
     public void addFuzzyTermQuery(FuzzyTermQuery query) {
         addToList(FUZZY_TERM_KEY, query);
+        this.fLastAddedQuery = query;
     }
 
     /**
@@ -385,6 +391,7 @@ public class IngridQuery extends IngridDocument {
      */
     public void addClause(ClauseQuery clauseQuery) {
         addToList(CLAUSE_KEY, clauseQuery);
+        this.fLastAddedQuery = clauseQuery;
     }
 
     /**
