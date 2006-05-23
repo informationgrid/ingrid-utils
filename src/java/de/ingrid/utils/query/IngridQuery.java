@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.ingrid.utils.IngridDocument;
+import de.ingrid.utils.PlugDescription;
 
 /**
  * Container for Ingrid Queries
@@ -101,7 +102,10 @@ public class IngridQuery extends IngridDocument {
     public static final String GROUPED_BY_PARTNER = "grouped_by_partner";
 
     /***/
-    public static final String PROVIDER = "provider";
+    public static final String PROVIDER = PlugDescription.PROVIDER;
+
+    /***/
+    public static final String PARTNER = PlugDescription.PARTNER;
 
     /***/
     public static final String IPLUGS = "iplugs";
@@ -173,6 +177,8 @@ public class IngridQuery extends IngridDocument {
             put(GROUPED, field.getFieldValue().toLowerCase());
         } else if (field.getFieldName().equals(PROVIDER)) {
             addToList(PROVIDER, field);
+        } else if (field.getFieldName().equals(PARTNER)) {
+            addToList(PARTNER, field);
         } else if (field.getFieldName().equals(IPLUGS)) {
             addToList(IPLUGS, field);
         } else {
@@ -578,18 +584,32 @@ public class IngridQuery extends IngridDocument {
      * @return all unprohibeted providers
      */
     public String[] getPositiveProvider() {
-        return getProvider(false);
+        return getFields(PROVIDER, false);
     }
 
     /**
      * @return all prohibeted providers
      */
     public String[] getNegativeProvider() {
-        return getProvider(true);
+        return getFields(PROVIDER, true);
     }
 
-    private String[] getProvider(boolean prohibited) {
-        ArrayList arrayList = getArrayList(PROVIDER);
+    /**
+     * @return all unprohibeted partners
+     */
+    public String[] getPositivePartner() {
+        return getFields(PARTNER, false);
+    }
+
+    /**
+     * @return all prohibeted partners
+     */
+    public String[] getNegativePartner() {
+        return getFields(PARTNER, true);
+    }
+
+    private String[] getFields(String name, boolean prohibited) {
+        ArrayList arrayList = getArrayList(name);
         ArrayList list = new ArrayList();
         if (arrayList == null) {
             arrayList = new ArrayList();
@@ -602,7 +622,7 @@ public class IngridQuery extends IngridDocument {
         }
         return (String[]) list.toArray(new String[list.size()]);
     }
-
+    
     /**
      * @return all iplugs the query is restricted to
      */
