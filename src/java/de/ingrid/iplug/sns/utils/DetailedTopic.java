@@ -5,7 +5,6 @@
  */
 package de.ingrid.iplug.sns.utils;
 
-import de.ingrid.utils.IngridHit;
 
 /**
  * 
