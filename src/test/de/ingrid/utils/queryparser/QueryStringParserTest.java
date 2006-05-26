@@ -108,6 +108,21 @@ public class QueryStringParserTest extends TestCase {
     }
 
     /**
+     * @throws Exception
+     */
+    public void testPartnerFields() throws Exception {
+        IngridQuery query = QueryStringParser.parse("query partner:bw partner:he");
+        assertEquals(2, query.getPositivePartner().length);
+        // query = QueryStringParser.parse("query (partner:bw partner:he)");
+        // assertEquals(2, query.getPositivePartner().length);
+
+        query = QueryStringParser.parse("query");
+        query.addField(new FieldQuery(true, false, "partner", "bw"));
+        query.addField(new FieldQuery(true, false, "partner", "he"));
+        assertEquals(2, query.getPositivePartner().length);
+    }
+
+    /**
      * 
      * @throws Exception
      */
@@ -214,6 +229,30 @@ public class QueryStringParserTest extends TestCase {
     public void testWildCardQueries() throws Exception {
         IngridQuery query = QueryStringParser.parse("ort:Hal*  ort:Darmst?dt");
         assertEquals(2, query.getWildCardFieldQueries().length);
+    }
+    
+    /**
+     * @throws Exception
+     */
+    public void testFuzzyTerms() throws Exception {
+        IngridQuery query=QueryStringParser.parse("query");
+        assertEquals(0, query.getFuzzyTermQueries().length);
+        assertEquals(1, query.getTerms().length);
+         query=QueryStringParser.parse("query~");
+        assertEquals(1, query.getFuzzyTermQueries().length);
+        assertEquals(0, query.getTerms().length);
+    }
+    
+    /**
+     * @throws Exception
+     */
+    public void testFuzzyFields() throws Exception {
+        IngridQuery query=QueryStringParser.parse("f:field");
+        assertEquals(0, query.getFuzzyFieldQueries().length);
+        assertEquals(1, query.getFields().length);
+         query=QueryStringParser.parse("f:field~");
+        assertEquals(1, query.getFuzzyFieldQueries().length);
+        assertEquals(0, query.getTerms().length);
     }
 
     /**

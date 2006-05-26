@@ -15,6 +15,9 @@ private static final long serialVersionUID = FuzzyTermQuery.class.getName().hash
 
   /**
    * Constructs a term query
+ * @param required 
+ * @param prohibited 
+ * @param term 
    */
   public FuzzyTermQuery(boolean required, boolean prohibited, String term) {
       super(required, prohibited, IngridQuery.FUZZY_TERM, term);

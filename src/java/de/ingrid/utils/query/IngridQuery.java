@@ -383,7 +383,7 @@ public class IngridQuery extends IngridDocument {
      * @return an array of range queries
      */
     public FuzzyTermQuery[] getFuzzyTermQueries() {
-        ArrayList arrayList = getArrayList(WILDCARD_TERM_KEY);
+        ArrayList arrayList = getArrayList(FUZZY_TERM_KEY);
         if (arrayList == null) {
             return new FuzzyTermQuery[0];
         }

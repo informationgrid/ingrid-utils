@@ -19,6 +19,8 @@ import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.TermQuery;
 import de.ingrid.utils.query.RangeQuery;
 import de.ingrid.utils.query.WildCardFieldQuery;
+import de.ingrid.utils.query.FuzzyTermQuery;
+import de.ingrid.utils.query.FuzzyFieldQuery;
 
 public class QueryStringParser {
      /**
@@ -117,11 +119,20 @@ IngridQuery parse() :
 	void term(IngridQuery q, boolean required, boolean prohibited ) :
 	{
 		Token t;
+		Token fuzzySlop=null;
+		boolean fuzzy = false;
 	}
 	{
 		(<OR>{required = false; q.setLastQueryUnrequired(); } | <NOT> {prohibited =true; }| <AND> {required =true; })?
 		(t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
-		{q.addTerm(new TermQuery(required,prohibited, t.image));}
+		[ fuzzySlop=<FUZZY_SLOP> { fuzzy=true; } ]
+		{
+			if(fuzzy){
+			  q.addFuzzyTermQuery(new FuzzyTermQuery(required,prohibited, t.image));
+			}else{
+     		  q.addTerm(new TermQuery(required,prohibited, t.image));
+			}
+		}
 	}
 	
 
@@ -131,12 +142,21 @@ IngridQuery parse() :
 	{
 		Token key;
 		Token value;
+		Token fuzzySlop=null;
+		boolean fuzzy = false;
 	}
 	{
 		(<OR>{required = false; q.setLastQueryUnrequired();} | <NOT> {prohibited =true; }| <AND> {required =true; })?
 		key=<FIELD>
 		(value=<FLOAT>|value=<TERM>|value=<PREFIXTERM>|value=<QUOTED>)
-		{q.addField(new FieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image));}
+		[ fuzzySlop=<FUZZY_SLOP> { fuzzy=true; } ]
+		{
+			if(fuzzy){
+				q.addFuzzyFieldQuery(new FuzzyFieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image));
+			}else{
+				q.addField(new FieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image));
+			}
+		}
 	}
 	
 
