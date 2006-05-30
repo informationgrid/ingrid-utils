@@ -156,6 +156,7 @@ IngridQuery parse() :
 		Token value;
 		Token fuzzySlop=null;
 		boolean fuzzy = false;
+		String term = null;
 	}
 	{
 		(<OR>{required = false; q.setLastQueryUnrequired();} | <NOT> {prohibited =true; }| <AND> {required =true; })?
@@ -163,10 +164,17 @@ IngridQuery parse() :
 		(value=<FLOAT>|value=<TERM>|value=<PREFIXTERM>|value=<QUOTED>)
 		[ fuzzySlop=<FUZZY_SLOP> { fuzzy=true; } ]
 		{
+			final Matcher matcher = fMatchQuotes.matcher(value.image);
+			if (matcher.matches()) {
+				term = matcher.group(1);
+			} else {
+				term = value.image;
+			}
+			
 			if(fuzzy){
-				q.addFuzzyFieldQuery(new FuzzyFieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image));
+				q.addFuzzyFieldQuery(new FuzzyFieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), term));
 			}else{
-				q.addField(new FieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image));
+				q.addField(new FieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), term));
 			}
 		}
 	}

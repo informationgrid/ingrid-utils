@@ -413,13 +413,20 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
-    public void testTermsWITH_QUOTING() throws Exception {
-        String q = "\"hallo  welt\" datatype:dsc_other";
+    public void testTermsFieldsWITH_QUOTING() throws Exception {
+        String q = "\"hallo  welt\" feld:\"/dsc_other:df\"";
         
         IngridQuery iq = QueryStringParser.parse(q);
         TermQuery[] t = iq.getTerms();
+        assertEquals(1,t.length);
         for (int i = 0; i < t.length; i++) {
             assertEquals("hallo  welt", t[i].getTerm());
+        }
+        
+        FieldQuery[] f = iq.getFields();
+        assertEquals(1, f.length);
+        for (int i = 0; i < f.length; i++) {
+            assertEquals("/dsc_other:df", f[i].getFieldValue());
         }
     }
 }
