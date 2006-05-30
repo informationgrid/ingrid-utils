@@ -622,7 +622,7 @@ public class IngridQuery extends IngridDocument {
         }
         return (String[]) list.toArray(new String[list.size()]);
     }
-    
+
     /**
      * @return all iplugs the query is restricted to
      */
@@ -638,5 +638,23 @@ public class IngridQuery extends IngridDocument {
         }
         return (String[]) iplugs.toArray(new String[iplugs.size()]);
     }
+
+    /**
+     * @return an array which contains the query itself and all its clausess
+     */
+    public IngridQuery[] getAllClauses() {
+        List clauses = new ArrayList();
+        fillWithClausesRecursiv(clauses, this);
+        return (IngridQuery[]) clauses.toArray(new IngridQuery[clauses.size()]);
+    }
+
+    private void fillWithClausesRecursiv(List clauses, IngridQuery query) {
+        ClauseQuery[] queries = query.getClauses();
+        for (int i = 0; i < queries.length; i++) {
+            fillWithClausesRecursiv(clauses, queries[i]);
+        }
+        clauses.add(query);
+    }
+    
 
 }
