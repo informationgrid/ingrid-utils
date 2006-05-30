@@ -134,7 +134,7 @@ public class IngridHit extends IngridDocument {
     }
 
     /**
-     * @return
+     * @return the id of plug
      */
     public String getPlugId() {
         return (String) get(IPLUG_ID);
