@@ -130,30 +130,30 @@ public class QueryStringParserTest extends TestCase {
         IngridQuery q = parse("fische");
         testTerms(q.getTerms(), new String[] { "fische" }, new boolean[][] { { true, false } });
 
-        q = parse("fische frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("fische frÃ¶sche");
+        testTerms(q.getTerms(), new String[] { "fische", "frÃ¶sche" }, new boolean[][] { { true, false },
                 { true, false } });
 
-        q = parse("fische frösche ort:Halle");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("fische frÃ¶sche ort:Halle");
+        testTerms(q.getTerms(), new String[] { "fische", "frÃ¶sche" }, new boolean[][] { { true, false },
                 { true, false } });
         testFields(q.getFields(), new String[] { "ort:Halle" });
 
-        q = parse("fische frösche ort:Halle land:germany");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("fische frÃ¶sche ort:Halle land:germany");
+        testTerms(q.getTerms(), new String[] { "fische", "frÃ¶sche" }, new boolean[][] { { true, false },
                 { true, false } });
         testFields(q.getFields(), new String[] { "ort:Halle", "land:germany" });
 
-        q = parse("fische OR frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { false, false },
+        q = parse("fische OR frÃ¶sche");
+        testTerms(q.getTerms(), new String[] { "fische", "frÃ¶sche" }, new boolean[][] { { false, false },
                 { false, false } });
 
-        q = parse("fische AND frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("fische AND frÃ¶sche");
+        testTerms(q.getTerms(), new String[] { "fische", "frÃ¶sche" }, new boolean[][] { { true, false },
                 { true, false } });
 
-        q = parse("(ort:Halle land:germany) fische frösche ");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("(ort:Halle land:germany) fische frÃ¶sche ");
+        testTerms(q.getTerms(), new String[] { "fische", "frÃ¶sche" }, new boolean[][] { { true, false },
                 { true, false } });
         assertEquals(1, q.getClauses().length);
         testFields(q.getClauses()[0].getFields(), new String[] { "ort:Halle", "land:germany" });
@@ -410,4 +410,16 @@ public class QueryStringParserTest extends TestCase {
         assertEquals(1, query.getTerms().length);
     }
 
+    /**
+     * @throws Exception
+     */
+    public void testTermsWITH_QUOTING() throws Exception {
+        String q = "\"hallo  welt\" datatype:dsc_other";
+        
+        IngridQuery iq = QueryStringParser.parse(q);
+        TermQuery[] t = iq.getTerms();
+        for (int i = 0; i < t.length; i++) {
+            assertEquals("hallo  welt", t[i].getTerm());
+        }
+    }
 }

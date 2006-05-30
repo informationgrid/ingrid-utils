@@ -11,7 +11,8 @@ PARSER_BEGIN(QueryStringParser)
 package de.ingrid.utils.queryparser;
 
 import java.io.StringReader;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
@@ -23,6 +24,9 @@ import de.ingrid.utils.query.FuzzyTermQuery;
 import de.ingrid.utils.query.FuzzyFieldQuery;
 
 public class QueryStringParser {
+
+	private static Pattern fMatchQuotes = Pattern.compile("\"(.*)\"");
+
      /**
      * Parses the string to a query object representation
      * @param queryString
@@ -121,16 +125,24 @@ IngridQuery parse() :
 		Token t;
 		Token fuzzySlop=null;
 		boolean fuzzy = false;
+		String term = null;
 	}
 	{
 		(<OR>{required = false; q.setLastQueryUnrequired(); } | <NOT> {prohibited =true; }| <AND> {required =true; })?
 		(t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
 		[ fuzzySlop=<FUZZY_SLOP> { fuzzy=true; } ]
 		{
+			final Matcher matcher = fMatchQuotes.matcher(t.image);
+			if (matcher.matches()) {
+				term = matcher.group(1);
+			} else {
+				term = t.image;
+			}
+
 			if(fuzzy){
-			  q.addFuzzyTermQuery(new FuzzyTermQuery(required,prohibited, t.image));
+			  q.addFuzzyTermQuery(new FuzzyTermQuery(required,prohibited, term));
 			}else{
-     		  q.addTerm(new TermQuery(required,prohibited, t.image));
+     		  q.addTerm(new TermQuery(required,prohibited, term));
 			}
 		}
 	}
