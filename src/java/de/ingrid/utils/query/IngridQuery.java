@@ -53,8 +53,9 @@ public class IngridQuery extends IngridDocument {
     private static final String REQUIRED = "required";
 
     private static final String FIELD_KEY = "field";
-
-    private static final String TERM_KEY = "term";
+    
+    /***/
+    public static final String TERM_KEY = "term";
 
     private static final String RANGE_KEY = "range";
 
