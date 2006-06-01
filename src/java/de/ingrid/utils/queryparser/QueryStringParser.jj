@@ -20,6 +20,7 @@ import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.TermQuery;
 import de.ingrid.utils.query.RangeQuery;
 import de.ingrid.utils.query.WildCardFieldQuery;
+import de.ingrid.utils.query.WildCardTermQuery;
 import de.ingrid.utils.query.FuzzyTermQuery;
 import de.ingrid.utils.query.FuzzyFieldQuery;
 
@@ -125,11 +126,12 @@ IngridQuery parse() :
 		Token t;
 		Token fuzzySlop=null;
 		boolean fuzzy = false;
+		boolean wildcard = false;
 		String term = null;
 	}
 	{
 		(<OR>{required = false; q.setLastQueryUnrequired(); } | <NOT> {prohibited =true; }| <AND> {required =true; })?
-		(t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
+		(t=<WILDTERM>{ wildcard=true; }|t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
 		[ fuzzySlop=<FUZZY_SLOP> { fuzzy=true; } ]
 		{
 			final Matcher matcher = fMatchQuotes.matcher(t.image);
@@ -141,8 +143,10 @@ IngridQuery parse() :
 
 			if(fuzzy){
 			  q.addFuzzyTermQuery(new FuzzyTermQuery(required,prohibited, term));
+			}else if(wildcard){
+     		  q.addWildCardTermQuery(new WildCardTermQuery(required,prohibited, term));
 			}else{
-     		  q.addTerm(new TermQuery(required,prohibited, term));
+			  q.addTerm(new TermQuery(required,prohibited, term));
 			}
 		}
 	}

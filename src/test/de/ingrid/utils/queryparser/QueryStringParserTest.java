@@ -226,9 +226,17 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
-    public void testWildCardQueries() throws Exception {
+    public void testWildCardFieldQueries() throws Exception {
         IngridQuery query = QueryStringParser.parse("ort:Hal*  ort:Darmst?dt");
         assertEquals(2, query.getWildCardFieldQueries().length);
+    }
+    
+    /**
+     * @throws Exception
+     */
+    public void testWildCardTermQueries() throws Exception {
+        IngridQuery query = QueryStringParser.parse("wa*sser*");
+        assertEquals(1, query.getWildCardTermQueries().length);
     }
     
     /**
@@ -311,13 +319,9 @@ public class QueryStringParserTest extends TestCase {
      * @throws Exception
      */
     public void testMoreRangeQueries() throws Exception {
-
         String qSt = "time:[9 TO 5] AND ( date:[12 TO 23] OR date:[25 TO 30] )";
-
         IngridQuery query = QueryStringParser.parse(qSt);
-        System.out.println(query);
         assertEquals(1, query.getClauses().length);
-
     }
 
     /**
