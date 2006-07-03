@@ -465,6 +465,14 @@ public class IngridQuery extends IngridDocument {
         IngridQuery[] provider = (IngridQuery[]) arrayList.toArray(new IngridQuery[arrayList.size()]);
         appendToString(buffer, provider);
 
+        buffer.append(" partners: ");
+        arrayList = getArrayList(PARTNER);
+        if (arrayList == null) {
+            arrayList = new ArrayList();
+        }
+        IngridQuery[] partner = (IngridQuery[]) arrayList.toArray(new IngridQuery[arrayList.size()]);
+        appendToString(buffer, partner);
+        
         buffer.append(" datatypes: ");
         FieldQuery[] dataTypes = getDataTypes();
         for (int i = 0; i < dataTypes.length; i++) {
@@ -621,6 +629,15 @@ public class IngridQuery extends IngridDocument {
                 list.add(query.getFieldValue().toLowerCase());
             }
         }
+        
+        IngridQuery[] clauses = getClauses();
+        for (int i = 0; i < clauses.length; i++) {
+            String[] fields = clauses[i].getFields(name, prohibited);
+            for (int j = 0; j < fields.length; j++) {
+                list.add(fields[i]);
+            }
+        }
+        
         return (String[]) list.toArray(new String[list.size()]);
     }
 
@@ -641,7 +658,7 @@ public class IngridQuery extends IngridDocument {
     }
 
     /**
-     * @return an array which contains the query itself and all its clausess
+     * @return An array which contains the query itself and all its clauses.
      */
     public IngridQuery[] getAllClauses() {
         List clauses = new ArrayList();
