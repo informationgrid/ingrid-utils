@@ -634,7 +634,7 @@ public class IngridQuery extends IngridDocument {
         for (int i = 0; i < clauses.length; i++) {
             String[] fields = clauses[i].getFields(name, prohibited);
             for (int j = 0; j < fields.length; j++) {
-                list.add(fields[i]);
+                list.add(fields[j]);
             }
         }
         
