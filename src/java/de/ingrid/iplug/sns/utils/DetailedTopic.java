@@ -40,7 +40,7 @@ public class DetailedTopic extends Topic {
      * Constant for definitions.
      */
     public static final String DEFINITIONS = "definitions";
-    
+
     public static final String DESCRIPTION_OCC = "descriptionOcc";
 
     public static final String SAMPLE_OCC = "sampleOcc";
@@ -49,7 +49,9 @@ public class DetailedTopic extends Topic {
 
     public static final String INSTANCE_OF = "href";
 
-    public static final String TITLES = "titles";
+    public static final String DEFINITION_TITLES = "definitionTitles";
+
+    public static final Object SAMPLE_OCC_TITLES = "sampleOccTitles";
 
     public DetailedTopic(String plugId, int documentId, String topicId, String title, String summary) {
         super(plugId, documentId, topicId, title, summary);
@@ -132,5 +134,82 @@ public class DetailedTopic extends Topic {
      */
     public String getAdministrativeID() {
         return (String) get(ADMINISTRATIVE_ID);
+    }
+
+    /**
+     * @param defsTitles
+     */
+    public void setDefinitionTitles(String[] defsTitles) {
+        put(DEFINITION_TITLES, defsTitles);
+    }
+
+    /**
+     * @param definitions
+     */
+    public void setDefinitions(String[] definitions) {
+        put(DEFINITIONS, definitions);
+    }
+
+    /**
+     * @return
+     */
+    public String[] getDefinitionTitles() {
+        Object result = get(DEFINITION_TITLES);
+
+        if (null == result) {
+            result = new String[0];
+        }
+
+        return (String[]) result;
+    }
+
+    /**
+     * @return
+     */
+    public String[] getDefinitions() {
+        Object result = get(DEFINITIONS);
+
+        if (null == result) {
+            result = new String[0];
+        }
+
+        return (String[]) result;
+    }
+
+    /**
+     * @param samples
+     */
+    public void setSamples(String[] samples) {
+        put(SAMPLE_OCC, samples);
+    }
+
+    /**
+     * @param samTitles
+     */
+    public void setSampleTitles(String[] samTitles) {
+        put(SAMPLE_OCC_TITLES, samTitles);
+    }
+
+    public String[] getSampleTitles() {
+        Object result = get(SAMPLE_OCC_TITLES);
+
+        if (null == result) {
+            result = new String[0];
+        }
+
+        return (String[]) result;
+    }
+
+    /**
+     * @return
+     */
+    public String[] getSamples() {
+        Object result = get(SAMPLE_OCC);
+
+        if (null == result) {
+            result = new String[0];
+        }
+
+        return (String[]) result;
     }
 }
