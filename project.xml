@@ -51,7 +51,7 @@
     <siteAddress>http://213.144.28.209/ingrid/ingrid-utils</siteAddress>
     <siteDirectory>/srv/www/htdocs/ingrid/ingrid-utils</siteDirectory>
     <repository>
-        <connection>scm:svn:https://mb@127.0.0.1:444/svn/ingrid/ingrid-utils/trunk</connection>
+        <connection>scm:svn:https://127.0.0.1:444/svn/ingrid/ingrid-utils/trunk</connection>
     </repository>
     <dependencies>
         <dependency>
