@@ -105,6 +105,8 @@ public class PlugDescription extends IngridDocument {
     /***/
     private boolean fIsActivated;
 
+    private static final String IPLUG_ADMIN_GUI_URL = "IPLUG_ADMIN_GUI_URL";
+
     /**
      * @return Returns first connection or null
      */
@@ -448,6 +450,20 @@ public class PlugDescription extends IngridDocument {
      */
     public String getMotherIBusURL() {
         return (String) get(MOTHER_IBUS_URL);
+    }
+
+    /**
+     * @param iplugAdminGuiUrl
+     */
+    public void setIplugAdminGuiUrl(String iplugAdminGuiUrl) {
+        put(IPLUG_ADMIN_GUI_URL, iplugAdminGuiUrl);
+    }
+
+    /**
+     * @return The admin url for the IPlug.
+     */
+    public String getIplugAdminGuiUrl() {
+        return (String) get(IPLUG_ADMIN_GUI_URL);
     }
 
     /**
