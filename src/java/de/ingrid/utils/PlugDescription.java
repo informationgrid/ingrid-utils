@@ -107,6 +107,8 @@ public class PlugDescription extends IngridDocument {
 
     private static final String IPLUG_ADMIN_GUI_URL = "IPLUG_ADMIN_GUI_URL";
 
+    private static final String IPLUG_ADMIN_PASSWORD = "IPLUG_ADMIN_PASSWORD";
+
     /**
      * @return Returns first connection or null
      */
@@ -614,5 +616,19 @@ public class PlugDescription extends IngridDocument {
      */
     public void setMd5Hash(String md5Hash) {
         put(MD5_HASH, md5Hash);
+    }
+
+    /**
+     * @return The password for the admin gui user.
+     */
+    public String getIplugAdminPassword() {
+        return (String) get(IPLUG_ADMIN_PASSWORD);
+    }
+
+    /**
+     * @param password
+     */
+    public void setIplugAdminPassword(String password) {
+        put(IPLUG_ADMIN_PASSWORD, password);
     }
 }
