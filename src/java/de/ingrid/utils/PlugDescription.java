@@ -109,6 +109,8 @@ public class PlugDescription extends IngridDocument {
 
     private static final String IPLUG_ADMIN_PASSWORD = "IPLUG_ADMIN_PASSWORD";
 
+    private static final Object IPLUG_ADMIN_GUI_PORT = "IPLUG_ADMIN_GUI_PORT";
+
     /**
      * @return Returns first connection or null
      */
@@ -630,5 +632,19 @@ public class PlugDescription extends IngridDocument {
      */
     public void setIplugAdminPassword(String password) {
         put(IPLUG_ADMIN_PASSWORD, password);
+    }
+
+    /**
+     * @return The port where the admin gui runs.
+     */
+    public int getIplugAdminGuiPort() {
+        return getInt(IPLUG_ADMIN_GUI_PORT);
+    }
+    
+    /**
+     * @param port
+     */
+    public void setIplugAdminGuiPort(int port) {
+        putInt(IPLUG_ADMIN_GUI_PORT, port);
     }
 }
