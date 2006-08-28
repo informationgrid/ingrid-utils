@@ -6,6 +6,9 @@
 
 package de.ingrid.utils.query;
 
+/**
+ * 
+ */
 public class FieldQuery extends IngridQuery {
 
     private static final long serialVersionUID = FieldQuery.class.getName().hashCode();
@@ -14,18 +17,27 @@ public class FieldQuery extends IngridQuery {
 
     private static final String FIELD_VALUE = "fieldValue";
 
+    /**
+     * @param required
+     * @param prohibited
+     * @param fieldKey
+     * @param fieldValue
+     */
     public FieldQuery(boolean required, boolean prohibited, String fieldKey, String fieldValue) {
         super(required, prohibited, IngridQuery.FIELD, fieldKey + ":" + fieldValue);
         put(FIELD_NAME, fieldKey);
         put(FIELD_VALUE, fieldValue);
     }
 
+    /**
+     * 
+     */
     public FieldQuery() {
         // to be serializable
     }
 
     /**
-     * @return the fieldname
+     * @return The name of the field.
      */
     public String getFieldName() {
         return (String) get(FIELD_NAME);
