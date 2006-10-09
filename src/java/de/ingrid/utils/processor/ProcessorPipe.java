@@ -72,8 +72,8 @@ public class ProcessorPipe implements Serializable {
             }
             long start = System.currentTimeMillis();
             preProcessors[i].process(query);
-            if (log.isTraceEnabled()) {
-                log.trace(preProcessors[i].getClass().getName() + " execution time (ms): "
+            if (log.isDebugEnabled()) {
+                log.debug(preProcessors[i].getClass().getName() + " execution time (ms): "
                         + (System.currentTimeMillis() - start));
             }
         }
@@ -137,8 +137,8 @@ public class ProcessorPipe implements Serializable {
             }
             long start = System.currentTimeMillis();
             postProcessors[i].process(ingridQuery, documents);
-            if (log.isTraceEnabled()) {
-                log.trace(postProcessors[i].getClass().getName() + " execution time (ms): "
+            if (log.isDebugEnabled()) {
+                log.debug(postProcessors[i].getClass().getName() + " execution time (ms): "
                         + (System.currentTimeMillis() - start));
             }
         }
