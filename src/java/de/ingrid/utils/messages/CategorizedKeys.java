@@ -119,4 +119,11 @@ public class CategorizedKeys {
                 new String[properties.size()]);
     }
 
+    
+    /**
+     * 
+     */
+    public static void clear() {
+        fCache.clear();
+    }
 }
