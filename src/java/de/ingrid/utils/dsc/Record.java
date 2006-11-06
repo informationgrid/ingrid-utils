@@ -125,6 +125,21 @@ public class Record extends IngridDocument {
     }
 
     /**
+     * set the subrecord
+     * 
+     * @param subRecord
+     */
+    public void addSubRecord(Record subRecord) {
+        ArrayList arrayList = getArrayList(SUB_RECORDS);
+        if (arrayList == null) {
+            arrayList = new ArrayList();
+            put(SUB_RECORDS, arrayList);
+        }
+        arrayList.add(subRecord);
+    }
+    
+    
+    /**
      * @return the subRecords.
      */
     public Record[] getSubRecords() {
