@@ -15,14 +15,6 @@
     <issueTrackingUrl>http://jira.media-style.com/browse/INGRID</issueTrackingUrl>
     <siteAddress>http://213.144.28.209/ingrid/ingrid-utils</siteAddress>
     <siteDirectory>/srv/www/htdocs/ingrid/ingrid-utils</siteDirectory>
-    <mailingLists>
-        <mailingList>
-            <name>${pom.name} Dev List</name>
-        </mailingList>
-        <mailingList>
-            <name>${pom.name} User List</name>
-        </mailingList>
-    </mailingLists>
     <developers>
         <developer>
             <id>sg</id>
