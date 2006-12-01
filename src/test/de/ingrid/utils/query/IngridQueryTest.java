@@ -22,14 +22,14 @@ import de.ingrid.utils.queryparser.QueryStringParser;
 import junit.framework.TestCase;
 
 /**
- * IngridQueryTest 
+ * IngridQueryTest
  * 
  * <p/>created on 20.10.2005
  * 
  * @version $Revision: $
  * @author jz
  * @author $Author: ${lastedit}
- *  
+ * 
  */
 public class IngridQueryTest extends TestCase {
 
@@ -40,63 +40,64 @@ public class IngridQueryTest extends TestCase {
     public void testQuery() throws Exception {
         IngridQuery query = new IngridQuery();
         query.addClause(new ClauseQuery(true, false));
-        assertEquals(1,query.getClauses().length);
-        
-        query=new IngridQuery(true, false, IngridQuery.TERM,  "content");
-        assertEquals(IngridQuery.TERM,query.getType());
-        assertEquals("content",query.getContent());
-        assertEquals(true,query.isRequred());
+        assertEquals(1, query.getClauses().length);
+
+        query = new IngridQuery(true, false, IngridQuery.TERM, "content");
+        assertEquals(IngridQuery.TERM, query.getType());
+        assertEquals("content", query.getContent());
+        assertEquals(true, query.isRequred());
     }
-    
+
     /**
      * @throws Exception
      */
     public void testRemoveDataTypes() throws Exception {
-		IngridQuery query = new IngridQuery();
-		FieldQuery dataType = new FieldQuery(true, false, IngridQuery.DATA_TYPE, "bla"); 
-		query.addField(dataType);
-		assertEquals(1, query.getDataTypes().length);
-		query.removeDataType("bla");
-		assertEquals(0, query.getDataTypes().length);
-	}
-    
+        IngridQuery query = new IngridQuery();
+        FieldQuery dataType = new FieldQuery(true, false, IngridQuery.DATA_TYPE, "bla");
+        query.addField(dataType);
+        assertEquals(1, query.getDataTypes().length);
+        query.removeDataType("bla");
+        assertEquals(0, query.getDataTypes().length);
+    }
+
     /**
      * @throws Exception
      */
     public void testRemoveClause() throws Exception {
         IngridQuery query = new IngridQuery();
         ClauseQuery clause = new ClauseQuery(false, true);
-        query.addClause(clause);        
-        query.removeClause(clause);        
+        query.addClause(clause);
+        query.removeClause(clause);
         assertEquals(0, query.getClauses().length);
     }
-    
+
     /**
      * @throws Exception
      */
     public void testDataTypes() throws Exception {
         IngridQuery query = new IngridQuery(true, true, IngridQuery.TERM, "ba");
         assertTrue(query.isProhibited());
-        
+
         query = new IngridQuery();
         FieldQuery fieldQuery = new FieldQuery(true, true, "datatype", "UDK");
         assertTrue(fieldQuery.isProhibited());
-        
-        query.addField(fieldQuery );
+
+        query.addField(fieldQuery);
         assertEquals(1, query.getDataTypes().length);
         assertTrue(query.getDataTypes()[0].isProhibited());
-        
-        
-         query = QueryStringParser.parse("bla datatype:a");
+
+        query = QueryStringParser.parse("bla datatype:a");
         assertEquals(1, query.getDataTypes().length);
         assertFalse(query.getDataTypes()[0].isProhibited());
-        
+
         query = QueryStringParser.parse("bla -datatype:a");
         assertEquals(1, query.getDataTypes().length);
         assertTrue(query.getDataTypes()[0].isProhibited());
-        
+
+        query = QueryStringParser.parse("(bla datatype:a)");
+        assertEquals(1, query.getDataTypes().length);
     }
-    
+
     /**
      * @throws Exception
      */
@@ -106,7 +107,7 @@ public class IngridQueryTest extends TestCase {
         query.addField(new FieldQuery(true, false, "provider", "anhalt"));
         assertEquals(query.getPositiveProvider().length, 1);
     }
-    
+
     /**
      * @throws Exception
      */

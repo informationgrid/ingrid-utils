@@ -526,8 +526,16 @@ public class IngridQuery extends IngridDocument {
         if (arrayList == null) {
             arrayList = new ArrayList();
         }
+        
+        IngridQuery[] clauses = getClauses();
+        for (int i = 0; i < clauses.length; i++) {
+            FieldQuery[] fields = clauses[i].getDataTypes();
+            for (int j = 0; j < fields.length; j++) {
+                arrayList.add(fields[j]);
+            }
+        }
+        
         return (FieldQuery[]) arrayList.toArray(new FieldQuery[arrayList.size()]);
-
     }
 
     /**
