@@ -94,8 +94,10 @@ public class IngridQueryTest extends TestCase {
         assertEquals(1, query.getDataTypes().length);
         assertTrue(query.getDataTypes()[0].isProhibited());
 
-        query = QueryStringParser.parse("(bla datatype:a)");
-        assertEquals(1, query.getDataTypes().length);
+        query = QueryStringParser.parse("(bla (-datatype:a) datatype:a)");
+        assertEquals(2, query.getDataTypes().length);
+        assertEquals(1, query.getNegativeDataTypes().length);
+        assertEquals(1, query.getPositiveDataTypes().length);
     }
 
     /**
