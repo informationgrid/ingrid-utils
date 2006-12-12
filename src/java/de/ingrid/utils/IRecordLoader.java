@@ -17,9 +17,11 @@ import de.ingrid.utils.dsc.Record;
  * @version $Revision: 1.3 $
  */
 public interface IRecordLoader {
+
     /**
-     * @param hit
-     * @return the record
+     * Returns a record to a hit.
+     * @param hit The hit to that a record is requested.
+     * @return The record.
      * @throws Exception
      */
     public Record getRecord(IngridHit hit) throws Exception;
