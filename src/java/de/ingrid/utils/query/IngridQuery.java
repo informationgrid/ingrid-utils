@@ -88,6 +88,9 @@ public class IngridQuery extends IngridDocument {
     public static final String NOT_RANKED = "off";
 
     /***/
+    public static final String ANY_RANKED = "any";
+
+    /***/
     private static final String GROUPED = "grouped";
 
     /***/
