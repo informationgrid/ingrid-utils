@@ -13,23 +13,23 @@ import java.util.Locale;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import de.ingrid.portal.portlets.ChronicleTeaserPortlet;
-
 /**
  * This class contains date conversion helper functions.
- *
+ * 
  * @author joachim@wemove.com
  */
 public class UtilsDate {
 
-    private final static Log log = LogFactory.getLog(ChronicleTeaserPortlet.class);
+    private final static Log log = LogFactory.getLog(UtilsDate.class);
 
     /**
-     * Parses a string for a date pattern to the local date
-     * representation of the date.
+     * Parses a string for a date pattern to the local date representation of
+     * the date.
      * 
-     * @param dateStr The date string.
-     * @param locale The Locale.
+     * @param dateStr
+     *            The date string.
+     * @param locale
+     *            The Locale.
      * @return The localized date string.
      */
     public static String parseDateToLocale(String dateStr, Locale locale) {
@@ -73,16 +73,11 @@ public class UtilsDate {
 
     /**
      * Parses a date string to a Date. Accepting the following patterns:
+     *  - yyyy-MM-dd - yyyy - yyyyMMddHHmmss - yyyyMMdd - yyyy0000 - yyyyMM00 -
+     * yyyyMMdd000000
      * 
-     * - yyyy-MM-dd
-     * - yyyy
-     * - yyyyMMddHHmmss
-     * - yyyyMMdd
-     * - yyyy0000
-     * - yyyyMM00
-     * - yyyyMMdd000000
-     * 
-     * @param dateString The String representing the date.
+     * @param dateString
+     *            The String representing the date.
      * 
      * @return The Date.
      */
@@ -126,12 +121,15 @@ public class UtilsDate {
     }
 
     /**
-     * Parses a date string with format <i>srcFormat</i> and 
-     * returns the string with format <i>destFormat</i>.
+     * Parses a date string with format <i>srcFormat</i> and returns the string
+     * with format <i>destFormat</i>.
      * 
-     * @param dateStr The date string.
-     * @param srcFormat The source format to parse the date string (i.e. "ddMMyyyy").
-     * @param destFormat The format to return the parsed date (i.e. "yyyy-MM-dd")
+     * @param dateStr
+     *            The date string.
+     * @param srcFormat
+     *            The source format to parse the date string (i.e. "ddMMyyyy").
+     * @param destFormat
+     *            The format to return the parsed date (i.e. "yyyy-MM-dd")
      * @return The resulting date string.
      */
     public static String convertDateString(String dateStr, String srcFormat, String destFormat) {
@@ -144,18 +142,21 @@ public class UtilsDate {
             result = portalFormat.format(df.parse((String) dateStr));
         } catch (ParseException e) {
             if (log.isErrorEnabled()) {
-                log.error("error parsing date (" + dateStr + ") with format (" + srcFormat + ") to format (" + destFormat
-                        + ").", e);
+                log.error("error parsing date (" + dateStr + ") with format (" + srcFormat + ") to format ("
+                        + destFormat + ").", e);
             }
         }
         return result;
     }
 
-    /** Returns the years between dateStrFrom and dateStringTo. Both can have the formats
-     * yyyy-mm-dd or yyyy.
+    /**
+     * Returns the years between dateStrFrom and dateStringTo. Both can have the
+     * formats yyyy-mm-dd or yyyy.
      * 
-     * @param dateStrFrom The String representing from.
-     * @param dateStrTo The String representing to.
+     * @param dateStrFrom
+     *            The String representing from.
+     * @param dateStrTo
+     *            The String representing to.
      * @return The years between the dates.
      */
     public static int yearsBetween(String dateStrFrom, String dateStrTo) {
@@ -174,7 +175,8 @@ public class UtilsDate {
     }
 
     /**
-     * Get output String for view template. 
+     * Get output String for view template.
+     * 
      * @param dateStrFrom
      * @param dateStrTo
      * @param locale
@@ -199,7 +201,9 @@ public class UtilsDate {
     }
 
     /**
-     * Returns the Form Input String for maximum date ("to" value to use if only "from" specified)
+     * Returns the Form Input String for maximum date ("to" value to use if only
+     * "from" specified)
+     * 
      * @return
      */
     public static String getInputDateMax() {
@@ -208,7 +212,9 @@ public class UtilsDate {
     }
 
     /**
-     * Returns the Form Input String for minimum date ("from" value to use if only "to" specified)
+     * Returns the Form Input String for minimum date ("from" value to use if
+     * only "to" specified)
+     * 
      * @return
      */
     public static String getInputDateMin() {
@@ -216,7 +222,9 @@ public class UtilsDate {
     }
 
     /**
-     * Checks the Topic Date and returns the according input date for the from field
+     * Checks the Topic Date and returns the according input date for the from
+     * field
+     * 
      * @param topicDate
      * @param locale
      * @return
@@ -239,7 +247,9 @@ public class UtilsDate {
     }
 
     /**
-     * Checks the Topic Date and returns the according input date for the to field
+     * Checks the Topic Date and returns the according input date for the to
+     * field
+     * 
      * @param topicDate
      * @param locale
      * @return
