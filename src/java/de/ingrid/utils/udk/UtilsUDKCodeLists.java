@@ -21,6 +21,9 @@ public class UtilsUDKCodeLists {
         try {
             // Create the SessionFactory
             InputStream resourceAsStream = UtilsUDKCodeLists.class.getResourceAsStream("udk_codelists_serialized.xml");
+            if (resourceAsStream == null) {
+                resourceAsStream = UtilsUDKCodeLists.class.getClassLoader().getResourceAsStream("udk_codelists_serialized.xml");
+            }
             XMLSerializer serializer = new XMLSerializer();
             codeLists = (HashMap) serializer.deSerialize(resourceAsStream);
         } catch (Throwable ex) {
