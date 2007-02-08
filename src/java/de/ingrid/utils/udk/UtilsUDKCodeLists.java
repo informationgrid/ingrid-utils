@@ -32,7 +32,11 @@ public class UtilsUDKCodeLists {
     }
     
     public static String getCodeListEntryName(Long codeListId, Long domainId, Long langId) {
-        return (String)((HashMap)((HashMap)codeLists.get(codeListId)).get(domainId)).get(langId);
+        try {
+            return (String)((HashMap)((HashMap)codeLists.get(codeListId)).get(domainId)).get(langId);
+        } catch (NullPointerException e) {
+            return "";
+        }
     }
 
     
