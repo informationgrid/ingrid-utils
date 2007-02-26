@@ -105,8 +105,9 @@ public class CategorizedKeys {
      * @return an array of all known categories
      */
     public String[] getCategories() {
-        return (String[]) fCategories.keySet().toArray(
+        String[] strings = (String[]) fCategories.keySet().toArray(
                 new String[fCategories.size()]);
+        return strings == null ? new String[]{} : strings;
     }
 
     /**
