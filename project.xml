@@ -82,6 +82,12 @@
 	                <include>*.xml</include>
 	            </includes>
             </resource>
+            <resource>
+				<directory>src/conf</directory>
+                <excludes>
+                	<exclude>**/*</exclude>
+                </excludes>
+			</resource>
         </resources>
         <unitTestSourceDirectory>src/test</unitTestSourceDirectory>
         <unitTest>
