@@ -62,4 +62,11 @@ public interface IBus extends Serializable, IDetailer, IRecordLoader {
      * @return all iplugs regested in the regestry
      */
     public PlugDescription[] getAllIPlugs();
+    
+    /**
+     * Returns all registered IPlugs.
+     * 
+     * @return All registered IPlugs without checking the time stamp.
+     */
+    public PlugDescription[] getAllIPlugsWithoutTimeLimitation();
 }
