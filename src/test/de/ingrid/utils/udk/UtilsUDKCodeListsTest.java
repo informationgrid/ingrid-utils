@@ -23,7 +23,7 @@ public class UtilsUDKCodeListsTest extends TestCase {
         
         String value = UtilsUDKCodeLists.getCodeListDomainId(new Long(505), "Point of Contact", new Long(94));
         assertEquals(true, value.equals("7"));
-        assertEquals(true, UtilsUDKCodeLists.udkToCodeList505(value).equals("0"));
+        assertEquals(true, UtilsUDKCodeLists.codeList505ToUDK(value).equals("0"));
     }
     
     
