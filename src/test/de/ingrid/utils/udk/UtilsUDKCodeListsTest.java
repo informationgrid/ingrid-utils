@@ -20,6 +20,10 @@ public class UtilsUDKCodeListsTest extends TestCase {
         
         String languageName = UtilsUDKCodeLists.getCodeListDomainId(new Long(99999999), "englisch", new Long(121));
         assertEquals(true, languageName.equals("94"));
+        
+        String value = UtilsUDKCodeLists.getCodeListDomainId(new Long(505), "Point of Contact", new Long(94));
+        assertEquals(true, value.equals("7"));
+        assertEquals(true, UtilsUDKCodeLists.udkToCodeList505(value).equals("0"));
     }
     
     
@@ -79,5 +83,5 @@ public class UtilsUDKCodeListsTest extends TestCase {
         assertEquals(UtilsUDKCodeLists.udkToCodeList505("9"), "10");
         assertEquals(UtilsUDKCodeLists.udkToCodeList505("999"), "999");
     }
-
+    
 }
