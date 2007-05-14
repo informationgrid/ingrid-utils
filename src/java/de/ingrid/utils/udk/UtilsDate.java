@@ -111,6 +111,9 @@ public class UtilsDate {
             } else if (dateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9]")) {
                 df.applyPattern("yyyyMMdd");
                 result = df.parse(dateString);
+            } else if (dateString.matches("[0-3][0-9].[0-1][0-9].[0-9][0-9][0-9][0-9]")) {
+                df.applyPattern("dd.MM.yyyy");
+                result = df.parse(dateString);
             }
         } catch (ParseException e) {
             if (log.isWarnEnabled()) {
