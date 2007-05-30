@@ -115,6 +115,8 @@ public class IngridQuery extends IngridDocument {
     public static final String IPLUGS = "iplugs";
 
     private transient IngridQuery fLastAddedQuery;
+    
+    private boolean _wasAnd = false;
 
     /**
      * Default constructor
@@ -277,7 +279,16 @@ public class IngridQuery extends IngridDocument {
         addToList(TERM_KEY, term);
         this.fLastAddedQuery = term;
     }
-
+    
+    /**
+     * Set true if last operator was AND.
+     * 
+     * @param wasAnd
+     */
+    public void setLastWasAnd(boolean wasAnd){
+    	_wasAnd = wasAnd;
+    }
+    
     /**
      * 
      */
@@ -285,9 +296,18 @@ public class IngridQuery extends IngridDocument {
         if (this.fLastAddedQuery == null) {
             return;
         }
-        this.fLastAddedQuery.setRequired(false);
+        if(!_wasAnd){
+        	this.fLastAddedQuery.setRequired(false);
+        }
     }
-
+    
+    public void setLastQueryRequired(){
+    	if (this.fLastAddedQuery == null) {
+            return;
+        }
+    	this.fLastAddedQuery.setRequired(true);
+    }
+    
     /**
      * @return array of term queries
      */

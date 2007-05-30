@@ -130,7 +130,7 @@ IngridQuery parse() :
 		String term = null;
 	}
 	{
-		(<OR>{required = false; q.setLastQueryUnrequired(); } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		(<AND> {required =true; q.setLastWasAnd(true); q.setLastQueryRequired();} | <OR>{required = false; q.setLastQueryUnrequired(); q.setLastWasAnd(false);} | <NOT> {prohibited =true; })?
 		(t=<WILDTERM>{ wildcard=true; }|t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
 		[ fuzzySlop=<FUZZY_SLOP> { fuzzy=true; } ]
 		{
@@ -163,7 +163,7 @@ IngridQuery parse() :
 		String term = null;
 	}
 	{
-		(<OR>{required = false; q.setLastQueryUnrequired();} | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		( <AND> {required =true; } | <OR>{required = false; q.setLastQueryUnrequired();} | <NOT> {prohibited =true; })?
 		key=<FIELD>
 		(value=<FLOAT>|value=<TERM>|value=<PREFIXTERM>|value=<QUOTED>)
 		[ fuzzySlop=<FUZZY_SLOP> { fuzzy=true; } ]
@@ -195,7 +195,7 @@ IngridQuery parse() :
 	}
 	
 	{
-		(<OR>{required = false; q.setLastQueryUnrequired(); } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		(<AND> {required =true; } | <OR>{required = false; q.setLastQueryUnrequired(); } | <NOT> {prohibited =true; })?
 		key=<FIELD>
 		<RANGEIN_START> ( goop1=<RANGEIN_GOOP>|goop1=<RANGEIN_QUOTED> )
 	    [ <RANGEIN_TO> ] ( goop2=<RANGEIN_GOOP>|goop2=<RANGEIN_QUOTED> )
@@ -211,7 +211,7 @@ IngridQuery parse() :
 		Token value;
 	}
 	{
-		(<OR>{required = false; q.setLastQueryUnrequired(); }  | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		(<AND> {required =true; } | <OR>{required = false; q.setLastQueryUnrequired(); }  | <NOT> {prohibited =true; })?
 		key=<FIELD>
 		(value=<WILDTERM>|value=<PREFIXTERM>)
 		{q.addWildCardFieldQuery(new WildCardFieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image));}
@@ -226,7 +226,7 @@ IngridQuery parse() :
 		boolean prohibited = false;
 	}
 	{
-		(<OR>{required = false; q.setLastQueryUnrequired(); } | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		( <AND> {required =true; } | <OR>{required = false; q.setLastQueryUnrequired(); } | <NOT> {prohibited =true; })?
 		{}
 		<LPAREN>
 		 (
@@ -251,7 +251,7 @@ IngridQuery parse() :
 		boolean prohibited = false;
 	}
 	{
-		(<OR>{required = false; q.setLastQueryUnrequired();} | <NOT> {prohibited =true; }| <AND> {required =true; })?
+		(<AND> {required =true; q.setLastWasAnd(true);} | <OR>{required = false; q.setLastQueryUnrequired(); q.setLastWasAnd(false);} | <NOT> {prohibited =true; })?
 		{query =  new ClauseQuery( required, prohibited );}
 		<LPAREN>
 		 (

@@ -65,6 +65,62 @@ public class QueryStringParserTest extends TestCase {
         testSimpleLogic(parser, QueryStringParserConstants.AND);
     }
 
+    public void testSimpleAndOr() throws Exception {
+        String q = "ameise AND fische OR wasser";
+        QueryStringParser parser = new QueryStringParser(new StringReader(q));
+        Token token = parser.getNextToken();
+        assertEquals(QueryStringParserConstants.TERM, token.kind);
+        token = parser.getNextToken();
+        assertEquals(QueryStringParserConstants.AND, token.kind);
+        token = parser.getNextToken();
+        assertEquals(QueryStringParserConstants.TERM, token.kind);
+        token = parser.getNextToken();
+        assertEquals(QueryStringParserConstants.OR, token.kind);
+        token = parser.getNextToken();
+        assertEquals(QueryStringParserConstants.TERM, token.kind);
+        IngridQuery query = null;
+        try {
+            query = QueryStringParser.parse(q);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            fail();
+        }
+        TermQuery[] terms = query.getTerms();
+        assertTrue(terms[0].isRequred());
+        assertTrue(terms[1].isRequred());
+        assertFalse(terms[2].isRequred());
+    }
+    
+    public void testComplex() throws Exception {
+        String q = "ameise AND (fische OR wasser) OR (luft AND erde OR feuer)";
+        IngridQuery query = QueryStringParser.parse(q);
+        IngridQuery[] allClauses = query.getAllClauses();
+        assertEquals(3, allClauses.length);
+        
+        assertTrue(allClauses[0].isRequred());
+        TermQuery[] terms = allClauses[0].getTerms();
+        assertEquals(2, terms.length);
+        assertEquals("fische", terms[0].getTerm());
+        assertEquals("wasser", terms[1].getTerm());
+        assertFalse(terms[0].isRequred());
+        assertFalse(terms[1].isRequred());
+        
+        assertFalse(allClauses[1].isRequred());
+        terms = allClauses[1].getTerms();
+        assertEquals(3, terms.length);
+        assertEquals("luft", terms[0].getTerm());
+        assertEquals("erde", terms[1].getTerm());
+        assertEquals("feuer", terms[2].getTerm());
+        assertTrue(terms[0].isRequred());
+        assertTrue(terms[1].isRequred());
+        assertFalse(terms[2].isRequred());
+        
+        terms = allClauses[2].getTerms();
+        assertEquals(1, terms.length);
+        assertEquals("ameise", terms[0].getTerm());
+        assertTrue(terms[0].isRequred());
+    }
+    
     /**
      * 
      * @throws Exception
@@ -130,30 +186,30 @@ public class QueryStringParserTest extends TestCase {
         IngridQuery q = parse("fische");
         testTerms(q.getTerms(), new String[] { "fische" }, new boolean[][] { { true, false } });
 
-        q = parse("fische frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("fische froesche");
+        testTerms(q.getTerms(), new String[] { "fische", "froesche" }, new boolean[][] { { true, false },
                 { true, false } });
 
-        q = parse("fische frösche ort:Halle");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("fische froesche ort:Halle");
+        testTerms(q.getTerms(), new String[] { "fische", "froesche" }, new boolean[][] { { true, false },
                 { true, false } });
         testFields(q.getFields(), new String[] { "ort:Halle" });
 
-        q = parse("fische frösche ort:Halle land:germany");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("fische froesche ort:Halle land:germany");
+        testTerms(q.getTerms(), new String[] { "fische", "froesche" }, new boolean[][] { { true, false },
                 { true, false } });
         testFields(q.getFields(), new String[] { "ort:Halle", "land:germany" });
 
-        q = parse("fische OR frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { false, false },
+        q = parse("fische OR froesche");
+        testTerms(q.getTerms(), new String[] { "fische", "froesche" }, new boolean[][] { { false, false },
                 { false, false } });
 
-        q = parse("fische AND frösche");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("fische AND froesche");
+        testTerms(q.getTerms(), new String[] { "fische", "froesche" }, new boolean[][] { { true, false },
                 { true, false } });
 
-        q = parse("(ort:Halle land:germany) fische frösche ");
-        testTerms(q.getTerms(), new String[] { "fische", "frösche" }, new boolean[][] { { true, false },
+        q = parse("(ort:Halle land:germany) fische froesche ");
+        testTerms(q.getTerms(), new String[] { "fische", "froesche" }, new boolean[][] { { true, false },
                 { true, false } });
         assertEquals(1, q.getClauses().length);
         testFields(q.getClauses()[0].getFields(), new String[] { "ort:Halle", "land:germany" });
