@@ -91,7 +91,7 @@ public class QueryStringParserTest extends TestCase {
         assertFalse(terms[2].isRequred());
     }
     
-    public void testComplex() throws Exception {
+    public void testComplexClauses() throws Exception {
         String q = "ameise AND (fische OR wasser) OR (luft AND erde OR feuer)";
         IngridQuery query = QueryStringParser.parse(q);
         IngridQuery[] allClauses = query.getAllClauses();
@@ -119,6 +119,34 @@ public class QueryStringParserTest extends TestCase {
         assertEquals(1, terms.length);
         assertEquals("ameise", terms[0].getTerm());
         assertTrue(terms[0].isRequred());
+
+        q = "ameise OR (fische OR wasser) AND (luft OR erde AND feuer)";
+        query = QueryStringParser.parse(q);
+        allClauses = query.getAllClauses();
+        assertEquals(3, allClauses.length);
+        
+        assertTrue(allClauses[0].isRequred());
+        TermQuery[] terms2 = allClauses[0].getTerms();
+        assertEquals(2, terms2.length);
+        assertEquals("fische", terms2[0].getTerm());
+        assertEquals("wasser", terms2[1].getTerm());
+        assertFalse(terms2[0].isRequred());
+        assertFalse(terms2[1].isRequred());
+        
+        assertTrue(allClauses[1].isRequred());
+        terms = allClauses[1].getTerms();
+        assertEquals(3, terms.length);
+        assertEquals("luft", terms[0].getTerm());
+        assertEquals("erde", terms[1].getTerm());
+        assertEquals("feuer", terms[2].getTerm());
+        assertFalse(terms[0].isRequred());
+        assertTrue(terms[1].isRequred());
+        assertTrue(terms[2].isRequred());
+        
+        terms = allClauses[2].getTerms();
+        assertEquals(1, terms.length);
+        assertEquals("ameise", terms[0].getTerm());
+        assertFalse(terms[0].isRequred());
     }
     
     /**
