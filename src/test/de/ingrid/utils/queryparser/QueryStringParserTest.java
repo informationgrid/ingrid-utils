@@ -522,4 +522,9 @@ public class QueryStringParserTest extends TestCase {
             assertEquals("/dsc_other:df", f[i].getFieldValue());
         }
     }
+    
+    public void testParseProviderName() throws Exception {
+        IngridQuery query = QueryStringParser.parse("http provider:ni_lk-row");
+        assertEquals("ni_lk-row", query.getPositiveProvider()[0]);
+    }
 }
