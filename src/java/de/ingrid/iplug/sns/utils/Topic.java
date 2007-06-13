@@ -74,6 +74,11 @@ public class Topic extends IngridHitDetail {
     public static final String TOPIC_ASSOCIATION_TYPE = "topicAssociationType";
 
     /**
+     * 
+     */
+    public static final int TOPIC_FROM_URL = 7;
+
+    /**
      * @param plugId
      * @param documentId
      * @param topicId
