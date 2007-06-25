@@ -251,7 +251,7 @@ IngridQuery parse() :
 		boolean prohibited = false;
 	}
 	{
-		(<AND> {required =true; q.setLastWasAnd(true);} | <OR>{required = false; q.setLastQueryUnrequired(); q.setLastWasAnd(false);} | <NOT> {prohibited =true; })?
+		(<AND> {required =true; q.setLastWasAnd(true); q.setLastQueryRequired();} | <OR>{required = false; q.setLastQueryUnrequired(); q.setLastWasAnd(false);} | <NOT> {prohibited =true; })?
 		{query =  new ClauseQuery( required, prohibited );}
 		<LPAREN>
 		 (
