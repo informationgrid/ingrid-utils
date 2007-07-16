@@ -33,6 +33,8 @@ public class IngridHit extends IngridDocument {
     private static final String GROUP_HIT = "groupHit";
     
     private static final String DATE = "date";
+    
+    private static final String GROUP_TOTAL_HIT_LENGTH = "groupTotalHitLength";
 
     /**
      * 
@@ -158,7 +160,7 @@ public class IngridHit extends IngridDocument {
     /**
      * @return values that is used to group hits
      */
-    public String[] getGroupedFileds(){
+    public String[] getGroupedFields(){
       ArrayList arrayList = getArrayList(GROUPED_BY_FIELD);
       if(arrayList!=null){
           return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -183,5 +185,13 @@ public class IngridHit extends IngridDocument {
             arrayList = new ArrayList();
         }
         return (IngridHit[]) arrayList.toArray(new IngridHit[arrayList.size()]);
+    }
+
+    public int getGroupTotalHitLength() {
+        return getInt(GROUP_TOTAL_HIT_LENGTH);
+    }
+
+    public void setGroupTotalHitLength(int groupTotalHitLength) {
+        putInt(GROUP_TOTAL_HIT_LENGTH, groupTotalHitLength);
     }
 }
