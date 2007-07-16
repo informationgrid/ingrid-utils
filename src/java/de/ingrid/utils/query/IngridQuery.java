@@ -106,6 +106,9 @@ public class IngridQuery extends IngridDocument {
     public static final String GROUPED_BY_PARTNER = "grouped_by_partner";
 
     /***/
+    public static final String GROUPED_BY_DATASOURCE = "grouped_by_datasource";
+
+    /***/
     public static final String PROVIDER = PlugDescription.PROVIDER;
 
     /***/

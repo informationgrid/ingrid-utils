@@ -28,7 +28,7 @@ public class IngridHit extends IngridDocument {
 
     private static final String IPLUG_ID = "iPlugId";
 
-    private static final String GROUPED_BY_FILED = "groupedBy";
+    private static final String GROUPED_BY_FIELD = "groupedBy";
 
     private static final String GROUP_HIT = "groupHit";
     
@@ -152,14 +152,14 @@ public class IngridHit extends IngridDocument {
      * @param value
      */
     public void addGroupedField(String value) {
-        addToList(GROUPED_BY_FILED, value);
+        addToList(GROUPED_BY_FIELD, value);
     }
     
     /**
      * @return values that is used to group hits
      */
     public String[] getGroupedFileds(){
-      ArrayList arrayList = getArrayList(GROUPED_BY_FILED);
+      ArrayList arrayList = getArrayList(GROUPED_BY_FIELD);
       if(arrayList!=null){
           return (String[]) arrayList.toArray(new String[arrayList.size()]);
       }
