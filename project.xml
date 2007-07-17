@@ -4,7 +4,7 @@
     <artifactId>ingrid-utils</artifactId>
     <name>ingrid-utils</name>
     <groupId>ingrid</groupId>
-    <currentVersion>0.2.0-SNAPSHOT</currentVersion>
+    <currentVersion>1.1.0-SNAPSHOT</currentVersion>
     <organization>
         <name>media-style</name>
         <url>http://www.media-style.com</url>
@@ -68,7 +68,7 @@
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.4</version>
             <type>jar</type>
             <url>http://jakarta.apache.org/commons/logging/</url>
         </dependency>
