@@ -507,7 +507,11 @@ public class IngridQuery extends IngridDocument {
 
         buffer.append(" ranking: ");
         buffer.append(getRankingType());
+
+        buffer.append(" grouped: ");
+        buffer.append(getGrouped());
         buffer.append(")");
+        
         return buffer.toString();
     }
 
