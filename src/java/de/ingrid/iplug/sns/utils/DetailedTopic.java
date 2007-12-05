@@ -53,8 +53,8 @@ public class DetailedTopic extends Topic {
 
     public static final Object SAMPLE_OCC_TITLES = "sampleOccTitles";
 
-    public DetailedTopic(String plugId, int documentId, String topicId, String title, String summary) {
-        super(plugId, documentId, topicId, title, summary);
+    public DetailedTopic(String plugId, int documentId, String topicId, String title, String summary, String nativeKey) {
+        super(plugId, documentId, topicId, title, summary, nativeKey);
     }
 
     /**

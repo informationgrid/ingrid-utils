@@ -23,7 +23,7 @@ public class DetailedTopicTest extends TestCase {
      * 
      */
     public void testGetter(){
-        DetailedTopic metaData = new DetailedTopic(null, 0, null, null, null);
+        DetailedTopic metaData = new DetailedTopic(null, 0, null, null, null, null);
         valid(null, metaData.getFrom());
         valid(null, metaData.getTo());
         valid(null, metaData.getType());
@@ -42,7 +42,7 @@ public class DetailedTopicTest extends TestCase {
      * 
      */
     public void testSetter(){
-        DetailedTopic metaData = new DetailedTopic(null, 0, null, null, null);
+        DetailedTopic metaData = new DetailedTopic(null, 0, null, null, null, null);
         // tests initial setting
         metaData.setFrom(FROM);
         metaData.setTo(TO);

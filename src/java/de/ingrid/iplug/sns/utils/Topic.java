@@ -78,6 +78,12 @@ public class Topic extends IngridHitDetail {
      */
     public static final int TOPIC_FROM_URL = 7;
 
+    private static final String TOPIC_NATIVE_KEY = "topicNativeKey";
+
+    public Topic() {
+        super();
+    }
+    
     /**
      * @param plugId
      * @param documentId
@@ -86,12 +92,14 @@ public class Topic extends IngridHitDetail {
      *            the name of the topic
      * @param summary
      */
-    public Topic(String plugId, int documentId, String topicId, String title, String summary) {
+    public Topic(String plugId, int documentId, String topicId, String title, String summary, String nativeKey) {
         super(plugId, documentId, 0, /* we have only one sns */
         -1f/* topics are unranked==no scores */, title, summary);
         setTopicID(topicId);
         setTopicName(title);
+        setTopicNativeKey(nativeKey);
     }
+
 
     /**
      * @param plugId
@@ -102,12 +110,21 @@ public class Topic extends IngridHitDetail {
      * @param summary
      * @param associationType
      */
-    public Topic(String plugId, int documentId, String topicId, String title, String summary, String associationType) {
+    public Topic(String plugId, int documentId, String topicId, String title, String summary, String associationType, String nativeKey) {
         super(plugId, documentId, 0, /* we have only one sns */
         -1f/* topics are unranked==no scores */, title, summary);
         setTopicID(topicId);
         setTopicName(title);
         setTopicAssoc(associationType);
+        setTopicNativeKey(nativeKey);
+    }
+
+    public void setTopicNativeKey(String nativeKey) {
+        put(TOPIC_NATIVE_KEY, nativeKey);
+    }
+    
+    public String getTopicNativeKey() {
+        return (String) get(TOPIC_NATIVE_KEY);
     }
 
     /**
@@ -118,8 +135,6 @@ public class Topic extends IngridHitDetail {
     }
 
     /**
-     * 
-     */
     public Topic() {
         super();
     }
