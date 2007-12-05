@@ -20,14 +20,18 @@ public class SNSUtil {
      *            The SNS native key.
      * @return The location reference.
      */
-    public static String transformSpacialReference(String nativeKey) {
+    public static String transformSpacialReference(String agsString, String nativeKey) {
         String agsCode = nativeKey;
 
-        final String agsString = "ags:";
         int index = nativeKey.indexOf(agsString);
         if (index != -1) {
             final int startIndex = index + agsString.length();
-            agsCode = nativeKey.substring(startIndex, startIndex + 7);
+            int endIndex = nativeKey.indexOf(' ', startIndex);
+            if (endIndex < 0) {
+                agsCode = nativeKey.substring(startIndex);
+            } else {
+                agsCode = nativeKey.substring(startIndex, endIndex);
+            }
         }
 
         return agsCode;
