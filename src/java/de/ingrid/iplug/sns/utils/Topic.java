@@ -78,7 +78,10 @@ public class Topic extends IngridHitDetail {
      */
     public static final int TOPIC_FROM_URL = 7;
 
-    private static final String TOPIC_NATIVE_KEY = "topicNativeKey";
+    /**
+     * 
+     */
+    public static final String NATIVEKEY_OCC = "nativeKeyOcc";
 
     public Topic() {
         super();
@@ -120,11 +123,11 @@ public class Topic extends IngridHitDetail {
     }
 
     public void setTopicNativeKey(String nativeKey) {
-        put(TOPIC_NATIVE_KEY, nativeKey);
+        put(NATIVEKEY_OCC, nativeKey);
     }
     
     public String getTopicNativeKey() {
-        return (String) get(TOPIC_NATIVE_KEY);
+        return (String) get(NATIVEKEY_OCC);
     }
 
     /**
