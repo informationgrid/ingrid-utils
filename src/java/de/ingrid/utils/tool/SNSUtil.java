@@ -11,27 +11,41 @@ package de.ingrid.utils.tool;
 public class SNSUtil {
 
     /**
-     * Transforms a SNS location topicId to the internal used ingrid format. This format follows the 8-digit kgs-Format
-     * (KreisGemeindeSchlüssel) for the topic references "GEMEINDE, BUNDESLAND, KREIS".
+     * Transforms a SNS location native key into the representation used within ingrid. 
+     * It strips the namespace from the native key. If two namespaces are supplied, the returned 
+     * namespace can be selected by namespace. If the namespace is null
+     * automatic namespace extraction will be applied.
      * 
-     * Other topic references remain unchanged.
+     * If no namespace was found in nativeKey the original nativeKey will be returned. 
      * 
      * @param nativeKey
      *            The SNS native key.
+     * @param namespace
+     *            The namespace of the native key ("rs:" or "ags:" or null for automatic namespace cutting).
      * @return The location reference.
      */
-    public static String transformSpacialReference(String agsString, String nativeKey) {
+    public static String transformSpacialReference(String namespace, String nativeKey) {
         String agsCode = nativeKey;
 
-        int index = nativeKey.indexOf(agsString);
-        if (index != -1) {
-            final int startIndex = index + agsString.length();
-            int endIndex = nativeKey.indexOf(' ', startIndex);
-            if (endIndex < 0) {
-                agsCode = nativeKey.substring(startIndex);
-            } else {
-                agsCode = nativeKey.substring(startIndex, endIndex);
-            }
+        int index;
+        if (namespace == null) {
+        	index = nativeKey.indexOf(':');
+        	agsCode = nativeKey.substring(index + 1);
+        	index = agsCode.indexOf(' ');
+        	if (index != -1) { 
+        		agsCode = agsCode.substring(0, index);
+        	}
+        } else {
+	        index = nativeKey.indexOf(namespace);
+	        if (index != -1) {
+	            final int startIndex = index + namespace.length();
+	            int endIndex = nativeKey.indexOf(' ', startIndex);
+	            if (endIndex < 0) {
+	                agsCode = nativeKey.substring(startIndex);
+	            } else {
+	                agsCode = nativeKey.substring(startIndex, endIndex);
+	            }
+	        }
         }
 
         return agsCode;

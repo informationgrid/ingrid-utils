@@ -16,6 +16,9 @@ public class SNSUtilTest extends TestCase {
         assertEquals("1234567890", SNSUtil.transformSpacialReference("rs:", "rs:1234567890 ags:1234567"));
         assertEquals("1234567890", SNSUtil.transformSpacialReference("rs:", "ags:1234567 rs:1234567890"));
         assertEquals("1234567890", SNSUtil.transformSpacialReference("rs:", "ags:1234567 rs:1234567890 bla:12345678901"));
+        assertEquals("1234567890", SNSUtil.transformSpacialReference(null, "rs:1234567890"));
+        assertEquals("1234567", SNSUtil.transformSpacialReference(null, "ags:1234567 rs:1234567890"));
+        
     }
 
 }
