@@ -56,6 +56,16 @@ public class Topic extends IngridHitDetail {
      */
     public static final int SIMILARLOCATIONS_FROM_TOPIC = 6;
 
+    /**
+     * 
+     */
+    public static final int TOPIC_FROM_URL = 7;
+
+    /**
+     * 
+     */
+    public static final int TOPIC_HIERACHY = 8;
+
     private static final long serialVersionUID = Topic.class.getName().hashCode();
 
     /**
@@ -76,13 +86,12 @@ public class Topic extends IngridHitDetail {
     /**
      * 
      */
-    public static final int TOPIC_FROM_URL = 7;
+    public static final String NATIVEKEY_OCC = "nativeKeyOcc";
+
 
     /**
      * 
      */
-    public static final String NATIVEKEY_OCC = "nativeKeyOcc";
-
     public Topic() {
         super();
     }
@@ -94,6 +103,7 @@ public class Topic extends IngridHitDetail {
      * @param title
      *            the name of the topic
      * @param summary
+     * @param nativeKey 
      */
     public Topic(String plugId, int documentId, String topicId, String title, String summary, String nativeKey) {
         super(plugId, documentId, 0, /* we have only one sns */
@@ -112,6 +122,7 @@ public class Topic extends IngridHitDetail {
      *            the name of the topic
      * @param summary
      * @param associationType
+     * @param nativeKey 
      */
     public Topic(String plugId, int documentId, String topicId, String title, String summary, String associationType, String nativeKey) {
         super(plugId, documentId, 0, /* we have only one sns */
@@ -122,10 +133,16 @@ public class Topic extends IngridHitDetail {
         setTopicNativeKey(nativeKey);
     }
 
+    /**
+     * @param nativeKey
+     */
     public void setTopicNativeKey(String nativeKey) {
         put(NATIVEKEY_OCC, nativeKey);
     }
     
+    /**
+     * @return
+     */
     public String getTopicNativeKey() {
         return (String) get(NATIVEKEY_OCC);
     }
