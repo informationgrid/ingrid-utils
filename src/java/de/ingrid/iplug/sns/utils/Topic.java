@@ -91,7 +91,10 @@ public class Topic extends IngridHitDetail {
      */
     public static final String NATIVEKEY_OCC = "nativeKeyOcc";
 
-    private ArrayList _successors = new ArrayList();
+    /**
+     * 
+     */
+    public static final String TOPIC_SUCCESSORS = "topicName";
 
     /**
      * 
@@ -211,13 +214,18 @@ public class Topic extends IngridHitDetail {
      * @param topic
      */
     public void addSuccessor(Topic topic) {
-        _successors.add(topic);
+        ArrayList successors = (ArrayList) get(TOPIC_SUCCESSORS);
+        if (null == successors) {
+            successors = new ArrayList();
+            put(TOPIC_SUCCESSORS, successors);
+        }
+        successors.add(topic);
     }
     
     /**
      * @return
      */
     public List getSuccessors() {
-        return _successors;
+        return (List) get(TOPIC_SUCCESSORS);
     }
 }
