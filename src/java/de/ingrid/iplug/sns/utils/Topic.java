@@ -91,7 +91,7 @@ public class Topic extends IngridHitDetail {
      */
     public static final String NATIVEKEY_OCC = "nativeKeyOcc";
 
-    private List _successors = new ArrayList();
+    private ArrayList _successors = new ArrayList();
 
     /**
      * 
