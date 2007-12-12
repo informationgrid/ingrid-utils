@@ -94,7 +94,7 @@ public class Topic extends IngridHitDetail {
     /**
      * 
      */
-    public static final String TOPIC_SUCCESSORS = "topicName";
+    public static final String TOPIC_SUCCESSORS = "topicSuccessor";
 
     /**
      * 
@@ -118,6 +118,7 @@ public class Topic extends IngridHitDetail {
         setTopicID(topicId);
         setTopicName(title);
         setTopicNativeKey(nativeKey);
+        put(TOPIC_SUCCESSORS, new ArrayList());
     }
 
 
@@ -138,6 +139,7 @@ public class Topic extends IngridHitDetail {
         setTopicName(title);
         setTopicAssoc(associationType);
         setTopicNativeKey(nativeKey);
+        put(TOPIC_SUCCESSORS, new ArrayList());
     }
 
     /**
@@ -214,18 +216,13 @@ public class Topic extends IngridHitDetail {
      * @param topic
      */
     public void addSuccessor(Topic topic) {
-        ArrayList successors = (ArrayList) get(TOPIC_SUCCESSORS);
-        if (null == successors) {
-            successors = new ArrayList();
-            put(TOPIC_SUCCESSORS, successors);
-        }
-        successors.add(topic);
+        addToList(TOPIC_SUCCESSORS, topic);
     }
     
     /**
      * @return
      */
     public List getSuccessors() {
-        return (List) get(TOPIC_SUCCESSORS);
+        return getArrayList(TOPIC_SUCCESSORS);
     }
 }
