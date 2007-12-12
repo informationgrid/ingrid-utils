@@ -5,6 +5,9 @@
  */
 package de.ingrid.iplug.sns.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.ingrid.utils.IngridHitDetail;
 
 /**
@@ -88,6 +91,7 @@ public class Topic extends IngridHitDetail {
      */
     public static final String NATIVEKEY_OCC = "nativeKeyOcc";
 
+    private List _successors = new ArrayList();
 
     /**
      * 
@@ -203,4 +207,17 @@ public class Topic extends IngridHitDetail {
         return getTopicName();
     }
 
+    /**
+     * @param topic
+     */
+    public void addSuccessor(Topic topic) {
+        _successors.add(topic);
+    }
+    
+    /**
+     * @return
+     */
+    public List getSuccessors() {
+        return _successors;
+    }
 }
