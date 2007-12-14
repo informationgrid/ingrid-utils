@@ -95,6 +95,11 @@ public class Topic extends IngridHitDetail {
      * 
      */
     public static final String TOPIC_SUCCESSORS = "topicSuccessor";
+    
+    /**
+     * 
+     */
+    public static final String TOPIC_LANGUAGE = "topicLanguage";
 
     /**
      * 
@@ -224,5 +229,13 @@ public class Topic extends IngridHitDetail {
      */
     public List getSuccessors() {
         return getArrayList(TOPIC_SUCCESSORS);
+    }
+    
+    public String getLanguage() {
+        return (String) get(TOPIC_LANGUAGE);
+    }
+    
+    public void setLanguage(String language) {
+        put(TOPIC_LANGUAGE, language);
     }
 }
