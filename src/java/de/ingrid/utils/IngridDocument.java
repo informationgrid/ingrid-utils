@@ -284,8 +284,21 @@ public class IngridDocument extends HashMap implements Externalizable {
         } catch (Exception e) {
             throw new IllegalArgumentException("value to key is not float or wasn's setted with putInt");
         }
-		
+	}
 	
+	
+	/**
+	 * Convenience method: move type cast into method.
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public String getString(String key) {
+		try {
+			return (String) get(key);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Value to key is not String.");
+		}
 	}
 
 	/**
