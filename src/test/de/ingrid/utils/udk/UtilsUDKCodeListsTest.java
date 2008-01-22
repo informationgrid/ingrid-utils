@@ -3,6 +3,8 @@
  */
 package de.ingrid.utils.udk;
 
+import java.util.List;
+
 import junit.framework.TestCase;
 
 public class UtilsUDKCodeListsTest extends TestCase {
@@ -82,6 +84,20 @@ public class UtilsUDKCodeListsTest extends TestCase {
         assertEquals(UtilsUDKCodeLists.udkToCodeList505("8"), "9");
         assertEquals(UtilsUDKCodeLists.udkToCodeList505("9"), "10");
         assertEquals(UtilsUDKCodeLists.udkToCodeList505("999"), "999");
+    }
+
+    public void testGetCodeList() {
+        
+        List list = UtilsUDKCodeLists.getCodeList(new Long(505), new Long(94));
+        assertTrue(list.size() > 0);
+        for (int i=0; i<list.size(); i++) {
+        	CodeListEntry entry = (CodeListEntry)list.get(i);
+        	if (entry.getDomainId().compareTo(new Long(7)) == 0) {
+        		assertEquals(entry.getValue(), "Point of Contact");
+        		return;
+        	}
+        }
+        assertTrue(false);
     }
     
 }
