@@ -99,6 +99,10 @@
                     <directory>src/test</directory>
                     <filtering>false</filtering>
                 </resource>
+                <resource>
+                    <directory>src/test-resources</directory>
+                    <filtering>false</filtering>
+                </resource>
             </resources>
         </unitTest>
     </build>
