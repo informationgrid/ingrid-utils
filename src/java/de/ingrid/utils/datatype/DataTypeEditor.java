@@ -2,11 +2,12 @@ package de.ingrid.utils.datatype;
 
 import java.beans.PropertyEditorSupport;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import de.ingrid.utils.datatype.DataType.Pair;
 
 public class DataTypeEditor extends PropertyEditorSupport {
 
@@ -19,12 +20,10 @@ public class DataTypeEditor extends PropertyEditorSupport {
             DataType dataType = (DataType) object;
             ret = dataType.getName() + ".";
             ret += dataType.getDisplayName();
-            Map metaDatas = dataType.getMetaDatas();
-            Set keySet = metaDatas.keySet();
-            for (Iterator iterator = keySet.iterator(); iterator.hasNext();) {
-                Object key = iterator.next();
-                Object value = metaDatas.get(key);
-                ret += "." + key + ":" + value;
+            Set metaDatas = dataType.getMetaDatas();
+            for (Iterator iterator = metaDatas.iterator(); iterator.hasNext();) {
+                Pair pair= (Pair) iterator.next();
+                ret += "." + pair.getKey() + ":" + pair.getValue();
             }
         }
         return ret;

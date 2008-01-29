@@ -1,6 +1,8 @@
 package de.ingrid.utils.datatype;
 
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class DataType {
 
@@ -8,7 +10,35 @@ public class DataType {
 
     private String _displayName;
 
-    private Map _metaDatas = new java.util.LinkedHashMap();
+    private Set _metaDatas = new LinkedHashSet();
+
+    public class Pair {
+        private Object _key;
+
+        private Object _value;
+
+        public Pair(Object key, Object value) {
+            _key = key;
+            _value = value;
+        }
+
+        public Object getKey() {
+            return _key;
+        }
+
+        public Object getValue() {
+            return _value;
+        }
+
+        public boolean equals(Object obj) {
+            Pair other = (Pair) obj;
+            return other._key.equals(_key) && other._value.equals(_value);
+        }
+
+        public int hashCode() {
+            return _key.hashCode() + _value.hashCode();
+        }
+    }
 
     public String getName() {
         return _name;
@@ -27,16 +57,15 @@ public class DataType {
     }
 
     public void addMetadata(Object key, Object value) {
-        _metaDatas.put(key, value);
+        _metaDatas.add(new Pair(key, value));
     }
 
-    public Map getMetaDatas() {
+    public Set getMetaDatas() {
         return _metaDatas;
     }
 
     public boolean contains(Object key, Object value) {
-        Object object = _metaDatas.get(key);
-        return value.equals(object);
+        return _metaDatas.contains(new Pair(key, value));
     }
 
 }
