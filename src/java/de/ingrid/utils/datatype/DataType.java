@@ -1,7 +1,6 @@
 package de.ingrid.utils.datatype;
 
 import java.util.LinkedHashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class DataType {
