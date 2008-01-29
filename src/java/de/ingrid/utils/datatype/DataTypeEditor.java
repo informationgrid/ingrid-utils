@@ -1,6 +1,9 @@
 package de.ingrid.utils.datatype;
 
 import java.beans.PropertyEditorSupport;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -15,8 +18,14 @@ public class DataTypeEditor extends PropertyEditorSupport {
         if (object != null) {
             DataType dataType = (DataType) object;
             ret = dataType.getName() + ".";
-            ret += dataType.getDisplayName() + ".";
-            ret += dataType.isVisible();
+            ret += dataType.getDisplayName();
+            Map metaDatas = dataType.getMetaDatas();
+            Set keySet = metaDatas.keySet();
+            for (Iterator iterator = keySet.iterator(); iterator.hasNext();) {
+                Object key = iterator.next();
+                Object value = metaDatas.get(key);
+                ret += "." + key + ":" + value;
+            }
         }
         return ret;
     }
@@ -27,11 +36,16 @@ public class DataTypeEditor extends PropertyEditorSupport {
             String[] split = text.split("\\.");
             String name = split[0];
             String displayName = split[1];
-            String visible = split[2];
             dataType = new DataType();
             dataType.setName(name);
             dataType.setDisplayName(displayName);
-            dataType.setVisible(Boolean.valueOf(visible).booleanValue());
+            for (int i = 2; i < split.length; i++) {
+                String string = split[i];
+                String[] metadatas = string.split(":");
+                String key = metadatas[0];
+                String value = metadatas[1];
+                dataType.addMetadata(key, value);
+            }
         } catch (Exception e) {
             LOG.error("can not create datatype", e);
         }

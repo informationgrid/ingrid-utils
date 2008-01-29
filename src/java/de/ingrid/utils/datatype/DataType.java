@@ -1,12 +1,14 @@
 package de.ingrid.utils.datatype;
 
+import java.util.Map;
+
 public class DataType {
 
     private String _name;
 
     private String _displayName;
 
-    private boolean _visible;
+    private Map _metaDatas = new java.util.LinkedHashMap();
 
     public String getName() {
         return _name;
@@ -24,12 +26,17 @@ public class DataType {
         _displayName = displayName;
     }
 
-    public boolean isVisible() {
-        return _visible;
+    public void addMetadata(Object key, Object value) {
+        _metaDatas.put(key, value);
     }
 
-    public void setVisible(boolean visible) {
-        _visible = visible;
+    public Map getMetaDatas() {
+        return _metaDatas;
+    }
+
+    public boolean contains(Object key, Object value) {
+        Object object = _metaDatas.get(key);
+        return value.equals(object);
     }
 
 }

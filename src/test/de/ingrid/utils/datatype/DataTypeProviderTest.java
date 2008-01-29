@@ -15,6 +15,6 @@ public class DataTypeProviderTest extends TestCase {
         DataType dataType = dataTypes[0];
         assertEquals("foo", dataType.getName());
         assertEquals("bar", dataType.getDisplayName());
-        assertTrue(dataType.isVisible());
+        assertTrue(dataType.contains("hidden", "true"));
     }
 }
