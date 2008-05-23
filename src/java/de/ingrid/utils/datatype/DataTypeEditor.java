@@ -22,7 +22,7 @@ public class DataTypeEditor extends PropertyEditorSupport {
             ret += dataType.getDisplayName();
             Set metaDatas = dataType.getMetaDatas();
             for (Iterator iterator = metaDatas.iterator(); iterator.hasNext();) {
-                Pair pair= (Pair) iterator.next();
+                Pair pair = (Pair) iterator.next();
                 ret += "." + pair.getKey() + ":" + pair.getValue();
             }
         }
@@ -46,7 +46,7 @@ public class DataTypeEditor extends PropertyEditorSupport {
                 dataType.addMetadata(key, value);
             }
         } catch (Exception e) {
-            LOG.error("can not create datatype", e);
+            LOG.error("can not create datatype from '" + text + "'", e);
         }
         setValue(dataType);
     }
