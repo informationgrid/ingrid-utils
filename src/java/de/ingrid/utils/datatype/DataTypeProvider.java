@@ -56,9 +56,9 @@ public class DataTypeProvider implements IDataTypeProvider {
     }
 
     private DataType getMatchingDataType(DataType[] allDatatypes, String dataTypeName) {
-        for (DataType dataType : allDatatypes) {
-            if (dataType.getName().equals(dataTypeName)) {
-                return dataType;
+        for (int i = 0; i < allDatatypes.length; i++) {
+            if (allDatatypes[i].getName().equals(dataTypeName)) {
+                return allDatatypes[i];
             }
         }
         throw new IllegalStateException("could not found datatype with name '" + dataTypeName + "'");
