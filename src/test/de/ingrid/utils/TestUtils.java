@@ -8,11 +8,11 @@ import java.util.List;
 
 public class TestUtils {
 
-    public static void writeFile(File file, List<String> lines) throws IOException {
+    public static void writeFile(File file, List lines) throws IOException {
         file.getParentFile().mkdirs();
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-        for (String line : lines) {
-            writer.write(line);
+        for (int i = 0; i < lines.size(); i++) {
+            writer.write((String) lines.get(i));
             writer.newLine();
         }
         writer.close();

@@ -1,6 +1,7 @@
 package de.ingrid.utils.datatype;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +12,7 @@ public class DataType {
 
     private String _displayName;
 
-    private Set<Pair> _metaDatas = new LinkedHashSet<Pair>();
+    private Set _metaDatas = new LinkedHashSet();
 
     public class Pair {
         private Object _key;
@@ -69,22 +70,22 @@ public class DataType {
         return _metaDatas.contains(new Pair(key, value));
     }
 
-    public List<Object> get(String key) {
-        List<Object> values = new ArrayList<Object>();
-        for (Pair pair : _metaDatas) {
+    public List get(String key) {
+        List values = new ArrayList();
+        for (Iterator iterator = _metaDatas.iterator(); iterator.hasNext();) {
+            Pair pair = (Pair) iterator.next();
             if (pair.getKey().equals(key)) {
                 values.add(pair.getValue());
             }
+
         }
         return values;
     }
 
-    @Override
     public int hashCode() {
         return _name.hashCode();
     }
 
-    @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof DataType)) {
             return false;
@@ -92,7 +93,6 @@ public class DataType {
         return hashCode() == obj.hashCode();
     }
 
-    @Override
     public String toString() {
         return _name;
     }

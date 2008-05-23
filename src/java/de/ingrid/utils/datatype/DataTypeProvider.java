@@ -45,14 +45,14 @@ public class DataTypeProvider implements IDataTypeProvider {
     }
 
     private DataType[] getIncludedDataTypes(DataType[] dataTypes, DataType dataType) {
-        List<Object> includedDataTypeNames = dataType.get("include");
-        List<DataType> includedDataTypes = new ArrayList<DataType>(includedDataTypeNames.size());
+        List includedDataTypeNames = dataType.get("include");
+        List includedDataTypes = new ArrayList(includedDataTypeNames.size());
         if (!includedDataTypeNames.isEmpty()) {
-            for (Object dataTypeName : includedDataTypeNames) {
-                includedDataTypes.add(getMatchingDataType(dataTypes, (String) dataTypeName));
+            for (int i = 0; i < includedDataTypeNames.size(); i++) {
+                includedDataTypes.add(getMatchingDataType(dataTypes, (String) includedDataTypeNames.get(i)));
             }
         }
-        return includedDataTypes.toArray(new DataType[includedDataTypes.size()]);
+        return (DataType[]) includedDataTypes.toArray(new DataType[includedDataTypes.size()]);
     }
 
     private DataType getMatchingDataType(DataType[] allDatatypes, String dataTypeName) {
