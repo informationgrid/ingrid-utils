@@ -77,7 +77,7 @@ public class XMLSerializer {
      * @throws IOException
      */
     public Object deSerialize(InputStream inputStream) throws IOException {
-        String xml = getContents(inputStream);
+    	String xml = getContents(inputStream);
         return this.fXStream.fromXML(xml);
     }
 
@@ -96,11 +96,11 @@ public class XMLSerializer {
      * @throws IOException
      */
     public static String getContents(InputStream inputStream) throws IOException {
-        return readContent(new BufferedReader(new InputStreamReader(inputStream)));
+        return readContent(new BufferedReader(new InputStreamReader(inputStream, "UTF-8")));
     }
 
     private static String readContent(BufferedReader input) throws IOException {
-        StringBuffer contents = new StringBuffer();
+    	StringBuffer contents = new StringBuffer();
         try {
             String line = null; // not declared within while loop
             while ((line = input.readLine()) != null) {
