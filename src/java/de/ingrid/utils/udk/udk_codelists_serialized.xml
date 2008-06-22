@@ -1918,7 +1918,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Climatology MeteorologyAtmosphere</string>
+            <string>climatologyMeteorologyAtmosphere</string>
           </entry>
           <entry>
             <long>121</long>
@@ -1931,7 +1931,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Utilities Communication</string>
+            <string>utilitiesCommunication</string>
           </entry>
           <entry>
             <long>121</long>
@@ -1944,7 +1944,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Geoscientific Information</string>
+            <string>geoscientificInformation</string>
           </entry>
           <entry>
             <long>121</long>
@@ -1957,7 +1957,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Intelligence Military</string>
+            <string>intelligenceMilitary</string>
           </entry>
           <entry>
             <long>121</long>
@@ -1970,7 +1970,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Society</string>
+            <string>society</string>
           </entry>
           <entry>
             <long>121</long>
@@ -1983,7 +1983,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Transportation</string>
+            <string>transportation</string>
           </entry>
           <entry>
             <long>121</long>
@@ -1996,7 +1996,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Boundaries</string>
+            <string>boundaries</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2009,7 +2009,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Environment</string>
+            <string>environment</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2022,7 +2022,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Inland Waters</string>
+            <string>inlandWaters</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2035,7 +2035,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Structure</string>
+            <string>structure</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2048,7 +2048,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Biota</string>
+            <string>biota</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2061,7 +2061,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Location</string>
+            <string>location</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2074,7 +2074,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Health</string>
+            <string>health</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2087,7 +2087,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Elevation</string>
+            <string>elevation</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2100,7 +2100,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Farming</string>
+            <string>farming</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2113,7 +2113,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Oceans</string>
+            <string>oceans</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2126,7 +2126,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Imagery Base Maps EarthCover</string>
+            <string>imageryBaseMapsEarthCover</string>
           </entry>
           <entry>
             <long>121</long>
@@ -2139,7 +2139,7 @@
         <map>
           <entry>
             <long>94</long>
-            <string>Economy</string>
+            <string>economy</string>
           </entry>
           <entry>
             <long>121</long>
