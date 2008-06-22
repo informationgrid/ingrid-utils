@@ -32,7 +32,7 @@ public class XMLSerializerTest extends TestCase {
         description.setPersoneMail(new Property("mail", "des"));
         description.setPersonName(new Property("name", "des"));
         description.setPersonSureName(new Property("surename", "des"));
-        description.setPlugId(new Property("aId", "des"));
+        description.setPlugId(new Property("aId", "desäü"));
         description.setWorkinDirectory(new Property(new File(System.getProperty("java.io.tmpdir")).getAbsolutePath(),
                 "des"));
         return description;
