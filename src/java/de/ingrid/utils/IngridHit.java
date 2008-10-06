@@ -36,6 +36,8 @@ public class IngridHit extends IngridDocument {
     
     private static final String GROUP_TOTAL_HIT_LENGTH = "groupTotalHitLength";
 
+	private static final String HIT_ID = "hitId";
+
     /**
      * 
      */
@@ -194,4 +196,22 @@ public class IngridHit extends IngridDocument {
     public void setGroupTotalHitLength(int groupTotalHitLength) {
         putInt(GROUP_TOTAL_HIT_LENGTH, groupTotalHitLength);
     }
+    
+    public void setHitId(String id) {
+		put(HIT_ID, id);
+	}
+
+	public String getHitId() {
+		return (String) get(HIT_ID);
+	}
+
+	public int hashCode() {
+		return containsKey(HIT_ID) ? getHitId().hashCode() : super.hashCode();
+	}
+
+	public boolean equals(Object o) {
+		IngridHit otherHit = (IngridHit) o;
+		return containsKey(HIT_ID) ? getHitId().equals(otherHit.getHitId())
+				: super.equals(o);
+	}
 }
