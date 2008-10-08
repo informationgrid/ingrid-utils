@@ -5,9 +5,9 @@ import java.util.List;
 
 public class IngridHitsEnrichmentFactory {
 
-	private List<IIngridHitEnrichment> _enrichmentCollection = new ArrayList<IIngridHitEnrichment>();
+	private List _enrichmentCollection = new ArrayList();
 
-	public List<IIngridHitEnrichment> getIngridHitsEnrichmentCollection() {
+	public List getIngridHitsEnrichmentCollection() {
 		return _enrichmentCollection;
 	}
 	
