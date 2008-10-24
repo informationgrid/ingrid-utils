@@ -144,10 +144,11 @@ public class UtilsDate {
             portalFormat.applyPattern(destFormat);
             result = portalFormat.format(df.parse((String) dateStr));
         } catch (ParseException e) {
-            if (log.isErrorEnabled()) {
-                log.error("error parsing date (" + dateStr + ") with format (" + srcFormat + ") to format ("
+            if (log.isDebugEnabled()) {
+                log.debug("Error parsing date (" + dateStr + ") with format (" + srcFormat + ") to format ("
                         + destFormat + ").", e);
             }
+            result = dateStr;
         }
         return result;
     }
