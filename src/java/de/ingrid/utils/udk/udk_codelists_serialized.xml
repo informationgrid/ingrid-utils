@@ -7,24 +7,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:25831 / ETRS89 / UTM Zone 31N</string>
+            <string>EPSG 25831: ETRS89 / UTM Zone 31N</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:25831 / ETRS89 / UTM Zone 31N</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31290</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31290 / MGI (Ferro) / M34</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31290 / MGI (Ferro) / M34</string>
+            <string>EPSG 25831: ETRS89 / UTM Zone 31N</string>
           </entry>
         </map>
       </entry>
@@ -46,24 +33,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:31467 /DHDN / Gauss-Krüger Zone 3</string>
+            <string>EPSG 31467: DHDN / Gauss-Krüger Zone 3</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:31467 /DHDN / Gauss-Krüger Zone 3</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31283</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31283 / MGI (Ferro) / Austria East Zone</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31283 / MGI (Ferro) / Austria East Zone</string>
+            <string>EPSG 31467: DHDN / Gauss-Krüger Zone 3</string>
           </entry>
         </map>
       </entry>
@@ -72,24 +46,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:23031 / ED50 / UTM Zone 31N</string>
+            <string>EPSG 23031: ED50 / UTM Zone 31N</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:23031 / ED50 / UTM Zone 31N</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31495</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31495 / DHDN / Germany zone 5</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31495 / DHDN / Germany zone 5</string>
+            <string>EPSG 23031: ED50 / UTM Zone 31N</string>
           </entry>
         </map>
       </entry>
@@ -98,37 +59,24 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:25832 / ETRS89 / UTM Zone 32N</string>
+            <string>EPSG 25832: ETRS89 / UTM Zone 32N</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:25832 / ETRS89 / UTM Zone 32N</string>
+            <string>EPSG 25832: ETRS89 / UTM Zone 32N</string>
           </entry>
         </map>
       </entry>
       <entry>
-        <long>31291</long>
+        <long>32632</long>
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:31291 / MGI (Ferro) / Austria West Zone</string>
+            <string>EPSG 32632: WGS 84 / UTM Zone 32N</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:31291 / MGI (Ferro) / Austria West Zone</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>23632</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:32632 / WGS 84 / UTM Zone 32N/33N</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:32632 / WGS 84 / UTM Zone 32N/33N</string>
+            <string>EPSG 32632: WGS 84 / UTM Zone 32N</string>
           </entry>
         </map>
       </entry>
@@ -137,24 +85,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:28463 / Pulkovo 1942 / Gauss-Krüger 2N/3N</string>
+            <string>EPSG 28463: Pulkovo 1942 / Gauss-Krüger 3N</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:28463 / Pulkovo 1942 / Gauss-Krüger 2N/3N</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31282</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31282 / MGI (Ferro) / Austria Central Zone</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31282 / MGI (Ferro) / Austria Central Zone</string>
+            <string>EPSG 28463: Pulkovo 1942 / Gauss-Krüger 3N</string>
           </entry>
         </map>
       </entry>
@@ -163,24 +98,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:31466 / DHDN / Gauss-Krüger Zone 2</string>
+            <string>EPSG 31466: DHDN / Gauss-Krüger Zone 2</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:31466 / DHDN / Gauss-Krüger Zone 2</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31285</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31285 / MGI / M31</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31285 / MGI / M31</string>
+            <string>EPSG 31466: DHDN / Gauss-Krüger Zone 2</string>
           </entry>
         </map>
       </entry>
@@ -189,37 +111,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:31469 / DHDN / Gauss-Krüger Zone 5</string>
+            <string>EPSG 31469: DHDN / Gauss-Krüger Zone 5</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:31469 / DHDN / Gauss-Krüger Zone 5</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31493</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31493 / DHDN / Germany zone 3</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31493 / DHDN / Germany zone 3</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31492</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31492 /DHDN / Germany zone 2</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31492 /DHDN / Germany zone 2</string>
+            <string>EPSG 31469: DHDN / Gauss-Krüger Zone 5</string>
           </entry>
         </map>
       </entry>
@@ -228,11 +124,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:4284 / Pulkovo 1942 / geographisch</string>
+            <string>EPSG 4284: Pulkovo 1942 / geographisch</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:4284 / Pulkovo 1942 / geographisch</string>
+            <string>EPSG 4284: Pulkovo 1942 / geographisch</string>
           </entry>
         </map>
       </entry>
@@ -241,11 +137,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:4230 / ED50 / geographisch</string>
+            <string>EPSG 4230: ED50 / geographisch</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:4230 / ED50 / geographisch</string>
+            <string>EPSG 4230: ED50 / geographisch</string>
           </entry>
         </map>
       </entry>
@@ -254,43 +150,21 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:4258 / ETRS89 / geographisch</string>
+            <string>EPSG 4258: ETRS89 / geographisch</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:4258 / ETRS89 / geographisch</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31293</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31293 / MGI (Ferro) / Austria East Zone</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31293 / MGI (Ferro) / Austria East Zone</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31288</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31288 / MGI (Ferro) / M28</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31288 / MGI (Ferro) / M28</string>
+            <string>EPSG 4258: ETRS89 / geographisch</string>
           </entry>
         </map>
       </entry>
       <entry>
         <long>9000005</long>
         <map>
+          <entry>
+            <long>94</long>
+            <string>DE_PD/83 / GK_3</string>
+          </entry>
           <entry>
             <long>121</long>
             <string>DE_PD/83 / GK_3</string>
@@ -302,37 +176,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:23032 / ED50 / UTM Zone 32N</string>
+            <string>EPSG 23032: ED50 / UTM Zone 32N</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:23032 / ED50 / UTM Zone 32N</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31494</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31494 / DHDN / Germany zone 4</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31494 / DHDN / Germany zone 4</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31491</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31491 / DHDN / Germany zone 1</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31491 / DHDN / Germany zone 1</string>
+            <string>EPSG 23032: ED50 / UTM Zone 32N</string>
           </entry>
         </map>
       </entry>
@@ -341,11 +189,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:4178 / Pulkovo 1942(83) / geographisch</string>
+            <string>EPSG 4178: Pulkovo 1942(83) / geographisch</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:4178 / Pulkovo 1942(83) / geographisch</string>
+            <string>EPSG 4178: Pulkovo 1942(83) / geographisch</string>
           </entry>
         </map>
       </entry>
@@ -363,28 +211,15 @@
         </map>
       </entry>
       <entry>
-        <long>31287</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31287 / MGI / Austria Lambert</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31287 / MGI / Austria Lambert</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
         <long>4314</long>
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:4314 / DHDN / geographisch</string>
+            <string>EPSG 4314: DHDN / geographisch</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:4314 / DHDN / geographisch</string>
+            <string>EPSG 4314: DHDN / geographisch</string>
           </entry>
         </map>
       </entry>
@@ -402,63 +237,15 @@
         </map>
       </entry>
       <entry>
-        <long>31286</long>
+        <long>32631</long>
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:31286 / MGI / M34</string>
+            <string>EPSG 32631: WGS 84 / UTM Zone 31N</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:31286 / MGI / M34</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>23631</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:32631 / WGS 84 / UTM Zone 31N</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:32631 / WGS 84 / UTM Zone 31N</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>9000004</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>DE_PD/83 / GK_3</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31292</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31292 / MGI (Ferro) / Austria Central Zone</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31292 / MGI (Ferro) / Austria Central Zone</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31281</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31281 / MGI (Ferro) / Austria West Zone</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31281 / MGI (Ferro) / Austria West Zone</string>
+            <string>EPSG 32631: WGS 84 / UTM Zone 31N</string>
           </entry>
         </map>
       </entry>
@@ -467,11 +254,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:23033 / ED50 / UTM Zone 33N</string>
+            <string>EPSG 23033: ED50 / UTM Zone 33N</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:23033 / ED50 / UTM Zone 33N</string>
+            <string>EPSG 23033: ED50 / UTM Zone 33N</string>
           </entry>
         </map>
       </entry>
@@ -480,24 +267,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:25833 / ETRS89 / UTM Zone 33N</string>
+            <string>EPSG 25833: ETRS89 / UTM Zone 33N</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:25833 / ETRS89 / UTM Zone 33N</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>31289</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>EPSG:31289 / MGI (Ferro) / M31</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>EPSG:31289 / MGI (Ferro) / M31</string>
+            <string>EPSG 25833: ETRS89 / UTM Zone 33N</string>
           </entry>
         </map>
       </entry>
@@ -519,11 +293,11 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:31468 / DHDN / Gauss-Krüger Zone 4</string>
+            <string>EPSG 31468: DHDN / Gauss-Krüger Zone 4</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:31468 / DHDN / Gauss-Krüger Zone 4</string>
+            <string>EPSG 31468: DHDN / Gauss-Krüger Zone 4</string>
           </entry>
         </map>
       </entry>
@@ -532,24 +306,154 @@
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:4326 / WGS 84 / geographisch</string>
+            <string>EPSG 4326: WGS 84 / geographisch</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:4326 / WGS 84 / geographisch</string>
+            <string>EPSG 4326: WGS 84 / geographisch</string>
           </entry>
         </map>
       </entry>
       <entry>
-        <long>31284</long>
+        <long>3068</long>
         <map>
           <entry>
             <long>94</long>
-            <string>EPSG:31284 / MGI / M28</string>
+            <string>EPSG 3068: DHDN / Soldner Berlin</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>EPSG:31284 / MGI / M28</string>
+            <string>EPSG 3068: DHDN / Soldner Berlin</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>32633</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>EPSG 32633: WGS 84 / UTM Zone 33N</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>EPSG 32633: WGS 84 / UTM Zone 33N</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>25834</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>EPSG 25834: ETRS89 / UTM Zone 34N</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>EPSG 25834: ETRS89 / UTM Zone 34N</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>28462</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>EPSG 28462: Pulkovo 1942 / Gauss-Krüger 2N</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>EPSG 28462: Pulkovo 1942 / Gauss-Krüger 2N</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>9000007</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>DE_DHDN / GK_3_RDN</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>DE_DHDN / GK_3_RDN</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>9000008</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>DE_DHDN / GK_3_RP101</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>DE_DHDN / GK_3_RP101</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>9000009</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>DE_DHDN / GK_3_RP180</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>DE_DHDN / GK_3_RP180</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>9000010</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>DE_DHDN / GK_3_NW177</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>DE_DHDN / GK_3_NW177</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>9000011</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>DE_DHDN / GK_3_HE100</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>DE_DHDN / GK_3_HE100</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>9000012</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>DE_DHDN / GK_3_BW100</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>DE_DHDN / GK_3_BW100</string>
+          </entry>
+        </map>
+      </entry>
+      <entry>
+        <long>9000013</long>
+        <map>
+          <entry>
+            <long>94</long>
+            <string>DE_PD/83 / GK_9-15, Bezug 12. Meridian (BY)</string>
+          </entry>
+          <entry>
+            <long>121</long>
+            <string>DE_PD/83 / GK_9-15, Bezug 12. Meridian (BY)</string>
           </entry>
         </map>
       </entry>
@@ -2262,45 +2166,6 @@
     <long>101</long>
     <map>
       <entry>
-        <long>5151</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Nivellement General Nouvelle Caledonie</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Nivellement General Nouvelle Caledonie</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>62</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Mean Sea Level</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Mean Sea Level</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5110</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Oostende</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Oostende</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
         <long>5105</long>
         <map>
           <entry>
@@ -2310,45 +2175,6 @@
           <entry>
             <long>121</long>
             <string>Baltic Sea</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5144</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Stornoway</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Stornoway</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5128</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Landeshohennetz 1995</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Landeshohennetz 1995</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5115</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Piraeus Harbour 1986</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Piraeus Harbour 1986</string>
           </entry>
         </map>
       </entry>
@@ -2366,84 +2192,6 @@
         </map>
       </entry>
       <entry>
-        <long>5143</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>North Rona</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>North Rona</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5118</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Nivellement general de la France - Lalle</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Nivellement general de la France - Lalle</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5138</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Ordnance Datum Newlyn (Orkney Isles)</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Ordnance Datum Newlyn (Orkney Isles)</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5149</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Fao</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Fao</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5113</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Sea Level</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Sea Level</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>65</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>North American Vertical Datum 1988</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>North American Vertical Datum 1988</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
         <long>900002</long>
         <map>
           <entry>
@@ -2453,97 +2201,6 @@
           <entry>
             <long>121</long>
             <string>DE_AMST / NH</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5127</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Landesnivellement 1902</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Landesnivellement 1902</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>900001</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Kronstädter Pegel (HN)</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Kronstädter Pegel (HN)</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5146</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Flannan Isles</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Flannan Isles</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5120</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Nivellement general de la France - IGN78</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Nivellement general de la France - IGN78</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5141</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Foula</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Foula</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5131</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Belfast Lough</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Belfast Lough</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5140</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Lerwick</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Lerwick</string>
           </entry>
         </map>
       </entry>
@@ -2561,32 +2218,6 @@
         </map>
       </entry>
       <entry>
-        <long>5109</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Normaal Amsterdams Peil</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Amsterdamer Pegel (NN)</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5119</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Nivellement general de la France - IGN69</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Nivellement general de la France - IGN69</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
         <long>900004</long>
         <map>
           <entry>
@@ -2600,184 +2231,80 @@
         </map>
       </entry>
       <entry>
-        <long>5132</long>
+        <long>900005</long>
         <map>
           <entry>
             <long>94</long>
-            <string>Dansk Normal Nul</string>
+            <string>DE_DHHN12_NOH</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>Dansk Normal Nul</string>
+            <string>DE_DHHN12_NOH</string>
           </entry>
         </map>
       </entry>
       <entry>
-        <long>5147</long>
+        <long>900006</long>
         <map>
           <entry>
             <long>94</long>
-            <string>St. Marys</string>
+            <string>DE_DHHN12_RP120</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>St. Marys</string>
+            <string>DE_DHHN12_RP120</string>
           </entry>
         </map>
       </entry>
       <entry>
-        <long>63</long>
+        <long>900007</long>
         <map>
           <entry>
             <long>94</long>
-            <string>Ordnance Datum Newlyn</string>
+            <string>DE_DHHN85_NOH</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>Ordnance Datum Newlyn</string>
+            <string>DE_DHHN85_NOH</string>
           </entry>
         </map>
       </entry>
       <entry>
-        <long>5139</long>
+        <long>900008</long>
         <map>
           <entry>
             <long>94</long>
-            <string>Fair Isle</string>
+            <string>DE_DHHN92_NH</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>Fair Isle</string>
+            <string>DE_DHHN92_NH</string>
           </entry>
         </map>
       </entry>
       <entry>
-        <long>5114</long>
+        <long>900009</long>
         <map>
           <entry>
             <long>94</long>
-            <string>Canadian Vertical Datum of 1928</string>
+            <string>Horizont 74_NOH</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>Canadian Vertical Datum of 1928</string>
+            <string>Horizont 74_NOH</string>
           </entry>
         </map>
       </entry>
       <entry>
-        <long>5148</long>
+        <long>900010</long>
         <map>
           <entry>
             <long>94</long>
-            <string>Douglas</string>
+            <string>Höhe über GRS80 Ellipsoid</string>
           </entry>
           <entry>
             <long>121</long>
-            <string>Douglas</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>64</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>National Geodetic Vertical Datum 1929</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>National Geodetic Vertical Datum 1929</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5107</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Nivellement general de la France</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Nivellement general de la France</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5145</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>St. Kilda</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>St. Kilda</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5142</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Sule Skerry</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Sule Skerry</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5117</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Rikets hojdsystem 1970</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Rikets hojdsystem 1970</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5130</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Malin Head</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Malin Head</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5123</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>PDO Height Datum 1993</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>PDO Height Datum 1993</string>
-          </entry>
-        </map>
-      </entry>
-      <entry>
-        <long>5116</long>
-        <map>
-          <entry>
-            <long>94</long>
-            <string>Helsinki 1960</string>
-          </entry>
-          <entry>
-            <long>121</long>
-            <string>Helsinki 1960</string>
+            <string>Höhe über GRS80 Ellipsoid</string>
           </entry>
         </map>
       </entry>
