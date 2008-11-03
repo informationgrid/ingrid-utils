@@ -527,4 +527,24 @@ public class QueryStringParserTest extends TestCase {
         IngridQuery query = QueryStringParser.parse("http provider:ni_lk-row");
         assertEquals("ni_lk-row", query.getPositiveProvider()[0]);
     }
+    
+    /**
+     * @throws Exception
+     */
+    public void testTermsFieldsAndTermsWithSlash() throws Exception {
+        String q = "hallo/welt feld:\"/kug-group:kug-iplug-sns\"";
+        
+        IngridQuery iq = QueryStringParser.parse(q);
+        TermQuery[] t = iq.getTerms();
+        assertEquals(1,t.length);
+        for (int i = 0; i < t.length; i++) {
+            assertEquals("hallo welt", t[i].getTerm());
+        }
+        
+        FieldQuery[] f = iq.getFields();
+        assertEquals(1, f.length);
+        for (int i = 0; i < f.length; i++) {
+            assertEquals("/kug-group:kug-iplug-sns", f[i].getFieldValue());
+        }
+    }
 }

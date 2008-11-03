@@ -134,6 +134,7 @@ IngridQuery parse() :
 		(t=<WILDTERM>{ wildcard=true; }|t=<TERM>|t=<PREFIXTERM>|t=<QUOTED>)
 		[ fuzzySlop=<FUZZY_SLOP> { fuzzy=true; } ]
 		{
+            t.image = t.image.replace("/", " ");
 			final Matcher matcher = fMatchQuotes.matcher(t.image);
 			if (matcher.matches()) {
 				term = matcher.group(1);
