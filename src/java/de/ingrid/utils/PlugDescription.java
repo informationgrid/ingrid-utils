@@ -111,6 +111,8 @@ public class PlugDescription extends IngridDocument {
 
     private static final Object IPLUG_ADMIN_GUI_PORT = "IPLUG_ADMIN_GUI_PORT";
 
+	public static final String CORRESPONDENT_PROXY_SERVICE_URL = "CORRESPONDENT_PROXY_SERVICE_URL";
+
     /**
      * @return Returns first connection or null
      */
@@ -440,7 +442,23 @@ public class PlugDescription extends IngridDocument {
     public String getProxyServiceURL() {
         return (String) get(PROXY_SERVICE_URL);
     }
+    
+    /**
+	 * @param correspondentIPlug
+	 *            The URL of the correspondent iPlug.
+	 */
+	public void setCorrespondentProxyServiceURL(
+			String correspondentProxyServiceUrl) {
+		put(CORRESPONDENT_PROXY_SERVICE_URL, correspondentProxyServiceUrl);
+	}
 
+	/**
+	 * @return The URL of the correspondent iPlug.
+	 */
+	public String getCorrespondentProxyServiceURL() {
+		return (String) get(CORRESPONDENT_PROXY_SERVICE_URL);
+	}
+    
     /**
      * @param motherIbusUrl
      *            The URL of the mother Ibus.
