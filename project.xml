@@ -90,21 +90,6 @@
 			</resource>
         </resources>
         <unitTestSourceDirectory>src/test</unitTestSourceDirectory>
-        <unitTest>
-            <includes>
-                <include>**/*Test.java</include>
-            </includes>
-            <resources>
-                <resource>
-                    <directory>src/test</directory>
-                    <filtering>false</filtering>
-                </resource>
-                <resource>
-                    <directory>src/test-resources</directory>
-                    <filtering>false</filtering>
-                </resource>
-            </resources>
-        </unitTest>
     </build>
     <reports>
         <report>maven-junit-report-plugin</report>
