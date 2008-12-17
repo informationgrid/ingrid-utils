@@ -19,6 +19,8 @@ public class DefaultMetadataInjector implements IMetadataInjector {
 
 	public DefaultMetadataInjector() {
 		Package package1 = Metadata.class.getPackage();
+		System.out.println(package1);
+		System.out.println(DefaultMetadataInjector.class.getPackage());
 		_metaDataAnnotation = package1.getAnnotation(MetadataAnnotation.class);
 	}
 
