@@ -17,6 +17,8 @@ public class DefaultMetadataInjector implements IMetadataInjector {
 
 	private Date _releaseDate = new Date(0);
 
+	private Metadata _metadata = new Metadata();
+	
 	public DefaultMetadataInjector() {
 		Package package1 = Metadata.class.getPackage();
 		System.out.println(package1);
