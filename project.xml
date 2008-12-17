@@ -4,7 +4,7 @@
     <artifactId>ingrid-utils</artifactId>
     <name>ingrid-utils</name>
     <groupId>ingrid</groupId>
-    <currentVersion>1.1.0-SNAPSHOT</currentVersion>
+    <currentVersion>1.2-SNAPSHOT</currentVersion>
     <organization>
         <name>media-style</name>
         <url>http://www.media-style.com</url>
