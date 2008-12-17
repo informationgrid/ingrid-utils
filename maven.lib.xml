@@ -24,34 +24,6 @@
 		<attainGoal name="checkuser"/>
 	</preGoal>
 	
-	<!-- create website with feature tests -->
-	<goal name="site:feature" >
-		<j:set var="faeturetests" value="true"/>
-		<j:set var="testmatchpattern" value="**/*Test.java"/>
-		<j:set var="testnotmatchpattern" value=""/>
-		<attainGoal name="site"/>
-	</goal>
-	
-	<!-- run only feature tests -->
-	<goal name="ftest">
-		<j:set var="faeturetests" value="true"/>
-		<j:set var="testmatchpattern" value="**/v*/*"/>
-		<attainGoal name="test"/>
-	</goal>
-	
-	<!-- run tests without feature test if 'featuretest' is not set to true -->
-	<preGoal name="test:test">
-		<j:if test="${faeturetests != 'true'}">
-			<j:set var="testmatchpattern" value="**/*Test.java"/>
-			<j:set var="testnotmatchpattern" value="**/v*/*"/>
-		</j:if>
-	</preGoal>
-	
-	<goal name="test:test">
-        <j:if test="${context.getVariable('maven.test.skip') != 'true'}">
-			<attainGoal name="test:match" />
-        </j:if>
-	</goal>
 	
 	<preGoal name="maven-jcoverage-plugin:report">
 		<j:set var="maven.test.failure.ignore" value="true"/>
