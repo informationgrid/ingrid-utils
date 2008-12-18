@@ -7,8 +7,6 @@ import java.util.Date;
 
 public class DefaultMetadataInjector implements IMetadataInjector {
 
-	public static final String DEFAULT_METADATA = "DEFAULT_METADATA";
-
 	private MetadataAnnotation _metaDataAnnotation;
 
 	private DateFormat _format = new SimpleDateFormat("yyyy-MM-dd");

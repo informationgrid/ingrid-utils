@@ -10,6 +10,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.ingrid.utils.metadata.Metadata;
 import de.ingrid.utils.query.IngridQuery;
 
 /**
@@ -112,6 +113,8 @@ public class PlugDescription extends IngridDocument {
     private static final Object IPLUG_ADMIN_GUI_PORT = "IPLUG_ADMIN_GUI_PORT";
 
 	public static final String CORRESPONDENT_PROXY_SERVICE_URL = "CORRESPONDENT_PROXY_SERVICE_URL";
+	
+	public static final String METADATA = "METADATAS";
 
     /**
      * @return Returns first connection or null
@@ -665,4 +668,12 @@ public class PlugDescription extends IngridDocument {
     public void setIplugAdminGuiPort(int port) {
         putInt(IPLUG_ADMIN_GUI_PORT, port);
     }
+    
+    public void setMetadata(Metadata metadata) {
+		put(METADATA, metadata);
+	}
+    
+    public Metadata getMetadata() {
+		return (Metadata) get(METADATA);
+	}
 }
