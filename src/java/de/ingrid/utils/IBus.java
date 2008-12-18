@@ -69,4 +69,6 @@ public interface IBus extends Serializable, IDetailer, IRecordLoader {
      * @return All registered IPlugs without checking the time stamp.
      */
     public PlugDescription[] getAllIPlugsWithoutTimeLimitation();
+    
+    Serializable getMetadata(String plugId, String metadataKey);
 }

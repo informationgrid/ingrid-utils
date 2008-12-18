@@ -2,6 +2,8 @@ package de.ingrid.utils.metadata;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Metadata implements Serializable {
 
@@ -12,6 +14,8 @@ public class Metadata implements Serializable {
 	private Date _releaseDate;
 
 	private IPlugType _plugType;
+	
+	private Map<String, Serializable> _otherMetadatas = new HashMap<String, Serializable>();
 
 
 	public Metadata() {
@@ -47,5 +51,12 @@ public class Metadata implements Serializable {
 		_plugType = plugType;
 	}
 
+	public void addMetadata(String key, Serializable value) {
+		_otherMetadatas.put(key, value);
+	}
+	
+	public Serializable getMetadata(String key) {
+		return _otherMetadatas.get(key);
+	}
 
 }
