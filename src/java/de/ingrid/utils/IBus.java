@@ -8,6 +8,7 @@ package de.ingrid.utils;
 
 import java.io.Serializable;
 
+import de.ingrid.utils.metadata.Metadata;
 import de.ingrid.utils.query.IngridQuery;
 
 /**
@@ -71,4 +72,6 @@ public interface IBus extends Serializable, IDetailer, IRecordLoader {
     public PlugDescription[] getAllIPlugsWithoutTimeLimitation();
     
     Serializable getMetadata(String plugId, String metadataKey);
+    
+    Metadata getMetadata(String plugId);
 }
