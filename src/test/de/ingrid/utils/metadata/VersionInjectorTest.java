@@ -4,18 +4,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import junit.framework.TestCase;
-import de.ingrid.utils.PlugDescription;
 
 public class VersionInjectorTest extends TestCase {
 
 	public void testInjectVersion() throws Exception {
 		IMetadataInjector injector = new DefaultMetadataInjector();
-		PlugDescription plugDescription = new PlugDescription();
-		
-		assertEquals(null, plugDescription.get(DefaultMetadataInjector.DEFAULT_METADATA));
-		injector.injectMetaDatas(plugDescription);
-		
-		Metadata metadata = (Metadata) plugDescription.get(DefaultMetadataInjector.DEFAULT_METADATA);
+
+		Metadata metadata = new Metadata();
+		assertNull(metadata.getVersion());
+		injector.injectMetaDatas(metadata);
 		
 		assertEquals("0.1.2", metadata.getVersion());
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

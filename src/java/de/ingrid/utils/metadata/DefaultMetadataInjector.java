@@ -5,8 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import de.ingrid.utils.PlugDescription;
-
 public class DefaultMetadataInjector implements IMetadataInjector {
 
 	public static final String DEFAULT_METADATA = "DEFAULT_METADATA";
@@ -22,12 +20,13 @@ public class DefaultMetadataInjector implements IMetadataInjector {
 		_metaDataAnnotation = package1.getAnnotation(MetadataAnnotation.class);
 	}
 
-	public void injectMetaDatas(PlugDescription plugDescription) {
+	public void injectMetaDatas(Metadata metadata) {
 		String version = getVersion();
 		IPlugType plugType = getIPlugType();
 		Date releaseDate = getReleaseDate();
-		Metadata metadata = new Metadata(plugType, releaseDate, version);
-		plugDescription.put(DEFAULT_METADATA, metadata);
+		metadata.setPlugType(plugType);
+		metadata.setVersion(version);
+		metadata.setReleaseDate(releaseDate);
 	}
 
 	private String getVersion() {
