@@ -74,4 +74,10 @@ public interface IBus extends Serializable, IDetailer, IRecordLoader {
     Serializable getMetadata(String plugId, String metadataKey);
     
     Metadata getMetadata(String plugId);
+    
+    /**
+	 * 
+	 * @return the ibus metadata
+	 */
+    Metadata getMetadata();
 }
