@@ -80,4 +80,8 @@ public interface IBus extends Serializable, IDetailer, IRecordLoader {
 	 * @return the ibus metadata
 	 */
     Metadata getMetadata();
+    
+    IngridHitDetail[] searchAndDetail(IngridQuery query, int hitsPerPage,
+			int currentPage, int startHit, int maxMilliseconds,
+			String[] requestedFields) throws Exception;
 }
