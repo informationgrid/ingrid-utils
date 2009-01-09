@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import de.ingrid.utils.PlugDescription;
+
 public class DefaultMetadataInjector implements IMetadataInjector {
 
 	private MetadataAnnotation _metaDataAnnotation;
@@ -46,6 +48,12 @@ public class DefaultMetadataInjector implements IMetadataInjector {
 	private IPlugType getIPlugType() {
 		return _metaDataAnnotation != null ? _metaDataAnnotation.type()
 				: IPlugType.OTHER;
+	}
+
+	@Override
+	public void configure(PlugDescription description) {
+		// nothing todo
+
 	}
 
 }

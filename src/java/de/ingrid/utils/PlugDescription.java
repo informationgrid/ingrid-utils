@@ -116,6 +116,8 @@ public class PlugDescription extends IngridDocument {
 	
 	public static final String METADATA = "METADATAS";
 
+	public static final String METADATA_INJECTORS = "METADATA_INJECTORS";
+
     /**
      * @return Returns first connection or null
      */
