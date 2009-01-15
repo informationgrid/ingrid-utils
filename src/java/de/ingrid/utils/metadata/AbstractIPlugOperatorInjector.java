@@ -1,7 +1,9 @@
 package de.ingrid.utils.metadata;
 
+import java.io.Externalizable;
 import java.io.IOException;
-import java.io.Serializable;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,12 +22,12 @@ public abstract class AbstractIPlugOperatorInjector implements
 
 	public static final String IPLUG_OPERATOR = "IPLUG_OPERATOR";
 
-	private Logger LOG = Logger
-			.getLogger(AbstractIPlugOperatorInjector.class.getName());
+	private Logger LOG = Logger.getLogger(AbstractIPlugOperatorInjector.class
+			.getName());
 
 	private IBus _bus;
 
-	public class IPlugOperator implements Serializable {
+	public static class IPlugOperator implements Externalizable {
 
 		private static final long serialVersionUID = 8719569972941213577L;
 
@@ -79,9 +81,20 @@ public abstract class AbstractIPlugOperatorInjector implements
 			return stringBuffer.toString();
 		}
 
+		@Override
+		public void readExternal(ObjectInput in) throws IOException,
+				ClassNotFoundException {
+			_partners = (Map<String, Partner>) in.readObject();
+		}
+
+		@Override
+		public void writeExternal(ObjectOutput out) throws IOException {
+			out.writeObject(_partners);
+		}
+
 	}
 
-	public class Partner implements Serializable {
+	public static class Partner implements Externalizable {
 
 		private static final long serialVersionUID = -7342292962488266521L;
 
@@ -171,9 +184,24 @@ public abstract class AbstractIPlugOperatorInjector implements
 			return buffer.toString();
 		}
 
+		@Override
+		public void readExternal(ObjectInput in) throws IOException,
+				ClassNotFoundException {
+			_shortName = (String) in.readObject();
+			_displayName = (String) in.readObject();
+			_providers = (Map<String, Provider>) in.readObject();
+		}
+
+		@Override
+		public void writeExternal(ObjectOutput out) throws IOException {
+			out.writeObject(_shortName);
+			out.writeObject(_displayName);
+			out.writeObject(_providers);
+		}
+
 	}
 
-	public class Provider implements Serializable {
+	public static class Provider implements Externalizable {
 
 		private static final long serialVersionUID = -8586526277886308327L;
 
@@ -234,6 +262,20 @@ public abstract class AbstractIPlugOperatorInjector implements
 		public String toString() {
 			return "Provider: [" + _shortName + "/" + _displayName + "]";
 		}
+
+		@Override
+		public void readExternal(ObjectInput in) throws IOException,
+				ClassNotFoundException {
+			_shortName = (String) in.readObject();
+			_displayName = (String) in.readObject();
+		}
+
+		@Override
+		public void writeExternal(ObjectOutput out) throws IOException {
+			out.writeObject(_shortName);
+			out.writeObject(_displayName);
+		}
+
 	}
 
 	@Override
