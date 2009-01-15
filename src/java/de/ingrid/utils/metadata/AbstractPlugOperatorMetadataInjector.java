@@ -14,9 +14,6 @@ import de.ingrid.utils.IBus;
 import de.ingrid.utils.IngridHit;
 import de.ingrid.utils.IngridHits;
 import de.ingrid.utils.PlugDescription;
-import de.ingrid.utils.metadata.IBusable;
-import de.ingrid.utils.metadata.IMetadataInjector;
-import de.ingrid.utils.metadata.Metadata;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.queryparser.QueryStringParser;
 
@@ -257,9 +254,9 @@ public abstract class AbstractPlugOperatorMetadataInjector implements IMetadataI
     @Override
     public void injectMetaDatas(Metadata metadata) {
         try {
-            IIndexFinder indexFinder = createIndexFinder();
-            Set<String> partnerSet = indexFinder.findIndexValues(_workinDirectory, "partner");
-            Set<String> providerSet = indexFinder.findIndexValues(_workinDirectory, "provider");
+            IPlugOperatorFinder indexFinder = createOperatorFinder();
+            Set<String> partnerSet = indexFinder.findPartner();
+			Set<String> providerSet = indexFinder.findProvider();
 
 
             IPlugOperator oldPlugOperator = (IPlugOperator) metadata.getMetadata(IPLUG_OPERATOR);
@@ -275,7 +272,7 @@ public abstract class AbstractPlugOperatorMetadataInjector implements IMetadataI
 
     }
 
-    public abstract IIndexFinder createIndexFinder();
+    public abstract IPlugOperatorFinder createOperatorFinder();
 
     @Override
     public void configure(PlugDescription plugDescription) {
