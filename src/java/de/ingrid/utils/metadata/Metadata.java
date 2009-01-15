@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,11 +15,12 @@ public class Metadata implements Externalizable {
 
 	private static final long serialVersionUID = -882806556761084500L;
 
-	private String _version;
+	private String _version = "unknown";
 
-	private Date _releaseDate;
+	private Date _releaseDate = new GregorianCalendar(1970, Calendar.JANUARY, 1)
+			.getTime();
 
-	private IPlugType _plugType;
+	private IPlugType _plugType = IPlugType.OTHER;
 
 	private Map<String, Serializable> _otherMetadatas = new HashMap<String, Serializable>();
 
