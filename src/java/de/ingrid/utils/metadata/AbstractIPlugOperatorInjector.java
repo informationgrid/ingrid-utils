@@ -15,13 +15,13 @@ import de.ingrid.utils.IngridHits;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.queryparser.QueryStringParser;
 
-public abstract class AbstractPlugOperatorMetadataInjector implements
+public abstract class AbstractIPlugOperatorInjector implements
 		IMetadataInjector, IBusable {
 
 	public static final String IPLUG_OPERATOR = "IPLUG_OPERATOR";
 
 	private Logger LOG = Logger
-			.getLogger(AbstractPlugOperatorMetadataInjector.class.getName());
+			.getLogger(AbstractIPlugOperatorInjector.class.getName());
 
 	private IBus _bus;
 
@@ -82,8 +82,8 @@ public abstract class AbstractPlugOperatorMetadataInjector implements
 			return stringBuffer.toString();
 		}
 
-		private AbstractPlugOperatorMetadataInjector getOuterType() {
-			return AbstractPlugOperatorMetadataInjector.this;
+		private AbstractIPlugOperatorInjector getOuterType() {
+			return AbstractIPlugOperatorInjector.this;
 		}
 	}
 
@@ -180,8 +180,8 @@ public abstract class AbstractPlugOperatorMetadataInjector implements
 			return buffer.toString();
 		}
 
-		private AbstractPlugOperatorMetadataInjector getOuterType() {
-			return AbstractPlugOperatorMetadataInjector.this;
+		private AbstractIPlugOperatorInjector getOuterType() {
+			return AbstractIPlugOperatorInjector.this;
 		}
 	}
 
@@ -245,8 +245,8 @@ public abstract class AbstractPlugOperatorMetadataInjector implements
 			return true;
 		}
 
-		private AbstractPlugOperatorMetadataInjector getOuterType() {
-			return AbstractPlugOperatorMetadataInjector.this;
+		private AbstractIPlugOperatorInjector getOuterType() {
+			return AbstractIPlugOperatorInjector.this;
 		}
 
 		@Override
@@ -258,9 +258,9 @@ public abstract class AbstractPlugOperatorMetadataInjector implements
 	@Override
 	public void injectMetaDatas(Metadata metadata) {
 		try {
-			IPlugOperatorFinder indexFinder = createOperatorFinder();
-			Set<String> partnerSet = indexFinder.findPartner();
-			Set<String> providerSet = indexFinder.findProvider();
+			IPlugOperatorFinder operatorFinder = createOperatorFinder();
+			Set<String> partnerSet = operatorFinder.findPartner();
+			Set<String> providerSet = operatorFinder.findProvider();
 
 			IPlugOperator oldPlugOperator = (IPlugOperator) metadata
 					.getMetadata(IPLUG_OPERATOR);
