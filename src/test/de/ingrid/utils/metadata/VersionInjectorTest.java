@@ -11,7 +11,7 @@ public class VersionInjectorTest extends TestCase {
 		IMetadataInjector injector = new DefaultMetadataInjector();
 
 		Metadata metadata = new Metadata();
-		assertNull(metadata.getVersion());
+		assertNotNull(metadata.getVersion());
 		injector.injectMetaDatas(metadata);
 		
 		assertEquals("0.1.2", metadata.getVersion());
