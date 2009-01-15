@@ -47,7 +47,6 @@ public abstract class AbstractIPlugOperatorInjector implements
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + getOuterType().hashCode();
 			result = prime * result
 					+ ((_partners == null) ? 0 : _partners.hashCode());
 			return result;
@@ -62,8 +61,6 @@ public abstract class AbstractIPlugOperatorInjector implements
 			if (getClass() != obj.getClass())
 				return false;
 			IPlugOperator other = (IPlugOperator) obj;
-			if (!getOuterType().equals(other.getOuterType()))
-				return false;
 			if (_partners == null) {
 				if (other._partners != null)
 					return false;
@@ -82,9 +79,6 @@ public abstract class AbstractIPlugOperatorInjector implements
 			return stringBuffer.toString();
 		}
 
-		private AbstractIPlugOperatorInjector getOuterType() {
-			return AbstractIPlugOperatorInjector.this;
-		}
 	}
 
 	public class Partner implements Serializable {
@@ -129,7 +123,6 @@ public abstract class AbstractIPlugOperatorInjector implements
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + getOuterType().hashCode();
 			result = prime * result
 					+ ((_displayName == null) ? 0 : _displayName.hashCode());
 			result = prime * result
@@ -148,8 +141,6 @@ public abstract class AbstractIPlugOperatorInjector implements
 			if (getClass() != obj.getClass())
 				return false;
 			Partner other = (Partner) obj;
-			if (!getOuterType().equals(other.getOuterType()))
-				return false;
 			if (_displayName == null) {
 				if (other._displayName != null)
 					return false;
@@ -180,9 +171,6 @@ public abstract class AbstractIPlugOperatorInjector implements
 			return buffer.toString();
 		}
 
-		private AbstractIPlugOperatorInjector getOuterType() {
-			return AbstractIPlugOperatorInjector.this;
-		}
 	}
 
 	public class Provider implements Serializable {
@@ -213,7 +201,6 @@ public abstract class AbstractIPlugOperatorInjector implements
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + getOuterType().hashCode();
 			result = prime * result
 					+ ((_displayName == null) ? 0 : _displayName.hashCode());
 			result = prime * result
@@ -230,8 +217,6 @@ public abstract class AbstractIPlugOperatorInjector implements
 			if (getClass() != obj.getClass())
 				return false;
 			Provider other = (Provider) obj;
-			if (!getOuterType().equals(other.getOuterType()))
-				return false;
 			if (_displayName == null) {
 				if (other._displayName != null)
 					return false;
@@ -243,10 +228,6 @@ public abstract class AbstractIPlugOperatorInjector implements
 			} else if (!_shortName.equals(other._shortName))
 				return false;
 			return true;
-		}
-
-		private AbstractIPlugOperatorInjector getOuterType() {
-			return AbstractIPlugOperatorInjector.this;
 		}
 
 		@Override
