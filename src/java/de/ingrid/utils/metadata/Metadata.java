@@ -1,9 +1,5 @@
 package de.ingrid.utils.metadata;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,7 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Metadata implements Externalizable {
+public class Metadata implements Serializable {
 
 	private static final long serialVersionUID = -882806556761084500L;
 
@@ -110,23 +106,6 @@ public class Metadata implements Externalizable {
 		} else if (!_version.equals(other._version))
 			return false;
 		return true;
-	}
-
-	@Override
-	public void readExternal(ObjectInput in) throws IOException,
-			ClassNotFoundException {
-		_version = (String) in.readObject();
-		_releaseDate = (Date) in.readObject();
-		_plugType = (IPlugType) in.readObject();
-		_otherMetadatas = (Map<String, Serializable>) in.readObject();
-	}
-
-	@Override
-	public void writeExternal(ObjectOutput out) throws IOException {
-		out.writeObject(_version);
-		out.writeObject(_releaseDate);
-		out.writeObject(_plugType);
-		out.writeObject(_otherMetadatas);
 	}
 
 }
