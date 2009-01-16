@@ -9,7 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Logger;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.impl.LogFactoryImpl;
 
 import de.ingrid.utils.IBus;
 import de.ingrid.utils.IngridHit;
@@ -22,8 +24,8 @@ public abstract class AbstractIPlugOperatorInjector implements
 
 	public static final String IPLUG_OPERATOR = "IPLUG_OPERATOR";
 
-	private Logger LOG = Logger.getLogger(AbstractIPlugOperatorInjector.class
-			.getName());
+	private Log LOG = LogFactoryImpl
+			.getLog(AbstractIPlugOperatorInjector.class);
 
 	private IBus _bus;
 
@@ -295,7 +297,7 @@ public abstract class AbstractIPlugOperatorInjector implements
 			}
 
 		} catch (IOException e) {
-			LOG.warning(e.getMessage());
+			LOG.warn(e.getMessage(), e);
 		}
 
 	}
