@@ -362,7 +362,9 @@ public abstract class AbstractIPlugOperatorInjector implements
 			provider.setShortName(providerId);
 			unknownPartner.addProvider(provider);
 		}
-		operator.addPartner(unknownPartner);
+		if (!unknownPartner.getProviders().isEmpty()) {
+			operator.addPartner(unknownPartner);
+		}
 
 		return operator;
 	}
