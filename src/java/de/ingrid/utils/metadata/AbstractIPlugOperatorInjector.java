@@ -339,7 +339,7 @@ public abstract class AbstractIPlugOperatorInjector implements
 				if (providerSet.contains(providerId)) {
 					provider.setShortName(providerId);
 					provider.setDisplayName(providerName);
-					providerMap.remove(providerId);
+					providerSet.remove(providerId);
 				} else {
 					// provider is not in index
 					continue;
