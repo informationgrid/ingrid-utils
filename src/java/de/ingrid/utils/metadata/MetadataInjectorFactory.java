@@ -3,6 +3,9 @@ package de.ingrid.utils.metadata;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.impl.LogFactoryImpl;
+
 import de.ingrid.utils.IBus;
 import de.ingrid.utils.PlugDescription;
 import de.ingrid.utils.tool.SpringUtil;
@@ -15,6 +18,9 @@ public class MetadataInjectorFactory {
 
 	private final Class<List<IMetadataInjector>> _injectorContainer = null;
 
+	private static final Log LOG = LogFactoryImpl
+			.getLog(MetadataInjectorFactory.class);
+	
 	public MetadataInjectorFactory(final PlugDescription description,
 			final IBus bus) {
 		_description = description;
@@ -31,7 +37,8 @@ public class MetadataInjectorFactory {
 			if (metadataInjector instanceof IBusable) {
 				((IBusable) metadataInjector).setIBus(_bus);
 			}
-
+			LOG.info("add metadata injector: "
+					+ metadataInjector.getClass().getName());
 			list.add(metadataInjector);
 		}
 		return list;
