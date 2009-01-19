@@ -5,11 +5,15 @@ import java.util.List;
 
 import de.ingrid.utils.IBus;
 import de.ingrid.utils.PlugDescription;
+import de.ingrid.utils.tool.SpringUtil;
 
 public class MetadataInjectorFactory {
 
 	private final PlugDescription _description;
+
 	private final IBus _bus;
+
+	private final Class<List<IMetadataInjector>> _injectorContainer = null;
 
 	public MetadataInjectorFactory(final PlugDescription description,
 			final IBus bus) {
@@ -19,20 +23,16 @@ public class MetadataInjectorFactory {
 
 	public List<IMetadataInjector> getMetadataInjectors() throws Exception {
 		List<IMetadataInjector> list = new ArrayList<IMetadataInjector>();
-		List<String> metadataInjectorNames = (List<String>) _description
-				.get(PlugDescription.METADATA_INJECTORS);
-		if (metadataInjectorNames != null) {
-			for (String injectorName : metadataInjectorNames) {
-				Class<IMetadataInjector> clazz = (Class<IMetadataInjector>) Class
-						.forName(injectorName);
-				IMetadataInjector metadataInjector = clazz.newInstance();
-				metadataInjector.configure(_description);
-				if (metadataInjector instanceof IBusable) {
-					((IBusable) metadataInjector).setIBus(_bus);
-				}
-
-				list.add(metadataInjector);
+		SpringUtil springUtil = new SpringUtil("spring.xml");
+		List<IMetadataInjector> injectors = springUtil.getBean(
+				"metadataInjectors", _injectorContainer);
+		for (IMetadataInjector metadataInjector : injectors) {
+			metadataInjector.configure(_description);
+			if (metadataInjector instanceof IBusable) {
+				((IBusable) metadataInjector).setIBus(_bus);
 			}
+
+			list.add(metadataInjector);
 		}
 		return list;
 	}
