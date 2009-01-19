@@ -23,7 +23,7 @@ public class MetadataInjectorFactory {
 
 	public List<IMetadataInjector> getMetadataInjectors() throws Exception {
 		List<IMetadataInjector> list = new ArrayList<IMetadataInjector>();
-		SpringUtil springUtil = new SpringUtil("spring.xml");
+		SpringUtil springUtil = new SpringUtil("spring/spring.xml");
 		List<IMetadataInjector> injectors = springUtil.getBean(
 				"metadataInjectors", _injectorContainer);
 		for (IMetadataInjector metadataInjector : injectors) {
