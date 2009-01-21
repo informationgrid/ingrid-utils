@@ -610,6 +610,21 @@ public class IngridQueryTools {
         return extracted;
     } 
     
+    /**
+     * Get a string from a query that you can compare with other queries. Since
+     * in the query itself are automatically added (mapping)values they need to
+     * be removed or unified. 
+     * @param query, is the query to make comparable
+     * @param postfix, extra information to be attached to the string
+     * @return a string that can be compared with other queries
+     */
+    public String getComparableString( String query, String postfix) {
+    	query = query.replaceAll("MAP-> 0:\\d+", "MAP-> 0:0");
+    	query += postfix;
+    	
+    	return query;
+    }
+    
 }
 
 
