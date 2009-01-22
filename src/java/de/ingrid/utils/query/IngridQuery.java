@@ -116,6 +116,9 @@ public class IngridQuery extends IngridDocument {
 
     /***/
     public static final String IPLUGS = "iplugs";
+    
+    /***/
+    public static final String CACHED = "cache";
 
     private transient IngridQuery fLastAddedQuery;
     
@@ -126,6 +129,7 @@ public class IngridQuery extends IngridDocument {
      */
     public IngridQuery() {
         super(new Long(System.currentTimeMillis()), null);
+        //putBoolean(CACHED, true);
     }
 
     /**
@@ -140,6 +144,7 @@ public class IngridQuery extends IngridDocument {
         super(new Long(System.currentTimeMillis()), query);
         putBoolean(REQUIRED, required);
         putBoolean(PROHIBITED, prohibited);
+        //putBoolean(CACHED, true);
         putInt(TYPE, type);
 
     }
@@ -190,6 +195,8 @@ public class IngridQuery extends IngridDocument {
             addToList(PARTNER, field);
         } else if (field.getFieldName().equals(IPLUGS)) {
             addToList(IPLUGS, field);
+        } else if (field.getFieldName().equals(CACHED)) {
+        	put(CACHED, field.getFieldValue().toLowerCase());
         } else {
             addToList(FIELD_KEY, field);
         }
@@ -588,6 +595,23 @@ public class IngridQuery extends IngridDocument {
      */
     public boolean isScoreRanked() {
         return isRanked(SCORE_RANKED);
+    }
+    
+    /**
+     * 
+     * @return true if cache is set to "true"
+     */
+    public boolean isCacheOff() {
+    	String cached = (String)get(CACHED);
+    	
+    	if (cached == null) {
+    		return false;
+    	}
+    	return cached.equals("off");
+    }
+    
+    public boolean isCacheOn() {
+    	return !isCacheOff();
     }
 
     /**

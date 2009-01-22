@@ -619,7 +619,8 @@ public class IngridQueryTools {
      * @return a string that can be compared with other queries
      */
     public String getComparableString( String query, String postfix) {
-    	query = query.replaceAll("MAP-> 0:\\d+", "MAP-> 0:0");
+    	//query = query.replaceAll("MAP-> 0:\\d+", "MAP-> 0:0");
+    	query = query.replaceAll(" 0:\\d+", " 0:0");
     	query += postfix;
     	
     	return query;
