@@ -51,7 +51,8 @@ public class FieldQuery extends IngridQuery {
     }
     
     public String toString() {
-        return getFieldName()+":"+getFieldValue();
+        String prefix = isProhibited() ? "-" : (isRequred() ? "+" : "");
+        return prefix + "(" + getFieldName() + ":" + getFieldValue() + ")";
     }
 
 }
