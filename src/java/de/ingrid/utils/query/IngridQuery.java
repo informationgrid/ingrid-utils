@@ -465,8 +465,12 @@ public class IngridQuery extends IngridDocument {
     public String getDescription() {
         StringBuffer buffer = new StringBuffer();
         buffer.append("(");
+
+        buffer.append(" " + CACHED + ": " + isCacheOn());
+
         buffer.append(" terms: ");
         appendToString(buffer, getTerms());
+        
         buffer.append(" fields: ");
         appendToString(buffer, getFields());
         buffer.append(" clauses: ");
