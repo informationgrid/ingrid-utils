@@ -20,9 +20,10 @@ package de.ingrid.utils;
 
 import java.util.Arrays;
 
+import junit.framework.TestCase;
 import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.IngridQuery;
-import junit.framework.TestCase;
+import de.ingrid.utils.queryparser.QueryStringParser;
 
 /**
  * Test for {@link de.ingrid.utils.query.IngridQuery} 
@@ -55,5 +56,22 @@ public class IngridQueryTest extends TestCase {
         assertEquals(4, query.getAllClauses().length);
         assertTrue(Arrays.asList(query.getAllClauses()).contains(clause11));
         
+    }
+    
+    
+    public void testHashCode() throws Exception {
+
+        IngridQuery query1 = QueryStringParser.parse("foo:bar");
+        IngridQuery query2 = QueryStringParser.parse("foo:bar");
+
+        assertEquals(query1.hashCode(), query2.hashCode());
+        assertEquals(query1, query2);
+        
+        query1 = QueryStringParser.parse("foo:bar1");
+        query2 = QueryStringParser.parse("foo:bar2");
+
+        assertFalse(query1.hashCode() == query2.hashCode());
+        assertFalse(query1.equals(query2));
+
     }
 }

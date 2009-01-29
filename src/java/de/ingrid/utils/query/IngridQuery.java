@@ -128,8 +128,6 @@ public class IngridQuery extends IngridDocument {
      * Default constructor
      */
     public IngridQuery() {
-        super(new Long(System.currentTimeMillis()), null);
-        //putBoolean(CACHED, true);
     }
 
     /**
@@ -141,7 +139,7 @@ public class IngridQuery extends IngridDocument {
      * @param query
      */
     public IngridQuery(boolean required, boolean prohibited, int type, String query) {
-        super(new Long(System.currentTimeMillis()), query);
+        put(IngridDocument.DOCUMENT_CONTENT, query);
         putBoolean(REQUIRED, required);
         putBoolean(PROHIBITED, prohibited);
         //putBoolean(CACHED, true);

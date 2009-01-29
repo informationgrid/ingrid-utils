@@ -9,7 +9,6 @@ package de.ingrid.utils;
 import java.io.File;
 
 import junit.framework.TestCase;
-import de.ingrid.utils.PlugDescription;
 import de.ingrid.utils.xml.XMLSerializer;
 
 /**
@@ -83,5 +82,36 @@ public class PlugDescriptionTest extends TestCase {
             description.removeBusUrl("" + i);
             assertEquals(i, description.getBusUrls().length);
         }
+    }
+    
+    
+    public void testHashCode() throws Exception {
+        PlugDescription plugDescription = new PlugDescription();
+        plugDescription.addPartner("foo");
+        plugDescription.addProvider("bar");
+        plugDescription.addBusUrl("foobar");
+
+        PlugDescription plugDescription2 = new PlugDescription();
+        plugDescription2.addPartner("foo");
+        plugDescription2.addProvider("bar");
+        plugDescription2.addBusUrl("foobar");
+
+        assertTrue(plugDescription.hashCode() == plugDescription2.hashCode());
+        assertTrue(plugDescription.equals(plugDescription2));
+
+        plugDescription = new PlugDescription();
+        plugDescription.addPartner("bar");
+        plugDescription.addProvider("foo");
+        plugDescription.addBusUrl("foobar");
+
+        plugDescription2 = new PlugDescription();
+        plugDescription2.addPartner("foo");
+        plugDescription2.addProvider("bar");
+        plugDescription2.addBusUrl("foobar");
+
+        assertFalse(plugDescription.hashCode() == plugDescription2.hashCode());
+        assertFalse(plugDescription.equals(plugDescription2));
+
+        
     }
 }
