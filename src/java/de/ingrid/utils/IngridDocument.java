@@ -12,9 +12,11 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * A data container for general usage in ingrid. Children should store all values via put in the mother to be available
@@ -313,4 +315,15 @@ public class IngridDocument extends HashMap implements Externalizable {
         // just nothing .. :-)
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        Set keys = keySet();
+        for (Object key : keys) {
+            Object value = get(key);
+            builder.append(Arrays.deepToString(new Object[] { key }) + ":" + Arrays.deepToString(new Object[] { value }));
+        }
+        return builder.toString();
+    }
 }
