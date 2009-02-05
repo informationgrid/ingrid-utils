@@ -12,7 +12,6 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -322,7 +321,7 @@ public class IngridDocument extends HashMap implements Externalizable {
         Set keys = keySet();
         for (Object key : keys) {
             Object value = get(key);
-            builder.append(Arrays.deepToString(new Object[] { key }) + ":" + Arrays.deepToString(new Object[] { value }));
+            builder.append(DeepUtil.deepString(new Object[] { key }, 1) + ":" + DeepUtil.deepString(new Object[] { value }, 1));
         }
         return builder.toString();
     }
