@@ -24,14 +24,16 @@ public class QueryExtensionPreProcessor implements IPreProcessor, IConfigurable 
     @Override
     public void process(IngridQuery query) throws Exception {
         String busUrl = (String) query.get(BUS_URL);
-        QueryExtension queryExtension = _queryExtensionContainer.getQueryExtension(busUrl);
-        if (queryExtension != null) {
-            Set<FieldQuery> fieldQueries = queryExtension.getFieldQueries();
-            for (FieldQuery fieldQuery : fieldQueries) {
-                if (LOG.isDebugEnabled()) {
-                    LOG.debug("add field to query: " + fieldQuery);
+        if (_queryExtensionContainer != null) {
+            QueryExtension queryExtension = _queryExtensionContainer.getQueryExtension(busUrl);
+            if (queryExtension != null) {
+                Set<FieldQuery> fieldQueries = queryExtension.getFieldQueries();
+                for (FieldQuery fieldQuery : fieldQueries) {
+                    if (LOG.isDebugEnabled()) {
+                        LOG.debug("add field to query: " + fieldQuery);
+                    }
+                    query.addField(fieldQuery);
                 }
-                query.addField(fieldQuery);
             }
         }
         if (LOG.isDebugEnabled()) {
