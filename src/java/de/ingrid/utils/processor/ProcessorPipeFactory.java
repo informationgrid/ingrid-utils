@@ -33,23 +33,27 @@ public class ProcessorPipeFactory {
 
     private void pushPostProcessors(ProcessorPipe processorPipe, SpringUtil springUtil) {
         List<IPostProcessor> postProcessors = springUtil.getBean("postProcessors", _postProcessors);
-        for (IPostProcessor postProcessor : postProcessors) {
-            if (postProcessor instanceof IConfigurable) {
-                ((IConfigurable) postProcessor).configure(_plugDescription);
+        if (postProcessors != null) {
+            for (IPostProcessor postProcessor : postProcessors) {
+                if (postProcessor instanceof IConfigurable) {
+                    ((IConfigurable) postProcessor).configure(_plugDescription);
+                }
+                LOG.info("add post-processor: " + postProcessor.getClass().getName());
+                processorPipe.addPostProcessor(postProcessor);
             }
-            LOG.info("add post-processor: " + postProcessor.getClass().getName());
-            processorPipe.addPostProcessor(postProcessor);
         }
     }
 
     private void pushPreProcessors(ProcessorPipe processorPipe, SpringUtil springUtil) {
         List<IPreProcessor> preProcessors = springUtil.getBean("preProcessors", _preProcessors);
-        for (IPreProcessor preProcessor : preProcessors) {
-            if (preProcessor instanceof IConfigurable) {
-                ((IConfigurable) preProcessor).configure(_plugDescription);
+        if (preProcessors != null) {
+            for (IPreProcessor preProcessor : preProcessors) {
+                if (preProcessor instanceof IConfigurable) {
+                    ((IConfigurable) preProcessor).configure(_plugDescription);
+                }
+                LOG.info("add pre-processor: " + preProcessor.getClass().getName());
+                processorPipe.addPreProcessor(preProcessor);
             }
-            LOG.info("add pre-processor: " + preProcessor.getClass().getName());
-            processorPipe.addPreProcessor(preProcessor);
         }
     }
 }
