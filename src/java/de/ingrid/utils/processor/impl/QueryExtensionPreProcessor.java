@@ -17,23 +17,21 @@ public class QueryExtensionPreProcessor implements IPreProcessor, IConfigurable 
 
     private static final String BUS_URL = "BUS_URL";
 
-    private QueryExtensionContainer _queryExtensionContainer;
+    private QueryExtensionContainer _queryExtensionContainer = new QueryExtensionContainer();
 
     private static final Log LOG = LogFactoryImpl.getLog(QueryExtensionPreProcessor.class);
 
     @Override
     public void process(IngridQuery query) throws Exception {
         String busUrl = (String) query.get(BUS_URL);
-        if (_queryExtensionContainer != null) {
-            QueryExtension queryExtension = _queryExtensionContainer.getQueryExtension(busUrl);
-            if (queryExtension != null) {
-                Set<FieldQuery> fieldQueries = queryExtension.getFieldQueries();
-                for (FieldQuery fieldQuery : fieldQueries) {
-                    if (LOG.isDebugEnabled()) {
-                        LOG.debug("add field to query: " + fieldQuery);
-                    }
-                    query.addField(fieldQuery);
+        QueryExtension queryExtension = _queryExtensionContainer.getQueryExtension(busUrl);
+        if (queryExtension != null) {
+            Set<FieldQuery> fieldQueries = queryExtension.getFieldQueries();
+            for (FieldQuery fieldQuery : fieldQueries) {
+                if (LOG.isDebugEnabled()) {
+                    LOG.debug("add field to query: " + fieldQuery);
                 }
+                query.addField(fieldQuery);
             }
         }
         if (LOG.isDebugEnabled()) {
@@ -45,6 +43,7 @@ public class QueryExtensionPreProcessor implements IPreProcessor, IConfigurable 
     @Override
     public void configure(PlugDescription plugDescription) {
         _queryExtensionContainer = (QueryExtensionContainer) plugDescription.get("QUERY_EXTENSION");
+        _queryExtensionContainer = _queryExtensionContainer != null ? _queryExtensionContainer : new QueryExtensionContainer();
     }
 
 }
