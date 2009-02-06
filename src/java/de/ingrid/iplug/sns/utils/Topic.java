@@ -5,8 +5,8 @@
  */
 package de.ingrid.iplug.sns.utils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import de.ingrid.utils.IngridHitDetail;
 
@@ -123,7 +123,7 @@ public class Topic extends IngridHitDetail {
         setTopicID(topicId);
         setTopicName(title);
         setTopicNativeKey(nativeKey);
-        put(TOPIC_SUCCESSORS, new ArrayList());
+        put(TOPIC_SUCCESSORS, new HashSet<Topic>());
     }
 
 
@@ -144,7 +144,7 @@ public class Topic extends IngridHitDetail {
         setTopicName(title);
         setTopicAssoc(associationType);
         setTopicNativeKey(nativeKey);
-        put(TOPIC_SUCCESSORS, new ArrayList());
+        put(TOPIC_SUCCESSORS, new HashSet<Topic>());
     }
 
     /**
@@ -221,14 +221,14 @@ public class Topic extends IngridHitDetail {
      * @param topic
      */
     public void addSuccessor(Topic topic) {
-        addToList(TOPIC_SUCCESSORS, topic);
+        Set<Topic> set = (Set<Topic>) get(TOPIC_SUCCESSORS);
+        set.add(topic);
     }
     
-    /**
-     * @return
-     */
-    public List getSuccessors() {
-        return getArrayList(TOPIC_SUCCESSORS);
+    @SuppressWarnings("unchecked")
+    public Set<Topic> getSuccessors() {
+        Set<Topic> set = (Set<Topic>) get(TOPIC_SUCCESSORS);
+        return set;
     }
     
     public String getLanguage() {
@@ -237,5 +237,16 @@ public class Topic extends IngridHitDetail {
     
     public void setLanguage(String language) {
         put(TOPIC_LANGUAGE, language);
+    }
+    
+    @Override
+    public int hashCode() {
+        return getTopicID().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Topic other = (Topic) o;
+        return other.getTopicID().equals(getTopicID());
     }
 }
