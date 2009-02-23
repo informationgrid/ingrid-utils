@@ -82,6 +82,13 @@
     		<artifactId>spring-core</artifactId>
     		<version>2.5.6</version>
 		</dependency>
+        <dependency>
+        	<groupId>maven</groupId>
+    		<artifactId>maven-source-plugin</artifactId>
+    		<type>plugin</type>
+    		<version>1.0</version>
+		</dependency>
+		
 		
     </dependencies>
     <build>
