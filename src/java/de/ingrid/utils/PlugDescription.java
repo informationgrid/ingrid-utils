@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 1997-2005 by media style GmbH
- * 
- * $Source: /cvs/asp-search/src/java/com/ms/aspsearch/PermissionDeniedException.java,v $
- */
-
 package de.ingrid.utils;
 
 import java.io.File;
@@ -104,8 +98,8 @@ public class PlugDescription extends IngridDocument {
     public static final String MD5_HASH = "md5Hash";
 
     /***/
-    private boolean fIsActivated;
-
+    public static final String ACTIVATED = "activated";
+    
     private static final String IPLUG_ADMIN_GUI_URL = "IPLUG_ADMIN_GUI_URL";
 
     private static final String IPLUG_ADMIN_PASSWORD = "IPLUG_ADMIN_PASSWORD";
@@ -560,7 +554,7 @@ public class PlugDescription extends IngridDocument {
      * activates a iplug, Attention this state is not serialized
      */
     public void activate() {
-        this.fIsActivated = true;
+        putBoolean(ACTIVATED, true);
     }
 
     /**
@@ -569,14 +563,18 @@ public class PlugDescription extends IngridDocument {
      * @see PlugDescription#activate()
      */
     public void deActivate() {
-        this.fIsActivated = false;
+        putBoolean(ACTIVATED, false);
     }
 
     /**
      * @param activate
      */
     public void setActivate(boolean activate) {
-        this.fIsActivated = activate;
+        if (activate) {
+            activate();
+        } else {
+            deActivate();
+        }
     }
 
     /**
@@ -584,7 +582,7 @@ public class PlugDescription extends IngridDocument {
      * @see PlugDescription#activate()
      */
     public boolean isActivate() {
-        return this.fIsActivated;
+        return getBoolean(ACTIVATED);
     }
 
     /**
