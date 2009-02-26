@@ -47,6 +47,8 @@ public class DetailedTopic extends Topic {
 
     public static final String ASSOCIATED_OCC = "associatedTermsOcc";
 
+    public static final String GEMET_OCC = "gemet1.0";
+
     public static final String INSTANCE_OF = "href";
 
     public static final String DEFINITION_TITLES = "definitionTitles";
@@ -211,5 +213,23 @@ public class DetailedTopic extends Topic {
         }
 
         return (String[]) result;
+    }
+
+    /**
+     * Sets the gemet topic id.
+     * 
+     * @param gemetId
+     */
+    public void setGemetId(String from) {
+        put(GEMET_OCC, from);
+    }
+
+    /**
+     * Allows getter access to the gemet id.
+     * 
+     * @return The value of property GEMET_OCC.
+     */
+    public String getGemetId() {
+        return (String) get(GEMET_OCC);
     }
 }
