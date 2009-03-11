@@ -104,11 +104,13 @@ public class UtilsUDKCodeLists {
 	 */
 	public static String getCodeListDomainId(Long codeListId, String domainValue, Long langId) {
 		HashMap domain = (HashMap) codeLists.get(codeListId);
-		for (Iterator it = domain.entrySet().iterator(); it.hasNext();) {
-			Map.Entry domainEntry = (Map.Entry) it.next();
-			String domainEntryValue = (String) ((HashMap) domainEntry.getValue()).get(langId);
-			if (domainEntryValue.equalsIgnoreCase(domainValue)) {
-				return domainEntry.getKey().toString();
+		if (domain != null) {
+			for (Iterator it = domain.entrySet().iterator(); it.hasNext();) {
+				Map.Entry domainEntry = (Map.Entry) it.next();
+				String domainEntryValue = (String) ((HashMap) domainEntry.getValue()).get(langId);
+				if (domainEntryValue.equalsIgnoreCase(domainValue)) {
+					return domainEntry.getKey().toString();
+				}
 			}
 		}
 		return null;
