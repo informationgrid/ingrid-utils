@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 1997-2005 by media style GmbH
- * 
- * $Source: /cvs/asp-search/src/java/com/ms/aspsearch/PermissionDeniedException.java,v $
- */
-
 package de.ingrid.utils;
 
 import java.util.ArrayList;
@@ -37,6 +31,8 @@ public class IngridHit extends IngridDocument {
     private static final String GROUP_TOTAL_HIT_LENGTH = "groupTotalHitLength";
 
 	private static final String HIT_ID = "hitId";
+	
+	private static final String HIT_DETAIL = "hitDetail";
 
     /**
      * 
@@ -205,6 +201,14 @@ public class IngridHit extends IngridDocument {
 		return (String) get(HIT_ID);
 	}
 
+	public void setHitDetail(IngridHitDetail hitDetail) {
+        put(HIT_DETAIL, hitDetail);
+    }
+
+    public IngridHitDetail getHitDetail() {
+        return (IngridHitDetail) get(HIT_DETAIL);
+    }
+	
 	public int hashCode() {
 		return containsKey(HIT_ID) ? getHitId().hashCode() : super.hashCode();
 	}
