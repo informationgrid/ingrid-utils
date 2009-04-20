@@ -1,6 +1,7 @@
 package de.ingrid.utils.processor.impl;
 
 import java.io.File;
+import java.util.regex.Pattern;
 
 import junit.framework.TestCase;
 import de.ingrid.utils.IConfigurable;
@@ -28,6 +29,7 @@ public class QueryExtensionPreProcessorTest extends TestCase {
         FieldQuery fieldQuery = new FieldQuery(true, true, "foo", "bar");
         queryExtension.addFieldQuery(fieldQuery);
         queryExtension.setBusUrl(_busUrl);
+        queryExtension.setPattern(Pattern.compile("partner:bw"));
         container.addQueryExtension(queryExtension);
         plugDescription.put("QUERY_EXTENSION", container);
         new XMLSerializer().serialize(plugDescription, _file);
@@ -38,10 +40,9 @@ public class QueryExtensionPreProcessorTest extends TestCase {
         assertTrue(_file.delete());
     }
 
-    public void testProcessor() throws Exception {
+    public void testProcessorWithoutExtension() throws Exception {
         IPreProcessor preProcessor = new QueryExtensionPreProcessor();
 
-        
         Object object = new XMLSerializer().deSerialize(_file);
         PlugDescription plugDescription = (PlugDescription) object;
 
@@ -51,9 +52,28 @@ public class QueryExtensionPreProcessorTest extends TestCase {
         FieldQuery[] fields = query.getFields();
         assertEquals(0, fields.length);
         query.put("BUS_URL", "testBusUrl");
-        
+
         preProcessor.process(query);
-        
+
+        fields = query.getFields();
+        assertEquals(0, fields.length);
+    }
+
+    public void testProcessorWithExtension() throws Exception {
+        IPreProcessor preProcessor = new QueryExtensionPreProcessor();
+
+        Object object = new XMLSerializer().deSerialize(_file);
+        PlugDescription plugDescription = (PlugDescription) object;
+
+        ((IConfigurable) preProcessor).configure(plugDescription);
+
+        IngridQuery query = QueryStringParser.parse("wasser partner:bw");
+        FieldQuery[] fields = query.getFields();
+        assertEquals(0, fields.length);
+        query.put("BUS_URL", "testBusUrl");
+
+        preProcessor.process(query);
+
         fields = query.getFields();
         assertEquals(1, fields.length);
         FieldQuery fieldQuery2 = fields[0];
@@ -61,4 +81,5 @@ public class QueryExtensionPreProcessorTest extends TestCase {
         assertEquals("bar", fieldQuery2.getFieldValue());
 
     }
+
 }

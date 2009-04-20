@@ -6,6 +6,7 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import de.ingrid.utils.query.FieldQuery;
 
@@ -14,6 +15,8 @@ public class QueryExtension implements Externalizable {
     private String _busUrl;
 
     private Set<FieldQuery> _fieldQueries = new HashSet<FieldQuery>();
+
+    private Pattern _pattern;
 
     public QueryExtension() {
         // nothing todo
@@ -35,6 +38,14 @@ public class QueryExtension implements Externalizable {
         _fieldQueries.add(fieldQuery);
     }
 
+    public Pattern getPattern() {
+        return _pattern;
+    }
+
+    public void setPattern(Pattern pattern) {
+        _pattern = pattern;
+    }
+
     @Override
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         _fieldQueries.clear();
@@ -47,6 +58,7 @@ public class QueryExtension implements Externalizable {
             String fieldValue = (String) in.readObject();
             _fieldQueries.add(new FieldQuery(required, prohibited, fieldName, fieldValue));
         }
+        _pattern = Pattern.compile(((String) in.readObject()));
     }
 
     @Override
@@ -59,6 +71,7 @@ public class QueryExtension implements Externalizable {
             out.writeObject(fieldQuery.getFieldName());
             out.writeObject(fieldQuery.getFieldValue());
         }
+        out.writeObject(_pattern.pattern());
     }
 
 }
