@@ -12,6 +12,8 @@ import de.ingrid.utils.query.FieldQuery;
 
 public class QueryExtension implements Externalizable {
 
+    private static final long serialVersionUID = QueryExtension.class.getName().hashCode();
+    
     private String _busUrl;
 
     private Set<FieldQuery> _fieldQueries = new HashSet<FieldQuery>();

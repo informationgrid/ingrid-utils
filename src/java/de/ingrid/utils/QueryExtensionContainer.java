@@ -11,6 +11,8 @@ import java.util.Map;
 
 public class QueryExtensionContainer implements Externalizable {
 
+    private static final long serialVersionUID = QueryExtension.class.getName().hashCode();
+    
     private Map<String, QueryExtension> _queryExtensions = new HashMap<String, QueryExtension>();
 
     public Map<String, QueryExtension> getQueryExtensions() {
