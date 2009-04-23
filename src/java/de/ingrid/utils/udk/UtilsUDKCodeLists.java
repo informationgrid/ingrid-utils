@@ -146,5 +146,36 @@ public class UtilsUDKCodeLists {
 		}
 		return code;
 	}
+	
+	/**
+	 * Returns an iso codeList entry based on an IGC code list domain id.
+	 * The Data is based on ISO code lists from
+	 * http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml
+	 * If the iso codelist entry cannot be found, the english translation of the
+	 * IGC syslist will be returned. If this also cannot be found, null is returned.
+	 * 
+	 * @param codeListId
+	 * @param igcId
+	 * @return
+	 */
+	public static String getIsoCodeListEntryFromIgcId(Long codeListId, Long igcId) {
+		String isoCode = getCodeListEntryName(codeListId, igcId, 150150150L);
+		if (isoCode == null) {
+			isoCode = getCodeListEntryName(codeListId, igcId, 94L);
+		}
+		return isoCode;
+	}
+	
+	/**
+	 * Returns the IDC domain list ID (sys list) based on an ISO code list entry.
+	 * If the ISO entry cannot be found in the specified codeList, null will be returned.
+	 * 
+	 * @param codeListId
+	 * @param isoCodeListEntry
+	 * @return
+	 */
+	public static String getIgcIdFromIsoCodeListEntry(Long codeListId, String isoCodeListEntry) {
+		return getCodeListDomainId(codeListId, isoCodeListEntry, 150150150L);
+	}
 
 }

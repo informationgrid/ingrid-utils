@@ -94,10 +94,29 @@ public class UtilsUDKCodeListsTest extends TestCase {
         	CodeListEntry entry = (CodeListEntry)list.get(i);
         	if (entry.getDomainId().compareTo(new Long(7)) == 0) {
         		assertEquals(entry.getValue(), "Point of Contact");
+        	}
+        }
+        list = UtilsUDKCodeLists.getCodeList(new Long(517), new Long(150150150));
+        assertTrue(list.size() > 0);
+        for (int i=0; i<list.size(); i++) {
+        	CodeListEntry entry = (CodeListEntry)list.get(i);
+        	if (entry.getDomainId().compareTo(new Long(5)) == 0) {
+        		assertEquals(entry.getValue(), "theme");
         		return;
         	}
         }
         assertTrue(false);
+    }
+    
+    public void testGetIgcIdFromIsoCodeListEntry() {
+    	assertEquals("7", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(505L, "pointOfContact"));
+    	assertEquals("5", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(517L, "theme"));
+    }
+    
+    public void testGetIsoCodeListEntryFromIgcId() {
+    	assertEquals("pointOfContact", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(505L, 7L));
+    	assertEquals("theme", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(517L, 5L));
+    	assertEquals("inOperation", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(523L, 900001L));
     }
     
 }
