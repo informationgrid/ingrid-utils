@@ -1,4 +1,4 @@
-﻿package de.ingrid.utils.udk;
+package de.ingrid.utils.udk;
 
 import java.util.HashMap;
 import java.util.HashSet;
