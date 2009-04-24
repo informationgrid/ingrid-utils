@@ -2,6 +2,7 @@ package de.ingrid.utils.udk;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * This class contains the MOST RECENT IGC Language Codelist and helper functions, e.g. mapping of language shortcut to language code.
@@ -44,7 +45,7 @@ public class UtilsLanguageCodelist {
 	 * @param languageShortcut e.g. "de" or "en"
 	 * @return IGC language code or null if not found
 	 */
-	static public Integer getLanguageCodeFromShortcut(String languageShortcut) {
+	static public Integer getCodeFromShortcut(String languageShortcut) {
 		return languageShortcutToCode.get(languageShortcut);
 	}
 
@@ -53,7 +54,7 @@ public class UtilsLanguageCodelist {
 	 * @param languageShortcut in which language should the name be returned, e.g. "de" for german name
 	 * @return language name of IGC language code or null if not found !
 	 */
-	static public String getLanguageNameFromCode(Integer languageCode, String languageShortcut) {
+	static public String getNameFromCode(Integer languageCode, String languageShortcut) {
 		String langName = null;
 
 		if ("de".equals(languageShortcut)) {
@@ -63,5 +64,18 @@ public class UtilsLanguageCodelist {
 		}
 
 		return langName;
+	}
+
+	/** Determine language shortcut (e.g. "de, "en" ...") from IGC language code.
+	 * @param languageCode IGC code of language
+	 * @return language shortcut or null if not found
+	 */
+	static public String getShortcutFromCode(Integer languageCode) {
+		for (Map.Entry<String, Integer> entry : languageShortcutToCode.entrySet()) {
+			if (entry.getValue().equals(languageCode)) {
+				return entry.getKey();
+			}
+		}
+		return null;
 	}
 }
