@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 
 /**
- * This class contains the Inspire Themes Codelist and helper functions, e.g. mapping of searchterms to Inspire Themes.
+ * This class contains the MOST RECENT Inspire Themes Codelist and helper functions, e.g. mapping of searchterms to Inspire Themes.
  */
 public class UtilsInspireThemes {
 
