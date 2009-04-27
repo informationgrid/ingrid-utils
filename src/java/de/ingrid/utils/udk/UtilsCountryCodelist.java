@@ -17,15 +17,15 @@ public class UtilsCountryCodelist {
 	static {
 		countryCodelist_de.put(new Integer("008"), "Albanien");
 		countryCodelist_de.put(new Integer("020"), "Andorra");
-		countryCodelist_de.put(new Integer("040"), "Österreich");
-		countryCodelist_de.put(new Integer("112"), "Weißrussland");
+		countryCodelist_de.put(new Integer("040"), "\u00d6sterreich");
+		countryCodelist_de.put(new Integer("112"), "Wei\u00dfrussland");
 		countryCodelist_de.put(new Integer("056"), "Belgien");
 		countryCodelist_de.put(new Integer("070"), "Bosnien und Herzegowina");
 		countryCodelist_de.put(new Integer("100"), "Bulgarien");
 		countryCodelist_de.put(new Integer("191"), "Kroatien");
 		countryCodelist_de.put(new Integer("196"), "Zypern");
 		countryCodelist_de.put(new Integer("203"), "Tschechische Republik");
-		countryCodelist_de.put(new Integer("208"), "Dänemark");
+		countryCodelist_de.put(new Integer("208"), "D\u00e4nemark");
 		countryCodelist_de.put(new Integer("233"), "Estland");
 		countryCodelist_de.put(new Integer("246"), "Finnland");
 		countryCodelist_de.put(new Integer("250"), "Frankreich");
@@ -50,17 +50,17 @@ public class UtilsCountryCodelist {
 		countryCodelist_de.put(new Integer("578"), "Norwegen");
 		countryCodelist_de.put(new Integer("616"), "Polen");
 		countryCodelist_de.put(new Integer("620"), "Portugal");
-		countryCodelist_de.put(new Integer("642"), "Rumänien");
-		countryCodelist_de.put(new Integer("643"), "Russische Föderation");
+		countryCodelist_de.put(new Integer("642"), "Rum\u00e4nien");
+		countryCodelist_de.put(new Integer("643"), "Russische F\u00f6deration");
 		countryCodelist_de.put(new Integer("688"), "Serbien");
 		countryCodelist_de.put(new Integer("703"), "Slowakei");
 		countryCodelist_de.put(new Integer("705"), "Slowenien");
 		countryCodelist_de.put(new Integer("724"), "Spanien");
 		countryCodelist_de.put(new Integer("752"), "Schweden");
 		countryCodelist_de.put(new Integer("756"), "Schweiz");
-		countryCodelist_de.put(new Integer("792"), "Türkei");
+		countryCodelist_de.put(new Integer("792"), "T\u00fcrkei");
 		countryCodelist_de.put(new Integer("804"), "Ukraine");
-		countryCodelist_de.put(new Integer("826"), "Vereinigtes Königreich");
+		countryCodelist_de.put(new Integer("826"), "Vereinigtes K\u00f6nigreich");
 	}
 
 	/** MAP: syslist with english names of countries <ISO country code, english name of country> */
