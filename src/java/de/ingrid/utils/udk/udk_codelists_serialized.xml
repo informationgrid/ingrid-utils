@@ -6,11 +6,11 @@
         <long>25831</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 25831: ETRS89 / UTM Zone 31N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 25831: ETRS89 / UTM Zone 31N</string>
           </entry>
         </map>
@@ -19,11 +19,11 @@
         <long>9000006</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_RD/83 / GK_3</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_RD/83 / GK_3</string>
           </entry>
         </map>
@@ -32,11 +32,11 @@
         <long>31467</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 31467: DHDN / Gauss-Krüger Zone 3</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 31467: DHDN / Gauss-Krüger Zone 3</string>
           </entry>
         </map>
@@ -45,11 +45,11 @@
         <long>23031</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 23031: ED50 / UTM Zone 31N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 23031: ED50 / UTM Zone 31N</string>
           </entry>
         </map>
@@ -58,11 +58,11 @@
         <long>25832</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 25832: ETRS89 / UTM Zone 32N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 25832: ETRS89 / UTM Zone 32N</string>
           </entry>
         </map>
@@ -71,11 +71,11 @@
         <long>32632</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 32632: WGS 84 / UTM Zone 32N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 32632: WGS 84 / UTM Zone 32N</string>
           </entry>
         </map>
@@ -84,11 +84,11 @@
         <long>28463</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 28463: Pulkovo 1942 / Gauss-Krüger 3N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 28463: Pulkovo 1942 / Gauss-Krüger 3N</string>
           </entry>
         </map>
@@ -97,11 +97,11 @@
         <long>31466</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 31466: DHDN / Gauss-Krüger Zone 2</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 31466: DHDN / Gauss-Krüger Zone 2</string>
           </entry>
         </map>
@@ -110,11 +110,11 @@
         <long>31469</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 31469: DHDN / Gauss-Krüger Zone 5</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 31469: DHDN / Gauss-Krüger Zone 5</string>
           </entry>
         </map>
@@ -123,11 +123,11 @@
         <long>4284</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 4284: Pulkovo 1942 / geographisch</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 4284: Pulkovo 1942 / geographisch</string>
           </entry>
         </map>
@@ -136,11 +136,11 @@
         <long>4230</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 4230: ED50 / geographisch</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 4230: ED50 / geographisch</string>
           </entry>
         </map>
@@ -149,11 +149,11 @@
         <long>4258</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 4258: ETRS89 / geographisch</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 4258: ETRS89 / geographisch</string>
           </entry>
         </map>
@@ -162,11 +162,11 @@
         <long>9000005</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_PD/83 / GK_3</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_PD/83 / GK_3</string>
           </entry>
         </map>
@@ -175,11 +175,11 @@
         <long>23032</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 23032: ED50 / UTM Zone 32N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 23032: ED50 / UTM Zone 32N</string>
           </entry>
         </map>
@@ -188,11 +188,11 @@
         <long>4178</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 4178: Pulkovo 1942(83) / geographisch</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 4178: Pulkovo 1942(83) / geographisch</string>
           </entry>
         </map>
@@ -201,11 +201,11 @@
         <long>9000002</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHDN / GK_3</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHDN / GK_3</string>
           </entry>
         </map>
@@ -214,11 +214,11 @@
         <long>4314</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 4314: DHDN / geographisch</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 4314: DHDN / geographisch</string>
           </entry>
         </map>
@@ -227,11 +227,11 @@
         <long>9000003</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_ETRS89 / UTM</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_ETRS89 / UTM</string>
           </entry>
         </map>
@@ -240,11 +240,11 @@
         <long>32631</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 32631: WGS 84 / UTM Zone 31N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 32631: WGS 84 / UTM Zone 31N</string>
           </entry>
         </map>
@@ -253,11 +253,11 @@
         <long>23033</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 23033: ED50 / UTM Zone 33N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 23033: ED50 / UTM Zone 33N</string>
           </entry>
         </map>
@@ -266,11 +266,11 @@
         <long>25833</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 25833: ETRS89 / UTM Zone 33N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 25833: ETRS89 / UTM Zone 33N</string>
           </entry>
         </map>
@@ -279,11 +279,11 @@
         <long>9000001</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_42/83 / GK_3</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_42/83 / GK_3</string>
           </entry>
         </map>
@@ -292,11 +292,11 @@
         <long>31468</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 31468: DHDN / Gauss-Krüger Zone 4</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 31468: DHDN / Gauss-Krüger Zone 4</string>
           </entry>
         </map>
@@ -305,11 +305,11 @@
         <long>4326</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 4326: WGS 84 / geographisch</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 4326: WGS 84 / geographisch</string>
           </entry>
         </map>
@@ -318,11 +318,11 @@
         <long>3068</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 3068: DHDN / Soldner Berlin</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 3068: DHDN / Soldner Berlin</string>
           </entry>
         </map>
@@ -331,11 +331,11 @@
         <long>32633</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 32633: WGS 84 / UTM Zone 33N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 32633: WGS 84 / UTM Zone 33N</string>
           </entry>
         </map>
@@ -344,11 +344,11 @@
         <long>25834</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 25834: ETRS89 / UTM Zone 34N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 25834: ETRS89 / UTM Zone 34N</string>
           </entry>
         </map>
@@ -357,11 +357,11 @@
         <long>28462</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EPSG 28462: Pulkovo 1942 / Gauss-Krüger 2N</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EPSG 28462: Pulkovo 1942 / Gauss-Krüger 2N</string>
           </entry>
         </map>
@@ -370,11 +370,11 @@
         <long>9000007</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHDN / GK_3_RDN</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHDN / GK_3_RDN</string>
           </entry>
         </map>
@@ -383,11 +383,11 @@
         <long>9000008</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHDN / GK_3_RP101</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHDN / GK_3_RP101</string>
           </entry>
         </map>
@@ -396,11 +396,11 @@
         <long>9000009</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHDN / GK_3_RP180</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHDN / GK_3_RP180</string>
           </entry>
         </map>
@@ -409,11 +409,11 @@
         <long>9000010</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHDN / GK_3_NW177</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHDN / GK_3_NW177</string>
           </entry>
         </map>
@@ -422,11 +422,11 @@
         <long>9000011</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHDN / GK_3_HE100</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHDN / GK_3_HE100</string>
           </entry>
         </map>
@@ -435,11 +435,11 @@
         <long>9000012</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHDN / GK_3_BW100</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHDN / GK_3_BW100</string>
           </entry>
         </map>
@@ -448,11 +448,11 @@
         <long>9000013</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_PD/83 / GK_9-15, Bezug 12. Meridian (BY)</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_PD/83 / GK_9-15, Bezug 12. Meridian (BY)</string>
           </entry>
         </map>
@@ -471,11 +471,11 @@
             <string>geometryOnly</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>geometryOnly</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>geometrisch</string>
           </entry>
         </map>
@@ -488,11 +488,11 @@
             <string>topology1D</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>topology1D</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Topologie (1D)</string>
           </entry>
         </map>
@@ -505,11 +505,11 @@
             <string>planarGraph</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>planarGraph</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Planar (1D)</string>
           </entry>
         </map>
@@ -522,11 +522,11 @@
             <string>fullPlanarGraph</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>fullPlanarGraph</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Planar (2D)</string>
           </entry>
         </map>
@@ -539,11 +539,11 @@
             <string>surfaceGraph</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>surfaceGraph</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Oberflächengraph (1D)</string>
           </entry>
         </map>
@@ -556,11 +556,11 @@
             <string>fullSurfaceGraph</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>fullSurfaceGraph</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Oberfläche(2D)</string>
           </entry>
         </map>
@@ -573,11 +573,11 @@
             <string>topology3D</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>topology3D</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Topologie (3D)</string>
           </entry>
         </map>
@@ -590,11 +590,11 @@
             <string>fullTopology3D</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>fullTopology3D</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Raum (3D)</string>
           </entry>
         </map>
@@ -607,11 +607,11 @@
             <string>abstract</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>abstract</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Abstrakte Topologie</string>
           </entry>
         </map>
@@ -630,11 +630,11 @@
             <string>ucs2</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>ucs2</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>ucs2</string>
           </entry>
         </map>
@@ -647,11 +647,11 @@
             <string>ucs4</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>ucs4</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>ucs4</string>
           </entry>
         </map>
@@ -664,11 +664,11 @@
             <string>utf7</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>utf7</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>utf7</string>
           </entry>
         </map>
@@ -681,11 +681,11 @@
             <string>utf8</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>utf8</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>utf8</string>
           </entry>
         </map>
@@ -698,11 +698,11 @@
             <string>utf16</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>utf16</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>utf16</string>
           </entry>
         </map>
@@ -715,11 +715,11 @@
             <string>8859part1</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part1</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part1</string>
           </entry>
         </map>
@@ -732,11 +732,11 @@
             <string>8859part2</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part2</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part2</string>
           </entry>
         </map>
@@ -749,11 +749,11 @@
             <string>8859part3</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part3</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part3</string>
           </entry>
         </map>
@@ -766,11 +766,11 @@
             <string>8859part4</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part4</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part4</string>
           </entry>
         </map>
@@ -783,11 +783,11 @@
             <string>8859part5</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part5</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part5</string>
           </entry>
         </map>
@@ -800,11 +800,11 @@
             <string>8859part6</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part6</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part6</string>
           </entry>
         </map>
@@ -817,11 +817,11 @@
             <string>8859part7</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part7</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part7</string>
           </entry>
         </map>
@@ -834,11 +834,11 @@
             <string>8859part8</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part8</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part8</string>
           </entry>
         </map>
@@ -851,11 +851,11 @@
             <string>8859part9</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part9</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part9</string>
           </entry>
         </map>
@@ -868,11 +868,11 @@
             <string>8859part11</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part11</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part11</string>
           </entry>
         </map>
@@ -885,11 +885,11 @@
             <string>8859part14</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part14</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part14</string>
           </entry>
         </map>
@@ -902,11 +902,11 @@
             <string>8859part15</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part15</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part15</string>
           </entry>
         </map>
@@ -919,11 +919,11 @@
             <string>jis</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Jis</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Jis</string>
           </entry>
         </map>
@@ -936,11 +936,11 @@
             <string>shiftJIS</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>ShiftJIS</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>ShiftJIS</string>
           </entry>
         </map>
@@ -953,11 +953,11 @@
             <string>eucJP</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EucJP</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EucJP</string>
           </entry>
         </map>
@@ -970,11 +970,11 @@
             <string>usAscii</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>UsAscii</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>UsAscii</string>
           </entry>
         </map>
@@ -987,11 +987,11 @@
             <string>usAscii</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>ebcdic</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Ebcdic</string>
           </entry>
         </map>
@@ -1004,11 +1004,11 @@
             <string>eucKR</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>EucKR</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>EucKR</string>
           </entry>
         </map>
@@ -1021,11 +1021,11 @@
             <string>big5</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>big5</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>big5</string>
           </entry>
         </map>
@@ -1038,11 +1038,11 @@
             <string>8859part10</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part10</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part10</string>
           </entry>
         </map>
@@ -1055,11 +1055,11 @@
             <string>8859part12</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part12</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part12</string>
           </entry>
         </map>
@@ -1072,11 +1072,11 @@
             <string>8859part13</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part13</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part13</string>
           </entry>
         </map>
@@ -1089,11 +1089,11 @@
             <string>8859part16</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8859part16</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8859part16</string>
           </entry>
         </map>
@@ -1106,11 +1106,11 @@
             <string>GB2312</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>GB2312</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>GB2312</string>
           </entry>
         </map>
@@ -1129,11 +1129,11 @@
             <string>discipline</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Discipline</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Wissenszweig</string>
           </entry>
         </map>
@@ -1146,11 +1146,11 @@
             <string>place</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Place</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Ortsangabe</string>
           </entry>
         </map>
@@ -1163,11 +1163,11 @@
             <string>stratum</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Stratum</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Schicht</string>
           </entry>
         </map>
@@ -1180,11 +1180,11 @@
             <string>temporal</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Temporal</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Zeitraum</string>
           </entry>
         </map>
@@ -1197,11 +1197,11 @@
             <string>theme</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Theme</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Themenbereich</string>
           </entry>
         </map>
@@ -1220,11 +1220,11 @@
             <string>creation</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>creation</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Erstellung</string>
           </entry>
         </map>
@@ -1237,11 +1237,11 @@
             <string>publication</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>publication</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Publikation</string>
           </entry>
         </map>
@@ -1254,11 +1254,11 @@
             <string>revision</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>revision</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>letzte Änderung</string>
           </entry>
         </map>
@@ -1277,11 +1277,11 @@
             <string>dataset</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Dataset</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Datensatz</string>
           </entry>
         </map>
@@ -1294,11 +1294,11 @@
             <string>series</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Dataseries</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Datenserie</string>
           </entry>
         </map>
@@ -1317,11 +1317,11 @@
             <string>resourceProvider</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Provider</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Anbieter</string>
           </entry>
         </map>
@@ -1334,11 +1334,11 @@
             <string>custodian</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Custodian</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Datenverantwortung</string>
           </entry>
         </map>
@@ -1351,11 +1351,11 @@
             <string>owner</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Owner</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Halter</string>
           </entry>
         </map>
@@ -1368,11 +1368,11 @@
             <string>user</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>User</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Benutzer</string>
           </entry>
         </map>
@@ -1385,11 +1385,11 @@
             <string>distributor</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Distributor</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Vertrieb</string>
           </entry>
         </map>
@@ -1402,11 +1402,11 @@
             <string>originator</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Originator</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Herkunft</string>
           </entry>
         </map>
@@ -1419,11 +1419,11 @@
             <string>pointOfContact</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Point of Contact</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Auskunft</string>
           </entry>
         </map>
@@ -1436,11 +1436,11 @@
             <string>principalInvestigator</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Principal Investigator</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Datenerfassung</string>
           </entry>
         </map>
@@ -1453,11 +1453,11 @@
             <string>processor</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Processor</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Auswertung</string>
           </entry>
         </map>
@@ -1470,11 +1470,11 @@
             <string>publisher</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Publisher</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Herausgeber</string>
           </entry>
         </map>
@@ -1487,11 +1487,11 @@
             <string>author</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Author</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Autor</string>
           </entry>
         </map>
@@ -1510,11 +1510,11 @@
             <string>cdRom</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>CD Rom</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>CD-ROM</string>
           </entry>
         </map>
@@ -1527,11 +1527,11 @@
             <string>dvd</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>dvd</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DVD</string>
           </entry>
         </map>
@@ -1544,11 +1544,11 @@
             <string>dvdRom</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>dvd Rom</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DVD-ROM</string>
           </entry>
         </map>
@@ -1561,11 +1561,11 @@
             <string>3halfInchFloppy</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>3.5-inch diskette</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>3,5-Zoll Diskette</string>
           </entry>
         </map>
@@ -1578,11 +1578,11 @@
             <string>5quarterInchFloppy</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>5.25-inch diskette</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>5,25-Zoll Diskette</string>
           </entry>
         </map>
@@ -1595,11 +1595,11 @@
             <string>7trackTape</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>7 trackTape</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>7 Spur Band</string>
           </entry>
         </map>
@@ -1612,11 +1612,11 @@
             <string>9trackType</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>9 track Tape</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>9 Spur Band</string>
           </entry>
         </map>
@@ -1629,11 +1629,11 @@
             <string>3480Cartridge</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>3480 Cartridge</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>3480 Bandkassette</string>
           </entry>
         </map>
@@ -1646,11 +1646,11 @@
             <string>3490Cartridge</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>3490 Cartridge</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>3490 Bandkassette</string>
           </entry>
         </map>
@@ -1663,11 +1663,11 @@
             <string>3580Cartridge</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>3580 Cartridge</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>3580 Bandkassette</string>
           </entry>
         </map>
@@ -1680,11 +1680,11 @@
             <string>4mmCartridgeTape</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>4mm Cartridge Tape</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>4mm Bandkassette</string>
           </entry>
         </map>
@@ -1697,11 +1697,11 @@
             <string>8mmCartridgeTape</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>8mm Cartridge Tape</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>8mm Bandkassette</string>
           </entry>
         </map>
@@ -1714,11 +1714,11 @@
             <string>1quarterInchCartridgeTape</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>0.25-inch Cartridge Tape</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>1/4-Zoll Bandkassette</string>
           </entry>
         </map>
@@ -1731,11 +1731,11 @@
             <string>digitalLinearTape</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Digital Linear Tape</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Digitales Band</string>
           </entry>
         </map>
@@ -1748,11 +1748,11 @@
             <string>onLine</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Online</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Online Link</string>
           </entry>
         </map>
@@ -1765,11 +1765,11 @@
             <string>satellite</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Satellite</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Satellitenverbindung</string>
           </entry>
         </map>
@@ -1782,11 +1782,11 @@
             <string>telephoneLink</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Telephone Link</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Telefon</string>
           </entry>
         </map>
@@ -1799,11 +1799,11 @@
             <string>hardcopy</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Hardcopy</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Papier</string>
           </entry>
         </map>
@@ -1812,11 +1812,11 @@
         <long>900001</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>unknown</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>unbekannt (*)</string>
           </entry>
         </map>
@@ -1825,11 +1825,11 @@
         <long>900002</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>faxback</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Faxabruf</string>
           </entry>
         </map>
@@ -1838,11 +1838,11 @@
         <long>900003</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>mobile radio</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Mobilfunk</string>
           </entry>
         </map>
@@ -1851,11 +1851,11 @@
         <long>900004</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>broadcast</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Rundfunk</string>
           </entry>
         </map>
@@ -1864,11 +1864,11 @@
         <long>900005</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>video text</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Videotext</string>
           </entry>
         </map>
@@ -1877,11 +1877,11 @@
         <long>900006</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Analog Photography</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>analoge Fotografie</string>
           </entry>
         </map>
@@ -1890,11 +1890,11 @@
         <long>900007</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>microfilm</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Mikrofilm</string>
           </entry>
         </map>
@@ -1903,11 +1903,11 @@
         <long>900008</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Zip Drive</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>ZIP-Laufwerk</string>
           </entry>
         </map>
@@ -1916,11 +1916,11 @@
         <long>900009</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>e-mail</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>E-Mail</string>
           </entry>
         </map>
@@ -1929,11 +1929,11 @@
         <long>900010</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Info Kiosk</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Infokiosk</string>
           </entry>
         </map>
@@ -1952,11 +1952,11 @@
             <string>complex</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>complexes</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Komplex</string>
           </entry>
         </map>
@@ -1969,11 +1969,11 @@
             <string>composite</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>composites</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Verbund</string>
           </entry>
         </map>
@@ -1986,11 +1986,11 @@
             <string>curve</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>curve</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Kurve</string>
           </entry>
         </map>
@@ -2003,11 +2003,11 @@
             <string>point</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>point</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Punkt</string>
           </entry>
         </map>
@@ -2020,11 +2020,11 @@
             <string>solid</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>solid</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Körper</string>
           </entry>
         </map>
@@ -2037,11 +2037,11 @@
             <string>surface</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>surface</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Oberfläche</string>
           </entry>
         </map>
@@ -2060,11 +2060,11 @@
             <string>vector</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>vector</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Vektor</string>
           </entry>
         </map>
@@ -2077,11 +2077,11 @@
             <string>grid</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>grid</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Rasterdaten</string>
           </entry>
         </map>
@@ -2094,11 +2094,11 @@
             <string>textTable</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>textTable</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Texttabelle</string>
           </entry>
         </map>
@@ -2111,11 +2111,11 @@
             <string>tin</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>TIN</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>TIN</string>
           </entry>
         </map>
@@ -2128,11 +2128,11 @@
             <string>stereoModel</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>stereoModel</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Stereomodell</string>
           </entry>
         </map>
@@ -2145,11 +2145,11 @@
             <string>video</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>video</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Video</string>
           </entry>
         </map>
@@ -2160,27 +2160,27 @@
     <long>99999999</long>
     <map>
       <entry>
-        <long>94</long>
+        <long>123</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>English</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Englisch</string>
           </entry>
         </map>
       </entry>
       <entry>
-        <long>121</long>
+        <long>150</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>German</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Deutsch</string>
           </entry>
         </map>
@@ -2194,11 +2194,11 @@
         <long>9002</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Foot</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Fuss</string>
           </entry>
         </map>
@@ -2207,11 +2207,11 @@
         <long>4</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Zoll</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Inch</string>
           </entry>
         </map>
@@ -2220,11 +2220,11 @@
         <long>9036</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Kilometre</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Kilometer</string>
           </entry>
         </map>
@@ -2233,11 +2233,11 @@
         <long>9001</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Metre</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Meter</string>
           </entry>
         </map>
@@ -2256,11 +2256,11 @@
             <string>farming</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>farming</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Landwirtschaft</string>
           </entry>
         </map>
@@ -2273,11 +2273,11 @@
             <string>biota</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>biota</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Flora, Fauna, Habitate</string>
           </entry>
         </map>
@@ -2290,11 +2290,11 @@
             <string>boundaries</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>boundaries</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Grenzen</string>
           </entry>
         </map>
@@ -2307,11 +2307,11 @@
             <string>climatologyMeteorologyAtmosphere</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>climatologyMeteorologyAtmosphere</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Klima und Atmosphäre</string>
           </entry>
         </map>
@@ -2324,11 +2324,11 @@
             <string>economy</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>economy</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Ökonomie</string>
           </entry>
         </map>
@@ -2341,11 +2341,11 @@
             <string>elevation</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>elevation</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Höhe</string>
           </entry>
         </map>
@@ -2358,11 +2358,11 @@
             <string>environment</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>environment</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Umwelt</string>
           </entry>
         </map>
@@ -2375,11 +2375,11 @@
             <string>geoscientificInformation</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>geoscientificInformation</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Geowissenschaft</string>
           </entry>
         </map>
@@ -2392,11 +2392,11 @@
             <string>health</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>health</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Gesundheit</string>
           </entry>
         </map>
@@ -2409,11 +2409,11 @@
             <string>imageryBaseMapsEarthCover</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>imageryBaseMapsEarthCover</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Karten</string>
           </entry>
         </map>
@@ -2426,11 +2426,11 @@
             <string>intelligenceMilitary</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>intelligenceMilitary</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Militär</string>
           </entry>
         </map>
@@ -2443,11 +2443,11 @@
             <string>inlandWaters</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>inlandWaters</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Binnengewässer</string>
           </entry>
         </map>
@@ -2460,11 +2460,11 @@
             <string>location</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>location</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Ortsangabe</string>
           </entry>
         </map>
@@ -2477,11 +2477,11 @@
             <string>oceans</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>oceans</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Ozeane</string>
           </entry>
         </map>
@@ -2494,11 +2494,11 @@
             <string>planningCadastre</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>PlanningCadastre</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Kataster</string>
           </entry>
         </map>
@@ -2511,11 +2511,11 @@
             <string>society</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>society</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Gesellschaft</string>
           </entry>
         </map>
@@ -2528,11 +2528,11 @@
             <string>structure</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>structure</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Bau</string>
           </entry>
         </map>
@@ -2545,11 +2545,11 @@
             <string>transportation</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>transportation</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Transport</string>
           </entry>
         </map>
@@ -2562,11 +2562,11 @@
             <string>utilitiesCommunication</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>utilitiesCommunication</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Energie und Kommunikation</string>
           </entry>
         </map>
@@ -2585,11 +2585,11 @@
             <string>completed</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>completed</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>abgeschlossen</string>
           </entry>
         </map>
@@ -2602,11 +2602,11 @@
             <string>historicalArchive</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>historicalArchive</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>archiviert</string>
           </entry>
         </map>
@@ -2619,11 +2619,11 @@
             <string>obsolete</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>obsolete</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>obsolet</string>
           </entry>
         </map>
@@ -2636,11 +2636,11 @@
             <string>onGoing</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>onGoing</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>kontinuierlich</string>
           </entry>
         </map>
@@ -2653,11 +2653,11 @@
             <string>planned</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>planned</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>geplant</string>
           </entry>
         </map>
@@ -2670,11 +2670,11 @@
             <string>required</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>required</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>benötigt</string>
           </entry>
         </map>
@@ -2687,11 +2687,11 @@
             <string>underDevelopment</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>underdevelopment</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>in Erstellung</string>
           </entry>
         </map>
@@ -2700,11 +2700,11 @@
         <long>900001</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>inOperation</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>in Produktion</string>
           </entry>
         </map>
@@ -2718,11 +2718,11 @@
         <long>5105</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Baltic Sea</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Baltic Sea</string>
           </entry>
         </map>
@@ -2731,11 +2731,11 @@
         <long>900003</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_AMST / NOH</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_AMST / NOH</string>
           </entry>
         </map>
@@ -2744,11 +2744,11 @@
         <long>900002</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_AMST / NH</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_AMST / NH</string>
           </entry>
         </map>
@@ -2757,11 +2757,11 @@
         <long>5129</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>European Vertical Reference Frame 2000</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>European Vertical Reference Frame 2000</string>
           </entry>
         </map>
@@ -2770,11 +2770,11 @@
         <long>900004</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_KRON / NH</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_KRON / NH</string>
           </entry>
         </map>
@@ -2783,11 +2783,11 @@
         <long>900005</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHHN12_NOH</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHHN12_NOH</string>
           </entry>
         </map>
@@ -2796,11 +2796,11 @@
         <long>900006</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHHN12_RP120</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHHN12_RP120</string>
           </entry>
         </map>
@@ -2809,11 +2809,11 @@
         <long>900007</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHHN85_NOH</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHHN85_NOH</string>
           </entry>
         </map>
@@ -2822,11 +2822,11 @@
         <long>900008</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>DE_DHHN92_NH</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>DE_DHHN92_NH</string>
           </entry>
         </map>
@@ -2835,11 +2835,11 @@
         <long>900009</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Horizont 74_NOH</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Horizont 74_NOH</string>
           </entry>
         </map>
@@ -2848,11 +2848,11 @@
         <long>900010</long>
         <map>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>Höhe über GRS80 Ellipsoid</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>Höhe über GRS80 Ellipsoid</string>
           </entry>
         </map>
@@ -2871,11 +2871,11 @@
             <string>continual</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>continual</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>kontinuierlich</string>
           </entry>
         </map>
@@ -2888,11 +2888,11 @@
             <string>daily</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>daily</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>täglich</string>
           </entry>
         </map>
@@ -2905,11 +2905,11 @@
             <string>weekly</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>weekly</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>wöchentlich</string>
           </entry>
         </map>
@@ -2922,11 +2922,11 @@
             <string>fortnightly</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>fortnightly</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>vierzehntägig</string>
           </entry>
         </map>
@@ -2939,11 +2939,11 @@
             <string>monthly</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>monthly</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>monatlich</string>
           </entry>
         </map>
@@ -2956,11 +2956,11 @@
             <string>quarterly</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>quarterly</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>vierteljährlich</string>
           </entry>
         </map>
@@ -2973,11 +2973,11 @@
             <string>biannually</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>biannually</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>halbjährlich</string>
           </entry>
         </map>
@@ -2990,11 +2990,11 @@
             <string>annually</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>annually</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>jährlich</string>
           </entry>
         </map>
@@ -3007,11 +3007,11 @@
             <string>asNeeded</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>as Needed</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>bei Bedarf</string>
           </entry>
         </map>
@@ -3024,11 +3024,11 @@
             <string>irregular</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>irregular</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>unregelmäßig</string>
           </entry>
         </map>
@@ -3041,11 +3041,11 @@
             <string>notPlanned</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>not Planned</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>einmalig</string>
           </entry>
         </map>
@@ -3058,11 +3058,11 @@
             <string>unknown</string>
           </entry>
           <entry>
-            <long>94</long>
+            <long>123</long>
             <string>unknown</string>
           </entry>
           <entry>
-            <long>121</long>
+            <long>150</long>
             <string>unbekannt</string>
           </entry>
         </map>
