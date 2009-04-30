@@ -161,7 +161,7 @@ public class UtilsUDKCodeLists {
 	public static String getIsoCodeListEntryFromIgcId(Long codeListId, Long igcId) {
 		String isoCode = getCodeListEntryName(codeListId, igcId, 150150150L);
 		if (isoCode == null) {
-			isoCode = getCodeListEntryName(codeListId, igcId, 94L);
+			isoCode = getCodeListEntryName(codeListId, igcId, UtilsLanguageCodelist.getCodeFromShortcut("en").longValue());
 		}
 		return isoCode;
 	}

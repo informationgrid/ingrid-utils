@@ -14,16 +14,16 @@ public class UtilsUDKCodeListsTest extends TestCase {
      */
     public void testGetCodeListEntryName() {
         
-        String languageName = UtilsUDKCodeLists.getCodeListEntryName(new Long(99999999), new Long(94), new Long(121));
+        String languageName = UtilsUDKCodeLists.getCodeListEntryName(new Long(99999999), new Long(123), new Long(150));
         assertEquals(true, languageName.equals("Englisch"));
     }
 
     public void testGetCodeListDomainId() {
         
-        String languageName = UtilsUDKCodeLists.getCodeListDomainId(new Long(99999999), "englisch", new Long(121));
-        assertEquals(true, languageName.equals("94"));
+        String languageName = UtilsUDKCodeLists.getCodeListDomainId(new Long(99999999), "englisch", new Long(150));
+        assertEquals(true, languageName.equals("123"));
         
-        String value = UtilsUDKCodeLists.getCodeListDomainId(new Long(505), "Point of Contact", new Long(94));
+        String value = UtilsUDKCodeLists.getCodeListDomainId(new Long(505), "Point of Contact", new Long(123));
         assertEquals(true, value.equals("7"));
         assertEquals(true, UtilsUDKCodeLists.codeList505ToUDK(value).equals("0"));
     }
@@ -88,7 +88,7 @@ public class UtilsUDKCodeListsTest extends TestCase {
 
     public void testGetCodeList() {
         
-        List list = UtilsUDKCodeLists.getCodeList(new Long(505), new Long(94));
+        List list = UtilsUDKCodeLists.getCodeList(new Long(505), new Long(123));
         assertTrue(list.size() > 0);
         for (int i=0; i<list.size(); i++) {
         	CodeListEntry entry = (CodeListEntry)list.get(i);
