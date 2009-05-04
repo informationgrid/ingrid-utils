@@ -34,6 +34,8 @@ public class IngridHit extends IngridDocument {
 	
 	private static final String HIT_DETAIL = "hitDetail";
 
+	private static final String DUMMY_HIT = "dummyHit";
+
     /**
      * 
      */
@@ -207,6 +209,17 @@ public class IngridHit extends IngridDocument {
 
     public IngridHitDetail getHitDetail() {
         return (IngridHitDetail) get(HIT_DETAIL);
+    }
+	
+	public void setDummyHit(boolean isDummyHit) {
+        putBoolean(DUMMY_HIT, isDummyHit);
+    }
+
+    public boolean isDummyHit() {
+    	if (get(DUMMY_HIT) != null) {
+    		return getBoolean(DUMMY_HIT);
+    	}
+        return false;
     }
 	
 	public int hashCode() {

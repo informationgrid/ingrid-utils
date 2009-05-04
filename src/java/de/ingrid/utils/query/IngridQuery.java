@@ -87,6 +87,9 @@ public class IngridQuery extends IngridDocument {
     /***/
     public static final String NOT_RANKED = "off";
 
+    /** Generates DUMMY hit for unranked iPlugs normally delivering no results to show in unranked column in frontend ! */
+    public static final String GET_UNRANKED_IPLUGS_WITH_NO_RESULTS = "get_unranked_iplugs_with_no_results";
+
     /***/
     public static final String ANY_RANKED = "any";
 
@@ -195,6 +198,8 @@ public class IngridQuery extends IngridDocument {
             addToList(IPLUGS, field);
         } else if (field.getFieldName().equals(CACHED)) {
         	put(CACHED, field.getFieldValue().toLowerCase());
+        } else if (field.getFieldName().equals(GET_UNRANKED_IPLUGS_WITH_NO_RESULTS)) {
+        	put(GET_UNRANKED_IPLUGS_WITH_NO_RESULTS, field.getFieldValue().toLowerCase());
         } else {
             addToList(FIELD_KEY, field);
         }
@@ -519,6 +524,9 @@ public class IngridQuery extends IngridDocument {
 
         buffer.append(" grouped: ");
         buffer.append(getGrouped());
+
+        buffer.append(" " + GET_UNRANKED_IPLUGS_WITH_NO_RESULTS + ": " + isGetUnrankedIPlugsWithNoResults());
+
         buffer.append(")");
         
         return buffer.toString();
@@ -616,6 +624,16 @@ public class IngridQuery extends IngridDocument {
     	return !isCacheOff();
     }
 
+    /**
+     * @return true if unranked iplugs with NO results will deliver dummy hit
+     */
+    public boolean isGetUnrankedIPlugsWithNoResults() {
+    	if (get(GET_UNRANKED_IPLUGS_WITH_NO_RESULTS) != null) {
+    		return true;
+    	}
+    	return false;
+    }
+    
     /**
      * @return true if the date is ranked
      */
