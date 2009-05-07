@@ -525,7 +525,9 @@ public class IngridQuery extends IngridDocument {
         buffer.append(" grouped: ");
         buffer.append(getGrouped());
 
-        buffer.append(" " + GET_UNRANKED_IPLUGS_WITH_NO_RESULTS + ": " + isGetUnrankedIPlugsWithNoResults());
+        if (isGetUnrankedIPlugsWithNoResults()) {
+            buffer.append(" " + GET_UNRANKED_IPLUGS_WITH_NO_RESULTS + ": " + get(GET_UNRANKED_IPLUGS_WITH_NO_RESULTS));
+        }
 
         buffer.append(")");
         
