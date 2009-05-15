@@ -111,12 +111,14 @@ public class UtilsUDKCodeListsTest extends TestCase {
     public void testGetIgcIdFromIsoCodeListEntry() {
     	assertEquals("7", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(505L, "pointOfContact"));
     	assertEquals("5", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(517L, "theme"));
+    	assertEquals("8", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(524L, "otherRestrictions"));
     }
     
     public void testGetIsoCodeListEntryFromIgcId() {
     	assertEquals("pointOfContact", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(505L, 7L));
     	assertEquals("theme", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(517L, 5L));
     	assertEquals("inOperation", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(523L, 900001L));
+    	assertEquals("otherRestrictions", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(524L, 8L));
     }
     
 }
