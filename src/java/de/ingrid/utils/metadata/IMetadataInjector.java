@@ -6,6 +6,6 @@ public interface IMetadataInjector {
 
 	void injectMetaDatas(Metadata metadata);
 	
-	void configure(PlugDescription description);
+	void configure(PlugDescription description) throws Exception;
 
 }
