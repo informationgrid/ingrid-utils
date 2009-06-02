@@ -1,15 +1,21 @@
 package de.ingrid.utils.metadata;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.impl.LogFactoryImpl;
+
 import de.ingrid.utils.PlugDescription;
+import de.ingrid.utils.processor.impl.QueryExtensionPreProcessor;
 
 /**
  * This MetadataInjector tries to get the required information from the
- * MANIFEST.MF file from iPlug's jar.
+ * MANIFEST.MF file from iPlug's jar. If no MANIFEST.MF is found, the
+ * metadata is not changed.
  * 
  * It scans the following items:
  * 
@@ -29,16 +35,20 @@ import de.ingrid.utils.PlugDescription;
  */
 public class ManifestMetadataInjector implements IMetadataInjector {
 
-	private Manifest _manifest;
+	private Manifest _manifest = null;
+    
+	private static final Log LOG = LogFactoryImpl.getLog(QueryExtensionPreProcessor.class);
 
 	public ManifestMetadataInjector() {
 	}
 
 	public void injectMetaDatas(Metadata metadata) {
 
-		metadata.setPlugType(getIPlugType());
-		metadata.setVersion(getVersion());
-		metadata.setReleaseDate(getBuildDate());
+		if (_manifest != null) {
+			metadata.setPlugType(getIPlugType());
+			metadata.setVersion(getVersion());
+			metadata.setReleaseDate(getBuildDate());
+		}
 	}
 
 	private String getVersion() {
@@ -82,16 +92,27 @@ public class ManifestMetadataInjector implements IMetadataInjector {
 	}
 
 	@Override
-	public void configure(PlugDescription description) throws Exception {
+	public void configure(PlugDescription description) {
 		// get the main class of the iPlug and try to get the Manifest.mf
 		String plugClassStr = description.getIPlugClass();
 		if (plugClassStr == null) {
-			throw new NullPointerException("iplug class in plugdescription not set");
+			LOG.error("iplug class in plugdescription not set.");
+		} else {
+			String classContainer = null;
+			URL manifestUrl;
+			try {
+				Class<?> plugClass = Thread.currentThread().getContextClassLoader().loadClass(plugClassStr);
+				classContainer = plugClass.getProtectionDomain().getCodeSource().getLocation().toString();
+				manifestUrl = new URL("jar:" + classContainer + "!/META-INF/MANIFEST.MF");
+				_manifest = new Manifest(manifestUrl.openStream());
+			} catch (MalformedURLException e) {
+				LOG.error("Could not create URL for jar '" + classContainer + "'.", e);
+			} catch (ClassNotFoundException e) {
+				LOG.error("Could not instantiate class '" + plugClassStr + "'.", e);
+			} catch (Exception e) {
+				LOG.error("Error accessing MANIFEST.MF in jar '" + classContainer + "' that contains class '" + plugClassStr + "'.", e);
+			}
 		}
-		Class<?> plugClass = Thread.currentThread().getContextClassLoader().loadClass(plugClassStr);
-		String classContainer = plugClass.getProtectionDomain().getCodeSource().getLocation().toString();
-		URL manifestUrl = new URL("jar:" + classContainer + "!/META-INF/MANIFEST.MF");
-		_manifest = new Manifest(manifestUrl.openStream());
 	}
 
 }

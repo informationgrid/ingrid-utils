@@ -3,7 +3,9 @@
  */
 package de.ingrid.utils.metadata;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import junit.framework.TestCase;
 import de.ingrid.utils.PlugDescription;
@@ -30,6 +32,16 @@ public class ManifestMetadataInjectorTest extends TestCase {
 		assertNotNull(metadata.getVersion());
 		assertEquals(IPlugType.OTHER, metadata.getPlugType());
 		assertEquals(new Date(0L), metadata.getReleaseDate());
+
+		// test wrong package/missing MANIFEST
+		pd.setIPlugClass("non.existing.package.class");
+		mdi = new ManifestMetadataInjector();
+		mdi.configure(pd);
+		metadata = new Metadata();
+		mdi.injectMetaDatas(metadata);
+		assertEquals("unknown", metadata.getVersion());
+		assertEquals(IPlugType.OTHER, metadata.getPlugType());
+		assertEquals(new GregorianCalendar(1970, Calendar.JANUARY, 1).getTime(), metadata.getReleaseDate());
 	}
 
 }
