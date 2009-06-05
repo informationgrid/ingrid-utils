@@ -4,12 +4,12 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-utils</artifactId>
   <packaging>jar</packaging>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2</version>
   <name>ingrid-utils</name>
   <scm>
-    <connection>scm:svn:https://127.0.0.1:444/svn/ingrid/ingrid-utils/trunk</connection>
-    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-utils/trunk</developerConnection>
-    <url>http://somerepository.com/view.cvs</url>
+    <connection>scm:svn:https://127.0.0.1:444/svn/ingrid/ingrid-utils/tags/ingrid-utils-1.2</connection>
+    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-utils/tags/ingrid-utils-1.2</developerConnection>
+    <url>http://somerepository.com/view.cvs/tags/ingrid-utils-1.2</url>
   </scm>
   <repositories>
     <repository>
