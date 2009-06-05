@@ -9,11 +9,11 @@
      &maven1;
      &maven2;
    	<preGoal name="java:compile">
-		<j:set var="maven.javacc.javacc.grammar" value="src/java/de/ingrid/utils/queryparser/QueryStringParser.jj" />
-	    <j:set var="maven.javacc.javacc.target.dir" value="target" /> 
-	    <j:set var="maven.javacc.javacc.package" value="de.ingrid.utils.queryparser" /> 
-		<attainGoal name="javacc" />
-	</preGoal>
+      <j:set var="maven.javacc.javacc.grammar" value="src/main/java/de/ingrid/utils/queryparser/QueryStringParser.jj" />
+        <j:set var="maven.javacc.javacc.target.dir" value="target" /> 
+        <j:set var="maven.javacc.javacc.package" value="de.ingrid.utils.queryparser" /> 
+      <attainGoal name="javacc" />
+    </preGoal>
          
     <preGoal name="jar:deploy">
     	<attainGoal name="source:deploy" />

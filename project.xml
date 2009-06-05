@@ -92,10 +92,10 @@
 		
     </dependencies>
     <build>
-        <sourceDirectory>src/java</sourceDirectory>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
-                <directory>src/java/de/ingrid/utils/udk</directory>
+                <directory>src/main/resources</directory>
 	            <includes>
 	                <include>*.xml</include>
 	            </includes>
@@ -107,20 +107,20 @@
                 </excludes>
 			</resource>
         </resources>
-        <unitTestSourceDirectory>src/test</unitTestSourceDirectory>
+        <unitTestSourceDirectory>src/test/java</unitTestSourceDirectory>
         <unitTest>
             <includes>
                 <include>**/*Test.java</include>
             </includes>
             <resources>
                 <resource>
-                    <directory>src/test</directory>
+                    <directory>src/test/resources</directory>
                     <filtering>false</filtering>
                 </resource>
-                <resource>
+                <!--<resource>
                     <directory>src/test-resources</directory>
                     <filtering>false</filtering>
-                </resource>
+                </resource>-->
             </resources>
         </unitTest>
     </build>

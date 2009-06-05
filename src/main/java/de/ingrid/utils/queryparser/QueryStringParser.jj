@@ -55,7 +55,7 @@ PARSER_END(QueryStringParser)
 }
 
 <DEFAULT, RangeIn, RangeEx> SKIP : {
- <<_WHITESPACE>>
+ " " | "\t" | "\n" | "\r"
 }
 
 
