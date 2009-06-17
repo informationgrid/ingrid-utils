@@ -234,6 +234,16 @@ public class UtilsCountryCodelist {
 		return langName;
 	}
 
+	/** Determine country name from ISO ALPHA 2 country code.
+	 * @param countryShortcut2 ISO code of country
+	 * @param languageShortcut in which language should the name be returned, e.g. "de" for german name
+	 * @return country name of ISO country code or null if not found !
+	 */
+	static public String getNameFromShortcut2(String countryShortcut2, String languageShortcut) {
+		return UtilsCountryCodelist.getNameFromCode(UtilsCountryCodelist.getCodeFromShortcut2(countryShortcut2), languageShortcut);
+	}
+	
+	
 	/** Determine 2 letter country shortcut (e.g. "DE", "GB" ...") from ISO country code.
 	 * @param countryCode ISO code of country
 	 * @return country shortcut or null if not found

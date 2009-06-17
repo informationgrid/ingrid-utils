@@ -26,6 +26,9 @@ public class UtilsUDKCodeListsTest extends TestCase {
         String value = UtilsUDKCodeLists.getCodeListDomainId(new Long(505), "Point of Contact", new Long(123));
         assertEquals(true, value.equals("7"));
         assertEquals(true, UtilsUDKCodeLists.codeList505ToUDK(value).equals("0"));
+        
+    	assertEquals("5129", UtilsUDKCodeLists.getCodeListDomainId(101L, "European Vertical Reference Frame 2000", new Long(123)));
+
     }
     
     

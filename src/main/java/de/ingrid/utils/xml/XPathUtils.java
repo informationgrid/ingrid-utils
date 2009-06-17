@@ -149,7 +149,7 @@ public class XPathUtils {
 	 */
 	public static Node createElementFromXPath(Node node, String xpath) {
 		String[] xpathElements = xpath.split("/");
-		String tmpXpath = "";
+		String tmpXpath = ".";
 		Node result = node;
 		for (int i=0; i<xpathElements.length; i++) {
 			if (xpathElements[i].length() > 0) {
@@ -160,6 +160,8 @@ public class XPathUtils {
 					result = XPathUtils.getNodeList(node, tmpXpath+ "/" + xpathElements[i]).item(0);
 				}
 				tmpXpath = tmpXpath + "/" + xpathElements[i];
+			} else {
+				tmpXpath = "";
 			}
 		}
 		return result;

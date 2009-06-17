@@ -39,6 +39,8 @@ public class XPathUtilsTest extends TestCase {
 
 		Node n = XPathUtils.createElementFromXPath(doc.getDocumentElement(), "/test/child1");
 		assertEquals("child1", n.getNodeName());
+		n = XPathUtils.createElementFromXPath(n, "newChild");
+		assertEquals("newChild", n.getNodeName());
 	
 	}
 
