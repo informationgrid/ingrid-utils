@@ -41,6 +41,15 @@ public class XPathUtilsTest extends TestCase {
 		assertEquals("child1", n.getNodeName());
 		n = XPathUtils.createElementFromXPath(n, "newChild");
 		assertEquals("newChild", n.getNodeName());
+		n = XPathUtils.createElementFromXPath(n, "/test/newRootChild");
+		assertEquals("newRootChild", n.getNodeName());
+		assertTrue(XPathUtils.nodeExists(doc.getDocumentElement(), "/test/newRootChild"));
+		
+		try {
+			n = XPathUtils.createElementFromXPath(n, "/newRootChild");
+			fail("must throw IllegalArgumentException.");
+		} catch (IllegalArgumentException e) {
+		}
 	
 	}
 

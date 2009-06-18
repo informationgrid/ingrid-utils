@@ -148,16 +148,27 @@ public class XPathUtils {
 	 * @return The last added node
 	 */
 	public static Node createElementFromXPath(Node node, String xpath) {
+		Node refNode = null;
+		if (xpath.startsWith("/")) {
+			refNode = node.getOwnerDocument().getDocumentElement();
+		} else {
+			refNode = node;
+		}
+		//refNode = node;
 		String[] xpathElements = xpath.split("/");
 		String tmpXpath = ".";
-		Node result = node;
+		Node result = refNode;
 		for (int i=0; i<xpathElements.length; i++) {
 			if (xpathElements[i].length() > 0) {
-				if (!XPathUtils.nodeExists(node, tmpXpath + "/" + xpathElements[i])) {
-					NodeList list = XPathUtils.getNodeList(node, tmpXpath);
-					result = list.item(0).appendChild(node.getOwnerDocument().createElement(xpathElements[i]));
+				if (!XPathUtils.nodeExists(refNode, tmpXpath + "/" + xpathElements[i])) {
+					if (tmpXpath.length() == 0) {
+						throw new IllegalArgumentException("More than one root element is not allowed! The supplied absolute path MUST start with the existing root node!");
+					} else {
+						NodeList list = XPathUtils.getNodeList(refNode, tmpXpath);
+						result = list.item(0).appendChild(refNode.getOwnerDocument().createElement(xpathElements[i]));
+					}
 				} else if (tmpXpath.length() > 0) {
-					result = XPathUtils.getNodeList(node, tmpXpath+ "/" + xpathElements[i]).item(0);
+					result = XPathUtils.getNodeList(refNode, tmpXpath+ "/" + xpathElements[i]).item(0);
 				}
 				tmpXpath = tmpXpath + "/" + xpathElements[i];
 			} else {
