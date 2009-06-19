@@ -12,7 +12,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Attr;
-import org.w3c.dom.CDATASection;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -56,6 +55,14 @@ public final class XMLUtils {
 		}
 		n.appendChild(n.getOwnerDocument().createTextNode(data));
 		return n;
+	}
+	
+	public static Node insertAfter(Node n, Node refNode) {
+		if (refNode.getNextSibling() == null) {
+			return refNode.getParentNode().appendChild(n);
+		} else {
+			return refNode.getNextSibling().insertBefore(n, refNode.getNextSibling());
+		}
 	}
 	
 	public static Node createOrReplaceAttribute(Node n, String attribute, String data) {

@@ -14,6 +14,7 @@ import javax.xml.transform.TransformerException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import junit.framework.TestCase;
@@ -53,6 +54,21 @@ public class XMLUtilsTest extends TestCase {
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1>Hallo</child1></test>".getBytes("UTF-8")));
 		Node n = XMLUtils.createOrReplaceTextNode(doc.getDocumentElement().getFirstChild(), "Welt");
 		assertEquals("Welt", n.getTextContent());
+	}
+	
+	public void testInsertAfter() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException {
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		DocumentBuilder db = dbf.newDocumentBuilder();
+		Document doc = db.parse(new ByteArrayInputStream("<test><child1>Hallo</child1></test>".getBytes("UTF-8")));
+		NodeList nl = XPathUtils.getNodeList(doc, "/test/child1");
+		assertEquals(1, nl.getLength());
+		Node n = doc.createElement("child1");
+		Node refNode = XPathUtils.getNode(doc, "/test/child1");
+		XMLUtils.insertAfter(n, refNode);
+		nl = XPathUtils.getNodeList(doc, "/test/child1");
+		assertEquals(2, nl.getLength());
+		
+		
 	}
 
 }

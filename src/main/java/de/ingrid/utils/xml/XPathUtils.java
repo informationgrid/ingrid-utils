@@ -7,7 +7,6 @@ import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -177,4 +176,14 @@ public class XPathUtils {
 		}
 		return result;
 	}
+	
+	public static Node createElementFromXPathAsSibling(Node node, String xpath) {
+		boolean createSibling = XPathUtils.nodeExists(node, xpath);
+		Node n = createElementFromXPath(node, xpath);
+		if (createSibling) {
+			n = XMLUtils.insertAfter(node.getOwnerDocument().createElement(xpath.split("/")[xpath.split("/").length-1]), n);
+		}
+		return n;
+	}
+	
 }
