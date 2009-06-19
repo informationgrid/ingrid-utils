@@ -56,10 +56,10 @@ public class XMLUtilsTest extends TestCase {
 		assertEquals("Welt", n.getTextContent());
 	}
 	
-	public void testInsertAfter() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException {
+	public void testInsertAfter() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException, TransformerException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
-		Document doc = db.parse(new ByteArrayInputStream("<test><child1>Hallo</child1></test>".getBytes("UTF-8")));
+		Document doc = db.parse(new ByteArrayInputStream("<test><child1>Hallo</child1><child2>Hello</child2></test>".getBytes("UTF-8")));
 		NodeList nl = XPathUtils.getNodeList(doc, "/test/child1");
 		assertEquals(1, nl.getLength());
 		Node n = doc.createElement("child1");
@@ -68,6 +68,12 @@ public class XMLUtilsTest extends TestCase {
 		nl = XPathUtils.getNodeList(doc, "/test/child1");
 		assertEquals(2, nl.getLength());
 		
+		n = doc.createElement("child2");
+		refNode = XPathUtils.getNode(doc, "/test/child2");
+		XMLUtils.insertAfter(n, refNode);
+		nl = XPathUtils.getNodeList(doc, "/test/child2");
+		assertEquals(2, nl.getLength());
+		System.out.println(XMLUtils.toString(doc));
 		
 	}
 

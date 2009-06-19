@@ -58,10 +58,10 @@ public final class XMLUtils {
 	}
 	
 	public static Node insertAfter(Node n, Node refNode) {
-		if (refNode.getNextSibling() == null) {
+		if (refNode.getNextSibling() == null || (refNode.getNextSibling() instanceof Text && refNode.getNextSibling().getNextSibling() == null)) {
 			return refNode.getParentNode().appendChild(n);
 		} else {
-			return refNode.getNextSibling().insertBefore(n, refNode.getNextSibling());
+			return refNode.getParentNode().insertBefore(n, refNode.getNextSibling());
 		}
 	}
 	
