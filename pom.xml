@@ -1,5 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+  <parent>
+    <groupId>de.ingrid</groupId>
+    <artifactId>ingrid-base-pom</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-utils</artifactId>
@@ -7,35 +11,21 @@
   <version>1.2.1-SNAPSHOT</version>
   <name>ingrid-utils</name>
   <scm>
-    <connection>scm:svn:https://127.0.0.1:444/svn/ingrid/ingrid-utils/trunk</connection>
-    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-utils/trunk</developerConnection>
-    <url>http://somerepository.com/view.cvs</url>
+    <connection>${scmConnectionBase}/ingrid-utils/trunk</connection>
+    <developerConnection>${scmConnectionBase}/ingrid-utils/trunk</developerConnection>
   </scm>
   <repositories>
-    <repository>
-      <snapshots />
-      <id>ingrid-repository</id>
-      <name>ingrid-repository</name>
-      <url>http://harrison.its-technidata.de/ingrid/maven2</url>
-    </repository>
     <repository>
       <snapshots />
       <id>jetspeed-repository</id>
       <name>jetspeed-repository</name>
       <url>http://www.bluesunrise.com/maven2</url>
     </repository>
-    <repository>
-      <id>central</id>
-      <name>Maven Repository Switchboard</name>
-      <url>http://repo1.maven.org/maven2</url>
-    </repository>
   </repositories>
   <dependencies>
     <dependency>
       <groupId>xstream</groupId>
       <artifactId>xstream</artifactId>
-      <version>1.2.1</version>
-      <type>jar</type>
     </dependency>
     <dependency>
       <groupId>maven</groupId>
@@ -46,29 +36,22 @@
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
-      <version>1.0.4</version>
-      <type>jar</type>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
-      <version>2.5.6</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>2.5.6</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <type>jar</type>
       <scope>test</scope>
     </dependency>
   </dependencies>
   <build>
-    <finalName>${project.artifactId}-${project.version}</finalName>
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -86,77 +69,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <!-- best lock down version of the plugin too -->
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.2</version>
-        <configuration>
-          <archive>
-            <manifestEntries>
-              <Implementation-Version>${version}</Implementation-Version>
-              <Implementation-Build>${buildNumber}</Implementation-Build>
-			  <Build-Timestamp>${timestamp}</Build-Timestamp>
-            </manifestEntries>
-          </archive>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-              <reportFormat>brief</reportFormat>
-            </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>buildnumber-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>create</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <doCheck>false</doCheck>
-          <doUpdate>false</doUpdate>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.4</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.0-beta-9</version>
-      </plugin>
     </plugins>
   </build>
-  <distributionManagement>
-    <repository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>ingrid-repository</id>
-      <name>ingrid-repository</name>
-      <url>file:///srv/www/htdocs/ingrid/maven2</url>
-    </repository>
-    <snapshotRepository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>ingrid-repository</id>
-      <name>ingrid-repository</name>
-      <url>file:///srv/www/htdocs/ingrid/maven2</url>
-    </snapshotRepository>
-  </distributionManagement>
 </project>
