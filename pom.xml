@@ -104,14 +104,7 @@
             <manifestEntries>
               <Implementation-Version>${version}</Implementation-Version>
               <Implementation-Build>${buildNumber}</Implementation-Build>
-              <!--  
-                one of these: 
-                
-                IPLUG_SE, IPLUG_DSC, IPLUG_SNS, IPLUG_TAMINO, IPLUG_FPN, IPLUG_G2K, IPLUG_CSW, IPLUG_CSW_DSC, OTHER
-                
-                see ingrid-utils:de.ingrid.utils.metadata.IPlugType
-            -->
-              <iPlug-Type>OTHER</iPlug-Type>
+			  <Build-Timestamp>${timestamp}</Build-Timestamp>
             </manifestEntries>
           </archive>
         </configuration>
