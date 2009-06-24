@@ -96,13 +96,27 @@
     <repository>
       <snapshots />
       <id>ingrid-repository-mvn2</id>
-      <name>ingrid-repository</name>
+      <name>ingrid-repository-mvn2</name>
       <url>http://harrison.its-technidata.de/ingrid/maven2</url>
     </repository>
     <repository>
       <id>central-mvn2</id>
-      <name>Maven Repository Switchboard</name>
+      <name>Maven2 Repository Switchboard</name>
       <url>http://repo1.maven.org/maven2</url>
     </repository>
   </repositories>
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>ingrid-repository-mvn2</id>
+      <name>ingrid-repository-mvn2</name>
+      <url>file:///srv/www/htdocs/ingrid/maven2</url>
+    </repository>
+    <snapshotRepository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>ingrid-repository-mvn2</id>
+      <name>ingrid-repository-mvn2</name>
+      <url>file:///srv/www/htdocs/ingrid/maven2</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
