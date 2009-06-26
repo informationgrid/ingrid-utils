@@ -105,6 +105,9 @@ public class ManifestMetadataInjector implements IMetadataInjector {
 				classContainer = plugClass.getProtectionDomain().getCodeSource().getLocation().toString();
 				manifestUrl = new URL("jar:" + classContainer + "!/META-INF/MANIFEST.MF");
 				_manifest = new Manifest(manifestUrl.openStream());
+				if (LOG.isDebugEnabled()) {
+					LOG.debug("Accessing manifest: " + "jar:" + classContainer + "!/META-INF/MANIFEST.MF");
+				}
 			} catch (MalformedURLException e) {
 				LOG.error("Could not create URL for jar '" + classContainer + "'.", e);
 			} catch (ClassNotFoundException e) {
