@@ -14,10 +14,10 @@
     <ingrid-ibus.version>1.2.0-SNAPSHOT</ingrid-ibus.version>
     <ingrid-ibus-client.version>1.2.0</ingrid-ibus-client.version>
     <ingrid-import-export.version>1.0-SNAPSHOT</ingrid-import-export.version>
-    <ingrid-iplug.version>1.2.0</ingrid-iplug.version>
+    <ingrid-iplug.version>1.2.0-SNAPSHOT</ingrid-iplug.version>
     <ingrid-mdek-api.version>1.1.0-SNAPSHOT</ingrid-mdek-api.version>
     <ingrid-mdek-services.version>1.1.0-SNAPSHOT</ingrid-mdek-services.version>
-    <ingrid-utils.version>1.2</ingrid-utils.version>
+    <ingrid-utils.version>1.2.1-SNAPSHOT</ingrid-utils.version>
     
     <!-- versions of external libraries -->
     <axis.version>1.2.1</axis.version>
@@ -171,7 +171,7 @@
         <version>${ingrid-import-export.version}</version>
       </dependency>
       <dependency>
-        <groupId>ingrid</groupId>
+        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug</artifactId>
         <version>${ingrid-iplug.version}</version>
       </dependency>
