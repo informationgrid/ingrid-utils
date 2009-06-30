@@ -18,6 +18,12 @@
     <ingrid-iplug-admin-step1.version>1.2-SNAPSHOT</ingrid-iplug-admin-step1.version>
     <ingrid-iplug-admin-step1-webservice.version>1.2-SNAPSHOT</ingrid-iplug-admin-step1-webservice.version>
     <ingrid-iplug-admin-step2-dsc.version>1.2-SNAPSHOT</ingrid-iplug-admin-step2-dsc.version>
+    <ingrid-iplug-dsc.version>1.3.0-SNAPSHOT</ingrid-iplug-dsc.version>
+    <ingrid-iplug-fpn.version>1.2.1-SNAPSHOT</ingrid-iplug-fpn.version>
+    <ingrid-iplug-g2k.version>1.2-SNAPSHOT</ingrid-iplug-g2k.version>
+    <ingrid-iplug-se.version>1.2-SNAPSHOT</ingrid-iplug-se.version>
+    <ingrid-iplug-sns.version>1.3-SNAPSHOT</ingrid-iplug-sns.version>
+    <ingrid-iplug-tamino.version>1.2-SNAPSHOT</ingrid-iplug-tamino.version>
     <ingrid-mdek-api.version>1.1.0-SNAPSHOT</ingrid-mdek-api.version>
     <ingrid-mdek-services.version>1.1.0-SNAPSHOT</ingrid-mdek-services.version>
     <ingrid-utils.version>1.2.1-SNAPSHOT</ingrid-utils.version>
@@ -34,14 +40,17 @@
     <commons-betwixt.version>0.7</commons-betwixt.version>
     <commons-cli.version>1.1</commons-cli.version>
     <commons-codec.version>1.3</commons-codec.version>
-    <commons-collections.version>2.1</commons-collections.version>
+    <commons-collections.version>3.1</commons-collections.version>
+    <commons-configuration.version>1.2</commons-configuration.version>
     <commons-digester.version>1.6</commons-digester.version>
     <commons-discovery.version>0.2</commons-discovery.version>
     <commons-el.version>1.0</commons-el.version>
     <commons-httpclient.version>3.0</commons-httpclient.version>
     <commons-io.version>1.4</commons-io.version>
+    <commons-lang.version>2.1</commons-lang.version>
     <commons-logging.version>1.0.4</commons-logging.version>
     <dbunit.version>2.4.1</dbunit.version>
+    <dom4j.version>1.4-dev-8</dom4j.version>
     <ehcache.version>1.4.1</ehcache.version>
     <hibernate.version>3.2.5.ga</hibernate.version>
     <hibernate-annotations.version>3.2.1.ga</hibernate-annotations.version>
@@ -49,6 +58,7 @@
     <htmlparser.version>1.0</htmlparser.version>
     <jasper-compiler.version>5.5.9</jasper-compiler.version>
     <jasper-runtime.version>5.5.9</jasper-runtime.version>
+    <jaxen.version>1.1-beta-4</jaxen.version>
     <jmock.version>2.1.0</jmock.version>
     <junit.version>3.8.1</junit.version>
     <log4j.version>1.2.9</log4j.version>
@@ -64,6 +74,7 @@
     <spring-mock.version>2.0.6</spring-mock.version>
     <xerces.version>2.4.0</xerces.version>
     <xml-apis.version>1.0.b2</xml-apis.version>
+    <xpp3.version>1.1.2a</xpp3.version>
     <xstream.version>1.2.1</xstream.version>
     <xtmStubs.version>2.0</xtmStubs.version>
   </properties>
@@ -115,6 +126,11 @@
         <version>${commons-collections.version}</version>
       </dependency>
       <dependency>
+        <groupId>commons-configuration</groupId>
+        <artifactId>commons-configuration</artifactId>
+        <version>${commons-configuration.version}</version>
+      </dependency>
+      <dependency>
         <groupId>commons-digester</groupId>
         <artifactId>commons-digester</artifactId>
         <version>${commons-digester.version}</version>
@@ -136,9 +152,19 @@
         <version>${commons-io.version}</version>
       </dependency>
       <dependency>
+        <groupId>commons-lang</groupId>
+        <artifactId>commons-lang</artifactId>
+        <version>${commons-lang.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.dbunit</groupId>
         <artifactId>dbunit</artifactId>
         <version>${dbunit.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>dom4j</groupId>
+        <artifactId>dom4j</artifactId>
+        <version>${dom4j.version}</version>
       </dependency>
       <dependency>
         <groupId>net.sf.ehcache</groupId>
@@ -177,6 +203,11 @@
         <version>${jasper-runtime.version}</version>
       </dependency>
       <dependency>
+        <groupId>jaxen</groupId>
+        <artifactId>jaxen</artifactId>
+        <version>${jaxen.version}</version>
+      </dependency>
+      <dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>
         <version>${log4j.version}</version>
@@ -200,6 +231,36 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug</artifactId>
         <version>${ingrid-iplug.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-iplug-dsc</artifactId>
+        <version>${ingrid-iplug-dsc.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-iplug-fpn</artifactId>
+        <version>${ingrid-iplug-fpn.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ingrid</groupId>
+        <artifactId>ingrid-iplug-g2k</artifactId>
+        <version>${ingrid-iplug-g2k.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ingrid</groupId>
+        <artifactId>ingrid-iplug-se</artifactId>
+        <version>${ingrid-iplug-se.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ingrid</groupId>
+        <artifactId>ingrid-iplug-sns</artifactId>
+        <version>${ingrid-iplug-sns.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ingrid</groupId>
+        <artifactId>ingrid-iplug-tamino</artifactId>
+        <version>${ingrid-iplug-tamino.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid.mdek</groupId>
@@ -284,6 +345,11 @@
         <groupId>xml-apis</groupId>
         <artifactId>xml-apis</artifactId>
         <version>${xml-apis.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>xpp3</groupId>
+        <artifactId>xpp3</artifactId>
+        <version>${xpp3.version}</version>
       </dependency>
       <dependency>
         <groupId>uba</groupId>
