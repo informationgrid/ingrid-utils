@@ -388,11 +388,6 @@
         <version>${xml-apis.version}</version>
       </dependency>
       <dependency>
-        <groupId>xpp3</groupId>
-        <artifactId>xpp3</artifactId>
-        <version>${xpp3.version}</version>
-      </dependency>
-      <dependency>
         <groupId>uba</groupId>
         <artifactId>xtmStubs</artifactId>
         <version>${xtmStubs.version}</version>
