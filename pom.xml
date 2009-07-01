@@ -22,9 +22,9 @@
     <ingrid-iplug-dsc.version>1.3.0-SNAPSHOT</ingrid-iplug-dsc.version>
     <ingrid-iplug-fpn.version>1.2.1-SNAPSHOT</ingrid-iplug-fpn.version>
     <ingrid-iplug-g2k.version>1.2.0-SNAPSHOT</ingrid-iplug-g2k.version>
-    <ingrid-iplug-se.version>1.2-SNAPSHOT</ingrid-iplug-se.version>
+    <ingrid-iplug-se.version>1.2.0-SNAPSHOT</ingrid-iplug-se.version>
     <ingrid-iplug-sns.version>1.4.0-SNAPSHOT</ingrid-iplug-sns.version>
-    <ingrid-iplug-tamino.version>1.2-SNAPSHOT</ingrid-iplug-tamino.version>
+    <ingrid-iplug-tamino.version>1.2.0-SNAPSHOT</ingrid-iplug-tamino.version>
     <ingrid-mdek-api.version>1.1.0-SNAPSHOT</ingrid-mdek-api.version>
     <ingrid-mdek-services.version>1.1.0-SNAPSHOT</ingrid-mdek-services.version>
     <ingrid-portal-utils.version>1.2.0-SNAPSHOT</ingrid-portal-utils.version>
@@ -277,7 +277,7 @@
         <version>${ingrid-iplug-g2k.version}</version>
       </dependency>
       <dependency>
-        <groupId>ingrid</groupId>
+        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-se</artifactId>
         <version>${ingrid-iplug-se.version}</version>
       </dependency>
@@ -287,7 +287,7 @@
         <version>${ingrid-iplug-sns.version}</version>
       </dependency>
       <dependency>
-        <groupId>ingrid</groupId>
+        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-tamino</artifactId>
         <version>${ingrid-iplug-tamino.version}</version>
       </dependency>
