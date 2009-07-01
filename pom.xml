@@ -31,9 +31,9 @@
     
     <!-- versions of external libraries -->
     <ant.version>1.6</ant.version>
-    <axis.version>1.2.1</axis.version>
-    <axis-jaxrpc.version>1.2.1</axis-jaxrpc.version>
-    <axis-saaj.version>1.2.1</axis-saaj.version>
+    <axis.version>1.4</axis.version>
+    <axis-jaxrpc.version>1.4</axis-jaxrpc.version>
+    <axis-saaj.version>1.4</axis-saaj.version>
     <c3p0.version>0.9.0.4</c3p0.version>
     <cglib-nodep.version>2.1_3</cglib-nodep.version>
     <commons-beanutils.version>1.7.0</commons-beanutils.version>
@@ -50,7 +50,7 @@
     <commons-lang.version>2.1</commons-lang.version>
     <commons-logging.version>1.0.4</commons-logging.version>
     <dbunit.version>2.4.1</dbunit.version>
-    <dom4j.version>1.4-dev-8</dom4j.version>
+    <dom4j.version>1.4</dom4j.version>
     <ehcache.version>1.4.1</ehcache.version>
     <hibernate.version>3.2.5.ga</hibernate.version>
     <hibernate-annotations.version>3.2.1.ga</hibernate-annotations.version>
@@ -61,6 +61,7 @@
     <jaxen.version>1.1-beta-4</jaxen.version>
     <jetspeed-api.version>2.1</jetspeed-api.version>
     <jetspeed-security.version>2.1</jetspeed-security.version>
+    <jetty.servlet-api.version>2.5-6.0.0beta6</jetty.servlet-api.version>
     <jmock.version>2.1.0</jmock.version>
     <junit.version>3.8.1</junit.version>
     <log4j.version>1.2.9</log4j.version>
@@ -69,7 +70,7 @@
     <org.mortbay.jetty.version>5.1.8</org.mortbay.jetty.version>
     <portlet-api.version>1.0</portlet-api.version>
     <quartz.version>1.5.0</quartz.version>
-    <servlet-api.version>2.5-6.0.0beta6</servlet-api.version>
+    <servlet-api.version>2.4</servlet-api.version>
     <spring-beans.version>2.5.6</spring-beans.version>
     <spring-context.version>2.0.6</spring-context.version>
     <spring-core.version>2.5.6</spring-core.version>
@@ -77,6 +78,7 @@
     <spring-mock.version>2.0.6</spring-mock.version>
     <xerces.version>2.4.0</xerces.version>
     <xml-apis.version>1.0.b2</xml-apis.version>
+    <xmlunit.version>1.0</xmlunit.version>
     <xstream.version>1.2.1</xstream.version>
     <!--<xpp3.version>1.1.2a</xpp3.version>-->
     <!-- belongs to xstream in version xpp3:xpp3_min:jar:1.1.3.4.O -->
@@ -312,13 +314,13 @@
         <type>war</type>
       </dependency>
       <dependency>
-        <groupId>ingrid</groupId>
+        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-admin-step2-dsc</artifactId>
         <version>${ingrid-iplug-admin-step2-dsc.version}</version>
         <type>war</type>
       </dependency>
       <dependency>
-        <groupId>ingrid</groupId>
+        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-admin-step1-webservice</artifactId>
         <version>${ingrid-iplug-admin-step1-webservice.version}</version>
         <type>war</type>
@@ -342,7 +344,7 @@
       <dependency>
         <groupId>jetty</groupId>
         <artifactId>servlet-api</artifactId>
-        <version>${servlet-api.version}</version>
+        <version>${jetty.servlet-api.version}</version>
       </dependency>
       <dependency>
         <groupId>jetty</groupId>
@@ -361,12 +363,12 @@
         <version>${axis.version}</version>
       </dependency>
       <dependency>
-        <groupId>axis</groupId>
+        <groupId>org.apache.axis</groupId>
         <artifactId>axis-jaxrpc</artifactId>
         <version>${axis-jaxrpc.version}</version>
       </dependency>
       <dependency>
-        <groupId>axis</groupId>
+        <groupId>org.apache.axis</groupId>
         <artifactId>axis-saaj</artifactId>
         <version>${axis-saaj.version}</version>
       </dependency>
@@ -379,6 +381,11 @@
         <groupId>xml-apis</groupId>
         <artifactId>xml-apis</artifactId>
         <version>${xml-apis.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>xmlunit</groupId>
+        <artifactId>xmlunit</artifactId>
+        <version>${xmlunit.version}</version>
       </dependency>
       <dependency>
         <groupId>uba</groupId>
@@ -404,6 +411,11 @@
         <groupId>commons-logging</groupId>
         <artifactId>commons-logging</artifactId>
         <version>${commons-logging.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>${servlet-api.version}</version>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
