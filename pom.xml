@@ -11,7 +11,7 @@
     <ingrid-communication.version>1.2.0</ingrid-communication.version>
     <ingrid-communication-authentication.version>1.2.0</ingrid-communication-authentication.version>
     <ingrid-ibus.version>1.2.0</ingrid-ibus.version>
-    <ingrid-ibus-client.version>1.2.0</ingrid-ibus-client.version>
+    <ingrid-ibus-client.version>1.2.1</ingrid-ibus-client.version>
     <ingrid-import-export.version>1.0</ingrid-import-export.version>
     <ingrid-installer.version>1.0.0</ingrid-installer.version>
     <ingrid-iplug.version>1.2.0</ingrid-iplug.version>
