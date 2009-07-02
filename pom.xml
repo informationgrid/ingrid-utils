@@ -3,7 +3,7 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>ingrid-base-pom</name>
   <properties>
     <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
@@ -54,7 +54,7 @@
     <ehcache.version>1.4.1</ehcache.version>
     <hibernate.version>3.2.5.ga</hibernate.version>
     <hibernate-annotations.version>3.2.1.ga</hibernate-annotations.version>
-    <hsqldb.version>1.8.0.1</hsqldb.version>
+    <hsqldb.version>1.8.0.2</hsqldb.version>
     <htmlparser.version>1.0</htmlparser.version>
     <jasper-compiler.version>5.5.9</jasper-compiler.version>
     <jasper-runtime.version>5.5.9</jasper-runtime.version>
