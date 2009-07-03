@@ -3,7 +3,7 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>ingrid-base-pom</name>
   <properties>
     <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
@@ -76,6 +76,9 @@
     <spring-core.version>2.5.6</spring-core.version>
     <spring-hibernate3.version>2.0.6</spring-hibernate3.version>
     <spring-mock.version>2.0.6</spring-mock.version>
+    <!-- this file (taminoapi4j) was added manually to the maven2 repository! -->
+    <taminoapi4j.version>4.2.1.0</taminoapi4j.version>
+    <xalan.version>2.6.0</xalan.version>
     <xerces.version>2.4.0</xerces.version>
     <xml-apis.version>1.0.b2</xml-apis.version>
     <xmlunit.version>1.0</xmlunit.version>
@@ -342,6 +345,11 @@
         <version>${quartz.version}</version>
       </dependency>
       <dependency>
+        <groupId>TaminoAPI4J</groupId>
+        <artifactId>TaminoAPI4J</artifactId>
+        <version>${taminoapi4j.version}</version>
+      </dependency>
+      <dependency>
         <groupId>jetty</groupId>
         <artifactId>servlet-api</artifactId>
         <version>${jetty.servlet-api.version}</version>
@@ -455,6 +463,11 @@
         <scope>test</scope>
       </dependency>
       <dependency>
+        <groupId>xalan</groupId>
+        <artifactId>xalan</artifactId>
+        <version>${xalan.version}</version>
+      </dependency>
+      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${junit.version}</version>
@@ -468,6 +481,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.3</version>
+        <configuration>
+          <redirectTestOutputToFile>true</redirectTestOutputToFile>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
