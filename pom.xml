@@ -51,8 +51,8 @@
     <ingrid-iplug-se.version>1.2.1-SNAPSHOT</ingrid-iplug-se.version>
     <ingrid-iplug-sns.version>1.4.1-SNAPSHOT</ingrid-iplug-sns.version>
     <ingrid-iplug-tamino.version>1.2.1-SNAPSHOT</ingrid-iplug-tamino.version>
-    <ingrid-mdek-api.version>1.1.1-SNAPSHOT</ingrid-mdek-api.version>
-    <ingrid-mdek-services.version>1.1.1-SNAPSHOT</ingrid-mdek-services.version>
+    <ingrid-mdek-api.version>1.1.0-SNAPSHOT</ingrid-mdek-api.version>
+    <ingrid-mdek-services.version>1.1.0-SNAPSHOT</ingrid-mdek-services.version>
     <ingrid-portal-utils.version>1.2.1-SNAPSHOT</ingrid-portal-utils.version>
     <ingrid-utils.version>1.2.2-SNAPSHOT</ingrid-utils.version>
     
