@@ -38,7 +38,7 @@
     <ingrid-communication-authentication.version>1.2.1-SNAPSHOT</ingrid-communication-authentication.version>
     <ingrid-ibus.version>1.2.1-SNAPSHOT</ingrid-ibus.version>
     <ingrid-ibus-client.version>1.2.2-SNAPSHOT</ingrid-ibus-client.version>
-    <ingrid-import-export.version>1.1-SNAPSHOT</ingrid-import-export.version>
+    <ingrid-import-export.version>1.0.0-SNAPSHOT</ingrid-import-export.version>
     <ingrid-installer.version>1.0.1-SNAPSHOT</ingrid-installer.version>
     <ingrid-iplug.version>1.2.1-SNAPSHOT</ingrid-iplug.version>
     <ingrid-iplug-admin-step1.version>1.2.1-SNAPSHOT</ingrid-iplug-admin-step1.version>
