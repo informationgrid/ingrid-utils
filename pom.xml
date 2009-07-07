@@ -68,6 +68,7 @@
     <!-- belongs to axis -->
     <!--axis-jaxrpc.version>1.4</axis-jaxrpc.version-->
     <!--axis-saaj.version>1.4</axis-saaj.version-->
+    <axis2.version>1.4.1</axis2.version>
     <c3p0.version>0.9.0.4</c3p0.version>
     <cglib-nodep.version>2.1_3</cglib-nodep.version>
     <commons-beanutils.version>1.7.0</commons-beanutils.version>
@@ -441,6 +442,11 @@
         <version>${axis-saaj.version}</version>
       </dependency>
 -->
+      <dependency>
+        <groupId>org.apache.axis2</groupId>
+        <artifactId>axis2-kernel</artifactId>
+        <version>${axis2.version}</version>
+      </dependency>
       <dependency>
         <groupId>xerces</groupId>
         <artifactId>xercesImpl</artifactId>
