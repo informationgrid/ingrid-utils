@@ -37,7 +37,7 @@ public class ManifestMetadataInjector implements IMetadataInjector {
 
 	private Manifest _manifest = null;
     
-	private static final Log LOG = LogFactoryImpl.getLog(QueryExtensionPreProcessor.class);
+	private static final Log LOG = LogFactoryImpl.getLog(ManifestMetadataInjector.class);
 
 	public ManifestMetadataInjector() {
 	}
@@ -93,6 +93,11 @@ public class ManifestMetadataInjector implements IMetadataInjector {
 
 	@Override
 	public void configure(PlugDescription description) {
+		// check for existing manifest, do not overwrite it!!
+		if (_manifest != null) {
+			return;
+		}
+		
 		// get the main class of the iPlug and try to get the Manifest.mf
 		String plugClassStr = description.getIPlugClass();
 		if (plugClassStr == null) {
