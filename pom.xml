@@ -30,6 +30,7 @@
     <ingrid-iplug-se.version>1.2.0</ingrid-iplug-se.version>
     <ingrid-iplug-sns.version>1.4.0</ingrid-iplug-sns.version>
     <ingrid-iplug-tamino.version>1.2.0</ingrid-iplug-tamino.version>
+    <ingrid-jetspeed-portal.version>1.2.1</ingrid-jetspeed-portal.version>
     <ingrid-mdek-api.version>1.1.0</ingrid-mdek-api.version>
     <ingrid-mdek-services.version>1.1.0</ingrid-mdek-services.version>
     <ingrid-portal-utils.version>1.2.0</ingrid-portal-utils.version>
@@ -57,6 +58,7 @@
     <ingrid-iplug-se.version>1.2.1-SNAPSHOT</ingrid-iplug-se.version>
     <ingrid-iplug-sns.version>1.4.1-SNAPSHOT</ingrid-iplug-sns.version>
     <ingrid-iplug-tamino.version>1.2.1-SNAPSHOT</ingrid-iplug-tamino.version>
+    <ingrid-jetspeed-portal.version>1.2.1-SNAPSHOT</ingrid-jetspeed-portal.version>
     <ingrid-mdek-api.version>1.1.0-SNAPSHOT</ingrid-mdek-api.version>
     <ingrid-mdek-services.version>1.1.0-SNAPSHOT</ingrid-mdek-services.version>
     <ingrid-portal-utils.version>1.2.1-SNAPSHOT</ingrid-portal-utils.version>
@@ -333,6 +335,11 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-tamino</artifactId>
         <version>${ingrid-iplug-tamino.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-jetspeed-portal</artifactId>
+        <version>${ingrid-jetspeed-portal.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid.mdek</groupId>
