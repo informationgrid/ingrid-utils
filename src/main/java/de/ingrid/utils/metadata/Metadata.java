@@ -107,5 +107,22 @@ public class Metadata implements Serializable {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		String out = "{version: " + _version 
+		+ ", releaseDate: " + _releaseDate 
+		+ ", plugType: " + _plugType 
+		+ ", otherMetadatas: {";
+		boolean start = true;
+		for (String key : _otherMetadatas.keySet()) {
+			if (!start) {
+				out += ", ";
+				start = false;
+			}
+			out += key + ":" +_otherMetadatas.get(key);
+		}
+		return out + "}}"; 
+	}
 
 }

@@ -32,6 +32,7 @@ public class ManifestMetadataInjectorTest extends TestCase {
 		assertNotNull(metadata.getVersion());
 		assertEquals(IPlugType.OTHER, metadata.getPlugType());
 		assertEquals(new Date(0L), metadata.getReleaseDate());
+		System.out.println("injected Metadata: " + metadata);
 
 		// test wrong package/missing MANIFEST
 		pd.setIPlugClass("non.existing.package.class");
