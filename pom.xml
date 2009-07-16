@@ -47,6 +47,7 @@
     <ingrid-iplug.version>1.2.1-SNAPSHOT</ingrid-iplug.version>
     <ingrid-iplug-admin-step1.version>1.2.1-SNAPSHOT</ingrid-iplug-admin-step1.version>
     <ingrid-iplug-admin-step1-management.version>1.2.1-SNAPSHOT</ingrid-iplug-admin-step1-management.version>
+    <ingrid-iplug-admin-step1-sns.version>1.2.1-SNAPSHOT</ingrid-iplug-admin-step1-sns.version>
     <ingrid-iplug-admin-step1-webservice.version>1.2.1-SNAPSHOT</ingrid-iplug-admin-step1-webservice.version>
     <ingrid-iplug-admin-step2-dsc.version>1.2.1-SNAPSHOT</ingrid-iplug-admin-step2-dsc.version>
     <ingrid-iplug-admin-step2-tamino.version>1.2.0-SNAPSHOT</ingrid-iplug-admin-step2-tamino.version>
@@ -386,6 +387,13 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-admin-step2-tamino</artifactId>
         <version>${ingrid-iplug-admin-step2-tamino.version}</version>
+        <type>war</type>
+        <scope>runtime</scope>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-iplug-admin-step1-sns</artifactId>
+        <version>${ingrid-iplug-admin-step1-sns.version}</version>
         <type>war</type>
         <scope>runtime</scope>
       </dependency>
