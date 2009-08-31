@@ -100,11 +100,11 @@ public class PlugDescription extends IngridDocument {
     /***/
     public static final String ACTIVATED = "activated";
     
-    private static final String IPLUG_ADMIN_GUI_URL = "IPLUG_ADMIN_GUI_URL";
+	public static final String IPLUG_ADMIN_GUI_URL = "IPLUG_ADMIN_GUI_URL";
 
-    private static final String IPLUG_ADMIN_PASSWORD = "IPLUG_ADMIN_PASSWORD";
+    public static final String IPLUG_ADMIN_PASSWORD = "IPLUG_ADMIN_PASSWORD";
 
-    private static final Object IPLUG_ADMIN_GUI_PORT = "IPLUG_ADMIN_GUI_PORT";
+    public static final Object IPLUG_ADMIN_GUI_PORT = "IPLUG_ADMIN_GUI_PORT";
 
 	public static final String CORRESPONDENT_PROXY_SERVICE_URL = "CORRESPONDENT_PROXY_SERVICE_URL";
 	
