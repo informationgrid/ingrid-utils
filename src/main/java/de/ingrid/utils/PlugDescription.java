@@ -3,6 +3,7 @@ package de.ingrid.utils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import de.ingrid.utils.metadata.Metadata;
 import de.ingrid.utils.query.IngridQuery;
@@ -111,6 +112,8 @@ public class PlugDescription extends IngridDocument {
 	public static final String METADATA = "METADATAS";
 
 	public static final String METADATA_INJECTORS = "METADATA_INJECTORS";
+
+	public static final String QUERY_EXTENSION_CONTAINER = "QUERY_EXTENSION_CONTAINER";
 
     /**
      * @return Returns first connection or null
@@ -675,5 +678,29 @@ public class PlugDescription extends IngridDocument {
     
     public Metadata getMetadata() {
 		return (Metadata) get(METADATA);
+	}
+
+	public QueryExtensionContainer getQueryExtensionContainer() {
+		return (QueryExtensionContainer) get(QUERY_EXTENSION_CONTAINER);
+	}
+
+	public void setQueryExtensionContainer(QueryExtensionContainer container) {
+		remove(QUERY_EXTENSION_CONTAINER);
+		put(QUERY_EXTENSION_CONTAINER, container);
+	}
+
+	public Map<String, QueryExtension> getQueryExtensions() {
+		return getQueryExtensionContainer().getQueryExtensions();
+	}
+
+	public void addQueryExtension(QueryExtension extension) {
+		getQueryExtensionContainer().addQueryExtension(extension);
+	}
+
+	public void setQueryExtensions(Map<String, QueryExtension> extensions) {
+		remove(QUERY_EXTENSION_CONTAINER);
+		QueryExtensionContainer container = new QueryExtensionContainer();
+		container.setQueryExtension(extensions);
+		put(QUERY_EXTENSION_CONTAINER, container);
 	}
 }

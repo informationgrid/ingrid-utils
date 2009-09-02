@@ -1,7 +1,6 @@
 package de.ingrid.utils.processor.impl;
 
 import java.io.File;
-import java.util.regex.Pattern;
 
 import junit.framework.TestCase;
 import de.ingrid.utils.IConfigurable;
@@ -29,9 +28,8 @@ public class QueryExtensionPreProcessorTest extends TestCase {
         FieldQuery fieldQuery = new FieldQuery(true, true, "foo", "bar");
         queryExtension.addFieldQuery(fieldQuery);
         queryExtension.setBusUrl(_busUrl);
-        queryExtension.setPattern(Pattern.compile("partner:bw"));
         container.addQueryExtension(queryExtension);
-        plugDescription.put("QUERY_EXTENSION", container);
+		plugDescription.put(PlugDescription.QUERY_EXTENSION_CONTAINER, container);
         new XMLSerializer().serialize(plugDescription, _file);
     }
 
