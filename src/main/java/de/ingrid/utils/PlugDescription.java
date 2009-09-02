@@ -690,7 +690,10 @@ public class PlugDescription extends IngridDocument {
 	}
 
 	public Map<String, QueryExtension> getQueryExtensions() {
-		return getQueryExtensionContainer().getQueryExtensions();
+	    if(getQueryExtensionContainer() != null) {
+	        return getQueryExtensionContainer().getQueryExtensions();
+	    }
+	    return null;
 	}
 
 	public void addQueryExtension(QueryExtension extension) {
