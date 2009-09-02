@@ -22,11 +22,11 @@ public class QueryExtensionPreProcessorTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         _file = File.createTempFile("plugdescription", ".xml");
-        PlugDescription plugDescription = new PlugDescription();
-        QueryExtensionContainer container = new QueryExtensionContainer();
-        QueryExtension queryExtension = new QueryExtension();
-        FieldQuery fieldQuery = new FieldQuery(true, true, "foo", "bar");
-        queryExtension.addFieldQuery(fieldQuery);
+        final PlugDescription plugDescription = new PlugDescription();
+        final QueryExtensionContainer container = new QueryExtensionContainer();
+        final QueryExtension queryExtension = new QueryExtension();
+        final FieldQuery fieldQuery = new FieldQuery(true, true, "foo", "bar");
+        queryExtension.addFieldQuery("partner:bw", fieldQuery);
         queryExtension.setBusUrl(_busUrl);
         container.addQueryExtension(queryExtension);
 		plugDescription.put(PlugDescription.QUERY_EXTENSION_CONTAINER, container);
@@ -39,14 +39,14 @@ public class QueryExtensionPreProcessorTest extends TestCase {
     }
 
     public void testProcessorWithoutExtension() throws Exception {
-        IPreProcessor preProcessor = new QueryExtensionPreProcessor();
+        final IPreProcessor preProcessor = new QueryExtensionPreProcessor();
 
-        Object object = new XMLSerializer().deSerialize(_file);
-        PlugDescription plugDescription = (PlugDescription) object;
+        final Object object = new XMLSerializer().deSerialize(_file);
+        final PlugDescription plugDescription = (PlugDescription) object;
 
         ((IConfigurable) preProcessor).configure(plugDescription);
 
-        IngridQuery query = QueryStringParser.parse("wasser");
+        final IngridQuery query = QueryStringParser.parse("wasser");
         FieldQuery[] fields = query.getFields();
         assertEquals(0, fields.length);
         query.put("BUS_URL", "testBusUrl");
@@ -58,14 +58,14 @@ public class QueryExtensionPreProcessorTest extends TestCase {
     }
 
     public void testProcessorWithExtension() throws Exception {
-        IPreProcessor preProcessor = new QueryExtensionPreProcessor();
+        final IPreProcessor preProcessor = new QueryExtensionPreProcessor();
 
-        Object object = new XMLSerializer().deSerialize(_file);
-        PlugDescription plugDescription = (PlugDescription) object;
+        final Object object = new XMLSerializer().deSerialize(_file);
+        final PlugDescription plugDescription = (PlugDescription) object;
 
         ((IConfigurable) preProcessor).configure(plugDescription);
 
-        IngridQuery query = QueryStringParser.parse("wasser partner:bw");
+        final IngridQuery query = QueryStringParser.parse("wasser partner:bw");
         FieldQuery[] fields = query.getFields();
         assertEquals(0, fields.length);
         query.put("BUS_URL", "testBusUrl");
@@ -74,7 +74,7 @@ public class QueryExtensionPreProcessorTest extends TestCase {
 
         fields = query.getFields();
         assertEquals(1, fields.length);
-        FieldQuery fieldQuery2 = fields[0];
+        final FieldQuery fieldQuery2 = fields[0];
         assertEquals("foo", fieldQuery2.getFieldName());
         assertEquals("bar", fieldQuery2.getFieldValue());
 
