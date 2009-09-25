@@ -115,6 +115,8 @@ public class PlugDescription extends IngridDocument {
 
 	public static final String QUERY_EXTENSION_CONTAINER = "QUERY_EXTENSION_CONTAINER";
 
+    public static final String DESERIALIZED_FROM_FOLDER = "deserialized.from.folder";
+
     /**
      * @return Returns first connection or null
      */
@@ -706,4 +708,13 @@ public class PlugDescription extends IngridDocument {
 		container.setQueryExtension(extensions);
 		put(QUERY_EXTENSION_CONTAINER, container);
 	}
+
+    public void setDeserializedFromFolder(File folder) {
+        put(DESERIALIZED_FROM_FOLDER, folder.getAbsolutePath());
+    }
+
+    public File getDesrializedFromFolder() {
+        Object object = get(DESERIALIZED_FROM_FOLDER);
+        return object != null ? new File(object.toString()) : null;
+    }
 }
