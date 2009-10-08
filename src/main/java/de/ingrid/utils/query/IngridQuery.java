@@ -142,12 +142,15 @@ public class IngridQuery extends IngridDocument {
      * @param query
      */
     public IngridQuery(boolean required, boolean prohibited, int type, String query) {
-        put(IngridDocument.DOCUMENT_CONTENT, query);
+		put(IngridDocument.DOCUMENT_CONTENT, query);
         putBoolean(REQUIRED, required);
         putBoolean(PROHIBITED, prohibited);
         //putBoolean(CACHED, true);
         putInt(TYPE, type);
-
+		// bad hack: try to avoid hashcode collision with all constructor values
+		// as string
+		put("constructorValuesAsString", "" + required + ":" + prohibited
+				+ ":" + type + ":" + query);
     }
 
     /**
