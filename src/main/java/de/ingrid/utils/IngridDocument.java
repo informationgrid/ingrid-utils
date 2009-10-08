@@ -29,12 +29,12 @@ public class IngridDocument extends HashMap implements Externalizable {
     /**
      * Comment for <code>DOCUMENT_ID</code>
      */
-    public static final Integer DOCUMENT_ID = new Integer(0);
+	public static final Integer DOCUMENT_ID = new Integer(0);
 
     /**
      * Comment for <code>DOCUMENT_CONTENT</code>
      */
-    public static final Integer DOCUMENT_CONTENT = new Integer(1);
+	public static final Integer DOCUMENT_CONTENT = new Integer(23);
 
     /**
      * Construtor for normal usage
