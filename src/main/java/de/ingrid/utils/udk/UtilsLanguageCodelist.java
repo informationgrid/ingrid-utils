@@ -40,8 +40,16 @@ public class UtilsLanguageCodelist {
 		languageShortcutToCode.put("en", IGC_CODE_ENGLISH);
 	}
 
+	/** MAP: language shortcut ("ger", "deu", "eng") to language code <ISO 639-2 language shortcut, IGC language code>*/
+	static private HashMap<String, Integer> languageIso639_2ToCode = new HashMap<String, Integer>(); 
+	static {
+		languageIso639_2ToCode.put("deu", IGC_CODE_GERMAN);
+		languageIso639_2ToCode.put("ger", IGC_CODE_GERMAN);
+		languageIso639_2ToCode.put("eng", IGC_CODE_ENGLISH);
+	}
+	
 
-	/** Determine IGC language code from language shortcut.
+	/** Determine IGC language code from ISO 639-1 language code.
 	 * @param languageShortcut e.g. "de" or "en"
 	 * @return IGC language code or null if not found
 	 */
@@ -49,6 +57,14 @@ public class UtilsLanguageCodelist {
 		return languageShortcutToCode.get(languageShortcut);
 	}
 
+	/** Determine IGC language code from ISO 639-2 language code.
+	 * @param languageShortcut e.g. "ger" or "eng"
+	 * @return IGC language code or null if not found
+	 */
+	static public Integer getCodeFromIso639_2(String code) {
+		return languageIso639_2ToCode.get(code);
+	}
+	
 	/** Determine language name from IGC language code.
 	 * @param languageCode IGC code of language
 	 * @param languageShortcut in which language should the name be returned, e.g. "de" for german name
@@ -66,13 +82,22 @@ public class UtilsLanguageCodelist {
 		return langName;
 	}
 
-	/** Determine language name from IGC language code.
+	/** Determine language name from ISO 639-1 code.
 	 * @param languageIsoCode ISO 639-1 code of language
-	 * @param languageShortcut in which language should the name be returned, e.g. "de" for german name
+	 * @param languageShortcut ISO 639-1 code in which language should the name be returned, e.g. "de" for german name
 	 * @return language name of IGC language code or null if not found !
 	 */
 	static public String getNameFromShortcut(String languageIsoCode, String languageShortcut) {
 		return UtilsLanguageCodelist.getNameFromCode(UtilsLanguageCodelist.getCodeFromShortcut(languageIsoCode), languageShortcut);
+	}
+
+	/** Determine language name from ISO 639-2 code.
+	 * @param languageIsoCode ISO 639-2 code of language
+	 * @param languageShortcut ISO 639-1 code in which language should the name be returned, e.g. "de" for german name
+	 * @return language name of IGC language code or null if not found !
+	 */
+	static public String getNameFromIso639_2(String languageIsoCode, String languageShortcut) {
+		return UtilsLanguageCodelist.getNameFromCode(UtilsLanguageCodelist.getCodeFromIso639_2(languageIsoCode), languageShortcut);
 	}
 	
 	/** Determine language shortcut (e.g. "de, "en" ...") from IGC language code.
