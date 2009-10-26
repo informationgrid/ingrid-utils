@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class Column extends UniqueObject implements Serializable {
 
-	private static final long serialVersionUID = (long) Column.class.getName()
+	private static final long serialVersionUID = Column.class.getName()
 			.hashCode();
 
 	public static final String TEXT = "text";
@@ -31,6 +31,8 @@ public class Column extends UniqueObject implements Serializable {
 	public static final String DATE = "date";
 
 	public static final String DIGIT = "digit"; // not supported yet
+
+    public static final String BINARY = "binary";
 
 	private String fTableName;
 
@@ -55,17 +57,17 @@ public class Column extends UniqueObject implements Serializable {
 	 * @param b
 	 */
 	public Column(String tableName, String columnName, String type, boolean b) {
-		this.fColumnName = columnName;
-		this.fTableName = tableName;
-		this.fType = type;
-		this.fToIndex = b;
+		fColumnName = columnName;
+		fTableName = tableName;
+		fType = type;
+		fToIndex = b;
 	}
 
 	/**
 	 * @return Returns the columnName.
 	 */
 	public String getColumnName() {
-		return this.fColumnName;
+		return fColumnName;
 	}
 
 	/**
@@ -73,14 +75,14 @@ public class Column extends UniqueObject implements Serializable {
 	 *            The columnName to set.
 	 */
 	public void setColumnName(String columnName) {
-		this.fColumnName = columnName;
+		fColumnName = columnName;
 	}
 
 	/**
 	 * @return Returns the tableName.
 	 */
 	public String getTableName() {
-		return this.fTableName;
+		return fTableName;
 	}
 
 	/**
@@ -88,7 +90,7 @@ public class Column extends UniqueObject implements Serializable {
 	 *            The tableName to set.
 	 */
 	public void setTableName(String tableName) {
-		this.fTableName = tableName;
+		fTableName = tableName;
 	}
 
 	/**
@@ -191,11 +193,11 @@ public class Column extends UniqueObject implements Serializable {
 	}
 
 	public void setFilterIsRequired(boolean required) {
-		this.fFilterIsRequired = required;
+		fFilterIsRequired = required;
 	}
 
 	public boolean filterIsRequired() {
-		return this.fFilterIsRequired;
+		return fFilterIsRequired;
 	}
 
 	/**
@@ -204,15 +206,15 @@ public class Column extends UniqueObject implements Serializable {
 	 * @param filter
 	 */
 	public void addFilter(Filter filter) {
-		if (this.fFilters == null) {
-			this.fFilters = new ArrayList();
+		if (fFilters == null) {
+			fFilters = new ArrayList();
 		}
-		this.fFilters.add(filter);
+		fFilters.add(filter);
 	}
 
 	public Filter[] getFilters() {
 		if (fFilters != null) {
-			return (Filter[]) this.fFilters.toArray(new Filter[this.fFilters
+			return (Filter[]) fFilters.toArray(new Filter[fFilters
 					.size()]);
 		} else {
 			return new Filter[0];
@@ -220,7 +222,7 @@ public class Column extends UniqueObject implements Serializable {
 	}
 
 	public void removeFilter(Filter filter) {
-		this.fFilters.remove(filter);
+		fFilters.remove(filter);
 	}
 
 }
