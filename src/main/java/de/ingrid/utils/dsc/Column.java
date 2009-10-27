@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997-2005 by media style GmbH
+# * Copyright (c) 1997-2005 by media style GmbH
  * 
  * $Source: /cvs/asp-search/src/java/com/ms/aspsearch/PermissionDeniedException.java,v $
  */
@@ -33,6 +33,8 @@ public class Column extends UniqueObject implements Serializable {
 	public static final String DIGIT = "digit"; // not supported yet
 
     public static final String BINARY = "binary";
+
+    public static final String MIME = "mime"; // necessary for binary
 
 	private String fTableName;
 
