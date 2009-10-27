@@ -34,8 +34,6 @@ public class Column extends UniqueObject implements Serializable {
 
     public static final String BINARY = "binary";
 
-    public static final String MIME = "mime"; // necessary for binary
-
 	private String fTableName;
 
 	private String fColumnName;
