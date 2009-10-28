@@ -65,7 +65,7 @@ public class Record extends IngridDocument {
      * @param column
      * @param value
      */
-    public void addColumn(Column column, String value) {
+    public void addColumn(Column column, Object value) {
         addToList(COLUMNS, column);
         addToList(VALUES, value);
         put(column.toString(), value);
@@ -182,7 +182,26 @@ public class Record extends IngridDocument {
         return null;
 
     }
-
+    
+    public byte[] getValueBytes(Column column) {
+        if (containsKey(column.toString())) {
+            byte[] value = (byte[]) get(column.toString());
+            if (value == null) {
+                return null;
+            }
+            return value;
+        }
+        Record[] subRecords = getSubRecords();
+        for (int i = 0; i < subRecords.length; i++) {
+            Record record = subRecords[i];
+            byte[] bytes = record.getValueBytes(column);
+            if (bytes != null) {
+                return bytes;
+            }
+        }
+        return null;
+    }
+    
     // /**
     // * @param i
     // * @return a column value
