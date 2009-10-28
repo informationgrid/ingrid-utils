@@ -587,6 +587,20 @@
           </archive>
         </configuration>
       </plugin>
+   	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-war-plugin</artifactId>
+		<configuration>
+			<archiveClasses>true</archiveClasses>
+			<archive>
+				<manifestEntries>
+					<Implementation-Version>${version}</Implementation-Version>
+					<Implementation-Build>${buildNumber}</Implementation-Build>
+					<Build-Timestamp>${timestamp}</Build-Timestamp>
+				</manifestEntries>
+			</archive>
+		</configuration>
+	</plugin>      
     </plugins>
   </build>
   <repositories>
