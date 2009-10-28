@@ -1,11 +1,9 @@
 package de.ingrid.utils.metadata;
 
-import de.ingrid.utils.PlugDescription;
+import de.ingrid.utils.IConfigurable;
 
-public interface IMetadataInjector {
+public interface IMetadataInjector extends IConfigurable {
 
-	void injectMetaDatas(Metadata metadata);
-	
-	void configure(PlugDescription description);
+    void injectMetaDatas(Metadata metadata);
 
 }
