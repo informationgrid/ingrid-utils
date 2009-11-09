@@ -2278,7 +2278,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Flora, Fauna, Habitate</string>
+            <string>Biologie</string>
           </entry>
         </map>
       </entry>
@@ -2312,7 +2312,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Klima und Atmosphäre</string>
+            <string>Atmosphäre</string>
           </entry>
         </map>
       </entry>
@@ -2329,7 +2329,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Ökonomie</string>
+            <string>Wirtschaft</string>
           </entry>
         </map>
       </entry>
@@ -2346,7 +2346,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Höhe</string>
+            <string>Höhenangaben</string>
           </entry>
         </map>
       </entry>
@@ -2380,7 +2380,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Geowissenschaft</string>
+            <string>Geowissenschaften</string>
           </entry>
         </map>
       </entry>
@@ -2397,7 +2397,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Gesundheit</string>
+            <string>Gesundheitswesen</string>
           </entry>
         </map>
       </entry>
@@ -2414,7 +2414,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Karten</string>
+            <string>Oberflächenbeschreibung</string>
           </entry>
         </map>
       </entry>
@@ -2431,7 +2431,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Militär</string>
+            <string>Militär und Aufklärung</string>
           </entry>
         </map>
       </entry>
@@ -2465,7 +2465,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Ortsangabe</string>
+            <string>Ortsangaben</string>
           </entry>
         </map>
       </entry>
@@ -2482,7 +2482,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Ozeane</string>
+            <string>Meere</string>
           </entry>
         </map>
       </entry>
@@ -2499,7 +2499,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Kataster</string>
+            <string>Planungsunterlagen, Kataster</string>
           </entry>
         </map>
       </entry>
@@ -2533,7 +2533,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Bau</string>
+            <string>Bauwerke</string>
           </entry>
         </map>
       </entry>
@@ -2550,7 +2550,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Transport</string>
+            <string>Verkehrswesen</string>
           </entry>
         </map>
       </entry>
@@ -2567,7 +2567,7 @@
           </entry>
           <entry>
             <long>150</long>
-            <string>Energie und Kommunikation</string>
+            <string>Ver- und Entsorgung, Kommunikation</string>
           </entry>
         </map>
       </entry>
