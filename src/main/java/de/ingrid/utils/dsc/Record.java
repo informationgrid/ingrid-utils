@@ -8,6 +8,7 @@ package de.ingrid.utils.dsc;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import de.ingrid.utils.IngridDocument;
 
@@ -19,7 +20,7 @@ import de.ingrid.utils.IngridDocument;
  */
 public class Record extends IngridDocument {
 
-    private static final long serialVersionUID = (long) Record.class.getName().hashCode();
+    private static final long serialVersionUID = Record.class.getName().hashCode();
 
     private static final String COLUMNS = "columns";
 
@@ -74,9 +75,13 @@ public class Record extends IngridDocument {
     /**
      * @return ge number of columns
      */
+    @SuppressWarnings("unchecked")
     public int numberOfColumns() {
-        return getArrayList(COLUMNS).size();
-
+        List list = getArrayList(COLUMNS);
+        if (list == null) {
+            return 0;
+        }
+        return list.size();
     }
 
     /*
@@ -99,9 +104,9 @@ public class Record extends IngridDocument {
 
         Record[] subRecords = getSubRecords();
         if (subRecords != null) {
-            for (int i = 0; i < subRecords.length; i++) {
+            for (Record subRecord : subRecords) {
                 buffer.append("\t");
-                buffer.append(subRecords[i].toString());
+                buffer.append(subRecord.toString());
                 buffer.append("\n");
             }
         }
@@ -172,8 +177,7 @@ public class Record extends IngridDocument {
             return value;
         }
         Record[] subRecords = getSubRecords();
-        for (int i = 0; i < subRecords.length; i++) {
-            Record record = subRecords[i];
+        for (Record record : subRecords) {
             String valueAsString = record.getValueAsString(column);
             if (valueAsString != null) {
                 return valueAsString;
@@ -192,8 +196,7 @@ public class Record extends IngridDocument {
             return value;
         }
         Record[] subRecords = getSubRecords();
-        for (int i = 0; i < subRecords.length; i++) {
-            Record record = subRecords[i];
+        for (Record record : subRecords) {
             byte[] bytes = record.getValueBytes(column);
             if (bytes != null) {
                 return bytes;
