@@ -676,4 +676,13 @@ public class PlugDescription extends IngridDocument {
     public Metadata getMetadata() {
 		return (Metadata) get(METADATA);
 	}
+    
+    public boolean containsDataType(String lookForType) {
+        String[] types = getDataTypes();
+        for (String type : types) {
+            if (type.contains(lookForType))
+                return true;
+        }
+        return false;
+    }
 }
