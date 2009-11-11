@@ -717,4 +717,14 @@ public class PlugDescription extends IngridDocument {
         Object object = get(DESERIALIZED_FROM_FOLDER);
         return object != null ? new File(object.toString()) : null;
     }
+    
+        
+    public boolean containsDataType(String lookForType) {
+        String[] types = getDataTypes();
+        for (String type : types) {
+            if (type.contains(lookForType))
+                return true;
+        }
+        return false;
+    }
 }
