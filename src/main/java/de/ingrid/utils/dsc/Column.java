@@ -119,7 +119,8 @@ public class Column extends UniqueObject implements Serializable {
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString() {
-		return getTableName() + "." + getColumnName();
+        String tableName = getTableName();
+        return (tableName != null && !"".equals(tableName) ? (tableName + ".") : "") + getColumnName();
 	}
 
 	/**
