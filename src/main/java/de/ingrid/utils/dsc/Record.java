@@ -66,6 +66,12 @@ public class Record extends IngridDocument {
      * @param column
      * @param value
      */
+    public void addColumn(Column column, String value) {
+        addToList(COLUMNS, column);
+        addToList(VALUES, value);
+        put(column.toString(), value);
+    }
+
     public void addColumn(Column column, Object value) {
         addToList(COLUMNS, column);
         addToList(VALUES, value);
