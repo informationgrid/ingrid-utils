@@ -1,6 +1,5 @@
 package de.ingrid.utils.metadata;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
@@ -8,9 +7,10 @@ import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
 import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.commons.logging.impl.LogFactoryImpl;
 
 import de.ingrid.utils.PlugDescription;
+import de.ingrid.utils.processor.impl.QueryExtensionPreProcessor;
 
 /**
  * This MetadataInjector tries to get the required information from the
@@ -37,7 +37,7 @@ public class ManifestMetadataInjector implements IMetadataInjector {
 
 	private Manifest _manifest = null;
     
-	private static final Log LOG = LogFactory.getLog(ManifestMetadataInjector.class);
+	private static final Log LOG = LogFactoryImpl.getLog(ManifestMetadataInjector.class);
 
 	public ManifestMetadataInjector() {
 	}
@@ -104,16 +104,14 @@ public class ManifestMetadataInjector implements IMetadataInjector {
 			LOG.error("iplug class in plugdescription not set.");
 		} else {
 			String classContainer = null;
+			URL manifestUrl;
 			try {
 				Class<?> plugClass = Thread.currentThread().getContextClassLoader().loadClass(plugClassStr);
-                URL location = plugClass.getProtectionDomain().getCodeSource().getLocation();
-                classContainer = location.toString();
-                if (new File(location.getFile()).exists()) {
-                    URL manifestUrl = new URL("jar:" + classContainer + "!/META-INF/MANIFEST.MF");
-                    _manifest = new Manifest(manifestUrl.openStream());
-                    if (LOG.isDebugEnabled()) {
-                        LOG.debug("Accessing manifest: " + "jar:" + classContainer + "!/META-INF/MANIFEST.MF");
-                    }
+				classContainer = plugClass.getProtectionDomain().getCodeSource().getLocation().toString();
+				manifestUrl = new URL("jar:" + classContainer + "!/META-INF/MANIFEST.MF");
+				_manifest = new Manifest(manifestUrl.openStream());
+				if (LOG.isDebugEnabled()) {
+					LOG.debug("Accessing manifest: " + "jar:" + classContainer + "!/META-INF/MANIFEST.MF");
 				}
 			} catch (MalformedURLException e) {
 				LOG.error("Could not create URL for jar '" + classContainer + "'.", e);
