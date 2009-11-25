@@ -117,6 +117,14 @@ public class PlugDescription extends IngridDocument {
 
     public static final String DESERIALIZED_FROM_FOLDER = "deserialized.from.folder";
 
+    public static final String CACHE_ACTIVE = "CACHE_ACTIVE";
+
+    public static final String CACHED_ELEMENTS = "CACHED_ELEMENTS";
+
+    public static final String CACHED_IN_DISK_STORE = "CACHED_IN_DISK_STORE";
+
+    public static final String CACHED_LIFE_TIME = "CACHED_LIFE_TIME";
+
     /**
      * @return Returns first connection or null
      */
@@ -722,8 +730,9 @@ public class PlugDescription extends IngridDocument {
     public boolean containsDataType(String lookForType) {
         String[] types = getDataTypes();
         for (String type : types) {
-            if (type.contains(lookForType))
+            if (type.contains(lookForType)) {
                 return true;
+            }
         }
         return false;
     }
@@ -731,9 +740,42 @@ public class PlugDescription extends IngridDocument {
     public boolean containsRankingType(String lookForType) {
         String[] types = getRankingTypes();
         for (String type : types) {
-            if (type.contains(lookForType))
+            if (type.contains(lookForType)) {
                 return true;
+            }
         }
         return false;
+    }
+
+    public boolean getCacheActive() {
+        return (Boolean) get(CACHE_ACTIVE);
+    }
+
+    public void setCacheActive(final boolean active) {
+        put(CACHE_ACTIVE, active);
+    }
+
+    public long getCachedElements() {
+        return (Long) get(CACHED_ELEMENTS);
+    }
+
+    public void setCachedElements(final long count) {
+        put(CACHED_ELEMENTS, count);
+    }
+
+    public boolean getCachedInDiskStore() {
+        return (Boolean) get(CACHED_IN_DISK_STORE);
+    }
+
+    public void setCachedInDiskStore(final boolean store) {
+        put(CACHED_IN_DISK_STORE, store);
+    }
+
+    public long getCachedLifeTime() {
+        return (Long) get(CACHED_LIFE_TIME);
+    }
+
+    public void setCachedLifeTime(final long time) {
+        put(CACHED_LIFE_TIME, time);
     }
 }
