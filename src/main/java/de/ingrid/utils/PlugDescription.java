@@ -752,7 +752,7 @@ public class PlugDescription extends IngridDocument {
     }
 
     public void setCacheActive(final boolean active) {
-        put(CACHE_ACTIVE, active);
+        putBoolean(CACHE_ACTIVE, active);
     }
 
     public int getCachedElements() {
@@ -760,7 +760,7 @@ public class PlugDescription extends IngridDocument {
     }
 
     public void setCachedElements(final int count) {
-        put(CACHED_ELEMENTS, count);
+        putInt(CACHED_ELEMENTS, count);
     }
 
     public boolean getCachedInDiskStore() {
@@ -768,14 +768,14 @@ public class PlugDescription extends IngridDocument {
     }
 
     public void setCachedInDiskStore(final boolean store) {
-        put(CACHED_IN_DISK_STORE, store);
+        putBoolean(CACHED_IN_DISK_STORE, store);
     }
 
     public int getCachedLifeTime() {
         return getInt(CACHED_LIFE_TIME);
     }
 
-    public void setCachedLifeTime(final long time) {
-        put(CACHED_LIFE_TIME, time);
+    public void setCachedLifeTime(final int time) {
+        putInt(CACHED_LIFE_TIME, time);
     }
 }
