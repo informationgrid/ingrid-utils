@@ -28,6 +28,8 @@ public class UtilsUDKCodeListsTest extends TestCase {
         assertEquals(true, UtilsUDKCodeLists.codeList505ToUDK(value).equals("0"));
         
     	assertEquals("5129", UtilsUDKCodeLists.getCodeListDomainId(101L, "European Vertical Reference Frame 2000", new Long(123)));
+    	
+    	assertEquals("318", UtilsUDKCodeLists.getCodeListDomainId(6100L, "Habitats and biotopes", new Long(123)));
 
     }
     
