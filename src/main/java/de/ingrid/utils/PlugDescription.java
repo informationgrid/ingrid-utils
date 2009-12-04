@@ -685,4 +685,13 @@ public class PlugDescription extends IngridDocument {
         }
         return false;
     }
+    
+    public boolean containsRankingType(String lookForType) {
+        String[] types = getRankingTypes();
+        for (String type : types) {
+            if (type.contains(lookForType))
+                return true;
+        }
+        return false;
+    }
 }
