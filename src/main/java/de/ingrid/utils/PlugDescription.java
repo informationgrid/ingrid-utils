@@ -51,6 +51,9 @@ public class PlugDescription extends IngridDocument {
     public static final String ORGANISATION_ABBR = "organisationAbbr";
 
     /***/
+    public static final String ORGANISATION_PARTNER_ABBR = "organisationPartnerAbbr";
+
+    /***/
     public static final String PERSON_MAIL = "personMail";
 
     /***/
@@ -307,6 +310,14 @@ public class PlugDescription extends IngridDocument {
      */
     public void setOrganisationAbbr(String organisationAbbr) {
         put(ORGANISATION_ABBR, organisationAbbr);
+    }
+
+    public String getOrganisationPartnerAbbr() {
+        return (String) get(ORGANISATION_PARTNER_ABBR);
+    }
+
+    public void setOrganisationPartnerAbbr(String organisationPartnerAbbr) {
+        put(ORGANISATION_PARTNER_ABBR, organisationPartnerAbbr);
     }
 
     /**
