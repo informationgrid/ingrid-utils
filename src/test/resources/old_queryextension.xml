@@ -1,0 +1,20 @@
+<de.ingrid.utils.PlugDescription>
+  <int>1</int>
+  <string>QUERY_EXTENSION_CONTAINER</string>
+  <de.ingrid.utils.QueryExtensionContainer>
+    <int>1</int>
+	<de.ingrid.utils.QueryExtension>
+	  <string>/test:ibus</string>
+	  <int>2</int>
+	  <boolean>false</boolean>
+	  <boolean>true</boolean>
+	  <string>partner</string>
+	  <string>bw</string>
+	  <boolean>true</boolean>
+      <boolean>false</boolean>
+      <string>test</string>
+      <string>true</string>
+	  <string>test.*</string>
+    </de.ingrid.utils.QueryExtension>
+  </de.ingrid.utils.QueryExtensionContainer>
+</de.ingrid.utils.PlugDescription>

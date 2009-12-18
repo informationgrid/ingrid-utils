@@ -40,8 +40,7 @@ public class QueryExtensionContainer implements Externalizable {
         _queryExtensions.clear();
         int size = in.readInt();
         for (int i = 0; i < size; i++) {
-			QueryExtension extension = new QueryExtension();
-			extension.readExternal(in);
+            QueryExtension extension = (QueryExtension) in.readObject();
             _queryExtensions.put(extension.getBusUrl(), extension);
         }
     }
@@ -51,7 +50,7 @@ public class QueryExtensionContainer implements Externalizable {
 		out.writeInt(_queryExtensions.size());
 		Collection<QueryExtension> values = _queryExtensions.values();
 		for (QueryExtension queryExtension : values) {
-			queryExtension.writeExternal(out);
+            out.writeObject(queryExtension);
 		}
 	}
 }
