@@ -1,5 +1,140 @@
 <map>
 	<entry>
+		<long>6010</long>
+		<map>
+			<entry>
+				<long>1</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>keine</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>no conditions apply</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>2</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund der Vertraulichkeit der Verfahren von Behörden</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the confidentiality of the proceedings of public authorities</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>3</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund internationaler Beziehungen, der öffentliche Sicherheit oder der Landesverteidigung</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>international relations, public security or national defence</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>4</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund laufender Gerichtsverfahren</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the course of justice</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>5</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund der Vertraulichkeit von Geschäfts- oder Betriebsinformationen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the confidentiality of commercial or industrial information</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>6</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund der Rechte des geistigen Eigentums</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>intellectual property rights</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>7</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund der Vertraulichkeit personenbezogener Daten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the confidentiality of personal data and/or files</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>8</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund des Schutzes einer Person</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the interests or protection of any person</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>9</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund des Schutzes von Umweltbereichen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the protection of the environment</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>10</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>unbekannt</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>conditions unknown</string>
+					</entry>
+				</map>
+			</entry>
+		</map>
+	</entry>
+	<entry>
 		<long>5200</long>
 		<map>
 			<entry>
