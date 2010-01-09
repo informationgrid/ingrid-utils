@@ -51,6 +51,10 @@ public class UtilsCSWDate {
 			datePattern = "yyyyMMdd'T'HHmmss";
 		} else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9]")) {
 			datePattern = "yyyy-MM-dd'T'HH:mm:ss";
+		} else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9]\\.[0-9]+")) {
+			datePattern = "yyyy-MM-dd'T'HH:mm:ss.sss";
+		} else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9]\\.[0-9]+Z")) {
+			datePattern = "yyyy-MM-dd'T'HH:mm:ss.sssZ";
 		}
 		return datePattern;
 	}
