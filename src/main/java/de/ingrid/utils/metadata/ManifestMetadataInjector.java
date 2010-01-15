@@ -1,5 +1,6 @@
 package de.ingrid.utils.metadata;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
@@ -10,7 +11,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.impl.LogFactoryImpl;
 
 import de.ingrid.utils.PlugDescription;
-import de.ingrid.utils.processor.impl.QueryExtensionPreProcessor;
 
 /**
  * This MetadataInjector tries to get the required information from the
@@ -118,9 +118,23 @@ public class ManifestMetadataInjector implements IMetadataInjector {
 			} catch (ClassNotFoundException e) {
 				LOG.error("Could not instantiate class '" + plugClassStr + "'.", e);
 			} catch (Exception e) {
-				LOG.error("Error accessing MANIFEST.MF in jar '" + classContainer + "' that contains class '" + plugClassStr + "'.", e);
+			    // try to get it from the webapp (newer iPlugs)
+			    getManifestFromWebapp(classContainer, plugClassStr);
 			}
 		}
 	}
+
+    private void getManifestFromWebapp(String classDir, String plugClassStr) {
+        try {
+            URL url = new URL(classDir + "../../META-INF/MANIFEST.MF");
+            _manifest = new Manifest(url.openStream());
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Accessing manifest from webapp: " + classDir + "../../META-INF/MANIFEST.MF");
+            }
+        } catch (IOException e) {
+            LOG.error("Error accessing MANIFEST.MF in jar or webapp-dir '" + classDir + "' that contains class '" + plugClassStr + "'.", e);
+        }
+
+    }
 
 }
