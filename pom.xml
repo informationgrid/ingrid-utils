@@ -83,10 +83,10 @@
     <quartz.version>1.6.5</quartz.version>
     <servlet-api.version>2.4</servlet-api.version>
     <spring-beans.version>2.5.6</spring-beans.version>
-    <spring-context.version>2.0.6</spring-context.version>
+    <spring-context.version>2.5.6</spring-context.version>
     <spring-core.version>2.5.6</spring-core.version>
-    <spring-hibernate3.version>2.0.6</spring-hibernate3.version>
-    <spring-mock.version>2.0.6</spring-mock.version>
+    <spring-hibernate3.version>2.5.6</spring-hibernate3.version>
+    <spring-mock.version>2.5.6</spring-mock.version>
     <!-- this file (taminoapi4j) was added manually to the maven2 repository! -->
     <taminoapi4j.version>4.2.1.0</taminoapi4j.version>
     <xalan.version>2.7.0</xalan.version>
