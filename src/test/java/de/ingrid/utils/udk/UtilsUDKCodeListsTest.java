@@ -16,6 +16,10 @@ public class UtilsUDKCodeListsTest extends TestCase {
         
         String languageName = UtilsUDKCodeLists.getCodeListEntryName(new Long(99999999), new Long(123), new Long(150));
         assertEquals(true, languageName.equals("Englisch"));
+        
+        assertEquals("Boden", UtilsUDKCodeLists.getCodeListEntryName(1410L, 4L, 150L));
+        assertEquals("Risk-Assessment", UtilsUDKCodeLists.getCodeListEntryName(1400L, 4L, 123L));
+        
     }
 
     public void testGetCodeListDomainId() {
