@@ -14,8 +14,13 @@ import de.ingrid.utils.PlugDescription;
 
 /**
  * This MetadataInjector tries to get the required information from the
- * MANIFEST.MF file from iPlug's jar. If no MANIFEST.MF is found, the
- * metadata is not changed.
+ * MANIFEST.MF file from iPlug's jar. It tries to load the jar based on
+ * the class file references in the {@see PlugDescription}.
+ * 
+ * If the class file is unpacked in a web application (WEB-INF/classes),
+ * the MAINIFEST.MF will be obtained from the path ../../META-INF/MANIFEST.MF
+ * 
+ * If no MANIFEST.MF is found, the metadata is not changed.
  * 
  * It scans the following items:
  * 
