@@ -19,6 +19,7 @@ public class UtilsUDKCodeListsTest extends TestCase {
         
         assertEquals("Boden", UtilsUDKCodeLists.getCodeListEntryName(1410L, 4L, 150L));
         assertEquals("Risk-Assessment", UtilsUDKCodeLists.getCodeListEntryName(1400L, 4L, 123L));
+        assertEquals("Book/Monograph/Series", UtilsUDKCodeLists.getCodeListEntryName(3385L, 4L, 123L));
         
     }
 
