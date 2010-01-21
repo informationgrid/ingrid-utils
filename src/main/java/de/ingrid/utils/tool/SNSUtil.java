@@ -51,4 +51,33 @@ public class SNSUtil {
         return agsCode;
     }
 
+    /** Prepare topicId for transport via IngridQuery.
+     * Topic ID from GSSoil ThesaurusService is URL. Has to be processed, put in quotes ... */
+    public static String marshallTopicId(String topicId) {
+    	String result = topicId;
+    	
+    	if (topicId != null) {
+    		if (topicId.indexOf("/") != -1) {
+    			result = topicId.replace("/", "\\");
+    			result = "\"" + result + "\"";
+    		}
+    	}
+
+    	return result;
+    }
+
+    /** Bring topicId back to original state after transport via IngridQuery.
+     * Topic ID from GSSoil ThesaurusService is URL. Was processed, put in quotes ... */
+    public static String unmarshallTopicId(String topicId) {
+    	String result = topicId;
+    	
+    	if (result != null) {
+    		if (result.indexOf("\\") != -1) {
+    			result = result.replace("\\", "/");
+    			result = result.replace("\"", "");
+    		}
+    	}
+
+    	return result;
+    }
 }
