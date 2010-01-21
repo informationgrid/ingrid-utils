@@ -1,5 +1,1512 @@
 <map>
 	<entry>
+		<long>3385</long>
+		<map>
+			<entry>
+				<long>1</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Aufsatz/Artikel/Tagungsbeitrag</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Article/Conference Contribution</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>2</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Broschüre/Bericht</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Brochure/Bulletin</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>3</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Zeitschrift</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Journal</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>4</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Buch/Monographie/Reihe</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Book/Monograph/Series</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>5</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Tagungsband/Sammelwerk</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Proceedings/Compilation</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>6</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Fachgutachten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Expert Report</string>
+					</entry>
+				</map>
+			</entry>
+		</map>
+	</entry>
+	<entry>
+		<long>1400</long>
+		<map>
+			<entry>
+				<long>1</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Daten und Karten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Data and Maps</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>2</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Konzeptionelles</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Concepts</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>3</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Rechtliches</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Legislation</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>4</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Risikobewertungen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Risk-Assessment</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>5</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Statusberichte</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Reports</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>6</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Umweltzustand</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Stat-of-the-Environment</string>
+					</entry>
+				</map>
+			</entry>
+		</map>
+	</entry>
+	<entry>
+		<long>1410</long>
+		<map>
+			<entry>
+				<long>1</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Abfall</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Waste</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>2</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Altlasten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Soil Pollution</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>3</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Bauen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Construction</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>4</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Boden</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Soil</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>5</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Chemikalien</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Chemicals</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>6</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Energie</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Energy</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>7</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Forstwirtschaft</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Forestry</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>8</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Gentechnik</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Gene-Technology</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>9</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Geologie</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geology</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>10</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Gesundheit</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Health</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>11</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Lärm und Erschütterungen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Noise</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>12</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Landwirtschaft</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Agriculture</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>13</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Luft und Klima</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Air and Climate</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>14</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Nachhaltige Entwicklung</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Sustainable Development</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>15</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Natur und Landschaft</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Nature and Landscape</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>16</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Strahlung</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Radiation</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>17</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Tierschutz</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Animal Health</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>18</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Umweltinformationen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Environmental Information</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>19</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Umweltwirtschaft</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Environmental Economy</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>20</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Verkehr</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Traffic</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>21</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Wasser</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Water</string>
+					</entry>
+				</map>
+			</entry>
+		</map>
+	</entry>
+	<entry>
+		<long>6010</long>
+		<map>
+			<entry>
+				<long>1</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>keine</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>no conditions apply</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>2</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund der Vertraulichkeit der Verfahren von Behörden</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the confidentiality of the proceedings of public authorities</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>3</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund internationaler Beziehungen, der öffentliche Sicherheit oder der Landesverteidigung</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>international relations, public security or national defence</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>4</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund laufender Gerichtsverfahren</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the course of justice</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>5</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund der Vertraulichkeit von Geschäfts- oder Betriebsinformationen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the confidentiality of commercial or industrial information</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>6</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund der Rechte des geistigen Eigentums</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>intellectual property rights</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>7</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund der Vertraulichkeit personenbezogener Daten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the confidentiality of personal data and/or files</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>8</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund des Schutzes einer Person</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the interests or protection of any person</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>9</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>aufgrund des Schutzes von Umweltbereichen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>the protection of the environment</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>10</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>unbekannt</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>conditions unknown</string>
+					</entry>
+				</map>
+			</entry>
+		</map>
+	</entry>
+	<entry>
+		<long>5200</long>
+		<map>
+			<entry>
+				<long>101</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Katalogdienst (humanCatalogueViewer)</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Catalogue viewer</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>102</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für geografische Visualisierung</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geographic viewer</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>103</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für geografische Tabellenkalkulation</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geographic spreadsheet viewer</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>104</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Editor für Verarbeitungsdienste</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Service editor</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>105</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Editor für die Definition von Bearbeitungsketten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Chain definition editor</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>106</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Aufrufprogramm für Bearbeitungsketten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Workflow enactment manager</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>107</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Editor für geografische Objekte</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geographic feature editor</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>108</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Editor für geografische Symbole</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geographic symbol editor</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>109</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Editor für die Objektgeneralisierung</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Feature generalization editor</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>110</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Betrachter für geografische Datenstrukturen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geographic data-structure viewer</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>201</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für den Zugriff auf Objekte</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Feature access service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>202</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für den Zugriff auf grafische Darstellungen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Map access service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>203</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für den Zugriff auf Rasterdaten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Coverage access service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>204</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die Beschreibung von Sensoren</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Sensor description service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>205</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für den Zugriff auf Produkte</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Product access service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>206</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für den Zugriff auf Objektarten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Feature type service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>207</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Katalogdienst (infoCatalogueService)</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Catalogue service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>208</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Registerdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Registry Service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>209</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Gazetteerdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Gazetteer service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>210</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Auftragsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Order handling service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>211</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dauerauftragsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Standing order service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>301</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die Definition von Bearbeitungsketten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Chain definition service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>302</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die Ausführung von Bearbeitungsketten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Workflow enactment service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>303</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Abonnementdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Subscription service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>401</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die Konversion von Koordinaten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Coordinate conversion service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>402</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die Transformation von Koordinaten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Coordinate transformation service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>403</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die Umwandlung zwischen Raster- und Vektordaten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Coverage/vector conversion service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>404</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die Konversion von Bildkoordinaten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Image coordinate conversion service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>405</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Entzerrungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Rectification service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>406</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Ortho-Entzerrungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Orthorectification service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>407</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die Justierung von Geometriemodellen von Sensoren</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Sensor geometry model adjustment service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>408</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die Konversion von Geometriemodellen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Image geometry model conversion service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>409</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Geografischer Ausschnittsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Subsetting service (spatial)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>410</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Raumbezogener Auswahldienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Sampling service (spatial)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>411</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Kachelungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Tiling change service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>412</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Messungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Dimension measurement service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>413</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Objektbearbeitungsdienste</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Feature manipulation services</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>414</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Vergleichsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Feature matching service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>415</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Generalisierungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Feature generalization service (spatial)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>416</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Routensuchdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Route determination service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>417</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Positionierungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Positioning service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>418</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Analysedienst für räumliche Nachbarschaftsbeziehungen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Proximity analysis service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>501</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Berechnungsdienst für Geoparameter</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geoparameter calculation service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>502</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für die thematische Klassifizierung</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Thematic classification service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>503</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Generalisierungsdienst für Objektarten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Feature generalization service (thematic)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>504</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Themenbezogener Ausschnittsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Subsetting service (thematic)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>505</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Zähldienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Spatial counting service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>506</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Erkennungsdienst für Veränderungen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Change detection service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>507</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Auszugsdienste für geografische Informationen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geographic information extraction services</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>508</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Themenbezogener Bildverarbeitungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Image processing service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>509</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Auflösungsreduzierungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Reduced resolution generation service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>510</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Bildbearbeitungsdienste</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Image Manipulation Services</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>511</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Interpretationsdienste für Bilder</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Image understanding services</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>512</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Bildsynthesedienste</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Image synthesis services</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>513</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Multiband-Bildbearbeitung</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Multi-band image manipulation</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>514</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Objekterkennungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Object detection service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>515</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Geoparserdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geoparsing service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>516</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Geocodierungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geocoding service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>601</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Transformationsdienst für den Zeitbezug</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Temporal reference system transformation service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>602</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Zeitbezogener Ausschnittsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Subsetting service (temporal)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>603</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Zeitbezogener Auswahldienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Sampling service (temporal)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>604</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Analysedienst für zeitbezogene Nachbarschaftsbeziehungen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Temporal proximity analysis service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>701</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für statistische Berechnungen</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Statistical calculation service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>702</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Ergänzungsdienste für Geodaten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geographic annotation services</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>801</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Codierungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Encoding service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>802</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Übertragungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Transfer service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>803</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Kompressionsdienst für Geodaten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geographic compression service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>804</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Umformatierungsdienst für Geodaten</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Geographic format conversion service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>805</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Nachrichtenübermittlungsdienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Messaging service</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>806</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Dienst für den Zugriff auf externe Daten und Programme</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Remote file and executable management</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>901</long>
+				<map>
+					<entry>
+						<long>150</long>
+						<string>Kein geografischer Dienst</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Non Geographic Service</string>
+					</entry>
+				</map>
+			</entry>
+		</map>
+	</entry>
+	<entry>
 		<long>6100</long>
 		<map>
 			<entry>
