@@ -3,8 +3,6 @@ package de.ingrid.utils.metadata;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
@@ -96,10 +94,6 @@ public class ManifestMetadataInjector implements IMetadataInjector {
             try {
                 buildTimeStamp = Long.parseLong(value);
             } catch (NumberFormatException e) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd").parse(value);
-                } catch (ParseException e1) {
-                }
             }
 		}
 		return new Date(buildTimeStamp);
