@@ -4,11 +4,9 @@ import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -64,7 +62,7 @@ public class QueryExtension implements Externalizable {
                 return _queryMap.get(pattern);
             }
         }
-        return new HashSet<FieldQuery>();
+        return null;
 	}
 
     public void addFieldQuery(final FieldQuery fieldQuery) {
@@ -72,8 +70,12 @@ public class QueryExtension implements Externalizable {
     }
 
 	public void addFieldQuery(final String regex, final FieldQuery fieldQuery) {
-        final Set<FieldQuery> fields = getFieldQueries(regex);
-        fields.add(fieldQuery);
+        Set<FieldQuery> fieldQueries = getFieldQueries(regex);
+        if (fieldQueries == null) {
+            fieldQueries = new HashSet<FieldQuery>();
+            _queryMap.put(Pattern.compile(regex), fieldQueries);
+        }
+        fieldQueries.add(fieldQuery);
 	}
 
 	public void addFieldQuery(final Pattern pattern, final FieldQuery fieldQuery) {
@@ -93,24 +95,28 @@ public class QueryExtension implements Externalizable {
 
     public void readNewExternal(final ObjectInput in) throws IOException, ClassNotFoundException {
         _busUrl = (String) in.readObject();
+        _queryMap.clear();
         final int patternCount = in.readInt();
         for (int i = 0; i < patternCount; i++) {
-            final Pattern pattern = Pattern.compile((String) in.readObject());
+            final String regex = (String) in.readObject();
             final int fieldCount = in.readInt();
+            final Set<FieldQuery> fieldQueries = new HashSet<FieldQuery>(fieldCount);
             for (int j = 0; j < fieldCount; j++) {
                 final boolean required = in.readBoolean();
                 final boolean prohibited = in.readBoolean();
                 final String fieldName = (String) in.readObject();
                 final String fieldValue = (String) in.readObject();
-                addFieldQuery(pattern, new FieldQuery(required, prohibited, fieldName, fieldValue));
+                fieldQueries.add(new FieldQuery(required, prohibited, fieldName, fieldValue));
             }
+            _queryMap.put(Pattern.compile(regex), fieldQueries);
         }
     }
 
     public void readOldExternal(final String bus, final ObjectInput in) throws IOException, ClassNotFoundException {
         _busUrl = bus;
+        _queryMap.clear();
         int count = in.readInt();
-        final List<FieldQuery> fieldQueries = new ArrayList<FieldQuery>();
+        final Set<FieldQuery> fieldQueries = new HashSet<FieldQuery>();
         for (int i = 0; i < count; i++) {
             boolean required = in.readBoolean();
             boolean prohibited = in.readBoolean();
@@ -118,10 +124,8 @@ public class QueryExtension implements Externalizable {
             String fieldValue = (String) in.readObject();
             fieldQueries.add(new FieldQuery(required, prohibited, fieldName, fieldValue));
         }
-        final Pattern pattern = Pattern.compile(((String) in.readObject()));
-        for (final FieldQuery fieldQuery : fieldQueries) {
-            addFieldQuery(pattern, fieldQuery);
-        }
+        final String regex = (String) in.readObject();
+        _queryMap.put(Pattern.compile(regex), fieldQueries);
     }
 
     @Override
