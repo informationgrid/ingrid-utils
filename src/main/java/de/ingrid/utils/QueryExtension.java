@@ -59,7 +59,12 @@ public class QueryExtension implements Externalizable {
     }
 
 	public Set<FieldQuery> getFieldQueries(final String regex) {
-		return _queryMap.get(Pattern.compile(regex));
+        for (final Pattern pattern : _queryMap.keySet()) {
+            if (pattern.pattern().equals(regex)) {
+                return _queryMap.get(pattern);
+            }
+        }
+        return new HashSet<FieldQuery>();
 	}
 
     public void addFieldQuery(final FieldQuery fieldQuery) {
