@@ -55,7 +55,7 @@ public class QueryExtension implements Externalizable {
 	}
 
 	public Set<FieldQuery> getFieldQueries(final Pattern pattern) {
-		return _queryMap.get(pattern);
+        return getFieldQueries(pattern.pattern());
     }
 
 	public Set<FieldQuery> getFieldQueries(final String regex) {
@@ -72,16 +72,12 @@ public class QueryExtension implements Externalizable {
     }
 
 	public void addFieldQuery(final String regex, final FieldQuery fieldQuery) {
-		addFieldQuery(Pattern.compile(regex), fieldQuery);
+        final Set<FieldQuery> fields = getFieldQueries(regex);
+        fields.add(fieldQuery);
 	}
 
 	public void addFieldQuery(final Pattern pattern, final FieldQuery fieldQuery) {
-		Set<FieldQuery> fields = _queryMap.get(pattern);
-		if (fields == null) {
-			fields = new HashSet<FieldQuery>();
-		}
-		fields.add(fieldQuery);
-		_queryMap.put(pattern, fields);
+        addFieldQuery(pattern.pattern(), fieldQuery);
     }
 
     @Override
