@@ -8,11 +8,11 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-utils</artifactId>
   <packaging>jar</packaging>
-  <version>1.2.4-SNAPSHOT</version>
+  <version>1.2.4</version>
   <name>ingrid-utils</name>
   <scm>
-    <connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-utils/tags/ingrid-utils-1.2.2</connection>
-    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-utils/tags/ingrid-utils-1.2.2</developerConnection>
+    <connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-utils/tags/ingrid-utils-1.2.4</connection>
+    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-utils/tags/ingrid-utils-1.2.4</developerConnection>
   </scm>
   <repositories>
     <!-- Repo of parent pom needed, parent pom may not be installed locally yet -->
