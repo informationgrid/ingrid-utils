@@ -123,6 +123,7 @@ public class UtilsUDKCodeListsTest extends TestCase {
     	assertEquals("5", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(517L, "theme"));
     	assertEquals("8", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(524L, "otherRestrictions"));
     	assertEquals("10", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(527L, "imageryBaseMapsEarthCover"));
+    	assertEquals("6", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(5100L, "other"));
     }
     
     public void testGetIsoCodeListEntryFromIgcId() {
@@ -130,6 +131,7 @@ public class UtilsUDKCodeListsTest extends TestCase {
     	assertEquals("theme", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(517L, 5L));
     	assertEquals("inOperation", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(523L, 900001L));
     	assertEquals("otherRestrictions", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(524L, 8L));
+    	assertEquals("invoke", UtilsUDKCodeLists.getIsoCodeListEntryFromIgcId(5100L, 5L));
     }
     
 }

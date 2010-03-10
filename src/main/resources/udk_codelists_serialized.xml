@@ -1,5 +1,115 @@
 <map>
 	<entry>
+		<!--
+			INSPIRE service types
+		-->
+		<long>5100</long>
+		<map>
+			<entry>
+				<long>1</long>
+				<map>
+					<entry>
+						<long>150150150</long>
+						<string>discovery</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Discovery Service</string>
+					</entry>
+					<entry>
+						<long>150</long>
+						<string>Suchdienste (CSW)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>2</long>
+				<map>
+					<entry>
+						<long>150150150</long>
+						<string>view</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>View Service</string>
+					</entry>
+					<entry>
+						<long>150</long>
+						<string>Visualisierungsdienste (WMS)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>3</long>
+				<map>
+					<entry>
+						<long>150150150</long>
+						<string>download</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Download Service</string>
+					</entry>
+					<entry>
+						<long>150</long>
+						<string>Zugriffsdienste (WFS)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>4</long>
+				<map>
+					<entry>
+						<long>150150150</long>
+						<string>transformation</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Transformation Service</string>
+					</entry>
+					<entry>
+						<long>150</long>
+						<string>Transformationsdienste (WCTS)</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>5</long>
+				<map>
+					<entry>
+						<long>150150150</long>
+						<string>invoke</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Invoke Spatial Data Service</string>
+					</entry>
+					<entry>
+						<long>150</long>
+						<string>Verkettete Geodatendienste</string>
+					</entry>
+				</map>
+			</entry>
+			<entry>
+				<long>6</long>
+				<map>
+					<entry>
+						<long>150150150</long>
+						<string>other</string>
+					</entry>
+					<entry>
+						<long>123</long>
+						<string>Other Service</string>
+					</entry>
+					<entry>
+						<long>150</long>
+						<string>Andere Dienste</string>
+					</entry>
+				</map>
+			</entry>
+		</map>
+	</entry>	
+	<entry>
 		<long>3385</long>
 		<map>
 			<entry>
