@@ -6,7 +6,9 @@
 
 package de.ingrid.utils.queryparser;
 
+import java.io.ByteArrayInputStream;
 import java.io.StringReader;
+import java.nio.charset.Charset;
 
 import junit.framework.TestCase;
 import de.ingrid.utils.query.ClauseQuery;
@@ -547,4 +549,28 @@ public class QueryStringParserTest extends TestCase {
             assertEquals("/kug-group:kug-iplug-sns", f[i].getFieldValue());
         }
     }
+    
+    public void testUTF8Terms() throws Exception {
+    	String q = "Начало";
+        try {
+            QueryStringParser parser = new QueryStringParser(new ByteArrayInputStream(q.getBytes("UTF-8")), "UTF-8");
+            Token token;
+	        while ((token = parser.getNextToken()) != null) {
+	            if (token.kind == QueryStringParserConstants.EOF) {
+	                break;
+	            }
+	            assertEquals(QueryStringParserConstants.TERM, token.kind);
+	        }
+        } catch (Exception e ) {
+        	fail("No UTF-8 support in QueryParser!");
+        }
+        try {
+	        IngridQuery query = QueryStringParser.parse(q);
+	        TermQuery[] terms = query.getTerms();
+			assertTrue(terms[0].getTerm().equals(q));
+        } catch (Exception e ) {
+        	fail("No UTF-8 support in QueryParser!");
+        }
+    }
+    
 }

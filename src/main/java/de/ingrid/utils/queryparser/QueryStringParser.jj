@@ -5,6 +5,8 @@
 options {
 LOOKAHEAD=1;
 STATIC=false;
+JAVA_UNICODE_ESCAPE=false;
+UNICODE_INPUT=true;
 }
 
 PARSER_BEGIN(QueryStringParser)
