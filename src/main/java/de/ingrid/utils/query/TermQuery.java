@@ -39,4 +39,8 @@ public class TermQuery extends IngridQuery {
     public String getTerm() {
         return (String) getContent();
     }
+    
+    public int hashCode() {
+        return 31 + super.hashCode() + getTerm().hashCode();
+    }
 }
