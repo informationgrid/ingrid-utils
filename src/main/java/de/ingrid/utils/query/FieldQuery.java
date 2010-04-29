@@ -6,6 +6,8 @@
 
 package de.ingrid.utils.query;
 
+import de.ingrid.utils.IngridDocument;
+
 /**
  * 
  */
@@ -36,6 +38,22 @@ public class FieldQuery extends IngridQuery {
         // to be serializable
     }
 
+    /** Set/Change the name of the field
+     * @param name
+     */
+    public void setFieldName(String name) {
+        put(FIELD_NAME, name);
+		put(IngridDocument.DOCUMENT_CONTENT, getFieldContent());
+    }
+
+    /** Set/Change the value of the field
+     * @param value
+     */
+    public void setFieldValue(String value) {
+        put(FIELD_VALUE, value);
+		put(IngridDocument.DOCUMENT_CONTENT, getFieldContent());
+    }
+
     /**
      * @return The name of the field.
      */
@@ -52,7 +70,11 @@ public class FieldQuery extends IngridQuery {
     
     public String toString() {
         String prefix = isProhibited() ? "-" : (isRequred() ? "+" : "");
-        return prefix + "(" + getFieldName() + ":" + getFieldValue() + ")";
+        return prefix + "(" + getFieldContent() + ")";
+    }
+    
+    private String getFieldContent() {
+    	return ("" + getFieldName() + ":" + getFieldValue());
     }
 
 }

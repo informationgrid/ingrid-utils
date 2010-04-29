@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1997-2007 by wemove GmbH
+ * Copyright (c) by wemove GmbH
  */
 package de.ingrid.utils.udk;
 
@@ -13,7 +13,7 @@ import java.util.Map;
 import de.ingrid.utils.xml.XMLSerializer;
 
 /**
- * TODO Describe your created type (class, etc.) here.
+ * Code List utility class for extracting code list values and mapping between different code lists.
  * 
  * @author joachim@wemove.com
  */
@@ -22,6 +22,14 @@ public class UtilsUDKCodeLists {
 	private static final HashMap codeLists;
 
 	private static final HashMap udk2codeList505Map;
+
+	private static final Long LANG_ID_ISO_ENTRY = 150150150L; 
+	/** DUMMY Language ID for fetching InGrid-Query value of a syslist entry
+	 * (e.g. "DatenKarten" for entry in funct_category syslist) */
+	public static final Long LANG_ID_INGRID_QUERY_VALUE = 8150815L;
+
+	public static final Long SYSLIST_ID_ENV_TOPICS = 1410L;
+	public static final Long SYSLIST_ID_ENV_FUNCT_CATEGORY = 1400L;
 
 	static {
 		try {
@@ -81,8 +89,8 @@ public class UtilsUDKCodeLists {
 	 * @param langId
 	 * @return
 	 */
-	public static List getCodeList(Long codeListId, Long langId) {
-		ArrayList result = new ArrayList();
+	public static List<CodeListEntry> getCodeList(Long codeListId, Long langId) {
+		ArrayList<CodeListEntry> result = new ArrayList<CodeListEntry>();
 		HashMap domain = (HashMap) codeLists.get(codeListId);
 		for (Iterator it = domain.entrySet().iterator(); it.hasNext();) {
 			Map.Entry domainEntry = (Map.Entry) it.next();
@@ -160,7 +168,7 @@ public class UtilsUDKCodeLists {
 	 * @return
 	 */
 	public static String getIsoCodeListEntryFromIgcId(Long codeListId, Long igcId) {
-		String isoCode = getCodeListEntryName(codeListId, igcId, 150150150L);
+		String isoCode = getCodeListEntryName(codeListId, igcId, LANG_ID_ISO_ENTRY);
 		if (isoCode == null) {
 			isoCode = getCodeListEntryName(codeListId, igcId, UtilsLanguageCodelist.getCodeFromShortcut("en").longValue());
 		}
@@ -176,7 +184,7 @@ public class UtilsUDKCodeLists {
 	 * @return
 	 */
 	public static String getIgcIdFromIsoCodeListEntry(Long codeListId, String isoCodeListEntry) {
-		return getCodeListDomainId(codeListId, isoCodeListEntry, 150150150L);
+		return getCodeListDomainId(codeListId, isoCodeListEntry, LANG_ID_ISO_ENTRY);
 	}
 
 }

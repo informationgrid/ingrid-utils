@@ -206,6 +206,10 @@
 						<long>123</long>
 						<string>Data and Maps</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>DatenKarten</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -219,6 +223,10 @@
 						<long>123</long>
 						<string>Concepts</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Konzeptionelles</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -232,6 +240,10 @@
 						<long>123</long>
 						<string>Legislation</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Rechtliches</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -245,6 +257,10 @@
 						<long>123</long>
 						<string>Risk-Assessment</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Risikobewertungen</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -258,6 +274,10 @@
 						<long>123</long>
 						<string>Reports</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Statusberichte</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -271,6 +291,10 @@
 						<long>123</long>
 						<string>Stat-of-the-Environment</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Umweltzustand</string>
+                    </entry>
 				</map>
 			</entry>
 		</map>
@@ -289,6 +313,10 @@
 						<long>123</long>
 						<string>Waste</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Abfall</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -302,6 +330,10 @@
 						<long>123</long>
 						<string>Soil Pollution</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Altlasten</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -315,6 +347,10 @@
 						<long>123</long>
 						<string>Construction</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Bauen</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -328,6 +364,10 @@
 						<long>123</long>
 						<string>Soil</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Boden</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -341,6 +381,10 @@
 						<long>123</long>
 						<string>Chemicals</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Chemikalien</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -354,6 +398,10 @@
 						<long>123</long>
 						<string>Energy</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Energie</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -367,6 +415,10 @@
 						<long>123</long>
 						<string>Forestry</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Forstwirtschaft</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -380,6 +432,10 @@
 						<long>123</long>
 						<string>Gene-Technology</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Gentechnik</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -393,6 +449,10 @@
 						<long>123</long>
 						<string>Geology</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Geologie</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -406,6 +466,10 @@
 						<long>123</long>
 						<string>Health</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Gesundheit</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -419,6 +483,10 @@
 						<long>123</long>
 						<string>Noise</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>LaermErschuetterung</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -432,6 +500,10 @@
 						<long>123</long>
 						<string>Agriculture</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Landwirtschaft</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -445,6 +517,10 @@
 						<long>123</long>
 						<string>Air and Climate</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>LuftKlima</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -458,6 +534,10 @@
 						<long>123</long>
 						<string>Sustainable Development</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>NachhaltigeEntwicklung</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -471,6 +551,10 @@
 						<long>123</long>
 						<string>Nature and Landscape</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>NaturLandschaft</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -484,6 +568,10 @@
 						<long>123</long>
 						<string>Radiation</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Strahlung</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -497,6 +585,10 @@
 						<long>123</long>
 						<string>Animal Health</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Tierschutz</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -510,6 +602,10 @@
 						<long>123</long>
 						<string>Environmental Information</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Umweltinformation</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -523,6 +619,10 @@
 						<long>123</long>
 						<string>Environmental Economy</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Umweltwirtschaft</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -536,6 +636,10 @@
 						<long>123</long>
 						<string>Traffic</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Verkehr</string>
+                    </entry>
 				</map>
 			</entry>
 			<entry>
@@ -549,6 +653,10 @@
 						<long>123</long>
 						<string>Water</string>
 					</entry>
+                    <entry>
+                        <long>8150815</long>
+                        <string>Wasser</string>
+                    </entry>
 				</map>
 			</entry>
 		</map>
