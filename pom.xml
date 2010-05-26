@@ -561,7 +561,8 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
-        <executions>
+        <version>1.0-beta-4</version>
+		<executions>
           <execution>
             <phase>validate</phase>
             <goals>
@@ -605,11 +606,11 @@
     </plugins>
   </build>
   <repositories>
-    <repository>
-      <id>central</id>
-      <name>Maven Repo Maven2</name>
-      <url>http://repo1.maven.org/maven2</url>
-    </repository>
+	<repository>
+		<id>de.ingrid.m2</id>
+		<name>Maven2 Repo InGrid</name>
+		<url>http://harrison.its-technidata.de/ingrid/maven2</url>
+	</repository>
   </repositories>
   <distributionManagement>
     <repository>
