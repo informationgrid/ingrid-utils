@@ -3,46 +3,42 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
   <name>ingrid-base-pom</name>
   <properties>
     <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
     <!-- versions of ingrid libraries -->
-    <!-- RELEASE (use only release versions here!) -->
 
-    <ingrid-communication.version>1.2.2-SNAPSHOT</ingrid-communication.version>
+    <ingrid-communication.version>1.3.0</ingrid-communication.version>
     <ingrid-communication-authentication.version>1.2.1</ingrid-communication-authentication.version>
-    <ingrid-ibus.version>1.2.3-SNAPSHOT</ingrid-ibus.version>
-    <ingrid-ibus-client.version>1.2.3-SNAPSHOT</ingrid-ibus-client.version>
+    <ingrid-ibus.version>1.3.0</ingrid-ibus.version>
+    <ingrid-ibus-client.version>1.3.0</ingrid-ibus-client.version>
     <ingrid-installer.version>1.0.1</ingrid-installer.version>
-    <ingrid-interface-opensearch.version>1.2.0-SNAPSHOT</ingrid-interface-opensearch.version>
-    <ingrid-iplug.version>1.3-SNAPSHOT</ingrid-iplug.version>
-    <ingrid-iplug-admin-step1.version>1.2.2-SNAPSHOT</ingrid-iplug-admin-step1.version>
+    <ingrid-interface-opensearch.version>1.2.0</ingrid-interface-opensearch.version>
+    <ingrid-iplug.version>1.3.0</ingrid-iplug.version>
+    <ingrid-iplug-admin-step1.version>1.3.0</ingrid-iplug-admin-step1.version>
     <ingrid-iplug-admin-step1-management.version>1.2.1</ingrid-iplug-admin-step1-management.version>
-    <ingrid-iplug-admin-step1-webservice.version>1.2.2-SNAPSHOT</ingrid-iplug-admin-step1-webservice.version>
-    <ingrid-iplug-admin-step1-sns.version>1.2.2-SNAPSHOT</ingrid-iplug-admin-step1-sns.version>
-    <ingrid-iplug-admin-step2-dsc.version>1.3.0-SNAPSHOT</ingrid-iplug-admin-step2-dsc.version>
+    <ingrid-iplug-admin-step1-webservice.version>1.3.0</ingrid-iplug-admin-step1-webservice.version>
+    <ingrid-iplug-admin-step1-sns.version>1.3.0</ingrid-iplug-admin-step1-sns.version>
+    <ingrid-iplug-admin-step2-dsc.version>1.3.0</ingrid-iplug-admin-step2-dsc.version>
     <ingrid-iplug-admin-step2-tamino.version>1.2.0</ingrid-iplug-admin-step2-tamino.version>
-    <ingrid-iplug-csw.version>1.2.0</ingrid-iplug-csw.version>
-    <ingrid-iplug-csw-dsc.version>1.1.2-SNAPSHOT</ingrid-iplug-csw-dsc.version>
-    <ingrid-iplug-dsc.version>1.4.0-SNAPSHOT</ingrid-iplug-dsc.version>
-    <ingrid-iplug-fpn.version>1.2.2</ingrid-iplug-fpn.version>
-    <ingrid-iplug-g2k.version>1.2.1</ingrid-iplug-g2k.version>
-    <ingrid-iplug-se.version>2.0.0-SNAPSHOT</ingrid-iplug-se.version>
-    <ingrid-iplug-sns.version>1.4.2-SNAPSHOT</ingrid-iplug-sns.version>
-    <ingrid-iplug-tamino.version>1.2.1</ingrid-iplug-tamino.version>
+    <ingrid-iplug-csw.version>1.2.1</ingrid-iplug-csw.version>
+    <ingrid-iplug-csw-dsc.version>1.1.2</ingrid-iplug-csw-dsc.version>
+    <ingrid-iplug-dsc.version>1.4.0</ingrid-iplug-dsc.version>
+    <ingrid-iplug-fpn.version>1.2.3</ingrid-iplug-fpn.version>
+    <ingrid-iplug-g2k.version>1.2.2</ingrid-iplug-g2k.version>
+    <ingrid-iplug-se.version>2.0.0</ingrid-iplug-se.version>
+    <ingrid-iplug-sns.version>1.5.0</ingrid-iplug-sns.version>
+    <ingrid-iplug-tamino.version>1.2.2</ingrid-iplug-tamino.version>
     <ingrid-jetspeed-portal.version>1.2.1</ingrid-jetspeed-portal.version>
-    <ingrid-mdek.version>1.2.3-SNAPSHOT</ingrid-mdek.version>
+    <ingrid-mdek.version>1.2.3</ingrid-mdek.version>
     <ingrid-portal-utils.version>1.2.1</ingrid-portal-utils.version>
-    <ingrid-utils.version>1.3.0-SNAPSHOT</ingrid-utils.version>
+    <ingrid-utils.version>1.3.0</ingrid-utils.version>
     <ingrid-url-maintenance.version>1.3.1</ingrid-url-maintenance.version>
 
     <!-- versions of external libraries -->
     <ant.version>1.6</ant.version>
     <axis.version>1.4</axis.version>
-    <!-- belongs to axis -->
-    <!--axis-jaxrpc.version>1.4</axis-jaxrpc.version-->
-    <!--axis-saaj.version>1.4</axis-saaj.version-->
     <axis2.version>1.4.1</axis2.version>
     <c3p0.version>0.9.0.4</c3p0.version>
     <cglib-nodep.version>2.1_3</cglib-nodep.version>
@@ -94,8 +90,6 @@
     <xml-apis.version>1.3.03</xml-apis.version>
     <xmlunit.version>1.0</xmlunit.version>
     <xstream.version>1.2.1</xstream.version>
-    <!--<xpp3.version>1.1.2a</xpp3.version>-->
-    <!-- belongs to xstream in version xpp3:xpp3_min:jar:1.1.3.4.O -->
     <xtmStubs.version>3.0.0.1</xtmStubs.version>
   </properties>
   <scm>
@@ -421,19 +415,6 @@
         <artifactId>axis</artifactId>
         <version>${axis.version}</version>
       </dependency>
-      <!-- belongs to axis -->
-      <!--
-      <dependency>
-        <groupId>org.apache.axis</groupId>
-        <artifactId>axis-jaxrpc</artifactId>
-        <version>${axis-jaxrpc.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.axis</groupId>
-        <artifactId>axis-saaj</artifactId>
-        <version>${axis-saaj.version}</version>
-      </dependency>
--->
       <dependency>
         <groupId>org.apache.axis2</groupId>
         <artifactId>axis2-kernel</artifactId>
