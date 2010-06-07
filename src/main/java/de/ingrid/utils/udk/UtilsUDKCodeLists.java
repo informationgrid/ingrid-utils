@@ -116,8 +116,7 @@ public class UtilsUDKCodeLists {
 			for (Iterator it = domain.entrySet().iterator(); it.hasNext();) {
 				Map.Entry domainEntry = (Map.Entry) it.next();
 				String domainEntryValue = (String) ((HashMap) domainEntry.getValue()).get(langId);
-				domainEntryValue = domainEntryValue.trim();
-				if (domainEntryValue != null && domainEntryValue.equalsIgnoreCase(domainValue)) {
+				if (domainEntryValue != null && domainEntryValue.trim().equalsIgnoreCase(domainValue)) {
 					return domainEntry.getKey().toString();
 				}
 			}
