@@ -20,7 +20,7 @@
     <ingrid-interface-opensearch.version>1.2.0</ingrid-interface-opensearch.version>
     <ingrid-iplug.version>1.3.0</ingrid-iplug.version>
     <ingrid-iplug-admin-step1.version>1.3.0</ingrid-iplug-admin-step1.version>
-    <ingrid-iplug-admin-step1-management.version>1.2.1</ingrid-iplug-admin-step1-management.version>
+    <ingrid-iplug-admin-step1-management.version>1.2.2</ingrid-iplug-admin-step1-management.version>
     <ingrid-iplug-admin-step1-webservice.version>1.3.0</ingrid-iplug-admin-step1-webservice.version>
     <ingrid-iplug-admin-step1-sns.version>1.3.0</ingrid-iplug-admin-step1-sns.version>
     <ingrid-iplug-admin-step2-dsc.version>1.3.0</ingrid-iplug-admin-step2-dsc.version>
