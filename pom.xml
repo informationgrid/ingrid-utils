@@ -78,6 +78,7 @@
     <lucene.version>1.4.3</lucene.version>
     <mysql-connector-java.version>5.1.6</mysql-connector-java.version>
     <org.mortbay.jetty.version>5.1.8</org.mortbay.jetty.version>
+    <ojdbc.version>14</ojdbc.version>
     <portlet-api.version>1.0</portlet-api.version>
     <quartz.version>1.6.5</quartz.version>
     <servlet-api.version>2.4</servlet-api.version>
@@ -414,6 +415,11 @@
         <groupId>jetty</groupId>
         <artifactId>org.mortbay.jetty</artifactId>
         <version>${org.mortbay.jetty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ojdbc</groupId>
+        <artifactId>ojdbc</artifactId>
+        <version>${ojdbc.version}</version>
       </dependency>
       <dependency>
         <groupId>portlet-api</groupId>
