@@ -252,7 +252,19 @@ public class Record extends IngridDocument {
         return (Column[]) arrayList.toArray(new Column[arrayList.size()]);
     }
 
-    
+    /**
+     * Return a list of values
+     *  
+     * @return
+     * ArrayList of values
+     */
+    public ArrayList getValues() {
+        ArrayList arrayList = getArrayList(VALUES);
+        if (arrayList == null) {
+            arrayList = new ArrayList();
+        }
+        return arrayList;
+    }
     
     /**
      * Sets the xml content of the record
