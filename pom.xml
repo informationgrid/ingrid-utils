@@ -55,7 +55,7 @@
     <commons-digester.version>1.6</commons-digester.version>
     <commons-discovery.version>0.2</commons-discovery.version>
     <commons-el.version>1.0</commons-el.version>
-    <commons-fileupload.version>1.2</commons-fileupload.version>
+    <commons-fileupload.version>1.2.1</commons-fileupload.version>
     <commons-httpclient.version>3.1</commons-httpclient.version>
     <commons-io.version>1.4</commons-io.version>
     <commons-lang.version>2.1</commons-lang.version>
@@ -79,6 +79,7 @@
     <lucene.version>1.4.3</lucene.version>
     <mysql-connector-java.version>5.1.6</mysql-connector-java.version>
     <org.mortbay.jetty.version>5.1.8</org.mortbay.jetty.version>
+    <org.mortbay.jetty.jetty.version>6.1.14</org.mortbay.jetty.jetty.version>
     <ojdbc.version>14</ojdbc.version>
     <portlet-api.version>1.0</portlet-api.version>
     <quartz.version>1.6.5</quartz.version>
@@ -243,6 +244,7 @@
         <artifactId>log4j</artifactId>
         <version>${log4j.version}</version>
       </dependency>
+<!-- ingrid-base-webapp needed with different types (war, jar, resources) -->
       <dependency>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-base-webapp</artifactId>
@@ -250,6 +252,20 @@
         <type>war</type>
         <scope>runtime</scope>
       </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-base-webapp</artifactId>
+        <version>${ingrid-base-webapp.version}</version>
+        <type>jar</type>
+      </dependency>
+    <dependency>
+      <groupId>de.ingrid</groupId>
+      <artifactId>ingrid-base-webapp</artifactId>
+      <version>${ingrid-base-webapp.version}</version>
+      <classifier>res</classifier>
+      <type>zip</type>
+    </dependency>
+<!-- end ingrid-base-webapp -->
       <dependency>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-ibus</artifactId>
@@ -421,6 +437,16 @@
         <groupId>jetty</groupId>
         <artifactId>org.mortbay.jetty</artifactId>
         <version>${org.mortbay.jetty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty</artifactId>
+        <version>${org.mortbay.jetty.jetty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jsp-2.1</artifactId>
+        <version>${org.mortbay.jetty.jetty.version}</version>
       </dependency>
       <dependency>
         <groupId>ojdbc</groupId>
