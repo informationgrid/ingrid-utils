@@ -310,7 +310,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Suchdienste (CSW)</string>
+						<string>Suchdienste</string>
 					</entry>
 				</map>
 			</entry>
@@ -327,7 +327,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Visualisierungsdienste (WMS)</string>
+						<string>Darstellungsdienste</string>
 					</entry>
 				</map>
 			</entry>
@@ -344,7 +344,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Zugriffsdienste (WFS)</string>
+						<string>Download-Dienste</string>
 					</entry>
 				</map>
 			</entry>
@@ -361,7 +361,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Transformationsdienste (WCTS)</string>
+						<string>Transformationsdienste</string>
 					</entry>
 				</map>
 			</entry>
@@ -378,7 +378,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Verkettete Geodatendienste</string>
+						<string>Dienste zum Abrufen von Geodatendiensten</string>
 					</entry>
 				</map>
 			</entry>
@@ -395,7 +395,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Andere Dienste</string>
+						<string>Sonstige Dienste</string>
 					</entry>
 				</map>
 			</entry>
@@ -1096,7 +1096,7 @@
 				<map>
 					<entry>
 						<long>150</long>
-						<string>Katalogdienst (humanCatalogueViewer)</string>
+						<string>Katalogdienst (Viewer)</string>
 					</entry>
 					<entry>
 						<long>123</long>
@@ -1304,7 +1304,7 @@
 				<map>
 					<entry>
 						<long>150</long>
-						<string>Katalogdienst (infoCatalogueService)</string>
+						<string>Katalogdienst (Service)</string>
 					</entry>
 					<entry>
 						<long>123</long>
@@ -1594,7 +1594,7 @@
 					</entry>
 					<entry>
 						<long>123</long>
-						<string>Feature generalization service (spatial)</string>
+						<string>Feature generalisation service (spatial)</string>
 					</entry>
 				</map>
 			</entry>
@@ -1802,7 +1802,7 @@
 					</entry>
 					<entry>
 						<long>123</long>
-						<string>Multi-band image manipulation</string>
+						<string>Multiband image manipulation</string>
 					</entry>
 				</map>
 			</entry>
@@ -2968,7 +2968,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>geometrisch</string>
+						<string>Geometrie ohne Topologie</string>
 					</entry>
 				</map>
 			</entry>
@@ -2985,7 +2985,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Topologie (1D)</string>
+						<string>Linien</string>
 					</entry>
 				</map>
 			</entry>
@@ -3002,7 +3002,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Planar (1D)</string>
+						<string>geschlossene Linien eben</string>
 					</entry>
 				</map>
 			</entry>
@@ -3019,7 +3019,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Planar (2D)</string>
+						<string>Flächen</string>
 					</entry>
 				</map>
 			</entry>
@@ -3036,7 +3036,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Oberflächengraph (1D)</string>
+						<string>geschlossene Linien flächendeckend</string>
 					</entry>
 				</map>
 			</entry>
@@ -3053,7 +3053,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Oberfläche(2D)</string>
+						<string>Flächen flächendeckend</string>
 					</entry>
 				</map>
 			</entry>
@@ -3070,7 +3070,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Topologie (3D)</string>
+						<string>Körper</string>
 					</entry>
 				</map>
 			</entry>
@@ -3087,7 +3087,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Raum (3D)</string>
+						<string>3D-Oberfläche</string>
 					</entry>
 				</map>
 			</entry>
@@ -3104,7 +3104,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Abstrakte Topologie</string>
+						<string>topologisches Gebilde ohne geometrischen Raumbezug</string>
 					</entry>
 				</map>
 			</entry>
