@@ -3,22 +3,22 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.2.0-SNAPSHOT</version>
+  <version>2.3.1-SNAPSHOT</version>
   <name>ingrid-base-pom</name>
   <properties>
     <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
     <!-- versions of ingrid libraries -->
 
-    <ingrid-base-webapp.version>1.0.2</ingrid-base-webapp.version>
-    <ingrid-communication.version>1.3.0</ingrid-communication.version>
+    <ingrid-base-webapp.version>2.3.1</ingrid-base-webapp.version>
+    <ingrid-communication.version>2.3.1</ingrid-communication.version>
     <ingrid-communication-authentication.version>1.2.1</ingrid-communication-authentication.version>
     <ingrid-external-services-api.version>1.0.0</ingrid-external-services-api.version>
     <ingrid-external-service-sns.version>1.0.0</ingrid-external-service-sns.version>
-    <ingrid-ibus.version>1.3.0</ingrid-ibus.version>
-    <ingrid-ibus-client.version>1.3.0</ingrid-ibus-client.version>
+    <ingrid-ibus.version>2.3.1</ingrid-ibus.version>
+    <ingrid-ibus-client.version>2.3.1</ingrid-ibus-client.version>
     <ingrid-installer.version>1.0.1</ingrid-installer.version>
-    <ingrid-interface-opensearch.version>1.2.0</ingrid-interface-opensearch.version>
-    <ingrid-iplug.version>1.3.0</ingrid-iplug.version>
+    <ingrid-interface-opensearch.version>2.3.1</ingrid-interface-opensearch.version>
+    <ingrid-iplug.version>2.3.1</ingrid-iplug.version>
     <ingrid-iplug-admin-step1.version>1.3.0</ingrid-iplug-admin-step1.version>
     <ingrid-iplug-admin-step1-management.version>1.2.2</ingrid-iplug-admin-step1-management.version>
     <ingrid-iplug-admin-step1-webservice.version>1.3.0</ingrid-iplug-admin-step1-webservice.version>
@@ -26,19 +26,24 @@
     <ingrid-iplug-admin-step2-dsc.version>1.3.1</ingrid-iplug-admin-step2-dsc.version>
     <ingrid-iplug-admin-step2-tamino.version>1.2.0</ingrid-iplug-admin-step2-tamino.version>
     <ingrid-iplug-csw.version>1.2.1</ingrid-iplug-csw.version>
-    <ingrid-iplug-csw-dsc.version>1.2.0-SNAPSHOT</ingrid-iplug-csw-dsc.version>
-    <ingrid-iplug-dsc.version>1.4.1</ingrid-iplug-dsc.version>
-    <ingrid-iplug-fpn.version>1.2.3</ingrid-iplug-fpn.version>
-    <ingrid-iplug-g2k.version>1.2.2</ingrid-iplug-g2k.version>
-    <ingrid-iplug-se.version>2.0.0</ingrid-iplug-se.version>
-    <ingrid-iplug-sns.version>1.5.0</ingrid-iplug-sns.version>
+    <ingrid-iplug-csw-dsc.version>2.3.1</ingrid-iplug-csw-dsc.version>
+    <ingrid-iplug-dsc.version>2.3.1</ingrid-iplug-dsc.version>
+    <ingrid-iplug-excel.version>2.3.1</ingrid-iplug-excel.version>
+    <ingrid-iplug-fpn.version>2.3.1</ingrid-iplug-fpn.version>
+    <ingrid-iplug-g2k.version>2.3.1</ingrid-iplug-g2k.version>
+    <ingrid-iplug-management.version>2.3.1</ingrid-iplug-management.version>
+    <ingrid-iplug-opensearch.version>2.3.1</ingrid-iplug-opensearch.version>
+    <ingrid-iplug-se.version>2.3.1</ingrid-iplug-se.version>
+    <ingrid-iplug-sns.version>2.3.1</ingrid-iplug-sns.version>
     <ingrid-iplug-tamino.version>1.2.2</ingrid-iplug-tamino.version>
+    <ingrid-iplug-xml.version>2.3.1</ingrid-iplug-xml.version>
     <ingrid-jetspeed-portal.version>1.2.1</ingrid-jetspeed-portal.version>
-    <ingrid-mdek.version>1.3.1</ingrid-mdek.version>
-    <ingrid-portal-utils.version>1.2.1</ingrid-portal-utils.version>
-    <ingrid-utils.version>1.3.0</ingrid-utils.version>
+    <ingrid-mdek.version>2.3.1</ingrid-mdek.version>
+    <ingrid-portal-utils.version>2.3.1</ingrid-portal-utils.version>
+    <ingrid-server-opensearch.version>2.3.1</ingrid-server-opensearch.version>
+    <ingrid-upgrader.version>2.3.1</ingrid-upgrader.version>
+    <ingrid-utils.version>2.3.1</ingrid-utils.version>
     <ingrid-utils-geo.version>1.0.1</ingrid-utils-geo.version>
-    <ingrid-url-maintenance.version>1.3.1</ingrid-url-maintenance.version>
 
     <!-- versions of external libraries -->
     <ant.version>1.6</ant.version>
@@ -313,6 +318,11 @@
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-iplug-excel</artifactId>
+        <version>${ingrid-iplug-excel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-fpn</artifactId>
         <version>${ingrid-iplug-fpn.version}</version>
       </dependency>
@@ -320,6 +330,16 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-g2k</artifactId>
         <version>${ingrid-iplug-g2k.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-iplug-management</artifactId>
+        <version>${ingrid-iplug-management.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-iplug-opensearch</artifactId>
+        <version>${ingrid-iplug-opensearch.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
@@ -335,6 +355,11 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-tamino</artifactId>
         <version>${ingrid-iplug-tamino.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-iplug-xml</artifactId>
+        <version>${ingrid-iplug-xml.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
@@ -355,6 +380,18 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-portal-utils</artifactId>
         <version>${ingrid-portal-utils.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-server-opensearch</artifactId>
+        <version>${ingrid-server-opensearch.version}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-upgrader</artifactId>
+        <version>${ingrid-upgrader.version}</version>
+        <type>war</type>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
@@ -512,11 +549,6 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-external-service-sns</artifactId>
         <version>${ingrid-external-service-sns.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-url-maintenance</artifactId>
-        <version>${ingrid-url-maintenance.version}</version>
       </dependency>
       <dependency>
         <groupId>commons-logging</groupId>
