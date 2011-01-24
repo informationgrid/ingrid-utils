@@ -19,11 +19,11 @@
     <ingrid-installer.version>1.0.1</ingrid-installer.version>
     <ingrid-interface-opensearch.version>2.3.1</ingrid-interface-opensearch.version>
     <ingrid-iplug.version>2.3.1</ingrid-iplug.version>
-    <ingrid-iplug-admin-step1.version>1.3.0</ingrid-iplug-admin-step1.version>
-    <ingrid-iplug-admin-step1-management.version>1.2.2</ingrid-iplug-admin-step1-management.version>
-    <ingrid-iplug-admin-step1-webservice.version>1.3.0</ingrid-iplug-admin-step1-webservice.version>
-    <ingrid-iplug-admin-step1-sns.version>1.3.0</ingrid-iplug-admin-step1-sns.version>
-    <ingrid-iplug-admin-step2-dsc.version>1.3.1</ingrid-iplug-admin-step2-dsc.version>
+    <ingrid-iplug-admin-step1.version>2.3.1</ingrid-iplug-admin-step1.version>
+    <ingrid-iplug-admin-step1-management.version>2.3.1</ingrid-iplug-admin-step1-management.version>
+    <ingrid-iplug-admin-step1-webservice.version>2.3.1</ingrid-iplug-admin-step1-webservice.version>
+    <ingrid-iplug-admin-step1-sns.version>2.3.1</ingrid-iplug-admin-step1-sns.version>
+    <ingrid-iplug-admin-step2-dsc.version>2.3.1</ingrid-iplug-admin-step2-dsc.version>
     <ingrid-iplug-admin-step2-tamino.version>1.2.0</ingrid-iplug-admin-step2-tamino.version>
     <ingrid-iplug-csw.version>1.2.1</ingrid-iplug-csw.version>
     <ingrid-iplug-csw-dsc.version>2.3.1</ingrid-iplug-csw-dsc.version>
