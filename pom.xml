@@ -39,6 +39,7 @@
     <ingrid-iplug-xml.version>2.3.1</ingrid-iplug-xml.version>
     <ingrid-jetspeed-portal.version>1.2.1</ingrid-jetspeed-portal.version>
     <ingrid-mdek.version>2.3.1</ingrid-mdek.version>
+    <ingrid-portal.version>2.3.1</ingrid-portal.version>
     <ingrid-portal-utils.version>2.3.1</ingrid-portal-utils.version>
     <ingrid-server-opensearch.version>2.3.1</ingrid-server-opensearch.version>
     <ingrid-upgrader.version>2.3.1</ingrid-upgrader.version>
@@ -375,6 +376,18 @@
         <groupId>de.ingrid.mdek</groupId>
         <artifactId>ingrid-mdek-services</artifactId>
         <version>${ingrid-mdek.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid.portal</groupId>
+        <artifactId>ingrid-portal</artifactId>
+        <version>${ingrid-portal.version}</version>
+		<type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid.portal</groupId>
+        <artifactId>ingrid-portal-mdek-application</artifactId>
+        <version>${ingrid-portal.version}</version>
+		<type>war</type>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
