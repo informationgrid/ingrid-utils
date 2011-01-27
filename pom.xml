@@ -18,7 +18,7 @@
     <ingrid-ibus-client.version>2.3.1</ingrid-ibus-client.version>
     <ingrid-installer.version>1.0.1</ingrid-installer.version>
     <ingrid-interface-opensearch.version>2.3.1</ingrid-interface-opensearch.version>
-    <ingrid-iplug.version>2.3.1</ingrid-iplug.version>
+    <ingrid-iplug.version>3.0.0-Snapshot</ingrid-iplug.version>
     <ingrid-iplug-admin-step1.version>2.3.1</ingrid-iplug-admin-step1.version>
     <ingrid-iplug-admin-step1-management.version>2.3.1</ingrid-iplug-admin-step1-management.version>
     <ingrid-iplug-admin-step1-webservice.version>2.3.1</ingrid-iplug-admin-step1-webservice.version>
