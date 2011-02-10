@@ -251,7 +251,7 @@
         <artifactId>log4j</artifactId>
         <version>${log4j.version}</version>
       </dependency>
-<!-- ingrid-base-webapp needed with different types (war, jar, resources) -->
+<!-- ingrid--webapp needed with different types (war, jar, resources) -->
       <dependency>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-base-webapp</artifactId>
