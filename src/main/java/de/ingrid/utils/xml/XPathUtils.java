@@ -17,6 +17,9 @@ public class XPathUtils {
 	
 	private static NamespaceContext nsContext = new Csw202NamespaceContext();
 
+	// Add namespace context for 'IDF'
+	private static NamespaceContext nsContextIDF = new IDFNamespaceContext();
+
 	private static XPath xpath = null;
 
 	private XPathUtils() {}
@@ -30,6 +33,20 @@ public class XPathUtils {
 		return xpath;
 	}
 
+	// Get xPath instance and set 'IDF' namespace 
+	public static XPath getXPathInstance(boolean idf) {
+		if (idf){
+			if (xpath == null) {
+				xpath = createNewXPathInstance();
+				xpath.setNamespaceContext(nsContextIDF);
+			}
+		}else{
+			getXPathInstance();
+		}
+
+		return xpath;
+	}
+	
 	private static XPath createNewXPathInstance() {
 		return XPathFactory.newInstance().newXPath();
 	}
@@ -126,6 +143,25 @@ public class XPathUtils {
 		try {
 			if (source != null) {
 				XPath xpath = getXPathInstance();
+				NodeList nodeList = (NodeList) xpath.evaluate(xpathExpression, source, XPathConstants.NODESET);
+				return nodeList;
+			}
+
+		} catch (XPathExpressionException ex) {
+			// Log the exception and continue.
+			log.error("Error evaluating xpath expression: '"+xpathExpression+"'", ex);
+		}
+
+		// Something went wrong. Either the source document was null or the xpathExpression could not be found
+		// In either case return null
+		return null;
+	}
+	
+	// Get node list with xPath instance for 'IDF'
+	public static NodeList getNodeList(Object source, String xpathExpression, boolean idf) {
+		try {
+			if (source != null) {
+				XPath xpath = getXPathInstance(idf);
 				NodeList nodeList = (NodeList) xpath.evaluate(xpathExpression, source, XPathConstants.NODESET);
 				return nodeList;
 			}
