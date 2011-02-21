@@ -34,8 +34,8 @@ public class XPathUtils {
 	}
 
 	// Get xPath instance and set 'IDF' namespace 
-	public static XPath getXPathInstance(boolean idf) {
-		if (idf){
+	public static XPath getXPathInstance(NamespaceContext nsContext) {
+		if (nsContext != null){
 			if (xpath == null) {
 				xpath = createNewXPathInstance();
 				xpath.setNamespaceContext(nsContextIDF);
@@ -158,10 +158,10 @@ public class XPathUtils {
 	}
 	
 	// Get node list with xPath instance for 'IDF'
-	public static NodeList getNodeList(Object source, String xpathExpression, boolean idf) {
+	public static NodeList getNodeList(Object source, String xpathExpression, NamespaceContext nsContext) {
 		try {
 			if (source != null) {
-				XPath xpath = getXPathInstance(idf);
+				XPath xpath = getXPathInstance(nsContext);
 				NodeList nodeList = (NodeList) xpath.evaluate(xpathExpression, source, XPathConstants.NODESET);
 				return nodeList;
 			}
