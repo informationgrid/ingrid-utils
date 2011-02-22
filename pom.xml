@@ -44,7 +44,7 @@
     <ingrid-portal-utils.version>2.3.1</ingrid-portal-utils.version>
     <ingrid-server-opensearch.version>2.3.1</ingrid-server-opensearch.version>
     <ingrid-upgrader.version>2.3.1</ingrid-upgrader.version>
-    <ingrid-utils.version>2.3.1</ingrid-utils.version>
+    <ingrid-utils.version>3.0.0-SNAPSHOT</ingrid-utils.version>
     <ingrid-utils-geo.version>1.0.1</ingrid-utils-geo.version>
 
     <!-- versions of external libraries -->
