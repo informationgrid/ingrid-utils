@@ -65,4 +65,21 @@ public class IdfTool {
         return record.getString(KEY_DATA);
     }
 
+    /**
+     * Creates a IDF record from a String. Compresses the record according to
+     * property compressed.
+     * 
+     * @param idf
+     * @param compressed
+     * @return
+     */
+    public static Record createIdfRecord(String idf, boolean compressed) {
+        Record r = new Record();
+        r.put(KEY_DATA, idf);
+        if (compressed) {
+            compressIdfRecord(r);
+        }
+        return r;
+    }
+
 }
