@@ -15,6 +15,16 @@ import de.ingrid.utils.tool.GZipTool;
 public class IdfTool {
 
     /**
+     * Key used in a record for the IDF data.
+     */
+    public static final String KEY_DATA = "data";
+
+    /**
+     * Key used in a record for flagging if the data is compressed or not.
+     */
+    public static final String KEY_COMPRESSED = "compressed";
+
+    /**
      * Compresses the content in record["data"] and sets record["compressed"] =
      * "true".
      * 
@@ -22,8 +32,8 @@ public class IdfTool {
      * @return
      */
     public static Record compressIdfRecord(Record record) {
-        record.put("data", GZipTool.gzip((String) record.get("data")));
-        record.put("compressed", "true");
+        record.put(KEY_DATA, GZipTool.gzip((String) record.get(KEY_DATA)));
+        record.put(KEY_COMPRESSED, "true");
         return record;
     }
 
@@ -35,12 +45,24 @@ public class IdfTool {
      * @return
      */
     public static Record uncompressIdfRecord(Record record) {
-        if (record.get("compressed") != null
-                && record.get("compressed").equals("true")) {
-            record.put("data", GZipTool.ungzip((String) record.get("data")));
+        if (record.get(KEY_COMPRESSED) != null
+                && record.get(KEY_COMPRESSED).equals("true")) {
+            record
+                    .put(KEY_DATA, GZipTool.ungzip((String) record
+                            .get(KEY_DATA)));
         }
         return record;
     }
-    
+
+    /**
+     * Retrieve the IDF data from a record. Uncompresses the data if needed.
+     * 
+     * @param record
+     * @return
+     */
+    public static String getIdfDataFromRecord(Record record) {
+        uncompressIdfRecord(record);
+        return record.getString(KEY_DATA);
+    }
 
 }
