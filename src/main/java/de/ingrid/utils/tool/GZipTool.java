@@ -46,7 +46,7 @@ public class GZipTool {
             result = new String(Base64.encodeBase64String(bos.toByteArray()));
             bos.close();
         } catch (IOException e) {
-            LOG.error("Unable to GZIP String.", e);
+            LOG.error("Unable to GZIP String. Returning original string.", e);
         }
         return result;
     }
@@ -80,7 +80,8 @@ public class GZipTool {
             bufis.close();
             bos.close();
         } catch (Exception e) {
-            LOG.error("Unable to UNGZIP String.", e);
+            LOG.error("Unable to UNGZIP String. Returning the original string", e);
+            return str;
         }
         return result;
 

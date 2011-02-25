@@ -45,11 +45,9 @@ public class IdfTool {
      * @return
      */
     public static Record uncompressIdfRecord(Record record) {
-        if (record.get(KEY_COMPRESSED) != null
-                && record.get(KEY_COMPRESSED).equals("true")) {
-            record
-                    .put(KEY_DATA, GZipTool.ungzip((String) record
-                            .get(KEY_DATA)));
+        if (record.get(KEY_COMPRESSED) != null && record.get(KEY_COMPRESSED).equals("true")) {
+            record.put(KEY_DATA, GZipTool.ungzip((String) record.get(KEY_DATA)));
+            record.remove(KEY_COMPRESSED);
         }
         return record;
     }
