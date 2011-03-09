@@ -17,13 +17,21 @@ public class XPathUtils {
 	
 	private static NamespaceContext nsContext = new Csw202NamespaceContext();
 
-	// Add namespace context for 'IDF'
-	private static NamespaceContext nsContextIDF = new IDFNamespaceContext();
-
 	private static XPath xpath = null;
+
+	private static XPathUtils myInstance;
 
 	private XPathUtils() {}
 
+	/** Get The Singleton. */
+	public static synchronized XPathUtils getInstance() {
+		if (myInstance == null) {
+	        myInstance = new XPathUtils();
+		}
+		return myInstance;
+	}
+
+	/** Get XPath instance with default namespaces. */
 	public static XPath getXPathInstance() {
 		if (xpath == null) {
 			xpath = createNewXPathInstance();
@@ -33,13 +41,14 @@ public class XPathUtils {
 		return xpath;
 	}
 
-	// Get xPath instance and set 'IDF' namespace 
+	/** Get XPath instance with given namespaces. Pass null if default namespaces. */
 	public static XPath getXPathInstance(NamespaceContext nsContext) {
 		if (nsContext != null){
 			if (xpath == null) {
 				xpath = createNewXPathInstance();
-				xpath.setNamespaceContext(nsContextIDF);
 			}
+			// always set context ! might be a new one ! 
+			xpath.setNamespaceContext(nsContext);
 		}else{
 			getXPathInstance();
 		}
