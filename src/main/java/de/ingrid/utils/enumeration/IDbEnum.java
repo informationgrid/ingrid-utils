@@ -1,7 +1,7 @@
 package de.ingrid.utils.enumeration;
 
 /**
- * Interface for extending Enumerations. NOTICE: The Helper Class EnumUtil
+ * Interface for extending Enumerations. NOTICE: The Helper Class DbEnumUtil
  * relies on this interface !
  * 
  * @author Martin Maidhof
