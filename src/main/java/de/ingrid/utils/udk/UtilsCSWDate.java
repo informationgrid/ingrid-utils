@@ -3,6 +3,9 @@
  */
 package de.ingrid.utils.udk;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -72,6 +75,38 @@ public class UtilsCSWDate {
 			}
 		}
 		return result;
+	}
+	
+	public static String mapFromIgcToIso8601(String igcDate) {
+        SimpleDateFormat df = new SimpleDateFormat();
+        SimpleDateFormat cswFormat = new SimpleDateFormat();
+        try {
+            if (igcDate.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]")) {
+                df.applyPattern("yyyyMMddHHmmss");
+                cswFormat.applyPattern("yyyy-MM-dd'T'HH:mm:ss");
+                return cswFormat.format(df.parse(igcDate));
+            } else if (igcDate.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9][0-9][0-9][0-9]")) {
+                df.applyPattern("yyyyMMddHHmmssSSS");
+                cswFormat.applyPattern("yyyy-MM-dd'T'HH:mm:ss");
+                return cswFormat.format(df.parse(igcDate));
+            } else if (igcDate.matches("[0-9][0-9][0-9][0-9]0000")) {
+                df.applyPattern("yyyy");
+                cswFormat.applyPattern("yyyy");
+                return cswFormat.format(df.parse(igcDate.substring(0, 4)));
+            } else if (igcDate.matches("[0-9][0-9][0-9][0-9][0-1][0-9]00")) {
+                df.applyPattern("yyyyMM");
+                cswFormat.applyPattern("yyyy-MM");
+                return cswFormat.format(df.parse(igcDate.substring(0, 6)));
+            } else if (igcDate.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9]")) {
+                df.applyPattern("yyyyMMdd");
+                cswFormat.applyPattern("yyyy-MM-dd");
+                return cswFormat.format(df.parse(igcDate));
+            }
+        } catch (ParseException e) {
+            log.error("Parsing CSW date failed (" + igcDate + ").");
+        }
+        return null;
+	    
 	}
 	
 }
