@@ -31,6 +31,16 @@ public class XPathUtils {
 		return myInstance;
 	}
 
+	/** Get The Singleton. Initialize with given NamespaceContext (Default). */
+	public static synchronized XPathUtils getInstance(NamespaceContext nsContext) {
+		if (myInstance == null) {
+	        myInstance = new XPathUtils();
+		}
+		myInstance.nsContext = nsContext;
+
+		return myInstance;
+	}
+
 	/** Get XPath instance with default namespaces. */
 	public static XPath getXPathInstance() {
 		if (xpath == null) {
