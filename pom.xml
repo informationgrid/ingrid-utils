@@ -65,7 +65,7 @@
     <commons-fileupload.version>1.2.1</commons-fileupload.version>
     <commons-httpclient.version>3.1</commons-httpclient.version>
     <commons-io.version>1.4</commons-io.version>
-    <commons-lang.version>2.1</commons-lang.version>
+    <commons-lang.version>2.6</commons-lang.version>
     <commons-logging.version>1.0.4</commons-logging.version>
     <dbunit.version>2.4.1</dbunit.version>
     <dom4j.version>1.4</dom4j.version>
