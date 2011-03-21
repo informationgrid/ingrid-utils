@@ -66,6 +66,7 @@ public class UtilsUDKCodeLists {
 	/**
 	 * Return the code list value specified by the codelist id, the domain id
 	 * and the language id. If the value cannot be found, return "".
+	 * NOTICE: THE FOUND VALUE WILL BE TRIMED !
 	 * 
 	 * @param codeListId
 	 * @param domainId
@@ -73,11 +74,16 @@ public class UtilsUDKCodeLists {
 	 * @return
 	 */
 	public static String getCodeListEntryName(Long codeListId, Long domainId, Long langId) {
+		String retValue = ""; 
 		try {
-			return (String) ((HashMap) ((HashMap) codeLists.get(codeListId)).get(domainId)).get(langId);
+			retValue = (String) ((HashMap) ((HashMap) codeLists.get(codeListId)).get(domainId)).get(langId);
+			if (retValue != null) {
+				retValue = retValue.trim();
+			}
 		} catch (NullPointerException e) {
-			return "";
 		}
+		
+		return retValue;
 	}
 
 	/**
