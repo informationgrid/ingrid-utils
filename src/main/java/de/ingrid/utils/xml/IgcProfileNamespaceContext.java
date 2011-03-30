@@ -18,6 +18,8 @@ import javax.xml.namespace.NamespaceContext;
  */
 public class IgcProfileNamespaceContext implements NamespaceContext {
 
+	public static String NAMESPACE_URI_IGCP = "http://www.portalu.de/igc-profile";
+	
     /*
      * (non-Javadoc)
      * 
@@ -27,7 +29,7 @@ public class IgcProfileNamespaceContext implements NamespaceContext {
     @Override
     public String getNamespaceURI(String prefix) {
         if (prefix.equals("igcp")) {
-            return "http://www.portalu.de/igc-profile";
+            return NAMESPACE_URI_IGCP;
         } else {
             return XMLConstants.NULL_NS_URI;
         }
