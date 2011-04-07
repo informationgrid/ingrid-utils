@@ -124,6 +124,7 @@ public class UtilsUDKCodeListsTest extends TestCase {
     	assertEquals("8", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(524L, "otherRestrictions"));
     	assertEquals("10", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(527L, "imageryBaseMapsEarthCover"));
     	assertEquals("6", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(5100L, "other"));
+    	assertEquals("900004", UtilsUDKCodeLists.getIgcIdFromIsoCodeListEntry(520L, "broadcast"));
     }
     
     public void testGetIsoCodeListEntryFromIgcId() {

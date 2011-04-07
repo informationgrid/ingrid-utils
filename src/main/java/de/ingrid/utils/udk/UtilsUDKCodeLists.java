@@ -182,14 +182,19 @@ public class UtilsUDKCodeLists {
 	
 	/**
 	 * Returns the IDC domain list ID (sys list) based on an ISO code list entry.
-	 * If the ISO entry cannot be found in the specified codeList, null will be returned.
+	 * If the iso codelist entry cannot be found, the english translation of the
+	 * IGC syslist will be returned. If this also cannot be found, null is returned.
 	 * 
 	 * @param codeListId
 	 * @param isoCodeListEntry
 	 * @return
 	 */
 	public static String getIgcIdFromIsoCodeListEntry(Long codeListId, String isoCodeListEntry) {
-		return getCodeListDomainId(codeListId, isoCodeListEntry, LANG_ID_ISO_ENTRY);
+		String igcCode = getCodeListDomainId(codeListId, isoCodeListEntry, LANG_ID_ISO_ENTRY);
+		if (igcCode == null) {
+			igcCode = getCodeListDomainId(codeListId, isoCodeListEntry, UtilsLanguageCodelist.getCodeFromShortcut("en").longValue());			
+		}
+		return igcCode;
 	}
 
 }
