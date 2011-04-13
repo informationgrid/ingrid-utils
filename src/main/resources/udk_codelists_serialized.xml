@@ -5990,4 +5990,98 @@
             </entry>
         </map>
     </entry>
+    <entry>
+        <!--
+            Konformität
+        -->
+        <long>6000</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>conform</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>konform</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>2</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>non-conform</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>nicht konform</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3</long>
+                <map>
+                	<entry>
+                        <long>123</long>
+                        <string>not evaluated</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>nicht evaluiert</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <!--
+            Art des Dienstes (Klasse 6)
+        -->
+        <long>5300</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Information System</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Informationssystem</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>2</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Non Geographic Service</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>nicht geographischer Dienst</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Application</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Anwendung</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
 </map>
