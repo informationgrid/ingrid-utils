@@ -6001,7 +6001,7 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>conform</string>
+                        <string>conformant</string>
                     </entry>
                     <entry>
                         <long>150</long>
@@ -6014,7 +6014,7 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>non-conform</string>
+                        <string>not conformant</string>
                     </entry>
                     <entry>
                         <long>150</long>
