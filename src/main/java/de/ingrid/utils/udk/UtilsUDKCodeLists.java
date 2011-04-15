@@ -23,7 +23,7 @@ public class UtilsUDKCodeLists {
 
 	private static final HashMap udk2codeList505Map;
 
-	private static final Long LANG_ID_ISO_ENTRY = 150150150L; 
+	public static final Long LANG_ID_ISO_ENTRY = 150150150L; 
 	/** DUMMY Language ID for fetching InGrid-Query value of a syslist entry
 	 * (e.g. "DatenKarten" for entry in funct_category syslist) */
 	public static final Long LANG_ID_INGRID_QUERY_VALUE = 8150815L;
