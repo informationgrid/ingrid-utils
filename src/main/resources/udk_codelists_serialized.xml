@@ -2090,8 +2090,7 @@
 				<map>
 					<entry>
 						<long>150</long>
-						<string>Flurstücke/Grundstücke
-							(Katasterparzellen)</string>
+						<string>Flurstücke/Grundstücke (Katasterparzellen)</string>
 					</entry>
 					<entry>
 						<long>123</long>
@@ -2260,8 +2259,7 @@
 				<map>
 					<entry>
 						<long>150</long>
-						<string>Versorgungswirtschaft und staatliche
-							Dienste</string>
+						<string>Versorgungswirtschaft und staatliche Dienste</string>
 					</entry>
 					<entry>
 						<long>123</long>
@@ -2300,8 +2298,7 @@
 				<map>
 					<entry>
 						<long>150</long>
-						<string>Landwirtschaftliche Anlagen und
-							Aquakulturanlagen</string>
+						<string>Landwirtschaftliche Anlagen und	Aquakulturanlagen</string>
 					</entry>
 					<entry>
 						<long>123</long>
@@ -2328,13 +2325,11 @@
 				<map>
 					<entry>
 						<long>150</long>
-						<string>Bewirtschaftungsgebiete/Schutzgebiete/geregelte
-							Gebiete und Berichterstattungseinheiten</string>
+						<string>Bewirtschaftungsgebiete/Schutzgebiete/geregelte Gebiete und Berichterstattungseinheiten</string>
 					</entry>
 					<entry>
 						<long>123</long>
-						<string>Area management/restriction/regulation zones and
-							reporting units</string>
+						<string>Area management/restriction/regulation zones and reporting units</string>
 					</entry>
 				</map>
 			</entry>
