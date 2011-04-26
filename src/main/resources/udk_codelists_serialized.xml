@@ -6079,4 +6079,410 @@
             </entry>
         </map>
     </entry>
+    <entry>
+        <long>7109</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Rate of excess items</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Rate of excess items</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>2</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of duplicate feature instances</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of duplicate feature instances</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <long>7110</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Rate of missing items</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Rate of missing items</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <long>7112</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of invalid overlaps of surfaces</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of invalid overlaps of surfaces</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>2</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Conceptual Schema compliance</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Conceptual Schema compliance</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Compliance rate with the rules of the conceptual schema</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Compliance rate with the rules of the conceptual schema</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <long>7113</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Value domain non conformance rate</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Value domain non conformance rate</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <long>7114</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Physical structure conflict rate</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Physical structure conflict rate</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <long>7115</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of invalid overlaps of surfaces</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of invalid overlaps of surfaces</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>2</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of missing connections due to undershoots</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of missing connections due to undershoots</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of missing connections due to overshoots</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of missing connections due to overshoots</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>4</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of invalid slivers</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of invalid slivers</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>5</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of invalid self-intersect errors</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of invalid self-intersect errors</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>6</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of invalid self-overlap errors</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of invalid self-overlap errors</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>7</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of faulty point-curve connections</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of faulty point-curve connections</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>8</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of missing connections due to crossing of bridge/road</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of missing connections due to crossing of bridge/road</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>9</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of watercourse links below threshold length</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of watercourse links below threshold length</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>10</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of closed watercourse links</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of closed watercourse links</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>11</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of multi-part watercourse links</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of multi-part watercourse links</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <long>7117</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Mean value of positional uncertainties (1D)</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Mean value of positional uncertainties (1D)</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>2</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Mean value of positional uncertainties (2D)</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Mean value of positional uncertainties (2D)</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Mean value of positional uncertainties (3D)</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Mean value of positional uncertainties (3D)</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <long>7120</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Percentage of items that are correctly events ordered</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Percentage of items that are correctly events ordered</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <long>7125</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Misclassification rate</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Misclassification rate</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+     <entry>
+        <long>7126</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Number of incorrect attribute values</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Number of incorrect attribute values</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>2</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Rate of incorrect classification for national identifier</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Rate of incorrect classification for national identifier</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <long>7127</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Attribute value uncertainty at 95 % significance level</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Attribute value uncertainty at 95 % significance level</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
 </map>
