@@ -521,6 +521,12 @@ public class IngridQuery extends IngridDocument {
         for (int i = 0; i < dataTypes.length; i++) {
             buffer.append(dataTypes[i].toString());
         }
+        
+        buffer.append(" iplugs: ");
+        String[] iPlugs = getIPlugs();
+        for (int i=0; i<iPlugs.length; i++) {
+            buffer.append(iPlugs).append(" ");
+        }
 
         buffer.append(" ranking: ");
         buffer.append(getRankingType());
