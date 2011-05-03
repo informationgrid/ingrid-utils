@@ -550,19 +550,27 @@ public class PlugDescription extends IngridDocument {
     }
 
     /**
-     * @param score
-     * @param date
-     * @param notRanked
+     * ADD(!) ranking types to ranking list if not already added.
+     * NOTICE: Does NOT remove ranking types. Clear ranking list before adding types to remove types !
+     * @param score true=add "score" ranking type if not set yet, false=DO NOTHING
+     * @param date true=add "date" ranking type if not set yet, false=DO NOTHING
+     * @param notRanked true=add "off" ranking type if not set yet, false=DO NOTHING
      */
     public void setRankinTypes(boolean score, boolean date, boolean notRanked) {
         if (score) {
-            addToList(IngridQuery.RANKED, IngridQuery.SCORE_RANKED);
+            if (!containsRankingType(IngridQuery.SCORE_RANKED)) {
+                addToList(IngridQuery.RANKED, IngridQuery.SCORE_RANKED);
+            }
         }
         if (date) {
-            addToList(IngridQuery.RANKED, IngridQuery.DATE_RANKED);
+            if (!containsRankingType(IngridQuery.DATE_RANKED)) {
+                addToList(IngridQuery.RANKED, IngridQuery.DATE_RANKED);
+            }
         }
         if (notRanked) {
-            addToList(IngridQuery.RANKED, IngridQuery.NOT_RANKED);
+            if (!containsRankingType(IngridQuery.NOT_RANKED)) {
+                addToList(IngridQuery.RANKED, IngridQuery.NOT_RANKED);
+            }
         }
     }
 
