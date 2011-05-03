@@ -1095,6 +1095,10 @@
 				<long>101</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>humanCatalogueViewer</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Katalogdienst (Viewer)</string>
 					</entry>
@@ -1107,6 +1111,10 @@
 			<entry>
 				<long>102</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>humanGeographicViewer</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Dienst für geografische Visualisierung</string>
@@ -1121,6 +1129,10 @@
 				<long>103</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>humanGeographicSpreadsheetViewer</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für geografische Tabellenkalkulation</string>
 					</entry>
@@ -1133,6 +1145,10 @@
 			<entry>
 				<long>104</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>humanServiceEditor</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Editor für Verarbeitungsdienste</string>
@@ -1147,6 +1163,10 @@
 				<long>105</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>humanChainDefinitionEditor</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Editor für die Definition von Bearbeitungsketten</string>
 					</entry>
@@ -1159,6 +1179,10 @@
 			<entry>
 				<long>106</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>humanWorkflowEnactmentManager</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Aufrufprogramm für Bearbeitungsketten</string>
@@ -1173,6 +1197,10 @@
 				<long>107</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>humanGeographicFeatureEditor</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Editor für geografische Objekte</string>
 					</entry>
@@ -1185,6 +1213,10 @@
 			<entry>
 				<long>108</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>humanGeographicSymbolEditor</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Editor für geografische Symbole</string>
@@ -1199,6 +1231,10 @@
 				<long>109</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>humanFeatureGeneralizationEditor</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Editor für die Objektgeneralisierung</string>
 					</entry>
@@ -1211,6 +1247,10 @@
 			<entry>
 				<long>110</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>humanGeographicDataStructureViewer</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Betrachter für geografische Datenstrukturen</string>
@@ -1225,6 +1265,10 @@
 				<long>201</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>infoFeatureAccessService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für den Zugriff auf Objekte</string>
 					</entry>
@@ -1237,6 +1281,10 @@
 			<entry>
 				<long>202</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>infoMapAccessService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Dienst für den Zugriff auf grafische Darstellungen</string>
@@ -1251,6 +1299,10 @@
 				<long>203</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>infoCoverageAccessService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für den Zugriff auf Rasterdaten</string>
 					</entry>
@@ -1263,6 +1315,10 @@
 			<entry>
 				<long>204</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>infoSensorDescriptionService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Dienst für die Beschreibung von Sensoren</string>
@@ -1277,6 +1333,10 @@
 				<long>205</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>infoProductAccessService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für den Zugriff auf Produkte</string>
 					</entry>
@@ -1289,6 +1349,10 @@
 			<entry>
 				<long>206</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>infoFeatureAccessService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Dienst für den Zugriff auf Objektarten</string>
@@ -1303,6 +1367,10 @@
 				<long>207</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>infoCatalogueService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Katalogdienst (Service)</string>
 					</entry>
@@ -1315,6 +1383,10 @@
 			<entry>
 				<long>208</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>infoRegistryService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Registerdienst</string>
@@ -1329,6 +1401,10 @@
 				<long>209</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>infoGazetteerService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Gazetteerdienst</string>
 					</entry>
@@ -1341,6 +1417,10 @@
 			<entry>
 				<long>210</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>infoOrderHandlingService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Auftragsdienst</string>
@@ -1355,6 +1435,10 @@
 				<long>211</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>infoStandingOrderService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dauerauftragsdienst</string>
 					</entry>
@@ -1367,6 +1451,10 @@
 			<entry>
 				<long>301</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>chainDefinitionService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Dienst für die Definition von Bearbeitungsketten</string>
@@ -1381,6 +1469,10 @@
 				<long>302</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>workflowEnactmentService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für die Ausführung von Bearbeitungsketten</string>
 					</entry>
@@ -1393,6 +1485,10 @@
 			<entry>
 				<long>303</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>subscriptionService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Abonnementdienst</string>
@@ -1407,6 +1503,10 @@
 				<long>401</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>spatialCoordinateConversionService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für die Konversion von Koordinaten</string>
 					</entry>
@@ -1419,6 +1519,10 @@
 			<entry>
 				<long>402</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>spatialCoordinateTransformationService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Dienst für die Transformation von Koordinaten</string>
@@ -1433,6 +1537,10 @@
 				<long>403</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>spatialCoverageVectorConversionService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für die Umwandlung zwischen Raster- und Vektordaten</string>
 					</entry>
@@ -1445,6 +1553,10 @@
 			<entry>
 				<long>404</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>spatialImageCoordinateConversionService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Dienst für die Konversion von Bildkoordinaten</string>
@@ -1459,6 +1571,10 @@
 				<long>405</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>spatialRectificationService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Entzerrungsdienst</string>
 					</entry>
@@ -1471,6 +1587,10 @@
 			<entry>
 				<long>406</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>spatialOrthorectificationService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Ortho-Entzerrungsdienst</string>
@@ -1485,6 +1605,10 @@
 				<long>407</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>spatialSensorGeometryModelAdjustmentService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für die Justierung von Geometriemodellen von Sensoren</string>
 					</entry>
@@ -1497,6 +1621,10 @@
 			<entry>
 				<long>408</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>spatialImageGeometryModelConversionService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Dienst für die Konversion von Geometriemodellen</string>
@@ -1511,6 +1639,10 @@
 				<long>409</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>spatialSubsettingService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Geografischer Ausschnittsdienst</string>
 					</entry>
@@ -1523,6 +1655,10 @@
 			<entry>
 				<long>410</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>spatialSamplingService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Raumbezogener Auswahldienst</string>
@@ -1537,6 +1673,10 @@
 				<long>411</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>spatialTilingChangeService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Kachelungsdienst</string>
 					</entry>
@@ -1549,6 +1689,10 @@
 			<entry>
 				<long>412</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>spatialDimensionMeasurementService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Messungsdienst</string>
@@ -1563,6 +1707,10 @@
 				<long>413</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>spatialFeatureManipulationService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Objektbearbeitungsdienste</string>
 					</entry>
@@ -1575,6 +1723,10 @@
 			<entry>
 				<long>414</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>spatialFeatureMatchingService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Vergleichsdienst</string>
@@ -1589,6 +1741,10 @@
 				<long>415</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>spatialFeatureGeneralizationService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Generalisierungsdienst</string>
 					</entry>
@@ -1601,6 +1757,10 @@
 			<entry>
 				<long>416</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>spatialRouteDeterminationService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Routensuchdienst</string>
@@ -1615,6 +1775,10 @@
 				<long>417</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>spatialPositioningService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Positionierungsdienst</string>
 					</entry>
@@ -1627,6 +1791,10 @@
 			<entry>
 				<long>418</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>spatialProximityAnalysisService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Analysedienst für räumliche Nachbarschaftsbeziehungen</string>
@@ -1641,6 +1809,10 @@
 				<long>501</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>thematicGoparameterCalculationService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Berechnungsdienst für Geoparameter</string>
 					</entry>
@@ -1653,6 +1825,10 @@
 			<entry>
 				<long>502</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>thematicClassificationService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Dienst für die thematische Klassifizierung</string>
@@ -1667,6 +1843,10 @@
 				<long>503</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>thematicFeatureGeneralizationService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Generalisierungsdienst für Objektarten</string>
 					</entry>
@@ -1679,6 +1859,10 @@
 			<entry>
 				<long>504</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>thematicSubsettingService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Themenbezogener Ausschnittsdienst</string>
@@ -1693,6 +1877,10 @@
 				<long>505</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>thematicSpatialCountingService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Zähldienst</string>
 					</entry>
@@ -1705,6 +1893,10 @@
 			<entry>
 				<long>506</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>thematicChangeDetectionService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Erkennungsdienst für Veränderungen</string>
@@ -1719,6 +1911,10 @@
 				<long>507</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>thematicGeographicInformationExtractionService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Auszugsdienste für geografische Informationen</string>
 					</entry>
@@ -1731,6 +1927,10 @@
 			<entry>
 				<long>508</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>thematicImageProcessingService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Themenbezogener Bildverarbeitungsdienst</string>
@@ -1745,6 +1945,10 @@
 				<long>509</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>thematicReducedResolutionGenerationService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Auflösungsreduzierungsdienst</string>
 					</entry>
@@ -1757,6 +1961,10 @@
 			<entry>
 				<long>510</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>thematicImageManipulationService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Bildbearbeitungsdienste</string>
@@ -1771,6 +1979,10 @@
 				<long>511</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>thematicImageUnderstandingService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Interpretationsdienste für Bilder</string>
 					</entry>
@@ -1783,6 +1995,10 @@
 			<entry>
 				<long>512</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>thematicImageSynthesisService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Bildsynthesedienste</string>
@@ -1797,6 +2013,10 @@
 				<long>513</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>thematicMultibandImageManipulationService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Multiband-Bildbearbeitung</string>
 					</entry>
@@ -1809,6 +2029,10 @@
 			<entry>
 				<long>514</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>thematicObjectDetectionService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Objekterkennungsdienst</string>
@@ -1823,6 +2047,10 @@
 				<long>515</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>thematicGeoparsingService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Geoparserdienst</string>
 					</entry>
@@ -1835,6 +2063,10 @@
 			<entry>
 				<long>516</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>thematicGeocodingService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Geocodierungsdienst</string>
@@ -1849,6 +2081,10 @@
 				<long>601</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>temporalReferenceSystemTransformationService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Transformationsdienst für den Zeitbezug</string>
 					</entry>
@@ -1861,6 +2097,10 @@
 			<entry>
 				<long>602</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>temporalSubsettingService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Zeitbezogener Ausschnittsdienst</string>
@@ -1875,6 +2115,10 @@
 				<long>603</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>temporalSamplingService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Zeitbezogener Auswahldienst</string>
 					</entry>
@@ -1887,6 +2131,10 @@
 			<entry>
 				<long>604</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>temporalProximityAnalysisService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Analysedienst für zeitbezogene Nachbarschaftsbeziehungen</string>
@@ -1901,6 +2149,10 @@
 				<long>701</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>metadataStatisticalCalculationService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für statistische Berechnungen</string>
 					</entry>
@@ -1913,6 +2165,10 @@
 			<entry>
 				<long>702</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>metadataGeographicAnnotationService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Ergänzungsdienste für Geodaten</string>
@@ -1927,6 +2183,10 @@
 				<long>801</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>comEncodingService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Codierungsdienst</string>
 					</entry>
@@ -1939,6 +2199,10 @@
 			<entry>
 				<long>802</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>comTransferService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Übertragungsdienst</string>
@@ -1953,6 +2217,10 @@
 				<long>803</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>comGeographicCompressionService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Kompressionsdienst für Geodaten</string>
 					</entry>
@@ -1965,6 +2233,10 @@
 			<entry>
 				<long>804</long>
 				<map>
+					<entry>
+						<long>150150150</long>
+						<string>comGeographicFormatConversionService</string>
+					</entry>
 					<entry>
 						<long>150</long>
 						<string>Umformatierungsdienst für Geodaten</string>
@@ -1979,6 +2251,10 @@
 				<long>805</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>comMessagingService</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Nachrichtenübermittlungsdienst</string>
 					</entry>
@@ -1992,25 +2268,16 @@
 				<long>806</long>
 				<map>
 					<entry>
+						<long>150150150</long>
+						<string>comRemoteFileAndExecutableManagement</string>
+					</entry>
+					<entry>
 						<long>150</long>
 						<string>Dienst für den Zugriff auf externe Daten und Programme</string>
 					</entry>
 					<entry>
 						<long>123</long>
 						<string>Remote file and executable management</string>
-					</entry>
-				</map>
-			</entry>
-			<entry>
-				<long>901</long>
-				<map>
-					<entry>
-						<long>150</long>
-						<string>Kein geografischer Dienst</string>
-					</entry>
-					<entry>
-						<long>123</long>
-						<string>Non Geographic Service</string>
 					</entry>
 				</map>
 			</entry>
