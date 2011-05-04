@@ -102,8 +102,8 @@ public class UtilsCSWDate {
                 cswFormat.applyPattern("yyyy-MM-dd");
                 return cswFormat.format(df.parse(igcDate));
             }
-        } catch (ParseException e) {
-            log.error("Parsing CSW date failed (" + igcDate + ").");
+        } catch (Exception e) {
+            log.error("Parsing CSW date failed (" + igcDate + ").", e);
         }
         return null;
 	    
