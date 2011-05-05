@@ -16,6 +16,7 @@
     <ingrid-external-service-sns.version>3.0.0</ingrid-external-service-sns.version>
     <ingrid-ibus.version>3.0.0</ingrid-ibus.version>
     <ingrid-ibus-client.version>3.0.0</ingrid-ibus-client.version>
+    <ingrid-igc-backup.version>3.0.0</ingrid-igc-backup.version>
     <ingrid-installer.version>3.0.0</ingrid-installer.version>
     <ingrid-interface-opensearch.version>3.0.0</ingrid-interface-opensearch.version>
     <ingrid-iplug.version>3.0.0</ingrid-iplug.version>
@@ -288,6 +289,11 @@
         <groupId>de.ingrid.mdek</groupId>
         <artifactId>ingrid-import-export</artifactId>
         <version>${ingrid-mdek.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-igc-backup</artifactId>
+        <version>${ingrid-igc-backup.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
