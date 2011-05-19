@@ -286,11 +286,6 @@
         <version>${ingrid-ibus-client.version}</version>
       </dependency>
       <dependency>
-        <groupId>de.ingrid.mdek</groupId>
-        <artifactId>ingrid-import-export</artifactId>
-        <version>${ingrid-mdek.version}</version>
-      </dependency>
-      <dependency>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-igc-backup</artifactId>
         <version>${ingrid-igc-backup.version}</version>
@@ -378,6 +373,11 @@
       <dependency>
         <groupId>de.ingrid.mdek</groupId>
         <artifactId>ingrid-mdek-api</artifactId>
+        <version>${ingrid-mdek.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid.mdek</groupId>
+        <artifactId>ingrid-import-export</artifactId>
         <version>${ingrid-mdek.version}</version>
       </dependency>
       <dependency>
