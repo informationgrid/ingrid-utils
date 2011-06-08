@@ -238,9 +238,9 @@ public class IngridQuery extends IngridDocument {
         }
     }
 
-    /**
+    /** Remove FIRST occurence of field with given name in field list !
      * @param fieldName
-     * @return null or a removed field query with the given field name
+     * @return null or a removed field query with the given field name (first one in fields list)
      */
     public FieldQuery removeField(String fieldName) {
         ArrayList fields = getArrayList(FIELD_KEY);

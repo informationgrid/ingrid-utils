@@ -15,16 +15,13 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import de.ingrid.utils.processor.impl.QueryExtensionPreProcessor;
-
 /**
  * @author joachim@wemove.com
  * 
  */
 public class GZipTool {
 
-    private static final Log LOG = LogFactory
-            .getLog(QueryExtensionPreProcessor.class);
+    private static final Log LOG = LogFactory.getLog(GZipTool.class);
 
     /**
      * Compress a String using GZIP compression. Returns a BASE64 encoded string
