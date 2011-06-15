@@ -37,15 +37,35 @@ public class QueryExtensionPreProcessor implements IPreProcessor, IConfigurable 
 				// if the query matches a pattern
 				// add all field queries of it
 				if (pattern.matcher(queryString).find()) {
-					Set<FieldQuery> fieldQueries = queryExtension.getFieldQueries();
+					Set<FieldQuery> fieldQueries = queryExtension.getFieldQueries(pattern);
 					if (fieldQueries != null) {
 						for (FieldQuery fieldQuery : fieldQueries) {
+						    // reject query immediately if it shall be denied 
+						    if ("metainfo:query_deny".equals(fieldQuery.getContent())) {
+						        if (LOG.isDebugEnabled()) {
+	                                LOG.debug("Rejected query because it was DENIED!");
+	                            }
+						        query.addField(new FieldQuery(true, false, "forceQuery", "reject"));
+						        return;
+						    }
 							if (LOG.isDebugEnabled()) {
 								LOG.debug("add field to query: " + fieldQuery);
 							}
 							query.addField(fieldQuery);
 						}
 					}
+				} else {
+				    Set<FieldQuery> fieldQueries = queryExtension.getFieldQueries(pattern);
+				    for (FieldQuery fieldQuery : fieldQueries) {
+				        // reject query if allow-pattern doesn't match query
+				        if ("metainfo:query_allow".equals(fieldQuery.getContent())) {
+				            if (LOG.isDebugEnabled()) {
+                                LOG.debug("Rejected query because it didn't match the ALLOW-pattern!");
+                            }
+				            query.addField(new FieldQuery(true, false, "forceQuery", "reject"));
+				            return;
+				        }
+                    }
 				}
 			}
         }
