@@ -45,7 +45,7 @@ public class QueryExtensionPreProcessor implements IPreProcessor, IConfigurable 
 						        if (LOG.isDebugEnabled()) {
 	                                LOG.debug("Rejected query because it was DENIED!");
 	                            }
-						        query.addField(new FieldQuery(true, false, "forceQuery", "reject"));
+						        query.addField(new FieldQuery(true, false, "metainfo", "query_deny"));
 						        return;
 						    }
 							if (LOG.isDebugEnabled()) {
@@ -62,7 +62,7 @@ public class QueryExtensionPreProcessor implements IPreProcessor, IConfigurable 
 				            if (LOG.isDebugEnabled()) {
                                 LOG.debug("Rejected query because it didn't match the ALLOW-pattern!");
                             }
-				            query.addField(new FieldQuery(true, false, "forceQuery", "reject"));
+				            query.addField(new FieldQuery(true, false, "metainfo", "query_deny"));
 				            return;
 				        }
                     }

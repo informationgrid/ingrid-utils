@@ -122,6 +122,9 @@ public class IngridQuery extends IngridDocument {
     
     /***/
     public static final String CACHED = "cache";
+    
+    /***/
+    public static final String QUERY_DENY = "metainfo:query_deny";
 
     private transient IngridQuery fLastAddedQuery;
     
@@ -767,5 +770,20 @@ public class IngridQuery extends IngridDocument {
         clauses.add(query);
     }
     
+    public boolean isRejected() {
+        if (getArrayList("field").toString().contains(QUERY_DENY)) {
+            return true;
+        }
+        return false;
+    }
+    
+    /*
+    // might be used when language needs to be transfered to iPlugs but no as a field
+    public void addLanguageFromLocale(Locale loc) {
+        put(LANGUAGE, loc.getLanguage());
+    }
 
+    public String getLanguage() {
+        return (String)get(LANGUAGE);
+    }*/
 }
