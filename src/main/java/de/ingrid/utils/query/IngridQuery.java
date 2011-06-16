@@ -771,7 +771,8 @@ public class IngridQuery extends IngridDocument {
     }
     
     public boolean isRejected() {
-        if (getArrayList("field").toString().contains(QUERY_DENY)) {
+        List fields = getArrayList("field");
+        if (fields != null && fields.toString().contains(QUERY_DENY)) {
             return true;
         }
         return false;

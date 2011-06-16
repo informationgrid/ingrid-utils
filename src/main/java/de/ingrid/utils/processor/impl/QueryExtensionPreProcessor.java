@@ -45,7 +45,7 @@ public class QueryExtensionPreProcessor implements IPreProcessor, IConfigurable 
 						        if (LOG.isDebugEnabled()) {
 	                                LOG.debug("Rejected query because it was DENIED!");
 	                            }
-						        query.addField(new FieldQuery(true, false, "metainfo", "query_deny"));
+						        query.addField(fieldQuery);
 						        return;
 						    }
 							if (LOG.isDebugEnabled()) {
