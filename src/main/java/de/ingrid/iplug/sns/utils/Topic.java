@@ -69,6 +69,8 @@ public class Topic extends IngridHitDetail {
      */
     public static final int TOPIC_HIERACHY = 8;
 
+    public static final int TOPIC_FROM_ID = 9;
+
     private static final long serialVersionUID = Topic.class.getName().hashCode();
 
     /**
