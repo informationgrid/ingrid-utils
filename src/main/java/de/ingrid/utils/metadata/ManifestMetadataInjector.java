@@ -8,7 +8,7 @@ import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
 import org.apache.commons.logging.Log;
-import org.apache.commons.logging.impl.LogFactoryImpl;
+import org.apache.commons.logging.LogFactory;
 
 import de.ingrid.utils.PlugDescription;
 
@@ -42,7 +42,7 @@ public class ManifestMetadataInjector implements IMetadataInjector {
 
 	private Manifest _manifest = null;
     
-	private static final Log LOG = LogFactoryImpl.getLog(ManifestMetadataInjector.class);
+	private static final Log LOG = LogFactory.getLog(ManifestMetadataInjector.class);
 
 	public ManifestMetadataInjector() {
 	}

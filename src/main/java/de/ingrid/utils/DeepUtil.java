@@ -1,13 +1,13 @@
 package de.ingrid.utils;
 
 import org.apache.commons.logging.Log;
-import org.apache.commons.logging.impl.LogFactoryImpl;
+import org.apache.commons.logging.LogFactory;
 
 public class DeepUtil {
 
     public static final int MAX_DEEP = 50;
 
-    private static final Log LOG = LogFactoryImpl.getLog(DeepUtil.class);
+    private static final Log LOG = LogFactory.getLog(DeepUtil.class);
 
     public static String deepString(Object object, int deep) {
         String ret = "";

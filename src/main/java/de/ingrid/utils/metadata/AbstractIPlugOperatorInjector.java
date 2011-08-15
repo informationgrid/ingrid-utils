@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.logging.Log;
-import org.apache.commons.logging.impl.LogFactoryImpl;
+import org.apache.commons.logging.LogFactory;
 
 import de.ingrid.utils.IBus;
 import de.ingrid.utils.IngridHit;
@@ -24,8 +24,7 @@ public abstract class AbstractIPlugOperatorInjector implements
 
 	public static final String IPLUG_OPERATOR = "IPLUG_OPERATOR";
 
-	private Log LOG = LogFactoryImpl
-			.getLog(AbstractIPlugOperatorInjector.class);
+	private Log LOG = LogFactory.getLog(AbstractIPlugOperatorInjector.class);
 
 	private IBus _bus;
 

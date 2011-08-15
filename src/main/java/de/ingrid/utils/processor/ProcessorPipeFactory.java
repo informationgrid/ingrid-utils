@@ -3,7 +3,7 @@ package de.ingrid.utils.processor;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
-import org.apache.commons.logging.impl.LogFactoryImpl;
+import org.apache.commons.logging.LogFactory;
 
 import de.ingrid.utils.IConfigurable;
 import de.ingrid.utils.PlugDescription;
@@ -17,7 +17,7 @@ public class ProcessorPipeFactory {
 
     private final PlugDescription _plugDescription;
 
-    private static final Log LOG = LogFactoryImpl.getLog(ProcessorPipeFactory.class);
+    private static final Log LOG = LogFactory.getLog(ProcessorPipeFactory.class);
 
     public ProcessorPipeFactory(PlugDescription plugDescription) {
         _plugDescription = plugDescription;

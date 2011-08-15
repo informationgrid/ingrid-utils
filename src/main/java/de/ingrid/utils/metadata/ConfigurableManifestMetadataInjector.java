@@ -4,7 +4,7 @@
 package de.ingrid.utils.metadata;
 
 import org.apache.commons.logging.Log;
-import org.apache.commons.logging.impl.LogFactoryImpl;
+import org.apache.commons.logging.LogFactory;
 
 import de.ingrid.utils.PlugDescription;
 
@@ -14,7 +14,7 @@ import de.ingrid.utils.PlugDescription;
  */
 public class ConfigurableManifestMetadataInjector extends ManifestMetadataInjector {
 
-	private static final Log LOG = LogFactoryImpl.getLog(ConfigurableManifestMetadataInjector.class);
+	private static final Log LOG = LogFactory.getLog(ConfigurableManifestMetadataInjector.class);
 	
 	
 	public ConfigurableManifestMetadataInjector(String className) {

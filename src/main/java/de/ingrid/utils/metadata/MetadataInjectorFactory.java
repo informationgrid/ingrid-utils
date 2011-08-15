@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
-import org.apache.commons.logging.impl.LogFactoryImpl;
+import org.apache.commons.logging.LogFactory;
 
 import de.ingrid.utils.IBus;
 import de.ingrid.utils.PlugDescription;
@@ -18,7 +18,7 @@ public class MetadataInjectorFactory {
 
     private final Class<List<IMetadataInjector>> _injectorContainer = null;
 
-    private static final Log LOG = LogFactoryImpl.getLog(MetadataInjectorFactory.class);
+    private static final Log LOG = LogFactory.getLog(MetadataInjectorFactory.class);
 
     public MetadataInjectorFactory(final PlugDescription description, final IBus bus) {
         _description = description;
