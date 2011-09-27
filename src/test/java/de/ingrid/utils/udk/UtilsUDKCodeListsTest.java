@@ -27,7 +27,9 @@ public class UtilsUDKCodeListsTest extends TestCase {
         
         String languageName = UtilsUDKCodeLists.getCodeListDomainId(new Long(99999999), "englisch", new Long(150));
         assertEquals(true, languageName.equals("123"));
-        
+        languageName = UtilsUDKCodeLists.getCodeListDomainId(new Long(99999999), "Französisch", new Long(150));
+        assertEquals(true, languageName.equals("137"));
+
         String value = UtilsUDKCodeLists.getCodeListDomainId(new Long(505), "Point of Contact", new Long(123));
         assertEquals(true, value.equals("7"));
         assertEquals(true, UtilsUDKCodeLists.codeList505ToUDK(value).equals("0"));
@@ -112,6 +114,14 @@ public class UtilsUDKCodeListsTest extends TestCase {
         	CodeListEntry entry = (CodeListEntry)list.get(i);
         	if (entry.getDomainId().compareTo(new Long(5)) == 0) {
         		assertEquals(entry.getValue(), "theme");
+        	}
+        }
+        list = UtilsUDKCodeLists.getCodeList(new Long(99999999), new Long(150));
+        assertTrue(list.size() > 0);
+        for (int i=0; i<list.size(); i++) {
+        	CodeListEntry entry = (CodeListEntry)list.get(i);
+        	if (entry.getDomainId().compareTo(new Long(134)) == 0) {
+        		assertEquals(entry.getValue(), "Finnisch");
         		return;
         	}
         }
