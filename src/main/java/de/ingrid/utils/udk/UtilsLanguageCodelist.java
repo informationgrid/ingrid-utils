@@ -45,6 +45,28 @@ public class UtilsLanguageCodelist {
 	static {
 		languageCodelist_de.put(IGC_CODE_GERMAN, "Deutsch");
 		languageCodelist_de.put(IGC_CODE_ENGLISH, "Englisch");
+		languageCodelist_de.put(65, "Bulgarisch");
+		languageCodelist_de.put(101, "Tschechisch");
+		languageCodelist_de.put(103, "Dänisch");
+		languageCodelist_de.put(401, "Spanisch");
+		languageCodelist_de.put(134, "Finnisch");
+		languageCodelist_de.put(137, "Französisch");
+		languageCodelist_de.put(164, "Griechisch");
+		languageCodelist_de.put(183, "Ungarisch");
+		languageCodelist_de.put(116, "Niederländisch");
+		languageCodelist_de.put(346, "Polnisch");
+		languageCodelist_de.put(348, "Portugiesisch");
+		languageCodelist_de.put(360, "Rumänisch");
+		languageCodelist_de.put(385, "Slowakisch");
+		languageCodelist_de.put(386, "Slowenisch");
+		languageCodelist_de.put(202, "Italienisch");
+		languageCodelist_de.put(126, "Estnisch");
+		languageCodelist_de.put(247, "Lettisch");
+		languageCodelist_de.put(251, "Litauisch");
+		languageCodelist_de.put(312, "Norwegisch");
+		languageCodelist_de.put(363, "Russisch");
+		languageCodelist_de.put(413, "Schwedisch");
+		languageCodelist_de.put(284, "Maltesisch");
 	}
 
 	/** MAP: IGC language code (150, 123, ...) to name of language in english <IGC language code, language name in english> */
@@ -52,6 +74,28 @@ public class UtilsLanguageCodelist {
 	static {
 		languageCodelist_en.put(IGC_CODE_GERMAN, "German");
 		languageCodelist_en.put(IGC_CODE_ENGLISH, "English");
+		languageCodelist_en.put(65, "Bulgarian");
+		languageCodelist_en.put(101, "Czech");
+		languageCodelist_en.put(103, "Danish");
+		languageCodelist_en.put(401, "Spanish");
+		languageCodelist_en.put(134, "Finish");
+		languageCodelist_en.put(137, "French");
+		languageCodelist_en.put(164, "Greek");
+		languageCodelist_en.put(183, "Hungarian");
+		languageCodelist_en.put(116, "Dutch");
+		languageCodelist_en.put(346, "Polish");
+		languageCodelist_en.put(348, "Portuguese");
+		languageCodelist_en.put(360, "Romanian");
+		languageCodelist_en.put(385, "Slovakian");
+		languageCodelist_en.put(386, "Slovenian");
+		languageCodelist_en.put(202, "Italian");
+		languageCodelist_en.put(126, "Estonian");
+		languageCodelist_en.put(247, "Latvian");
+		languageCodelist_en.put(251, "Lithuanian");
+		languageCodelist_en.put(312, "Norwegian");
+		languageCodelist_en.put(363, "Russian");
+		languageCodelist_en.put(413, "Swedish");
+		languageCodelist_en.put(284, "Maltese");
 	}
 
 	/** MAP: ISO 639-1 language "shortcut" ("de", "en") to IGC language code <ISO 639-1 "shortcut", IGC language code>*/
@@ -59,6 +103,28 @@ public class UtilsLanguageCodelist {
 	static {
 		languageISO639_1ToIGCCode.put("de", IGC_CODE_GERMAN);
 		languageISO639_1ToIGCCode.put("en", IGC_CODE_ENGLISH);
+		languageISO639_1ToIGCCode.put("bg", 65);
+		languageISO639_1ToIGCCode.put("cs", 101);
+		languageISO639_1ToIGCCode.put("da", 103);
+		languageISO639_1ToIGCCode.put("es", 401);
+		languageISO639_1ToIGCCode.put("fi", 134);
+		languageISO639_1ToIGCCode.put("fr", 137);
+		languageISO639_1ToIGCCode.put("el", 164);
+		languageISO639_1ToIGCCode.put("hu", 183);
+		languageISO639_1ToIGCCode.put("nl", 116);
+		languageISO639_1ToIGCCode.put("pl", 346);
+		languageISO639_1ToIGCCode.put("pt", 348);
+		languageISO639_1ToIGCCode.put("ro", 360);
+		languageISO639_1ToIGCCode.put("sk", 385);
+		languageISO639_1ToIGCCode.put("sl", 386);
+		languageISO639_1ToIGCCode.put("it", 202);
+		languageISO639_1ToIGCCode.put("et", 126);
+		languageISO639_1ToIGCCode.put("lv", 247);
+		languageISO639_1ToIGCCode.put("lt", 251);
+		languageISO639_1ToIGCCode.put("nn", 312);
+		languageISO639_1ToIGCCode.put("ru", 363);
+		languageISO639_1ToIGCCode.put("sv", 413);
+		languageISO639_1ToIGCCode.put("mt", 284);
 	}
 
 	/** MAP: ISO 639-2 language shortcut ("ger", "deu", "eng") to IGC language code <ISO 639-2 shortcut, IGC language code>*/
@@ -70,6 +136,28 @@ public class UtilsLanguageCodelist {
 		languageISO639_2ToIGCCode.put("deu" + ISO_639_2_Type.TERMINOLOGY_CODE.getDbValue(), IGC_CODE_GERMAN);
 		languageISO639_2ToIGCCode.put("ger" + ISO_639_2_Type.BIBLIOGRAPHIC_CODE.getDbValue(), IGC_CODE_GERMAN);
 		languageISO639_2ToIGCCode.put("eng", IGC_CODE_ENGLISH);
+		languageISO639_2ToIGCCode.put("bul", 65);
+		languageISO639_2ToIGCCode.put("cze", 101);
+		languageISO639_2ToIGCCode.put("dan", 103);
+		languageISO639_2ToIGCCode.put("spa", 401);
+		languageISO639_2ToIGCCode.put("fin", 134);
+		languageISO639_2ToIGCCode.put("fre", 137);
+		languageISO639_2ToIGCCode.put("gre", 164);
+		languageISO639_2ToIGCCode.put("hun", 183);
+		languageISO639_2ToIGCCode.put("dut", 116);
+		languageISO639_2ToIGCCode.put("pol", 346);
+		languageISO639_2ToIGCCode.put("por", 348);
+		languageISO639_2ToIGCCode.put("rum", 360);
+		languageISO639_2ToIGCCode.put("slo", 385);
+		languageISO639_2ToIGCCode.put("slv", 386);
+		languageISO639_2ToIGCCode.put("ita", 202);
+		languageISO639_2ToIGCCode.put("est", 126);
+		languageISO639_2ToIGCCode.put("lav", 247);
+		languageISO639_2ToIGCCode.put("lit", 251);
+		languageISO639_2ToIGCCode.put("nno", 312);
+		languageISO639_2ToIGCCode.put("rus", 363);
+		languageISO639_2ToIGCCode.put("swe", 413);
+		languageISO639_2ToIGCCode.put("mlt", 284);
 	}
 	
 
