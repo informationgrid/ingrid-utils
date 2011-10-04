@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import de.ingrid.utils.enumeration.IDbEnum;
 
 /**
@@ -12,6 +15,8 @@ import de.ingrid.utils.enumeration.IDbEnum;
  * -> svn\ingrid-udk-importer\trunk\doc\syslist\ISO 639-2 Language Code List - *.doc
  */
 public class UtilsLanguageCodelist {
+
+    private final static Log log = LogFactory.getLog(UtilsLanguageCodelist.class);
 
 	/** Type of ISO 639-2 code (bibliographic code, e.g. "ger", or terminology code, e.g. "deu") */
 	public enum ISO_639_2_Type implements IDbEnum {
@@ -177,7 +182,7 @@ public class UtilsLanguageCodelist {
 		return languageISO639_2ToIGCCode.get(langIso639_2);
 	}
 	
-	/** Determine language name from IGC language code.
+	/** Determine language name from IGC language code. USES ENGLISH NAME if translation is missing.
 	 * @param langCodeIGC IGC code of language, e.g. 150
 	 * @param nameLangIso639_1 in which language should the name be returned, e.g. "de" for german name
 	 * @return language name of IGC language code or null if not found !
@@ -188,6 +193,12 @@ public class UtilsLanguageCodelist {
 		if ("de".equals(nameLangIso639_1)) {
 			langName = languageCodelist_de.get(langCodeIGC);
 		} else if ("en".equals(nameLangIso639_1)) {
+			langName = languageCodelist_en.get(langCodeIGC);			
+		} else {
+			// default is ENGLISH !
+			if (log.isWarnEnabled()) {
+				log.warn("Translation of language code into language name not present for language '" + nameLangIso639_1 + "', we use name of language in ENGLISH !!!");
+			}
 			langName = languageCodelist_en.get(langCodeIGC);			
 		}
 
