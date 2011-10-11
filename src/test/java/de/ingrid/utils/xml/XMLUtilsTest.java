@@ -39,6 +39,9 @@ public class XMLUtilsTest extends TestCase {
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1>Hallo</child1></test>".getBytes("UTF-8")));
 		String xml = XMLUtils.toString(doc);
 		assertTrue(xml.length() > 0);
+        doc = db.parse(new ByteArrayInputStream("<test><child1>Hall&#252;</child1></test>".getBytes("UTF-8")));
+        xml = XMLUtils.toString(doc);
+        assertTrue(xml.length() > 0);
 	}
 
 	/**
