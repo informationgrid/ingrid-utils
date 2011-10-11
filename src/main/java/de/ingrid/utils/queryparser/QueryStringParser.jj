@@ -29,6 +29,7 @@ import de.ingrid.utils.query.FuzzyFieldQuery;
 public class QueryStringParser {
 
 	private static Pattern fMatchQuotes = Pattern.compile("\"(.*)\"");
+    private static Pattern fMatchFacets = Pattern.compile("#(.*)#");
 
      /**
      * Parses the string to a query object representation
@@ -47,10 +48,12 @@ PARSER_END(QueryStringParser)
 <*> TOKEN : {
   <#_NUM_CHAR:   ["0"-"9"] >
 
+| <#_FACETS_CHAR: "#">
+
 | <#_ESCAPED_CHAR: "\\" [ "\\", "+", "-", "!", "(", ")", ":", "^",
                           "[", "]", "\"", "{", "}", "~", "*", "?" ] >
 | <#_TERM_START_CHAR: ( ~[ " ", "\t", "\n", "\r", "+", "-", "!", "(", ")", ":", "^",
-                           "[", "]", "\"", "{", "}", "~", "*", "?" ]
+                           "[", "]", "\"", "{", "}", "~", "*", "?", "#" ]
                        | <_ESCAPED_CHAR> ) >
 | <#_TERM_CHAR: ( <_TERM_START_CHAR> | <_ESCAPED_CHAR> | "-" | "+" ) >
 | <#_WHITESPACE: ( " " | "\t" | "\n" | "\r") >
@@ -71,6 +74,7 @@ PARSER_END(QueryStringParser)
 | <CARAT:     "^" > : Boost
 | <QUOTED:     "\"" (~["\""])+ "\"">
 | <FLOAT:     ("-")?(<_NUM_CHAR>)+"."(<_NUM_CHAR>)+>
+| <FACETS:       <_FACETS_CHAR> <COLON> >
 | <TERM:      <_TERM_START_CHAR> (<_TERM_CHAR>)*  >
 | <FIELD:      <_TERM_START_CHAR> (<_TERM_CHAR>)* <COLON> >
 | <FUZZY_SLOP:     "~" ( (<_NUM_CHAR>)+ ( "." (<_NUM_CHAR>)+ )? )? >
@@ -79,6 +83,7 @@ PARSER_END(QueryStringParser)
               (<_TERM_CHAR> | ( [ "*", "?" ] ))* >
 | <RANGEIN_START: "[" > : RangeIn
 | <RANGEEX_START: "{" > : RangeEx
+| <FACETS_QUOTED:   <_FACETS_CHAR> ~[":"](~["#"])+ <_FACETS_CHAR> >
 }
 
 <Boost> TOKEN : {
@@ -110,6 +115,7 @@ IngridQuery parse() :
 		
 		(
 			LOOKAHEAD(2) term(query, true, false)
+			| LOOKAHEAD(3) facets(query)
 			| LOOKAHEAD(3) wildCard(query, true , false) // we need to process wildcarde before field
 			| LOOKAHEAD(3) field(query, true , false)
 			| LOOKAHEAD(5) range(query, true , false)
@@ -120,6 +126,31 @@ IngridQuery parse() :
 	
 		{return  query;}
 	}
+
+// FACETS
+    void facets(IngridQuery q) throws ParseException :
+    {
+        Token key;
+        Token value;
+        String term = null;
+    }
+    {
+        ( <AND> {} | <OR>{} | <NOT> {})?
+        key=<FACETS>
+        (value=<FACETS_QUOTED>)
+        {
+            final Matcher matcher = fMatchFacets.matcher(value.image);
+            if (matcher.matches()) {
+                term = matcher.group(1);
+            }
+            try {
+                q.put("FACETS", de.ingrid.utils.json.JsonUtil.parseJsonToListOfIngridDocument(term));
+            } catch (org.json.simple.parser.ParseException e) {
+                throw(new ParseException(e.getMessage()));
+            }
+                
+        }
+    }
 
 	
 // term	

@@ -9,8 +9,10 @@ package de.ingrid.utils.queryparser;
 import java.io.ByteArrayInputStream;
 import java.io.StringReader;
 import java.nio.charset.Charset;
+import java.util.List;
 
 import junit.framework.TestCase;
+import de.ingrid.utils.IngridDocument;
 import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
@@ -572,5 +574,43 @@ public class QueryStringParserTest extends TestCase {
         	fail("No UTF-8 support in QueryParser!");
         }
     }
+    
+    public void testTermsFieldsAndTermsWithUrl() throws Exception {
+        String q = "\"hallo/welt\" feld:\"http://www.wemove.com/index.html\"";
+        
+        IngridQuery iq = QueryStringParser.parse(q);
+        TermQuery[] t = iq.getTerms();
+        assertEquals(1,t.length);
+        for (int i = 0; i < t.length; i++) {
+            assertEquals("hallo welt", t[i].getTerm());
+        }
+        
+        FieldQuery[] f = iq.getFields();
+        assertEquals(1, f.length);
+        for (int i = 0; i < f.length; i++) {
+            assertEquals("http://www.wemove.com/index.html", f[i].getFieldValue());
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testFacetFields() throws Exception {
+        String q = "wasser #:#[{\"key\":\"value\"}]#";
+        
+        IngridQuery iq = QueryStringParser.parse(q);
+        assertEquals("value", ((List<IngridDocument>)iq.get("FACETS")).get(0).get("key"));
+
+        try {
+            iq = QueryStringParser.parse("#:[{\"key\":\"value\"}]");
+            fail("Facets must be quoted!");
+        } catch (Throwable e) { }
+
+        try {
+            iq = QueryStringParser.parse("#:[{\"key\":\"#value\"}]");
+            fail("'#' are not allowed!");
+        } catch (Throwable e) { }
+        
+        
+    }
+    
     
 }

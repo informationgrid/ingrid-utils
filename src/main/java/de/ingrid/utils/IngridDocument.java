@@ -313,10 +313,12 @@ public class IngridDocument extends HashMap implements Externalizable {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         Set keys = keySet();
+        builder.append("{");
         for (Object key : keys) {
             Object value = get(key);
             builder.append(DeepUtil.deepString(new Object[] { key }, 1) + ":" + DeepUtil.deepString(new Object[] { value }, 1));
         }
+        builder.append("}");
         return builder.toString();
     }
 }
