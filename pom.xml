@@ -10,6 +10,7 @@
     <!-- versions of ingrid libraries -->
 
     <ingrid-base-webapp.version>3.2.0-SNAPSHOT</ingrid-base-webapp.version>
+    <ingrid-facetsearch.version>1.0.0-SNAPSHOT</ingrid-facetsearch.version>
     <ingrid-communication.version>3.0.0</ingrid-communication.version>
     <ingrid-communication-authentication.version>3.0.0</ingrid-communication-authentication.version>
     <ingrid-external-services-api.version>3.0.0</ingrid-external-services-api.version>
