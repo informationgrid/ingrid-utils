@@ -280,6 +280,11 @@
 <!-- end ingrid-base-webapp -->
       <dependency>
         <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-facetsearch</artifactId>
+        <version>${ingrid-facetsearch.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-ibus</artifactId>
         <version>${ingrid-ibus.version}</version>
       </dependency>
