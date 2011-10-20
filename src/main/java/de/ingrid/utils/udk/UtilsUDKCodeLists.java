@@ -25,11 +25,10 @@ public class UtilsUDKCodeLists {
 
 	public static final Long LANG_ID_ISO_ENTRY = 150150150L; 
 	/** DUMMY Language ID for fetching InGrid-Query value of a syslist entry
-	 * (e.g. "DatenKarten" for entry in funct_category syslist) */
+	 * (e.g. "LaermErschuetterung" for entry in env_topic syslist) */
 	public static final Long LANG_ID_INGRID_QUERY_VALUE = 8150815L;
 
 	public static final Long SYSLIST_ID_ENV_TOPICS = 1410L;
-	public static final Long SYSLIST_ID_ENV_FUNCT_CATEGORY = 1400L;
 
 	static {
 		try {
