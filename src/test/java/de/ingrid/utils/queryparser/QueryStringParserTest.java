@@ -8,7 +8,6 @@ package de.ingrid.utils.queryparser;
 
 import java.io.ByteArrayInputStream;
 import java.io.StringReader;
-import java.nio.charset.Charset;
 import java.util.List;
 
 import junit.framework.TestCase;
@@ -608,6 +607,10 @@ public class QueryStringParserTest extends TestCase {
             iq = QueryStringParser.parse("#:[{\"key\":\"#value\"}]");
             fail("'#' are not allowed!");
         } catch (Throwable e) { }
+        
+        iq = QueryStringParser.parse("http #:#[{\"id\":\"partner\", \"classes\":[{\"id\":\"bund\"}]}]#");
+        assertEquals("partner", ((List<IngridDocument>)iq.get("FACETS")).get(0).get("id"));
+        assertEquals("bund", ((List<IngridDocument>)((List<IngridDocument>)iq.get("FACETS")).get(0).get("classes")).get(0).get("id"));
         
         
     }
