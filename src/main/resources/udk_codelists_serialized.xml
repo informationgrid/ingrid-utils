@@ -981,6 +981,25 @@
 			</entry>
 		</map>
 	</entry>
+    <entry>
+        <!-- Nutzungsbedingungen -->
+        <long>6020</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>150</long>
+                        <string>Keine</string>
+                    </entry>
+                    <entry>
+                        <long>123</long>
+                        <string>No conditions apply</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
 	<entry>
 		<long>5200</long>
 		<map>
@@ -6433,7 +6452,7 @@
     </entry>
     <entry>
         <!--
-            Konformität
+            Konformität degree
         -->
         <long>6000</long>
         <map>
@@ -6473,6 +6492,181 @@
                     <entry>
                         <long>150</long>
                         <string>nicht evaluiert</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
+    <entry>
+        <!-- Konformität specification -->
+        <long>6005</long>
+        <map>
+            <entry>
+                <long>1</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Data Specification on Addresses – Guidelines</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Data Specification on Addresses – Guidelines</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>2</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Data Specification on Administrative units --Guidelines</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Data Specification on Administrative units --Guidelines</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Data Specification on Cadastral parcels --Guidelines</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Data Specification on Cadastral parcels --Guidelines</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>4</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Data Specification on Geographical names – Guidelines</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Data Specification on Geographical names – Guidelines</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>5</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Data Specification on Hydrography – Guidelines</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Data Specification on Hydrography – Guidelines</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>6</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Data Specification on Protected Sites – Guidelines</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Data Specification on Protected Sites – Guidelines</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>7</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Data Specification on Transport Networks – Guidelines</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Data Specification on Transport Networks – Guidelines</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>8</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Specification on Coordinate Reference Systems – Guidelines</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Specification on Coordinate Reference Systems – Guidelines</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>9</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Specification on Geographical Grid Systems – Guidelines</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Specification on Geographical Grid Systems – Guidelines</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>10</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Durchführungsbestimmung Netzdienste</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Durchführungsbestimmung Netzdienste</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>11</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Durchführungsbestimmung Metadaten</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Durchführungsbestimmung Metadaten</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>12</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Durchführungsbestimmung Interoperabilität von Geodatensätzen und --diensten</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Durchführungsbestimmung Interoperabilität von Geodatensätzen und --diensten</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>13</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>INSPIRE Richtline</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>INSPIRE Richtline</string>
                     </entry>
                 </map>
             </entry>
