@@ -31,23 +31,23 @@
     <ingrid-iplug-admin-step2-tamino.version>3.0.0</ingrid-iplug-admin-step2-tamino.version>
     <ingrid-iplug-csw.version>3.1.0</ingrid-iplug-csw.version>
     <ingrid-iplug-csw-dsc.version>3.1.0</ingrid-iplug-csw-dsc.version>
-    <ingrid-iplug-dsc-scripted.version>3.1.0</ingrid-iplug-dsc-scripted.version>
+    <ingrid-iplug-dsc-scripted.version>3.2.0-SNAPSHOT</ingrid-iplug-dsc-scripted.version>
     <ingrid-iplug-excel.version>3.1.0</ingrid-iplug-excel.version>
     <ingrid-iplug-fpn.version>3.1.0</ingrid-iplug-fpn.version>
     <ingrid-iplug-g2k.version>3.1.0</ingrid-iplug-g2k.version>
     <ingrid-iplug-management.version>3.1.0</ingrid-iplug-management.version>
     <ingrid-iplug-opensearch.version>3.1.0</ingrid-iplug-opensearch.version>
     <ingrid-iplug-se.version>3.1.0</ingrid-iplug-se.version>
-    <ingrid-iplug-sns.version>3.1.0</ingrid-iplug-sns.version>
+    <ingrid-iplug-sns.version>3.2.0-SNAPSHOT</ingrid-iplug-sns.version>
     <ingrid-iplug-tamino.version>3.1.0</ingrid-iplug-tamino.version>
     <ingrid-iplug-xml.version>3.1.0</ingrid-iplug-xml.version>
     <ingrid-jetspeed-portal.version>1.2.1</ingrid-jetspeed-portal.version>
-    <ingrid-mdek.version>3.1.0</ingrid-mdek.version>
+    <ingrid-mdek.version>3.2.0-SNAPSHOT</ingrid-mdek.version>
     <ingrid-portal.version>3.2.0-SNAPSHOT</ingrid-portal.version>
 	<ingrid-ige.version>3.2.0-SNAPSHOT</ingrid-ige.version>
     <ingrid-portal-utils.version>3.0.0</ingrid-portal-utils.version>
     <ingrid-server-opensearch.version>3.1.0</ingrid-server-opensearch.version>
-    <ingrid-udk-importer.version>3.0.1</ingrid-udk-importer.version>
+    <ingrid-udk-importer.version>3.2.0-SNAPSHOT</ingrid-udk-importer.version>
     <ingrid-upgrader.version>3.0.1</ingrid-upgrader.version>
     <ingrid-utils.version>3.2.0-SNAPSHOT</ingrid-utils.version>
     <ingrid-utils-geo.version>3.0.0</ingrid-utils-geo.version>
