@@ -6506,11 +6506,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Data Specification on Addresses – Guidelines</string>
+                        <string>INSPIRE Data Specification on Addresses – Guidelines, 2010-05-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Data Specification on Addresses – Guidelines</string>
+                        <string>INSPIRE Data Specification on Addresses – Guidelines, 2010-05-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6519,11 +6519,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Data Specification on Administrative units --Guidelines</string>
+                        <string>INSPIRE Data Specification on Administrative units --Guidelines, 2010-05-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Data Specification on Administrative units --Guidelines</string>
+                        <string>INSPIRE Data Specification on Administrative units --Guidelines, 2010-05-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6532,11 +6532,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Data Specification on Cadastral parcels --Guidelines</string>
+                        <string>INSPIRE Data Specification on Cadastral parcels --Guidelines, 2010-05-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Data Specification on Cadastral parcels --Guidelines</string>
+                        <string>INSPIRE Data Specification on Cadastral parcels --Guidelines, 2010-05-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6545,11 +6545,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Data Specification on Geographical names – Guidelines</string>
+                        <string>INSPIRE Data Specification on Geographical names – Guidelines, 2010-05-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Data Specification on Geographical names – Guidelines</string>
+                        <string>INSPIRE Data Specification on Geographical names – Guidelines, 2010-05-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6558,11 +6558,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Data Specification on Hydrography – Guidelines</string>
+                        <string>INSPIRE Data Specification on Hydrography – Guidelines, 2010-05-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Data Specification on Hydrography – Guidelines</string>
+                        <string>INSPIRE Data Specification on Hydrography – Guidelines, 2010-05-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6571,11 +6571,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Data Specification on Protected Sites – Guidelines</string>
+                        <string>INSPIRE Data Specification on Protected Sites – Guidelines, 2010-05-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Data Specification on Protected Sites – Guidelines</string>
+                        <string>INSPIRE Data Specification on Protected Sites – Guidelines, 2010-05-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6584,11 +6584,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Data Specification on Transport Networks – Guidelines</string>
+                        <string>INSPIRE Data Specification on Transport Networks – Guidelines, 2010-05-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Data Specification on Transport Networks – Guidelines</string>
+                        <string>INSPIRE Data Specification on Transport Networks – Guidelines, 2010-05-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6597,11 +6597,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Specification on Coordinate Reference Systems – Guidelines</string>
+                        <string>INSPIRE Specification on Coordinate Reference Systems – Guidelines, 2010-05-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Specification on Coordinate Reference Systems – Guidelines</string>
+                        <string>INSPIRE Specification on Coordinate Reference Systems – Guidelines, 2010-05-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6610,11 +6610,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Specification on Geographical Grid Systems – Guidelines</string>
+                        <string>INSPIRE Specification on Geographical Grid Systems – Guidelines, 2010-05-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Specification on Geographical Grid Systems – Guidelines</string>
+                        <string>INSPIRE Specification on Geographical Grid Systems – Guidelines, 2010-05-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6623,11 +6623,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Durchführungsbestimmung Netzdienste</string>
+                        <string>INSPIRE Durchführungsbestimmung Netzdienste, 2009-10-19</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Durchführungsbestimmung Netzdienste</string>
+                        <string>INSPIRE Durchführungsbestimmung Netzdienste, 2009-10-19</string>
                     </entry>
                 </map>
             </entry>
@@ -6636,11 +6636,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Durchführungsbestimmung Metadaten</string>
+                        <string>INSPIRE Durchführungsbestimmung Metadaten, 2008-12-03</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Durchführungsbestimmung Metadaten</string>
+                        <string>INSPIRE Durchführungsbestimmung Metadaten, 2008-12-03</string>
                     </entry>
                 </map>
             </entry>
@@ -6649,11 +6649,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Durchführungsbestimmung Interoperabilität von Geodatensätzen und --diensten</string>
+                        <string>INSPIRE Durchführungsbestimmung Interoperabilität von Geodatensätzen und --diensten, 2010-11-21</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Durchführungsbestimmung Interoperabilität von Geodatensätzen und --diensten</string>
+                        <string>INSPIRE Durchführungsbestimmung Interoperabilität von Geodatensätzen und --diensten, 2010-11-21</string>
                     </entry>
                 </map>
             </entry>
@@ -6662,11 +6662,11 @@
                 <map>
                     <entry>
                         <long>123</long>
-                        <string>INSPIRE Richtlinie</string>
+                        <string>INSPIRE Richtlinie, 2007-03-14</string>
                     </entry>
                     <entry>
                         <long>150</long>
-                        <string>INSPIRE Richtlinie</string>
+                        <string>INSPIRE Richtlinie, 2007-03-14</string>
                     </entry>
                 </map>
             </entry>

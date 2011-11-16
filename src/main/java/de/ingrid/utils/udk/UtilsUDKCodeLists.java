@@ -30,6 +30,12 @@ public class UtilsUDKCodeLists {
 
 	public static final Long SYSLIST_ID_ENV_TOPICS = 1410L;
 
+	/** Enumeration determining how a codelist value should be parsed, to extract additional data (e.g. date at end) */
+	public enum ParseType {
+		/** date of type yyyy-MM-dd at end separated by "," */
+		DATE_AT_END
+	}
+
 	static {
 		try {
 			// Create the SessionFactory
@@ -80,6 +86,39 @@ public class UtilsUDKCodeLists {
 				retValue = retValue.trim();
 			}
 		} catch (NullPointerException e) {
+		}
+		
+		return retValue;
+	}
+
+	/** Parse given codelist entry and return parsed data in string array.
+	 * So we can extract / remove metadata from syslist entry.<br>
+	 * <b>USED in IGE frontend and backend !!!</b> 
+	 * @param codeListEntryNameFull full name of entry containing additional data
+	 * @param parseType how should the string be parsed to extract additional data
+	 * @return String array, 0=code list entry without additional data (displayed in selection list), 1 ...=additional data dependent from parseType.
+	 *  If parsing fails the full string is returned at index 0.
+	 */
+	public static String[] parseCodeListEntryName(String codeListEntryNameFull, ParseType parseType) {
+		String[] retValue = new String[]{ codeListEntryNameFull };
+
+		try {
+			if (parseType == ParseType.DATE_AT_END) {
+				String SEPARATOR = ",";
+				String[] substrings = codeListEntryNameFull.split(SEPARATOR);
+				if (substrings.length > 1) {
+					String dateString = substrings[substrings.length-1];
+					if (dateString.trim().matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]")) {
+						int dateIndx = codeListEntryNameFull.indexOf(SEPARATOR + dateString);
+						String listEntry = codeListEntryNameFull.substring(0, dateIndx);
+						retValue = new String[] {
+							listEntry,
+							dateString.trim()
+						};
+					}
+				}
+			}
+		} catch (Exception e) {
 		}
 		
 		return retValue;
