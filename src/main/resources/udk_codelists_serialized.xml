@@ -3986,11 +3986,11 @@
 					</entry>
 					<entry>
 						<long>123</long>
-						<string>Provider</string>
+						<string>Resource Provider</string>
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Anbieter</string>
+						<string>Ressourcenanbieter</string>
 					</entry>
 				</map>
 			</entry>
@@ -4007,7 +4007,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Datenverantwortung</string>
+						<string>Verwalter</string>
 					</entry>
 				</map>
 			</entry>
@@ -4024,7 +4024,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Halter</string>
+						<string>Eigentümer</string>
 					</entry>
 				</map>
 			</entry>
@@ -4041,7 +4041,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Benutzer</string>
+						<string>Nutzer</string>
 					</entry>
 				</map>
 			</entry>
@@ -4075,7 +4075,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Herkunft</string>
+						<string>Urheber</string>
 					</entry>
 				</map>
 			</entry>
@@ -4092,7 +4092,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Auskunft</string>
+						<string>Ansprechpartner</string>
 					</entry>
 				</map>
 			</entry>
@@ -4109,7 +4109,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Datenerfassung</string>
+						<string>Projektleitung</string>
 					</entry>
 				</map>
 			</entry>
@@ -4126,7 +4126,7 @@
 					</entry>
 					<entry>
 						<long>150</long>
-						<string>Auswertung</string>
+						<string>Bearbeiter</string>
 					</entry>
 				</map>
 			</entry>
