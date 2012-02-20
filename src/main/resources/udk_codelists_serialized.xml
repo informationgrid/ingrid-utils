@@ -7125,4 +7125,152 @@
             </entry>
         </map>
     </entry>
+    <entry>
+        <long>2000</long>
+        <map>
+            <entry>
+                <long>3100</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Method / Base Data</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Methode / Datengrundlage</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3109</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Key Catalog</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Objektartenkatalog</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3210</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Basic Data</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Basisdaten</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3345</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Basic Data</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Basisdaten</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3515</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Process of Production</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Herstellungsprozess</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3520</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Functional Base</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Fachliche Grundlage</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3535</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Key Catalog</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Schlüsselkatalog</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3555</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Icon Catalog</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Symbolkatalog</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>3570</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Base Data</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Datengrundlage</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>5066</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Link to Service</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Verweis zu Dienst</string>
+                    </entry>
+                </map>
+            </entry>
+            <entry>
+                <long>9999</long>
+                <map>
+                    <entry>
+                        <long>123</long>
+                        <string>Not attached</string>
+                    </entry>
+                    <entry>
+                        <long>150</long>
+                        <string>Keine Kopplung</string>
+                    </entry>
+                </map>
+            </entry>
+        </map>
+    </entry>
 </map>
