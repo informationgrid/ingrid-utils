@@ -1,6 +1,0 @@
-<project xmlns:deploy="deploy">
-    
-    <goal name="binary">
-        <echo>nothing todo</echo>
-    </goal>
-</project>
