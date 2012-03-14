@@ -51,7 +51,7 @@
     <ingrid-upgrader.version>3.0.1</ingrid-upgrader.version>
     <ingrid-utils.version>3.2.0-SNAPSHOT</ingrid-utils.version>
     <ingrid-utils-geo.version>3.0.0</ingrid-utils-geo.version>
-
+    <ingrid-webmap-client.version>3.2.0-SNAPSHOT</ingrid-webmap-client.version>
     <!-- versions of external libraries -->
     <ant.version>1.6</ant.version>
     <axis.version>1.4</axis.version>
@@ -448,6 +448,11 @@
         <artifactId>ingrid-utils-geo</artifactId>
         <version>${ingrid-utils-geo.version}</version>
       </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-webmap-client</artifactId>
+        <version>${ingrid-webmap-client.version}</version>
+      </dependency>      
       <dependency>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-admin-step1</artifactId>
