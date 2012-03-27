@@ -621,7 +621,10 @@ public class PlugDescription extends IngridDocument {
      * @return true if the plug implements {@link IRecordLoader}.
      */
     public boolean isRecordloader() {
-        return getBoolean(IS_RECORD_LOADER);
+        if (containsKey(IS_RECORD_LOADER))
+            return getBoolean(IS_RECORD_LOADER);
+        else
+            return false;
     }
 
     /**
