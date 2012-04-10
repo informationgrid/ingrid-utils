@@ -10,7 +10,7 @@
     <!-- versions of ingrid libraries -->
 
     <ingrid-base-webapp.version>3.2.0-SNAPSHOT</ingrid-base-webapp.version>
-    <ingrid-codelist-repository.version>3.2.0-SNAPSHOT</ingrid-codelist-repository.version>
+    <ingrid-codelist-service.version>3.2.0-SNAPSHOT</ingrid-codelist-service.version>
     <ingrid-search-utils.version>1.0.0-SNAPSHOT</ingrid-search-utils.version>
     <ingrid-communication.version>3.0.0</ingrid-communication.version>
     <ingrid-communication-authentication.version>3.0.0</ingrid-communication-authentication.version>
@@ -281,8 +281,8 @@
 <!-- end ingrid-base-webapp -->
       <dependency>
         <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-codelist-repository</artifactId>
-        <version>${ingrid-codelist-repository.version}</version>
+        <artifactId>ingrid-codelist-service</artifactId>
+        <version>${ingrid-codelist-service.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
