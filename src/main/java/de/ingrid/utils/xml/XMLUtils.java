@@ -115,5 +115,28 @@ public final class XMLUtils {
 		return out.toString();
 
 	}
-
+	
+	/**
+	 * This method is the same as the XMLUtils.toString() method,
+	 * but it had to be renamed since within the javascript context
+	 * we get an error and the interpreter tries to invoke the javascript toString function.
+	 * @param document
+	 * @return
+	 * @throws TransformerException
+	 */
+	public String xmlDocToString(Document document)
+			throws TransformerException {
+		StringWriter stringWriter = new StringWriter();
+		StreamResult streamResult = new StreamResult(stringWriter);
+		TransformerFactory transformerFactory = TransformerFactory
+				.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty(
+				"{http://xml.apache.org/xslt}indent-amount", "2");
+		transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+		transformer.transform(new DOMSource(document.getDocumentElement()),
+				streamResult);
+		return stringWriter.toString();
+	}
 }
