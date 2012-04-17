@@ -2,6 +2,9 @@ package de.ingrid.utils;
 
 public class IngridHitDetail extends IngridHit {
 
+    public final static String DETAIL_TIMING = "DETAIL_TIMING";
+    
+    
     /**
      * 
      */

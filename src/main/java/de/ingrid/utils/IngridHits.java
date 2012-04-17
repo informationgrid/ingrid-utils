@@ -1,5 +1,7 @@
 package de.ingrid.utils;
 
+import java.util.Map;
+
 /**
  * Container to store a set of hit objects and the number of all hits for the
  * done search created on 09.08.2005
@@ -8,6 +10,8 @@ package de.ingrid.utils;
  * @version $Revision: 1.3 $
  */
 public class IngridHits extends IngridDocument {
+
+    private static final String SEARCH_TIMINGS = "SEARCH_TIMINGS";
 
     private static final long serialVersionUID = 5L;
 
@@ -86,8 +90,8 @@ public class IngridHits extends IngridDocument {
 
     /**
      * @return number of all hits found for the search request Attention is not
-     *         equals to number of <code>Hit</code>s stored in this
-     *         container, if this is not setted we return 0;
+     *         equals to number of <code>Hit</code>s stored in this container,
+     *         if this is not setted we return 0;
      */
     public long length() {
         if (get(LENGTH) != null) {
@@ -119,12 +123,12 @@ public class IngridHits extends IngridDocument {
         }
         return false;
     }
-    
+
     /**
      * @param ranked
      */
     public void setRanked(boolean ranked) {
-        putBoolean(RANKED,ranked);
+        putBoolean(RANKED, ranked);
     }
 
     /**
@@ -154,4 +158,17 @@ public class IngridHits extends IngridDocument {
     public void setInVolvedPlugs(int howMany) {
         putInt(INVOLVED_PLUGS, howMany);
     }
+    
+    @SuppressWarnings("unchecked")
+    public Map<String, Long> getSearchTimings() {
+        if (containsKey(SEARCH_TIMINGS)) {
+            return (Map<String, Long>)get(SEARCH_TIMINGS);
+        }
+        return null;
+    }
+    
+    public void setSearchTimings(Map<String, Long> map) {
+        put(SEARCH_TIMINGS, map);
+    }
+    
 }
