@@ -92,7 +92,7 @@ public final class XMLUtils {
 	public static String stripNonValidXMLCharacters(String in) {
 
 		StringBuffer out = new StringBuffer(); // Used to hold the output.
-		char current; // Used to reference the current character.
+		char current; // Used to reference the current character.	
 		if (in == null || ("".equals(in))) {
 			return "";
 		} // vacancy test.
@@ -124,19 +124,8 @@ public final class XMLUtils {
 	 * @return
 	 * @throws TransformerException
 	 */
-	public String xmlDocToString(Document document)
+	public static String xmlDocToString(Document document)
 			throws TransformerException {
-		StringWriter stringWriter = new StringWriter();
-		StreamResult streamResult = new StreamResult(stringWriter);
-		TransformerFactory transformerFactory = TransformerFactory
-				.newInstance();
-		Transformer transformer = transformerFactory.newTransformer();
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		transformer.setOutputProperty(
-				"{http://xml.apache.org/xslt}indent-amount", "2");
-		transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-		transformer.transform(new DOMSource(document.getDocumentElement()),
-				streamResult);
-		return stringWriter.toString();
+			return XMLUtils.toString(document);
 	}
 }
