@@ -35,7 +35,13 @@ public class QueryUtil {
      * query field for adding any kind of control information to be processed by
      * ibus or iplugs !
      */
-    public static final String FIELDNAME_METAINFO = "metainfo";
+    public static final String FIELDNAME_METAINFO  = "metainfo";
+    
+    /**
+     * query field used by iPlug-SE so far for searching in sns data for more
+     * results. Other iPlugs should ignore this field!
+     */
+    public static final String FIELDNAME_INCL_META = "incl_meta";
 
     /**
      * Remove all occurences of field with given name in field list of given
