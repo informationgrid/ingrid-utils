@@ -17,7 +17,7 @@
     <ingrid-external-services-api.version>3.0.0</ingrid-external-services-api.version>
     <ingrid-external-service-sns.version>3.1.0</ingrid-external-service-sns.version>
     <ingrid-ibus.version>3.2.0-SNAPSHOT</ingrid-ibus.version>
-    <ingrid-ibus-client.version>3.0.0</ingrid-ibus-client.version>
+    <ingrid-ibus-client.version>3.2.0-SNAPSHOT</ingrid-ibus-client.version>
     <ingrid-igc-backup.version>3.0.0</ingrid-igc-backup.version>
     <ingrid-installer.version>3.0.0</ingrid-installer.version>
     <ingrid-interface-csw.version>3.2.0-SNAPSHOT</ingrid-interface-csw.version>
