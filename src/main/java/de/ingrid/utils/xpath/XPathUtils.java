@@ -215,5 +215,20 @@ public class XPathUtils {
         }
         return n;
     }
-
+	public String[] getStringArray(Object source, String evalExpression) {
+		try {
+			NodeList nl = (NodeList) xpath.evaluate(evalExpression, source,
+					XPathConstants.NODESET);
+			if (nl != null) {
+				String[] entries = new String[nl.getLength()];
+				for (int i = 0; i < nl.getLength(); i++) {
+					entries[i] = nl.item(i).getTextContent();
+				}
+				return entries;
+			}
+		} catch (XPathExpressionException e) {
+			log.error("Error creating record ids.", e);
+		}
+		return new String[0];
+	}	
 }
