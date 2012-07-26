@@ -9,7 +9,7 @@
     <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
     <!-- versions of ingrid libraries -->
 
-    <ingrid-base-webapp.version>3.2.0</ingrid-base-webapp.version>
+    <ingrid-base-webapp.version>3.3.0-SNAPSHOT</ingrid-base-webapp.version>
     <ingrid-codelist-service.version>3.2.0</ingrid-codelist-service.version>
     <ingrid-search-utils.version>1.0.0</ingrid-search-utils.version>
     <ingrid-communication.version>3.0.0</ingrid-communication.version>
@@ -32,6 +32,7 @@
     <ingrid-iplug-admin-step2-tamino.version>3.0.0</ingrid-iplug-admin-step2-tamino.version>
     <ingrid-iplug-csw.version>3.2.0</ingrid-iplug-csw.version>
     <ingrid-iplug-csw-dsc.version>3.2.0</ingrid-iplug-csw-dsc.version>
+    <ingrid-iplug-dsc-mapclient.version>3.3.0-SNAPSHOT</ingrid-iplug-dsc-mapclient.version>
     <ingrid-iplug-dsc-scripted.version>3.2.0</ingrid-iplug-dsc-scripted.version>
     <ingrid-iplug-excel.version>3.2.0</ingrid-iplug-excel.version>
     <ingrid-iplug-fpn.version>3.1.0</ingrid-iplug-fpn.version>
@@ -51,6 +52,7 @@
     <ingrid-udk-importer.version>3.2.0</ingrid-udk-importer.version>
     <ingrid-upgrader.version>3.0.1</ingrid-upgrader.version>
     <ingrid-utils.version>3.2.0</ingrid-utils.version>
+    <ingrid-utils-ige.version>3.2.0</ingrid-utils-ige.version>
     <ingrid-utils-geo.version>3.0.0</ingrid-utils-geo.version>
     <ingrid-webmap-client.version>3.2.0</ingrid-webmap-client.version>
     <!-- versions of external libraries -->
@@ -336,6 +338,11 @@
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-iplug-dsc-mapclient</artifactId>
+        <version>${ingrid-iplug-dsc-mapclient.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-dsc-scripted</artifactId>
         <version>${ingrid-iplug-dsc-scripted.version}</version>
       </dependency>
@@ -448,6 +455,11 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-utils</artifactId>
         <version>${ingrid-utils.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-utils-ige</artifactId>
+        <version>${ingrid-utils-ige.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
