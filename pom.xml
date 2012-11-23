@@ -16,7 +16,7 @@
     <ingrid-communication-authentication.version>3.0.0</ingrid-communication-authentication.version>
     <ingrid-external-services-api.version>3.0.0</ingrid-external-services-api.version>
     <ingrid-external-service-sns.version>3.1.0</ingrid-external-service-sns.version>
-    <ingrid-ibus.version>3.2.0</ingrid-ibus.version>
+    <ingrid-ibus.version>3.3.0-SNAPSHOT</ingrid-ibus.version>
     <ingrid-ibus-client.version>3.3.0-SNAPSHOT</ingrid-ibus-client.version>
     <ingrid-igc-backup.version>3.0.0</ingrid-igc-backup.version>
     <ingrid-installer.version>3.2.0</ingrid-installer.version>
@@ -25,19 +25,19 @@
     <ingrid-iplug.version>3.3.0-SNAPSHOT</ingrid-iplug.version>
     <ingrid-iplug-admin-step1.version>3.0.0</ingrid-iplug-admin-step1.version>
     <ingrid-iplug-admin-step1-management.version>3.0.0</ingrid-iplug-admin-step1-management.version>
-	<ingrid-iplug-admin-step1-se.version>3.0.0</ingrid-iplug-admin-step1-se.version>
+    <ingrid-iplug-admin-step1-se.version>3.0.0</ingrid-iplug-admin-step1-se.version>
     <ingrid-iplug-admin-step1-sns.version>3.1.0</ingrid-iplug-admin-step1-sns.version>
     <ingrid-iplug-admin-step1-webservice.version>3.0.0</ingrid-iplug-admin-step1-webservice.version>
     <ingrid-iplug-admin-step2-dsc.version>3.0.0</ingrid-iplug-admin-step2-dsc.version>
     <ingrid-iplug-admin-step2-tamino.version>3.0.0</ingrid-iplug-admin-step2-tamino.version>
     <ingrid-iplug-csw.version>3.2.0</ingrid-iplug-csw.version>
-    <ingrid-iplug-csw-dsc.version>3.2.0</ingrid-iplug-csw-dsc.version>
+    <ingrid-iplug-csw-dsc.version>3.3.0-SNAPSHOT</ingrid-iplug-csw-dsc.version>
     <ingrid-iplug-dsc-mapclient.version>3.3.0-SNAPSHOT</ingrid-iplug-dsc-mapclient.version>
-    <ingrid-iplug-dsc-scripted.version>3.2.0</ingrid-iplug-dsc-scripted.version>
+    <ingrid-iplug-dsc-scripted.version>3.3.0-SNAPSHOT</ingrid-iplug-dsc-scripted.version>
     <ingrid-iplug-excel.version>3.2.0</ingrid-iplug-excel.version>
     <ingrid-iplug-fpn.version>3.1.0</ingrid-iplug-fpn.version>
     <ingrid-iplug-g2k.version>3.2.0</ingrid-iplug-g2k.version>
-    <ingrid-iplug-management.version>3.2.0</ingrid-iplug-management.version>
+    <ingrid-iplug-management.version>3.3.0-SNAPSHOT</ingrid-iplug-management.version>
     <ingrid-iplug-opensearch.version>3.2.0</ingrid-iplug-opensearch.version>
     <ingrid-iplug-se.version>3.2.0</ingrid-iplug-se.version>
     <ingrid-iplug-sns.version>3.2.0</ingrid-iplug-sns.version>
@@ -46,7 +46,7 @@
     <ingrid-jetspeed-portal.version>1.2.1</ingrid-jetspeed-portal.version>
     <ingrid-mdek.version>3.3.0-SNAPSHOT</ingrid-mdek.version>
     <ingrid-portal.version>3.3.0-SNAPSHOT</ingrid-portal.version>
-	<ingrid-ige.version>3.3.0-SNAPSHOT</ingrid-ige.version>
+    <ingrid-ige.version>3.3.0-SNAPSHOT</ingrid-ige.version>
     <ingrid-portal-utils.version>3.2.0</ingrid-portal-utils.version>
     <ingrid-server-opensearch.version>3.2.0</ingrid-server-opensearch.version>
     <ingrid-udk-importer.version>3.3.0-SNAPSHOT</ingrid-udk-importer.version>
@@ -70,7 +70,7 @@
     <commons-digester.version>1.6</commons-digester.version>
     <commons-discovery.version>0.2</commons-discovery.version>
     <commons-el.version>1.0</commons-el.version>
-    <commons-fileupload.version>1.2.1</commons-fileupload.version>
+    <commons-fileupload.version>1.2.2</commons-fileupload.version>
     <commons-httpclient.version>3.1</commons-httpclient.version>
     <commons-io.version>1.4</commons-io.version>
     <commons-lang.version>2.6</commons-lang.version>
@@ -85,6 +85,7 @@
     <jasper-compiler.version>5.5.9</jasper-compiler.version>
     <jasper-runtime.version>5.5.9</jasper-runtime.version>
     <jaxen.version>1.1-beta-4</jaxen.version>
+    <jetspeed.version>2.1</jetspeed.version>
     <jetspeed-api.version>2.1</jetspeed-api.version>
     <jetspeed-security.version>2.1</jetspeed-security.version>
     <jetty.servlet-api.version>2.5-6.0.0beta6</jetty.servlet-api.version>
@@ -259,7 +260,7 @@
         <artifactId>log4j</artifactId>
         <version>${log4j.version}</version>
       </dependency>
-<!-- ingrid webapp needed with different types (war, jar, resources) -->
+      <!-- ingrid webapp needed with different types (war, jar, resources) -->
       <dependency>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-base-webapp</artifactId>
@@ -273,14 +274,14 @@
         <version>${ingrid-base-webapp.version}</version>
         <type>jar</type>
       </dependency>
-    <dependency>
-      <groupId>de.ingrid</groupId>
-      <artifactId>ingrid-base-webapp</artifactId>
-      <version>${ingrid-base-webapp.version}</version>
-      <classifier>res</classifier>
-      <type>zip</type>
-    </dependency>
-<!-- end ingrid-base-webapp -->
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-base-webapp</artifactId>
+        <version>${ingrid-base-webapp.version}</version>
+        <classifier>res</classifier>
+        <type>zip</type>
+      </dependency>
+      <!-- end ingrid-base-webapp -->
       <dependency>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-codelist-service</artifactId>
@@ -415,19 +416,19 @@
         <groupId>de.ingrid.portal</groupId>
         <artifactId>ingrid-portal</artifactId>
         <version>${ingrid-portal.version}</version>
-		<type>war</type>
+        <type>war</type>
       </dependency>
       <dependency>
         <groupId>de.ingrid.portal</groupId>
         <artifactId>ingrid-portal-mdek-application</artifactId>
         <version>${ingrid-ige.version}</version>
-		<type>war</type>
+        <type>war</type>
       </dependency>
       <dependency>
         <groupId>de.ingrid.portal</groupId>
         <artifactId>ingrid-portal-mdek-application</artifactId>
         <version>${ingrid-ige.version}</version>
-		<classifier>classes</classifier>
+        <classifier>classes</classifier>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
@@ -471,7 +472,7 @@
         <artifactId>ingrid-webmap-client</artifactId>
         <version>${ingrid-webmap-client.version}</version>
         <type>war</type>
-      </dependency>      
+      </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-admin-step1</artifactId>
@@ -500,7 +501,7 @@
         <type>war</type>
         <scope>runtime</scope>
       </dependency>
-			<dependency>
+      <dependency>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-admin-step1-se</artifactId>
         <version>${ingrid-iplug-admin-step1-se.version}</version>
@@ -709,7 +710,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
         <version>1.0-beta-4</version>
-		<executions>
+        <executions>
           <execution>
             <phase>validate</phase>
             <goals>
@@ -736,28 +737,28 @@
           </archive>
         </configuration>
       </plugin>
-   	<plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-war-plugin</artifactId>
-		<configuration>
-			<archiveClasses>true</archiveClasses>
-			<archive>
-				<manifestEntries>
-					<Implementation-Version>${version}</Implementation-Version>
-					<Implementation-Build>${buildNumber}</Implementation-Build>
-					<Build-Timestamp>${timestamp}</Build-Timestamp>
-				</manifestEntries>
-			</archive>
-		</configuration>
-	</plugin>      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <archiveClasses>true</archiveClasses>
+          <archive>
+            <manifestEntries>
+              <Implementation-Version>${version}</Implementation-Version>
+              <Implementation-Build>${buildNumber}</Implementation-Build>
+              <Build-Timestamp>${timestamp}</Build-Timestamp>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <repositories>
-	<repository>
-		<id>de.ingrid.m2</id>
-		<name>Maven2 Repo InGrid</name>
-		<url>http://harrison.its-technidata.de/ingrid/maven2</url>
-	</repository>
+    <repository>
+      <id>de.ingrid.m2</id>
+      <name>Maven2 Repo InGrid</name>
+      <url>http://harrison.its-technidata.de/ingrid/maven2</url>
+    </repository>
   </repositories>
   <distributionManagement>
     <repository>
