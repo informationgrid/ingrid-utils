@@ -54,7 +54,7 @@
     <ingrid-utils.version>3.3.0-SNAPSHOT</ingrid-utils.version>
     <ingrid-utils-ige.version>3.3.0-SNAPSHOT</ingrid-utils-ige.version>
     <ingrid-utils-geo.version>3.0.0</ingrid-utils-geo.version>
-    <ingrid-webmap-client.version>3.3.0-SNAPSHOT</ingrid-webmap-client.version>
+    <ingrid-webmap-client.version>3.2.2-SNAPSHOT</ingrid-webmap-client.version>
     <!-- versions of external libraries -->
     <ant.version>1.6</ant.version>
     <axis.version>1.4</axis.version>
