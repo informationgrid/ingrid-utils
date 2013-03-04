@@ -11,15 +11,15 @@
 
     <ingrid-base-webapp.version>3.3.0</ingrid-base-webapp.version>
     <ingrid-codelist-service.version>3.3.0</ingrid-codelist-service.version>
-    <ingrid-search-utils.version>1.0.1</ingrid-search-utils.version>
+    <ingrid-search-utils.version>3.3.0</ingrid-search-utils.version>
     <ingrid-communication.version>3.3.0</ingrid-communication.version>
-    <ingrid-communication-authentication.version>3.0.0</ingrid-communication-authentication.version>
-    <ingrid-external-services-api.version>3.0.0</ingrid-external-services-api.version>
-    <ingrid-external-service-sns.version>3.1.0</ingrid-external-service-sns.version>
+    <ingrid-communication-authentication.version>3.3.0</ingrid-communication-authentication.version>
+    <ingrid-external-services-api.version>3.3.0</ingrid-external-services-api.version>
+    <ingrid-external-service-sns.version>3.3.0</ingrid-external-service-sns.version>
     <ingrid-ibus.version>3.3.0</ingrid-ibus.version>
     <ingrid-ibus-client.version>3.3.0</ingrid-ibus-client.version>
     <ingrid-igc-backup.version>3.0.0</ingrid-igc-backup.version>
-    <ingrid-installer.version>3.2.0</ingrid-installer.version>
+    <ingrid-installer.version>3.3.0</ingrid-installer.version>
     <ingrid-interface-csw.version>3.3.0</ingrid-interface-csw.version>
     <ingrid-interface-opensearch.version>3.3.0</ingrid-interface-opensearch.version>
     <ingrid-iplug.version>3.3.0</ingrid-iplug.version>
@@ -50,10 +50,10 @@
     <ingrid-portal-utils.version>3.2.0</ingrid-portal-utils.version>
     <ingrid-server-opensearch.version>3.3.0</ingrid-server-opensearch.version>
     <ingrid-udk-importer.version>3.3.0</ingrid-udk-importer.version>
-    <ingrid-upgrader.version>3.0.1</ingrid-upgrader.version>
+    <ingrid-upgrader.version>3.3.0</ingrid-upgrader.version>
     <ingrid-utils.version>3.3.0</ingrid-utils.version>
     <ingrid-utils-ige.version>3.3.0</ingrid-utils-ige.version>
-    <ingrid-utils-geo.version>3.0.0</ingrid-utils-geo.version>
+    <ingrid-utils-geo.version>3.3.0</ingrid-utils-geo.version>
     <ingrid-webmap-client.version>3.3.0</ingrid-webmap-client.version>
     <!-- versions of external libraries -->
     <ant.version>1.6</ant.version>
