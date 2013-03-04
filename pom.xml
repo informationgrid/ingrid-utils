@@ -3,7 +3,7 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.3.0-RELEASE-SNAPSHOT</version>
+  <version>3.3.0</version>
   <name>ingrid-base-pom</name>
   <properties>
     <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
@@ -115,8 +115,8 @@
     <xtmStubs.version>3.0.0.1</xtmStubs.version>
   </properties>
   <scm>
-    <connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/trunk</connection>
-    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/trunk</developerConnection>
+    <connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/tags/ingrid-base-pom-3.3.0</connection>
+    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/tags/ingrid-base-pom-3.3.0</developerConnection>
   </scm>
   <dependencyManagement>
     <dependencies>
