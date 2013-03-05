@@ -32,6 +32,8 @@
     <ingrid-iplug-admin-step2-tamino.version>3.0.0</ingrid-iplug-admin-step2-tamino.version>
     <ingrid-iplug-csw.version>3.2.0</ingrid-iplug-csw.version>
     <ingrid-iplug-csw-dsc.version>3.3.0</ingrid-iplug-csw-dsc.version>
+    <!-- old iPlugs needed in interface-opensearch ! -->
+    <ingrid-iplug-dsc.version>3.2.0</ingrid-iplug-dsc.version>
     <ingrid-iplug-dsc-mapclient.version>3.3.0</ingrid-iplug-dsc-mapclient.version>
     <ingrid-iplug-dsc-scripted.version>3.3.0</ingrid-iplug-dsc-scripted.version>
     <ingrid-iplug-excel.version>3.3.0</ingrid-iplug-excel.version>
@@ -336,6 +338,11 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-csw-dsc</artifactId>
         <version>${ingrid-iplug-csw-dsc.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-iplug-dsc</artifactId>
+        <version>${ingrid-iplug-dsc.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
