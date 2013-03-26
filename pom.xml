@@ -9,7 +9,7 @@
     <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
     <!-- versions of ingrid libraries -->
 
-    <ingrid-base-webapp.version>3.3.0</ingrid-base-webapp.version>
+    <ingrid-base-webapp.version>3.4.0-SNAPSHOT</ingrid-base-webapp.version>
     <ingrid-codelist-service.version>3.3.0</ingrid-codelist-service.version>
     <ingrid-search-utils.version>3.3.0</ingrid-search-utils.version>
     <ingrid-communication.version>3.3.0</ingrid-communication.version>
