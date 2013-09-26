@@ -51,7 +51,7 @@
     <ingrid-ige.version>3.4.0-SNAPSHOT</ingrid-ige.version>
     <ingrid-portal-utils.version>3.4.0-SNAPSHOT</ingrid-portal-utils.version>
     <ingrid-server-opensearch.version>3.3.0</ingrid-server-opensearch.version>
-    <ingrid-udk-importer.version>3.3.0</ingrid-udk-importer.version>
+    <ingrid-udk-importer.version>3.4.0-SNAPSHOT</ingrid-udk-importer.version>
     <ingrid-upgrader.version>3.3.0</ingrid-upgrader.version>
     <ingrid-utils.version>3.4.0-SNAPSHOT</ingrid-utils.version>
     <ingrid-utils-ige.version>3.4.0-SNAPSHOT</ingrid-utils-ige.version>
