@@ -3,7 +3,7 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.4.0-NEW-SNAPSHOT</version>
+  <version>3.4.0-SNAPSHOT</version>
   <name>ingrid-base-pom</name>
   <properties>
     <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
