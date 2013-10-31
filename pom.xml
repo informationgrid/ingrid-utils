@@ -46,17 +46,17 @@
     <ingrid-iplug-tamino.version>3.2.0</ingrid-iplug-tamino.version>
     <ingrid-iplug-xml.version>3.3.1</ingrid-iplug-xml.version>
     <ingrid-jetspeed-portal.version>1.2.1</ingrid-jetspeed-portal.version>
-    <ingrid-mdek.version>3.3.1</ingrid-mdek.version>
-    <ingrid-portal.version>3.3.1</ingrid-portal.version>
-    <ingrid-ige.version>3.3.1</ingrid-ige.version>
+    <ingrid-mdek.version>3.4.0-SNAPSHOT</ingrid-mdek.version>
+    <ingrid-portal.version>3.4.0-SNAPSHOT</ingrid-portal.version>
+    <ingrid-ige.version>3.4.0-SNAPSHOT</ingrid-ige.version>
     <ingrid-portal-utils.version>3.3.1</ingrid-portal-utils.version>
     <ingrid-server-opensearch.version>3.3.0</ingrid-server-opensearch.version>
-    <ingrid-udk-importer.version>3.3.1</ingrid-udk-importer.version>
+    <ingrid-udk-importer.version>3.4.0-SNAPSHOT</ingrid-udk-importer.version>
     <ingrid-upgrader.version>3.3.0</ingrid-upgrader.version>
     <ingrid-utils.version>3.3.1</ingrid-utils.version>
     <ingrid-utils-ige.version>3.3.1</ingrid-utils-ige.version>
     <ingrid-utils-geo.version>3.3.0</ingrid-utils-geo.version>
-    <ingrid-webmap-client.version>3.3.1</ingrid-webmap-client.version>
+    <ingrid-webmap-client.version>3.4.0-SNAPSHOT</ingrid-webmap-client.version>
     <!-- versions of external libraries -->
     <ant.version>1.6</ant.version>
     <axis.version>1.4</axis.version>
