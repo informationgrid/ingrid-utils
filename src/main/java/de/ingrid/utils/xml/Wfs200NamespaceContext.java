@@ -27,7 +27,7 @@ public class Wfs200NamespaceContext implements NamespaceContext {
 	 */
 	@Override
 	public String getNamespaceURI(String prefix) {
-		if (prefix.equals("wfs")) {
+		if (prefix.equals("wfs20")) {
             return NAMESPACE_URI_WFS;
 		} else if (prefix.equals("ows11")) {
 		    return NAMESPACE_URI_OWS11;
