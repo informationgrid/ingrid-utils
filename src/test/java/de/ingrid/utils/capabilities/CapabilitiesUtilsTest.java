@@ -77,4 +77,23 @@ public class CapabilitiesUtilsTest extends TestCase {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams, 3 ));
     }
 
+    public void testGetAdditionalCapabilitiesParameterStringString() {
+        assertEquals( "?REQUEST=GetCapabilities&SERVICE=WMS", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, "view" ));
+        assertEquals( "?REQUEST=GetCapabilities&SERVICE=WFS", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, "download" ));
+        assertEquals( "?REQUEST=GetCapabilities&SERVICE=CSW", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, "discovery" ));
+
+        assertEquals( "&SERVICE=WMS",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithRequestParam, "view" ));
+        assertEquals( "&SERVICE=WFS",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithRequestParam, "download" ));
+        assertEquals( "&SERVICE=CSW",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithRequestParam, "discovery" ));
+        
+        assertEquals( "&REQUEST=GetCapabilities",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithServiceParam, "view" ));  
+        assertEquals( "&REQUEST=GetCapabilities",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithServiceParam, "download" ));  
+        assertEquals( "&REQUEST=GetCapabilities",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithServiceParam, "discovery" ));  
+        
+        assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams, "view" ));    
+        assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams, "download" ));    
+        assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams, "discovery" ));    
+    }
+
+    
 }

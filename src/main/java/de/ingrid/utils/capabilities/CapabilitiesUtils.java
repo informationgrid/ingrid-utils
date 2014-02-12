@@ -24,6 +24,9 @@ public class CapabilitiesUtils {
     }
     
     /**
+     * Add URL parameters if necessary, so that the capabilities document can be fetched correctly!
+     * The string is analyzed for the necessary parameters and if not found, they will be appended.
+     * The type is used to identify the service.
      * 
      * @param url is the string to check for getCapabilities-parameter
      * @param type defines the service type
@@ -31,6 +34,19 @@ public class CapabilitiesUtils {
      */
     public static String getMissingCapabilitiesParameter(String url, ServiceType type) {
         return getMissingCapabilitiesParameter( url, type.getId() );
+    }
+    
+    /**
+     * Add URL parameters if necessary, so that the capabilities document can be fetched correctly!
+     * The string is analyzed for the necessary parameters and if not found, they will be appended.
+     * The type is used to identify the service by a valid string used in IDF documents.
+     * 
+     * @param url is the string to check for getCapabilities-parameter
+     * @param type defines the service type (view, download or discovery)
+     * @return a valid url string with getCapabilities-parameter
+     */
+    public static String getMissingCapabilitiesParameter(String url, String type) {
+        return getMissingCapabilitiesParameter( url, getServiceTypeFromISO( type ) );
     }
     
     /**
@@ -78,5 +94,19 @@ public class CapabilitiesUtils {
         else if (type == 4) result = "WCTS";
         else if (type == 6) result = "WCS";
         return result;
+    }
+    
+    private static int getServiceTypeFromISO(String serviceType){
+        int service = 1;
+        
+        if(serviceType.equals("view")){
+            service = 2;
+        }else if(serviceType.equals("download")){
+            service = 3;
+        }else if(serviceType.equals("discovery")){
+            service = 1;
+        }
+        
+        return service;
     }
 }
