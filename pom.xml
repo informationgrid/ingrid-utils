@@ -53,7 +53,7 @@
     <ingrid-server-opensearch.version>3.3.0</ingrid-server-opensearch.version>
     <ingrid-udk-importer.version>3.4.0-SNAPSHOT</ingrid-udk-importer.version>
     <ingrid-upgrader.version>3.3.0</ingrid-upgrader.version>
-    <ingrid-utils.version>3.3.1</ingrid-utils.version>
+    <ingrid-utils.version>3.4.0-SNAPSHOT</ingrid-utils.version>
     <ingrid-utils-ige.version>3.3.1</ingrid-utils-ige.version>
     <ingrid-utils-geo.version>3.3.0</ingrid-utils-geo.version>
     <ingrid-webmap-client.version>3.4.0-SNAPSHOT</ingrid-webmap-client.version>
