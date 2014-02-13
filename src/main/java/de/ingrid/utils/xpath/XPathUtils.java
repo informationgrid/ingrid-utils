@@ -215,6 +215,24 @@ public class XPathUtils {
         }
         return n;
     }
+    
+    
+    /**
+     * Remove an element at a specific XPath.
+     * 
+     * @param node is the root node to start the XPath from
+     * @param xpath is the XPath to the node to delete
+     * @return the parent node if node to delete was found, otherwise null
+     */
+    public Node removeElementAtXPath(Node node, String xpath) {
+        Node parent = null;
+        Node nodeToDelete = getNode( node, xpath);
+        if (nodeToDelete != null) {
+            parent = XMLUtils.remove( nodeToDelete );
+        }
+        return parent;
+    }
+    
 	public String[] getStringArray(Object source, String evalExpression) {
 		try {
 			NodeList nl = (NodeList) xpath.evaluate(evalExpression, source,

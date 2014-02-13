@@ -77,6 +77,17 @@ public final class XMLUtils {
 		}
         return n;
 	}
+	
+	/**
+	 * Removes a node from an XML tree.
+	 * @param node is the node to remove from the tree
+	 * @return the parent node of the deleted node
+	 */
+	public static Node remove(Node node) {
+	    Node parent = node.getParentNode();
+	    parent.removeChild( node );
+	    return parent;
+	}
 
 	/**
 	 * This method ensures that the output String has only
