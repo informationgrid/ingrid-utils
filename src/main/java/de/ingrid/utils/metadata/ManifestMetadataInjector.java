@@ -1,5 +1,6 @@
 package de.ingrid.utils.metadata;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -139,6 +140,9 @@ public class ManifestMetadataInjector implements IMetadataInjector {
             if (LOG.isDebugEnabled()) {
                 LOG.debug("Accessing manifest from webapp: " + classDir + "../../META-INF/MANIFEST.MF");
             }
+        } catch (FileNotFoundException e) {
+            LOG.error("MANIFEST.MF not found in jar or webapp-dir '" + classDir + "' that contains class '" + plugClassStr + "'.");
+            
         } catch (IOException e) {
             LOG.error("Error accessing MANIFEST.MF in jar or webapp-dir '" + classDir + "' that contains class '" + plugClassStr + "'.", e);
         }
