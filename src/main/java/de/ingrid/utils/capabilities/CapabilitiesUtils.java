@@ -17,10 +17,11 @@ public class CapabilitiesUtils {
      * The service type will be automatically set to CSW.
      * 
      * @param url is the string to check for getCapabilities-parameter
-     * @return a valid url string with getCapabilities-parameter
+     * @return a valid url string with getCapabilities-parameter.<br>
+     * 		   NOTICE: default is SERVICE=CSW if service type cannot be determined !
      */
     public static String getMissingCapabilitiesParameter(String url) {
-        return getMissingCapabilitiesParameter( url, -1 );
+        return getMissingCapabilitiesParameter( url, -1);
     }
     
     /**
@@ -30,23 +31,26 @@ public class CapabilitiesUtils {
      * 
      * @param url is the string to check for getCapabilities-parameter
      * @param type defines the service type
-     * @return a valid url string with getCapabilities-parameter
+     * @return a valid url string with getCapabilities-parameter.
      */
     public static String getMissingCapabilitiesParameter(String url, ServiceType type) {
-        return getMissingCapabilitiesParameter( url, type.getId() );
+        return getMissingCapabilitiesParameter( url, type.getId());
     }
     
     /**
      * Add URL parameters if necessary, so that the capabilities document can be fetched correctly!
      * The string is analyzed for the necessary parameters and if not found, they will be appended.
-     * The type is used to identify the service by a valid string used in IDF documents.
+     * The serviceType is used to identify the service by a valid string used in IDF documents or from CSW !
+     * NOTICE: If serviceType is not ISO konform (for identification) we use the string itself as SERVICE parameter !
      * 
      * @param url is the string to check for getCapabilities-parameter
-     * @param type defines the service type (view, download or discovery)
-     * @return a valid url string with getCapabilities-parameter
+     * @param serviceType srv:serviceType from IDF/CSW (INSPIRE conform is view, download, discovery ...)
+     * @return a valid url string with getCapabilities-parameter.
      */
-    public static String getMissingCapabilitiesParameter(String url, String type) {
-        return getMissingCapabilitiesParameter( url, getServiceTypeFromISO( type ) );
+    public static String getMissingCapabilitiesParameter(String url, String serviceType) {
+    	int myType = getServiceTypeFromISO(serviceType);
+    	// Also deliver the serviceType passed. To use it if ISO type could not be determined (-1). 
+        return getMissingCapabilitiesParameter(url, myType, serviceType);
     }
     
     /**
@@ -55,12 +59,35 @@ public class CapabilitiesUtils {
      * The type is used to identify the service by the id set in the database and is default set to CSW.
      * 
      * @param url is the string to check for getCapabilities-parameter
-     * @param type is the numeric identifier used in the database
-     *        (1 => CSW, 2 => WMS, 3 => WFS, 4 => WCTS, 6 => WCS)  
-     * @return a valid url string with getCapabilities-parameter
+     * @param serviceTypeId numeric type identifier used in the database (entry id of codelist 5100).<br>
+     * @return a valid url string with getCapabilities-parameter.
      */
-    public static String getMissingCapabilitiesParameter(String url, int type) {
-        String mappedType = getServiceTypeFromKey(type);
+    public static String getMissingCapabilitiesParameter(String url, int serviceTypeId) {
+    	return getMissingCapabilitiesParameter(url, serviceTypeId, null);
+    }
+
+    /**
+     * Add URL parameters if necessary, so that the capabilities document can be fetched correctly!
+     * The string is analyzed for the necessary parameters and if not found, they will be appended.
+     * The type is used to identify the service by the id set in the database.
+     * 
+     * @param url is the string to check for getCapabilities-parameter
+     * @param serviceTypeId numeric type identifier used in the database (entry id of codelist 5100).<br>
+     * 		  Pass -1 if not known !  
+     * @param serviceTypeNoISO service type to be used if it could not be determined from passed serviceTypeId !
+     * 		  E.g. this is the type set in CSW if not ISO konform ! 
+     * @return a valid url string with getCapabilities-parameter<br>
+     * 		   NOTICE: default is SERVICE=CSW if service type cannot be determined !
+     */
+    private static String getMissingCapabilitiesParameter(String url, int serviceTypeId, String serviceTypeNoISO) {
+        String mappedType = getServiceTypeFromKey(serviceTypeId);
+    	if (mappedType == null) {
+            mappedType = serviceTypeNoISO;
+    	}
+    	if (mappedType == null) {
+    		// DEFAULT IS CSW !!!
+            mappedType = "CSW";
+    	}
         String parameters = "";
         
         if (url.toLowerCase().indexOf("request=getcapabilities") == -1) {
@@ -82,12 +109,12 @@ public class CapabilitiesUtils {
     }
 
     /**
-     * Determine the URL-Parameter to request a getCapabilities document
-     * @param type, is the id of the codelist entry
-     * @return the value of the codelist entry key of the service
+     * Determine the URL-Parameter to request a getCapabilities document.
+     * @param type is the id of the codelist entry (entry id of codelist 5100).
+     * @return the value for SERVICE parameter or null if not found !
      */
     private static String getServiceTypeFromKey(int type) {
-        String result = "CSW";
+        String result = null;
         if (type == 1) result = "CSW";
         else if (type == 2) result = "WMS"; 
         else if (type == 3) result = "WFS";
@@ -96,16 +123,32 @@ public class CapabilitiesUtils {
         return result;
     }
     
+    /** Returns ID of codelist entry from serviceType delivered in CSW.
+     * We check against the INSPIRE values (see document "INSPIRE Metadata
+     * Implementing Rules" -> "Spatial data service type").
+     * @param serviceType the srv:serviceType in CSW data
+     * @return the id of the codelist entry, -1 if not found
+     */
     private static int getServiceTypeFromISO(String serviceType){
-        int service = 1;
-        
-        if(serviceType.equals("view")){
-            service = 2;
-        }else if(serviceType.equals("download")){
-            service = 3;
-        }else if(serviceType.equals("discovery")){
-            service = 1;
-        }
+        int service = -1;
+
+    	if (serviceType != null) {
+    		String myType = serviceType.trim().toLowerCase();
+
+            if (myType.equals("view")) {
+                service = 2;
+            } else if (myType.equals("download")) {
+                service = 3;
+            } else if (myType.equals("discovery")) {
+                service = 1;
+            } else if (myType.equals("transformation")) {
+                service = 4;
+            } else if (myType.equals("invoke")) {
+                service = 5;
+            } else if (myType.equals("other")) {
+                service = 6;
+            }
+    	}
         
         return service;
     }
