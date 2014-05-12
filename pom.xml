@@ -11,8 +11,8 @@
 	<version>3.5.0-SNAPSHOT</version>
 	<name>ingrid-utils</name>
 	<scm>
-		<connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-utils/trunk</connection>
-		<developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-utils/trunk</developerConnection>
+		<connection>scm:svn:https://harrison.its-technidata.de/svn/ingrid/ingrid-utils/trunk</connection>
+		<developerConnection>scm:svn:https://harrison.its-technidata.de/svn/ingrid/ingrid-utils/trunk</developerConnection>
 	</scm>
 	<repositories>
 		<!--
