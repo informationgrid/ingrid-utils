@@ -117,8 +117,8 @@
     <xtmStubs.version>3.0.0.1</xtmStubs.version>
   </properties>
   <scm>
-    <connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/trunk</connection>
-    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/trunk</developerConnection>
+    <connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/branches/ingrid-base-pom-3.5_REDMINE-304_JetspeedMigration</connection>
+    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/branches/ingrid-base-pom-3.5_REDMINE-304_JetspeedMigration</developerConnection>
   </scm>
   <dependencyManagement>
     <dependencies>
