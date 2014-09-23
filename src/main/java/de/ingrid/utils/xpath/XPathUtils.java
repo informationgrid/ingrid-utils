@@ -23,11 +23,21 @@ public class XPathUtils {
      * Constructor
      * 
      * @param nsContext
-     *            NamespaceContext to use
+     *            NamespaceContext to use, no namespace is used if null
      */
     public XPathUtils(NamespaceContext nsContext) {
         this.xpath = XPathFactory.newInstance().newXPath();
-        this.xpath.setNamespaceContext(nsContext);
+        if (nsContext != null) {
+            this.xpath.setNamespaceContext(nsContext);
+        }
+    }
+    
+    /**
+     * Create a xpath util without a namespace context.
+     * 
+     */
+    public XPathUtils() {
+        this(null);
     }
 
     public Integer getInt(Object source, String xpathExpression) {
