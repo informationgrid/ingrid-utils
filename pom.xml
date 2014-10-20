@@ -24,9 +24,9 @@
 
     <ingrid-base-webapp.version>3.4.0</ingrid-base-webapp.version>
     <ingrid-codelist-service.version>3.4.0</ingrid-codelist-service.version>
-    <ingrid-search-utils.version>3.3.0</ingrid-search-utils.version>    
-    <ingrid-communication.version>3.3.0</ingrid-communication.version>    
-    <ingrid-communication-authentication.version>3.3.0</ingrid-communication-authentication.version>    
+    <ingrid-search-utils.version>3.3.0</ingrid-search-utils.version>
+    <ingrid-communication.version>3.3.0</ingrid-communication.version>
+    <ingrid-communication-authentication.version>3.3.0</ingrid-communication-authentication.version>
     <ingrid-external-services-api.version>3.3.0</ingrid-external-services-api.version>
     <ingrid-external-service-sns.version>3.3.0</ingrid-external-service-sns.version>
     <ingrid-ibus.version>3.4.0</ingrid-ibus.version>
@@ -35,7 +35,7 @@
     <ingrid-installer.version>3.3.1</ingrid-installer.version>
     <ingrid-interface-csw.version>3.3.1</ingrid-interface-csw.version>
     <ingrid-interface-opensearch.version>3.3.0</ingrid-interface-opensearch.version>
-    <ingrid-iplug.version>3.3.0</ingrid-iplug.version>
+    <ingrid-iplug.version>3.5.0-SNAPSHOT</ingrid-iplug.version>
     <ingrid-iplug-admin-step1.version>3.0.0</ingrid-iplug-admin-step1.version>
     <ingrid-iplug-admin-step1-management.version>3.0.0</ingrid-iplug-admin-step1-management.version>
     <ingrid-iplug-admin-step1-se.version>3.0.0</ingrid-iplug-admin-step1-se.version>
