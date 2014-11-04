@@ -22,14 +22,14 @@
     <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
     <!-- versions of ingrid libraries -->
 
-    <ingrid-base-webapp.version>3.4.0</ingrid-base-webapp.version>
+    <ingrid-base-webapp.version>3.5.0-SNAPSHOT</ingrid-base-webapp.version>
     <ingrid-codelist-service.version>3.4.0</ingrid-codelist-service.version>
     <ingrid-search-utils.version>3.3.0</ingrid-search-utils.version>
     <ingrid-communication.version>3.3.0</ingrid-communication.version>
     <ingrid-communication-authentication.version>3.3.0</ingrid-communication-authentication.version>
     <ingrid-external-services-api.version>3.3.0</ingrid-external-services-api.version>
     <ingrid-external-service-sns.version>3.3.0</ingrid-external-service-sns.version>
-    <ingrid-ibus.version>3.4.0</ingrid-ibus.version>
+    <ingrid-ibus.version>3.5.0-SNAPSHOT</ingrid-ibus.version>
     <ingrid-ibus-client.version>3.3.0</ingrid-ibus-client.version>
     <ingrid-igc-backup.version>3.0.0</ingrid-igc-backup.version>
     <ingrid-installer.version>3.3.1</ingrid-installer.version>
@@ -47,9 +47,9 @@
     <ingrid-iplug-csw-dsc.version>3.4.0</ingrid-iplug-csw-dsc.version>
     <!-- old iPlugs needed in interface-opensearch ! -->
     <ingrid-iplug-dsc.version>3.2.0</ingrid-iplug-dsc.version>
-    <ingrid-iplug-dsc-mapclient.version>3.4.0</ingrid-iplug-dsc-mapclient.version>
-    <ingrid-iplug-dsc-scripted.version>3.4.0</ingrid-iplug-dsc-scripted.version>
-    <ingrid-iplug-excel.version>3.3.1</ingrid-iplug-excel.version>
+    <ingrid-iplug-dsc-mapclient.version>3.5.0-SNAPSHOT</ingrid-iplug-dsc-mapclient.version>
+    <ingrid-iplug-dsc-scripted.version>3.5.0-SNAPSHOT</ingrid-iplug-dsc-scripted.version>
+    <ingrid-iplug-excel.version>3.5.0-SNAPSHOT</ingrid-iplug-excel.version>
     <ingrid-iplug-fpn.version>3.1.0</ingrid-iplug-fpn.version>
     <ingrid-iplug-g2k.version>3.4.0</ingrid-iplug-g2k.version>
     <ingrid-iplug-management.version>3.4.0</ingrid-iplug-management.version>
@@ -59,9 +59,9 @@
     <ingrid-iplug-tamino.version>3.2.0</ingrid-iplug-tamino.version>
     <ingrid-iplug-xml.version>3.3.1</ingrid-iplug-xml.version>
     <ingrid-jetspeed-portal.version>1.2.1</ingrid-jetspeed-portal.version>
-    <ingrid-mdek.version>3.4.0</ingrid-mdek.version>
-    <ingrid-portal.version>3.4.0</ingrid-portal.version>
-    <ingrid-ige.version>3.4.0</ingrid-ige.version>
+    <ingrid-mdek.version>3.5.0-SNAPSHOT</ingrid-mdek.version>
+    <ingrid-portal.version>3.5.0-SNAPSHOT</ingrid-portal.version>
+    <ingrid-ige.version>3.5.0-SNAPSHOT</ingrid-ige.version>
     <ingrid-portal-utils.version>3.3.1</ingrid-portal-utils.version>
     <ingrid-server-opensearch.version>3.3.0</ingrid-server-opensearch.version>
     <ingrid-udk-importer.version>3.4.0</ingrid-udk-importer.version>
@@ -69,7 +69,7 @@
     <ingrid-utils.version>3.5.0-SNAPSHOT</ingrid-utils.version>
     <ingrid-utils-ige.version>3.3.1</ingrid-utils-ige.version>
     <ingrid-utils-geo.version>3.3.0</ingrid-utils-geo.version>
-    <ingrid-webmap-client.version>3.4.0</ingrid-webmap-client.version>
+    <ingrid-webmap-client.version>3.5.0-SNAPSHOT</ingrid-webmap-client.version>
   </properties>
   <dependencyManagement>
     <dependencies>
