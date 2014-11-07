@@ -444,6 +444,7 @@
           <organizationName>wemove digital solutions GmbH</organizationName>
           <projectName>${project.name}</projectName>
           <licenseName>eupl_v1_1</licenseName>
+          <encoding>UTF-8</encoding>
           <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
           <canUpdateDescription>true</canUpdateDescription>
           <canUpdateCopyright>true</canUpdateCopyright>
