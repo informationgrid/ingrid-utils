@@ -446,7 +446,8 @@
           <licenseName>eupl_v1_1</licenseName>
           <encoding>UTF-8</encoding>
           <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
-          <canUpdateDescription>true</canUpdateDescription>
+          <!-- there's a bug where description always seems to be different -->
+          <!-- <canUpdateDescription>true</canUpdateDescription> -->
           <canUpdateCopyright>true</canUpdateCopyright>
           <sectionDelimiter>==================================================</sectionDelimiter>
           <processStartTag>**************************************************-</processStartTag>
