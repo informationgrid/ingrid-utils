@@ -444,7 +444,8 @@
           <organizationName>wemove digital solutions GmbH</organizationName>
           <projectName>${project.name}</projectName>
           <licenseName>eupl_v1_1</licenseName>
-          <encoding>UTF-8</encoding>
+          <!-- strange result when using encoding - modified file might be written in different format! -->
+          <!-- <encoding>UTF-8</encoding> -->
           <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
           <!-- there's a bug where description always seems to be different -->
           <!-- <canUpdateDescription>true</canUpdateDescription> -->
