@@ -455,6 +455,8 @@
           <processEndTag>**************************************************#</processEndTag>
           <excludes>
               <exclude>**/log4j.properties</exclude>
+              <exclude>**/*.json</exclude>
+              <exclude>**/*.sql</exclude>
           </excludes>
         </configuration>
         <executions>
