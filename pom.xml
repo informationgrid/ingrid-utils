@@ -85,6 +85,17 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                    	<!-- this file contains UTF8 characters which is converted in a wrong way when applying a license -->
+                        <exclude>**/queryparser/QueryStringParserTest.java</exclude>
+                        <exclude>**/log4j.properties</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 </project>
