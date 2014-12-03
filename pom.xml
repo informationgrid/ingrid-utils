@@ -11,8 +11,8 @@
 	<version>3.5.0-SNAPSHOT</version>
 	<name>ingrid-utils</name>
 	<scm>
-		<connection>scm:svn:https://harrison.its-technidata.de/svn/ingrid/ingrid-utils/trunk</connection>
-		<developerConnection>scm:svn:https://harrison.its-technidata.de/svn/ingrid/ingrid-utils/trunk</developerConnection>
+		<connection>scm:git:git@github.com:informationgrid/ingrid-utils.git</connection>
+		<developerConnection>scm:git:git@github.com:informationgrid/ingrid-utils.git</developerConnection>
 	</scm>
 	<repositories>
 		<!--
@@ -22,7 +22,7 @@
 		<repository>
 			<id>de.ingrid.all</id>
 			<name>Maven2 Repo InGrid</name>
-			<url>http://harrison.its-technidata.de/archiva/repository/ingrid-all</url>
+			<url>https://dev.informationgrid.eu/archiva/repository/ingrid-all</url>
 		</repository>
 		<repository>
 			<id>jetspeed-repository</id>
