@@ -74,15 +74,23 @@ public class QueryExtensionContainerTest extends TestCase {
         assertEquals(2, queries.size());
         final Iterator<FieldQuery> it = queries.iterator();
         final FieldQuery first = it.next();
-        assertEquals(false, first.isRequred());
-        assertEquals(true, first.isProhibited());
-        assertEquals("partner", first.getFieldName());
-        assertEquals("bw", first.getFieldValue());
-
         final FieldQuery second = it.next();
-        assertEquals(true, second.isRequred());
-        assertEquals(false, second.isProhibited());
-        assertEquals("test", second.getFieldName());
-        assertEquals("true", second.getFieldValue());
+        
+        FieldQuery[] fqs = new FieldQuery[] { first, second };
+        
+        for (FieldQuery fieldQuery : fqs) {
+            if ("bw".equals( fieldQuery.getFieldValue() )) {
+                assertEquals(false, fieldQuery.isRequred());
+                assertEquals(true, fieldQuery.isProhibited());
+                assertEquals("partner", fieldQuery.getFieldName());
+                assertEquals("bw", fieldQuery.getFieldValue());
+            } else {
+                assertEquals(true, fieldQuery.isRequred());
+                assertEquals(false, fieldQuery.isProhibited());
+                assertEquals("test", fieldQuery.getFieldName());
+                assertEquals("true", fieldQuery.getFieldValue());
+            }
+            
+        }
     }
 }
