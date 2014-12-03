@@ -15,11 +15,11 @@
     <module>ingrid-import-pom</module>
   </modules>
   <scm>
-    <connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/branches/ingrid-base-pom-3.5_REDMINE-304_JetspeedMigration</connection>
-    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/branches/ingrid-base-pom-3.5_REDMINE-304_JetspeedMigration</developerConnection>
+    <connection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</connection>
+    <developerConnection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</developerConnection>
   </scm>
   <properties>
-    <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
+    <!-- <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase> -->
     <!-- versions of ingrid libraries -->
 
     <ingrid-base-webapp.version>3.5.0-SNAPSHOT</ingrid-base-webapp.version>
@@ -475,7 +475,7 @@
     <repository>
       <id>de.ingrid.m2</id>
       <name>Maven2 Repo InGrid</name>
-      <url>http://harrison.its-technidata.de/ingrid/maven2</url>
+      <url>https://dev.informationgrid.eu/archiva/repository/ingrid-all</url>
     </repository>
   </repositories>
   <distributionManagement>
