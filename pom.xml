@@ -20,7 +20,7 @@
   </scm>
   <properties>
     <!-- versions of ingrid libraries -->
-    <ingrid-base-webapp.version>3.5.0-SNAPSHOT</ingrid-base-webapp.version>
+    <ingrid-base-webapp.version>4.0.0-SNAPSHOT</ingrid-base-webapp.version>
     <ingrid-codelist-service.version>3.5.0-SNAPSHOT</ingrid-codelist-service.version>
     <ingrid-search-utils.version>3.5.0-SNAPSHOT</ingrid-search-utils.version>
     <ingrid-communication.version>3.5.0-SNAPSHOT</ingrid-communication.version>
@@ -44,6 +44,7 @@
     <ingrid-iplug-se.version>3.5.0-SNAPSHOT</ingrid-iplug-se.version>
     <ingrid-iplug-sns.version>3.5.0-SNAPSHOT</ingrid-iplug-sns.version>
     <ingrid-iplug-xml.version>3.5.0-SNAPSHOT</ingrid-iplug-xml.version>
+    <ingrid-jetspeed-portal.version>3.5.0-SNAPSHOT</ingrid-jetspeed-portal.version>
     <ingrid-mdek.version>3.5.0-SNAPSHOT</ingrid-mdek.version>
     <ingrid-portal.version>3.5.0-SNAPSHOT</ingrid-portal.version>
     <ingrid-ige.version>3.5.0-SNAPSHOT</ingrid-ige.version>
@@ -272,6 +273,11 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-external-service-wfs</artifactId>
         <version>${ingrid-external-service-wfs.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-jetspeed-portal</artifactId>
+        <version>${ingrid-jetspeed-portal.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
