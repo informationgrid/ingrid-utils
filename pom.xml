@@ -93,7 +93,10 @@
                     <excludes>
                     	<!-- this file contains UTF8 characters which is converted in a wrong way when applying a license -->
                         <exclude>**/queryparser/QueryStringParserTest.java</exclude>
-                        <exclude>**/log4j.properties</exclude>
+                        <exclude>**/*.properties</exclude>
+                        <exclude>**/*.json</exclude>
+                        <exclude>**/*.sql</exclude>
+                        <exclude>**/*.xml</exclude>
                     </excludes>
                 </configuration>
             </plugin>
