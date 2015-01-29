@@ -3,265 +3,62 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.5.0-SNAPSHOT</version>
+  <version>3.5.0-SNAPSHOT-R304</version>
   <name>ingrid-base-pom</name>
-  <properties>
-    <scmConnectionBase>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid</scmConnectionBase>
-    <!-- versions of ingrid libraries -->
-
-    <ingrid-base-webapp.version>3.4.0</ingrid-base-webapp.version>
-    <ingrid-codelist-service.version>3.4.0</ingrid-codelist-service.version>
-    <ingrid-search-utils.version>3.3.0</ingrid-search-utils.version>    
-    <ingrid-communication.version>3.3.0</ingrid-communication.version>    
-    <ingrid-communication-authentication.version>3.3.0</ingrid-communication-authentication.version>    
-    <ingrid-external-services-api.version>3.3.0</ingrid-external-services-api.version>
-    <ingrid-external-service-sns.version>3.3.0</ingrid-external-service-sns.version>
-    <ingrid-ibus.version>3.4.0</ingrid-ibus.version>
-    <ingrid-ibus-client.version>3.3.0</ingrid-ibus-client.version>
-    <ingrid-igc-backup.version>3.0.0</ingrid-igc-backup.version>
-    <ingrid-installer.version>3.3.1</ingrid-installer.version>
-    <ingrid-interface-csw.version>3.3.1</ingrid-interface-csw.version>
-    <ingrid-interface-opensearch.version>3.3.0</ingrid-interface-opensearch.version>
-    <ingrid-iplug.version>3.3.0</ingrid-iplug.version>
-    <ingrid-iplug-admin-step1.version>3.0.0</ingrid-iplug-admin-step1.version>
-    <ingrid-iplug-admin-step1-management.version>3.0.0</ingrid-iplug-admin-step1-management.version>
-    <ingrid-iplug-admin-step1-se.version>3.0.0</ingrid-iplug-admin-step1-se.version>
-    <ingrid-iplug-admin-step1-sns.version>3.1.0</ingrid-iplug-admin-step1-sns.version>
-    <ingrid-iplug-admin-step1-webservice.version>3.0.0</ingrid-iplug-admin-step1-webservice.version>
-    <ingrid-iplug-admin-step2-dsc.version>3.0.1</ingrid-iplug-admin-step2-dsc.version>
-    <ingrid-iplug-admin-step2-tamino.version>3.0.0</ingrid-iplug-admin-step2-tamino.version>
-    <ingrid-iplug-csw.version>3.2.0</ingrid-iplug-csw.version>
-    <ingrid-iplug-csw-dsc.version>3.4.0</ingrid-iplug-csw-dsc.version>
-    <!-- old iPlugs needed in interface-opensearch ! -->
-    <ingrid-iplug-dsc.version>3.2.0</ingrid-iplug-dsc.version>
-    <ingrid-iplug-dsc-mapclient.version>3.4.0</ingrid-iplug-dsc-mapclient.version>
-    <ingrid-iplug-dsc-scripted.version>3.4.0</ingrid-iplug-dsc-scripted.version>
-    <ingrid-iplug-excel.version>3.3.1</ingrid-iplug-excel.version>
-    <ingrid-iplug-fpn.version>3.1.0</ingrid-iplug-fpn.version>
-    <ingrid-iplug-g2k.version>3.4.0</ingrid-iplug-g2k.version>
-    <ingrid-iplug-management.version>3.4.0</ingrid-iplug-management.version>
-    <ingrid-iplug-opensearch.version>3.4.0</ingrid-iplug-opensearch.version>
-    <ingrid-iplug-se.version>3.4.0</ingrid-iplug-se.version>
-    <ingrid-iplug-sns.version>3.4.0</ingrid-iplug-sns.version>
-    <ingrid-iplug-tamino.version>3.2.0</ingrid-iplug-tamino.version>
-    <ingrid-iplug-xml.version>3.3.1</ingrid-iplug-xml.version>
-    <ingrid-jetspeed-portal.version>1.2.1</ingrid-jetspeed-portal.version>
-    <ingrid-mdek.version>3.4.0</ingrid-mdek.version>
-    <ingrid-portal.version>3.4.0</ingrid-portal.version>
-    <ingrid-ige.version>3.4.0</ingrid-ige.version>
-    <ingrid-portal-utils.version>3.3.1</ingrid-portal-utils.version>
-    <ingrid-server-opensearch.version>3.3.0</ingrid-server-opensearch.version>
-    <ingrid-udk-importer.version>3.4.0</ingrid-udk-importer.version>
-    <ingrid-upgrader.version>3.3.0</ingrid-upgrader.version>
-    <ingrid-utils.version>3.5.0-SNAPSHOT</ingrid-utils.version>
-    <ingrid-utils-ige.version>3.3.1</ingrid-utils-ige.version>
-    <ingrid-utils-geo.version>3.3.0</ingrid-utils-geo.version>
-    <ingrid-webmap-client.version>3.4.0</ingrid-webmap-client.version>
-    <!-- versions of external libraries -->
-    <ant.version>1.6</ant.version>
-    <axis.version>1.4</axis.version>
-    <axis2.version>1.4.1</axis2.version>
-    <c3p0.version>0.9.0.4</c3p0.version>
-    <cglib-nodep.version>2.1_3</cglib-nodep.version>
-    <commons-beanutils.version>1.7.0</commons-beanutils.version>
-    <commons-betwixt.version>0.7</commons-betwixt.version>
-    <commons-cli.version>1.1</commons-cli.version>
-    <commons-codec.version>1.4</commons-codec.version>
-    <commons-collections.version>3.1</commons-collections.version>
-    <commons-configuration.version>1.3</commons-configuration.version>
-    <commons-digester.version>1.6</commons-digester.version>
-    <commons-discovery.version>0.2</commons-discovery.version>
-    <commons-el.version>1.0</commons-el.version>
-    <commons-fileupload.version>1.2.2</commons-fileupload.version>
-    <commons-httpclient.version>3.1</commons-httpclient.version>
-    <commons-io.version>1.4</commons-io.version>
-    <commons-lang.version>2.6</commons-lang.version>
-    <commons-logging.version>1.0.4</commons-logging.version>
-    <dbunit.version>2.4.1</dbunit.version>
-    <dom4j.version>1.4</dom4j.version>
-    <ehcache.version>1.4.1</ehcache.version>
-    <hibernate.version>3.2.5.ga</hibernate.version>
-    <hibernate-annotations.version>3.2.1.ga</hibernate-annotations.version>
-    <hsqldb.version>1.8.0.2</hsqldb.version>
-    <htmlparser.version>1.0</htmlparser.version>
-    <jasper-compiler.version>5.5.9</jasper-compiler.version>
-    <jasper-runtime.version>5.5.9</jasper-runtime.version>
-    <jaxen.version>1.1-beta-4</jaxen.version>
-    <jetspeed.version>2.1</jetspeed.version>
-    <jetspeed-api.version>2.1</jetspeed-api.version>
-    <jetspeed-security.version>2.1</jetspeed-security.version>
-    <jetty.servlet-api.version>2.5-6.0.0beta6</jetty.servlet-api.version>
-    <jmock.version>2.4.0</jmock.version>
-    <junit.version>3.8.1</junit.version>
-    <log4j.version>1.2.14</log4j.version>
-    <lucene.version>1.4.3</lucene.version>
-    <mysql-connector-java.version>5.1.6</mysql-connector-java.version>
-    <org.mortbay.jetty.version>5.1.8</org.mortbay.jetty.version>
-    <org.mortbay.jetty.jetty.version>6.1.14</org.mortbay.jetty.jetty.version>
-    <ojdbc.version>14</ojdbc.version>
-    <portlet-api.version>1.0</portlet-api.version>
-    <quartz.version>1.6.5</quartz.version>
-    <servlet-api.version>2.4</servlet-api.version>
-    <spring-beans.version>2.5.6</spring-beans.version>
-    <spring-context.version>2.5.6</spring-context.version>
-    <spring-core.version>2.5.6</spring-core.version>
-    <spring-hibernate3.version>2.0.6</spring-hibernate3.version>
-    <spring-mock.version>2.0.6</spring-mock.version>
-    <!-- this file (taminoapi4j) was added manually to the maven2 repository! -->
-    <taminoapi4j.version>4.2.1.0</taminoapi4j.version>
-    <xalan.version>2.7.0</xalan.version>
-    <xerces.version>2.4.0</xerces.version>
-    <xml-apis.version>1.3.03</xml-apis.version>
-    <xmlunit.version>1.0</xmlunit.version>
-    <xstream.version>1.4.4</xstream.version>
-    <xtmStubs.version>3.0.0.1</xtmStubs.version>
-  </properties>
+  <description>
+    This base pom can be used as parent pom for defining the INGRID dependencies, repositories, plugins ...
+    NOTICE: DO NOT add non ingrid dependencies (external jars) cause these dependency versions can NOT BE OVERRIDDEN in subpoms via import pom mechanism !
+    see ingrid-import-pom for details
+  </description>
+<!-- other poms as submodules so they will be build and installed -->
+  <modules>
+    <module>ingrid-import-pom</module>
+  </modules>
   <scm>
-    <connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/trunk</connection>
-    <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/trunk</developerConnection>
+    <connection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</connection>
+    <developerConnection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</developerConnection>
   </scm>
+  <properties>
+    <!-- versions of ingrid libraries -->
+    <ingrid-base-webapp.version>4.0.0-SNAPSHOT</ingrid-base-webapp.version>
+    <ingrid-codelist-service.version>3.5.0-SNAPSHOT</ingrid-codelist-service.version>
+    <ingrid-search-utils.version>3.5.0-SNAPSHOT</ingrid-search-utils.version>
+    <ingrid-communication.version>3.5.0-SNAPSHOT</ingrid-communication.version>
+    <ingrid-communication-authentication.version>3.5.0-SNAPSHOT</ingrid-communication-authentication.version>
+    <ingrid-external-services-api.version>3.5.0-SNAPSHOT</ingrid-external-services-api.version>
+    <ingrid-external-service-sns.version>3.5.0-SNAPSHOT</ingrid-external-service-sns.version>
+    <ingrid-external-service-wfs.version>3.5.0-SNAPSHOT</ingrid-external-service-wfs.version>
+    <ingrid-ibus.version>3.5.0-SNAPSHOT</ingrid-ibus.version>
+    <ingrid-ibus-client.version>3.5.0-SNAPSHOT</ingrid-ibus-client.version>
+    <ingrid-igc-backup.version>3.5.0-SNAPSHOT</ingrid-igc-backup.version>
+    <ingrid-installer.version>3.5.0-SNAPSHOT</ingrid-installer.version>
+    <ingrid-interface-csw.version>3.5.0-SNAPSHOT</ingrid-interface-csw.version>
+    <ingrid-iplug.version>3.5.0-SNAPSHOT</ingrid-iplug.version>
+    <ingrid-iplug-admin-step1-sns.version>3.5.0-SNAPSHOT</ingrid-iplug-admin-step1-sns.version>
+    <ingrid-iplug-csw-dsc.version>3.5.0-SNAPSHOT</ingrid-iplug-csw-dsc.version>
+    <ingrid-iplug-dsc-mapclient.version>3.5.0-SNAPSHOT</ingrid-iplug-dsc-mapclient.version>
+    <ingrid-iplug-dsc-scripted.version>3.5.0-SNAPSHOT</ingrid-iplug-dsc-scripted.version>
+    <ingrid-iplug-excel.version>3.5.0-SNAPSHOT</ingrid-iplug-excel.version>
+    <ingrid-iplug-management.version>3.5.0-SNAPSHOT</ingrid-iplug-management.version>
+    <ingrid-iplug-opensearch.version>3.5.0-SNAPSHOT</ingrid-iplug-opensearch.version>
+    <ingrid-iplug-se.version>3.5.0-SNAPSHOT</ingrid-iplug-se.version>
+    <ingrid-iplug-sns.version>3.5.0-SNAPSHOT</ingrid-iplug-sns.version>
+    <ingrid-iplug-xml.version>3.5.0-SNAPSHOT</ingrid-iplug-xml.version>
+    <ingrid-jetspeed-portal.version>3.5.0-SNAPSHOT</ingrid-jetspeed-portal.version>
+    <ingrid-mdek.version>3.5.0-SNAPSHOT</ingrid-mdek.version>
+    <ingrid-portal.version>3.5.0-SNAPSHOT</ingrid-portal.version>
+    <ingrid-ige.version>3.5.0-SNAPSHOT</ingrid-ige.version>
+    <ingrid-portal-utils.version>3.5.0-SNAPSHOT</ingrid-portal-utils.version>
+    <ingrid-server-opensearch.version>3.5.0-SNAPSHOT</ingrid-server-opensearch.version>
+    <ingrid-udk-importer.version>3.5.0-SNAPSHOT</ingrid-udk-importer.version>
+    <ingrid-upgrader.version>3.5.0-SNAPSHOT</ingrid-upgrader.version>
+    <ingrid-utils.version>3.5.0-SNAPSHOT</ingrid-utils.version>
+    <ingrid-utils-ige.version>3.5.0-SNAPSHOT</ingrid-utils-ige.version>
+    <ingrid-utils-geo.version>3.5.0-SNAPSHOT</ingrid-utils-geo.version>
+    <ingrid-webmap-client.version>3.5.0-SNAPSHOT</ingrid-webmap-client.version>
+  </properties>
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>ant</groupId>
-        <artifactId>ant</artifactId>
-        <version>${ant.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>c3p0</groupId>
-        <artifactId>c3p0</artifactId>
-        <version>${c3p0.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>cglib</groupId>
-        <artifactId>cglib-nodep</artifactId>
-        <version>${cglib-nodep.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-beanutils</groupId>
-        <artifactId>commons-beanutils</artifactId>
-        <version>${commons-beanutils.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-betwixt</groupId>
-        <artifactId>commons-betwixt</artifactId>
-        <version>${commons-betwixt.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-cli</groupId>
-        <artifactId>commons-cli</artifactId>
-        <version>${commons-cli.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-codec</groupId>
-        <artifactId>commons-codec</artifactId>
-        <version>${commons-codec.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-collections</groupId>
-        <artifactId>commons-collections</artifactId>
-        <version>${commons-collections.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-configuration</groupId>
-        <artifactId>commons-configuration</artifactId>
-        <version>${commons-configuration.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-digester</groupId>
-        <artifactId>commons-digester</artifactId>
-        <version>${commons-digester.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-el</groupId>
-        <artifactId>commons-el</artifactId>
-        <version>${commons-el.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-fileupload</groupId>
-        <artifactId>commons-fileupload</artifactId>
-        <version>${commons-fileupload.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-httpclient</groupId>
-        <artifactId>commons-httpclient</artifactId>
-        <version>${commons-httpclient.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-        <version>${commons-io.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-lang</groupId>
-        <artifactId>commons-lang</artifactId>
-        <version>${commons-lang.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.dbunit</groupId>
-        <artifactId>dbunit</artifactId>
-        <version>${dbunit.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>dom4j</groupId>
-        <artifactId>dom4j</artifactId>
-        <version>${dom4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>net.sf.ehcache</groupId>
-        <artifactId>ehcache</artifactId>
-        <version>${ehcache.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate</artifactId>
-        <version>${hibernate.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-annotations</artifactId>
-        <version>${hibernate-annotations.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>hsqldb</groupId>
-        <artifactId>hsqldb</artifactId>
-        <version>${hsqldb.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>htmlparser</groupId>
-        <artifactId>htmlparser</artifactId>
-        <version>${htmlparser.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>tomcat</groupId>
-        <artifactId>jasper-compiler</artifactId>
-        <version>${jasper-compiler.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>tomcat</groupId>
-        <artifactId>jasper-runtime</artifactId>
-        <version>${jasper-runtime.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>jaxen</groupId>
-        <artifactId>jaxen</artifactId>
-        <version>${jaxen.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.portals.jetspeed-2</groupId>
-        <artifactId>jetspeed-api</artifactId>
-        <version>${jetspeed-api.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.portals.jetspeed-2</groupId>
-        <artifactId>jetspeed-security</artifactId>
-        <version>${jetspeed-security.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${log4j.version}</version>
-      </dependency>
       <!-- ingrid webapp needed with different types (war, jar, resources) -->
       <dependency>
         <groupId>de.ingrid</groupId>
@@ -321,28 +118,13 @@
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-interface-opensearch</artifactId>
-        <version>${ingrid-interface-opensearch.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug</artifactId>
         <version>${ingrid-iplug.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-csw</artifactId>
-        <version>${ingrid-iplug-csw.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-csw-dsc</artifactId>
         <version>${ingrid-iplug-csw-dsc.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-dsc</artifactId>
-        <version>${ingrid-iplug-dsc.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
@@ -358,16 +140,6 @@
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-excel</artifactId>
         <version>${ingrid-iplug-excel.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-fpn</artifactId>
-        <version>${ingrid-iplug-fpn.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-g2k</artifactId>
-        <version>${ingrid-iplug-g2k.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
@@ -391,18 +163,8 @@
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-tamino</artifactId>
-        <version>${ingrid-iplug-tamino.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-xml</artifactId>
         <version>${ingrid-iplug-xml.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-jetspeed-portal</artifactId>
-        <version>${ingrid-jetspeed-portal.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid.mdek</groupId>
@@ -482,137 +244,10 @@
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-admin-step1</artifactId>
-        <version>${ingrid-iplug-admin-step1.version}</version>
-        <type>war</type>
-        <scope>runtime</scope>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-admin-step1-management</artifactId>
-        <version>${ingrid-iplug-admin-step1-management.version}</version>
-        <type>war</type>
-        <scope>runtime</scope>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-admin-step2-dsc</artifactId>
-        <version>${ingrid-iplug-admin-step2-dsc.version}</version>
-        <type>war</type>
-        <scope>runtime</scope>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-admin-step2-tamino</artifactId>
-        <version>${ingrid-iplug-admin-step2-tamino.version}</version>
-        <type>war</type>
-        <scope>runtime</scope>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-admin-step1-se</artifactId>
-        <version>${ingrid-iplug-admin-step1-se.version}</version>
-        <type>war</type>
-        <scope>runtime</scope>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
         <artifactId>ingrid-iplug-admin-step1-sns</artifactId>
         <version>${ingrid-iplug-admin-step1-sns.version}</version>
         <type>war</type>
         <scope>runtime</scope>
-      </dependency>
-      <dependency>
-        <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-admin-step1-webservice</artifactId>
-        <version>${ingrid-iplug-admin-step1-webservice.version}</version>
-        <type>war</type>
-        <scope>runtime</scope>
-      </dependency>
-      <dependency>
-        <groupId>lucene</groupId>
-        <artifactId>lucene</artifactId>
-        <version>${lucene.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>${mysql-connector-java.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>opensymphony</groupId>
-        <artifactId>quartz</artifactId>
-        <version>${quartz.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>TaminoAPI4J</groupId>
-        <artifactId>TaminoAPI4J</artifactId>
-        <version>${taminoapi4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>jetty</groupId>
-        <artifactId>servlet-api</artifactId>
-        <version>${jetty.servlet-api.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>jetty</groupId>
-        <artifactId>org.mortbay.jetty</artifactId>
-        <version>${org.mortbay.jetty.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>jetty</artifactId>
-        <version>${org.mortbay.jetty.jetty.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>jsp-2.1</artifactId>
-        <version>${org.mortbay.jetty.jetty.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>ojdbc</groupId>
-        <artifactId>ojdbc</artifactId>
-        <version>${ojdbc.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>portlet-api</groupId>
-        <artifactId>portlet-api</artifactId>
-        <version>${portlet-api.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>axis</groupId>
-        <artifactId>axis</artifactId>
-        <version>${axis.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.axis2</groupId>
-        <artifactId>axis2-kernel</artifactId>
-        <version>${axis2.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>xerces</groupId>
-        <artifactId>xercesImpl</artifactId>
-        <version>${xerces.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>xml-apis</groupId>
-        <artifactId>xml-apis</artifactId>
-        <version>${xml-apis.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>xmlunit</groupId>
-        <artifactId>xmlunit</artifactId>
-        <version>${xmlunit.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>uba</groupId>
-        <artifactId>xtmStubs</artifactId>
-        <version>${xtmStubs.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-discovery</groupId>
-        <artifactId>commons-discovery</artifactId>
-        <version>${commons-discovery.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
@@ -635,62 +270,14 @@
         <version>${ingrid-external-service-sns.version}</version>
       </dependency>
       <dependency>
-        <groupId>commons-logging</groupId>
-        <artifactId>commons-logging</artifactId>
-        <version>${commons-logging.version}</version>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-external-service-wfs</artifactId>
+        <version>${ingrid-external-service-wfs.version}</version>
       </dependency>
       <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>servlet-api</artifactId>
-        <version>${servlet-api.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-beans</artifactId>
-        <version>${spring-beans.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
-        <version>${spring-context.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-core</artifactId>
-        <version>${spring-core.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-hibernate3</artifactId>
-        <version>${spring-hibernate3.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-mock</artifactId>
-        <version>${spring-mock.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.thoughtworks.xstream</groupId>
-        <artifactId>xstream</artifactId>
-        <version>${xstream.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.jmock</groupId>
-        <artifactId>jmock</artifactId>
-        <version>${jmock.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>xalan</groupId>
-        <artifactId>xalan</artifactId>
-        <version>${xalan.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-        <scope>test</scope>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-jetspeed-portal</artifactId>
+        <version>${ingrid-jetspeed-portal.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -720,7 +307,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
-        <version>1.0-beta-4</version>
+        <version>1.3</version>
         <executions>
           <execution>
             <phase>validate</phase>
@@ -744,6 +331,8 @@
               <Implementation-Version>${project.version}</Implementation-Version>
               <Implementation-Build>${buildNumber}</Implementation-Build>
               <Build-Timestamp>${timestamp}</Build-Timestamp>
+              <Hudson-Build-Number>${BUILD_NUMBER}</Hudson-Build-Number>
+              <Hudson-Project>${JOB_NAME}</Hudson-Project>
             </manifestEntries>
           </archive>
         </configuration>
@@ -759,9 +348,46 @@
               <Implementation-Version>${project.version}</Implementation-Version>
               <Implementation-Build>${buildNumber}</Implementation-Build>
               <Build-Timestamp>${timestamp}</Build-Timestamp>
+              <Hudson-Build-Number>${BUILD_NUMBER}</Hudson-Build-Number>
+              <Hudson-Project>${JOB_NAME}</Hudson-Project>
             </manifestEntries>
           </archive>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>1.8</version>
+        <configuration>
+          <inceptionYear>2014</inceptionYear>
+          <organizationName>wemove digital solutions GmbH</organizationName>
+          <projectName>${project.name}</projectName>
+          <licenseName>eupl_v1_1</licenseName>
+          <!-- strange result when using encoding - modified file might be written in different format! -->
+          <!-- <encoding>UTF-8</encoding> -->
+          <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+          <!-- there's a bug where description always seems to be different -->
+          <!-- <canUpdateDescription>true</canUpdateDescription> -->
+          <canUpdateCopyright>true</canUpdateCopyright>
+          <sectionDelimiter>==================================================</sectionDelimiter>
+          <processStartTag>**************************************************-</processStartTag>
+          <processEndTag>**************************************************#</processEndTag>
+          <excludes>
+              <exclude>**/*.properties</exclude>
+              <exclude>**/*.json</exclude>
+              <exclude>**/*.sql</exclude>
+              <exclude>**/*.xml</exclude>
+          </excludes>
+        </configuration>
+        <executions>
+          <execution>
+            <id>check-header</id>
+            <goals>
+              <goal>check-file-header</goal>
+            </goals>
+            <phase>process-sources</phase>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
@@ -769,7 +395,7 @@
     <repository>
       <id>de.ingrid.m2</id>
       <name>Maven2 Repo InGrid</name>
-      <url>http://harrison.its-technidata.de/ingrid/maven2</url>
+      <url>https://dev.informationgrid.eu/archiva/repository/ingrid-all</url>
     </repository>
   </repositories>
   <distributionManagement>
