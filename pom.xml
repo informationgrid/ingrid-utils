@@ -3,7 +3,7 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.5.0</version>
+  <version>3.6.0-SNAPSHOT</version>
   <name>ingrid-base-pom</name>
   <description>
     This base pom can be used as parent pom for defining the INGRID dependencies, repositories, plugins ...
@@ -17,7 +17,7 @@
   <scm>
     <connection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</connection>
     <developerConnection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</developerConnection>
-    <tag>ingrid-base-pom-3.5.0</tag>
+    <tag>HEAD</tag>
   </scm>
   <properties>
     <!-- versions of ingrid libraries -->

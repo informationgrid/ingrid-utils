@@ -5,7 +5,7 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-import-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.5.0</version>
+  <version>3.6.0-SNAPSHOT</version>
   <name>ingrid-import-pom</name>
   <description>
     This import pom defines the dependency management of NON ingrid libraries.
@@ -21,7 +21,7 @@
   <scm>
     <connection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/branches/ingrid-base-pom-3.5_REDMINE-304_JetspeedMigration/ingrid-import-pom</connection>
     <developerConnection>scm:svn:https://harrison.its-technidata.de:444/svn/ingrid/ingrid-base-pom/branches/ingrid-base-pom-3.5_REDMINE-304_JetspeedMigration/ingrid-import-pom</developerConnection>
-    <tag>ingrid-base-pom-3.5.0</tag>
+    <tag>HEAD</tag>
   </scm>
   <properties>
     <!-- versions of external libraries -->
