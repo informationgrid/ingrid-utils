@@ -38,7 +38,7 @@
     <ingrid-iplug-admin-step1-sns.version>3.5.0</ingrid-iplug-admin-step1-sns.version>
     <ingrid-iplug-csw-dsc.version>3.5.0</ingrid-iplug-csw-dsc.version>
     <ingrid-iplug-dsc-mapclient.version>3.5.0</ingrid-iplug-dsc-mapclient.version>
-    <ingrid-iplug-dsc-scripted.version>3.5.0</ingrid-iplug-dsc-scripted.version>
+    <ingrid-iplug-dsc.version>3.5.0</ingrid-iplug-dsc.version>
     <ingrid-iplug-excel.version>3.5.0</ingrid-iplug-excel.version>
     <ingrid-iplug-management.version>3.5.0</ingrid-iplug-management.version>
     <ingrid-iplug-opensearch.version>3.5.0</ingrid-iplug-opensearch.version>
@@ -134,8 +134,8 @@
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
-        <artifactId>ingrid-iplug-dsc-scripted</artifactId>
-        <version>${ingrid-iplug-dsc-scripted.version}</version>
+        <artifactId>ingrid-iplug-dsc</artifactId>
+        <version>${ingrid-iplug-dsc.version}</version>
       </dependency>
       <dependency>
         <groupId>de.ingrid</groupId>
@@ -399,7 +399,8 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-          <configuration>
+        <version>2.10.1</version>
+        <configuration>
           <additionalparam>-Xdoclint:none</additionalparam>
         </configuration>
       </plugin>
