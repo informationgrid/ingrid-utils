@@ -313,7 +313,7 @@
           <execution>
             <phase>validate</phase>
             <goals>
-              <goal>create-timestamp</goal>
+              <goal>create</goal>
             </goals>
           </execution>
         </executions>
@@ -323,20 +323,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>ru.concerteza.buildnumber</groupId>
-        <artifactId>maven-jgit-buildnumber-plugin</artifactId>
-        <version>1.2.9</version>
-        <executions>
-          <execution>
-            <id>git-buildnumber</id>
-            <goals>
-              <goal>extract-buildnumber</goal>
-            </goals>
-            <phase>prepare-package</phase>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <version>2.5</version>
@@ -344,8 +330,7 @@
           <archive>
             <manifestEntries>
               <Implementation-Version>${project.version}</Implementation-Version>
-              <Implementation-Build>${git.revision}</Implementation-Build>
-              <Implementation-Branch>${git.branch}</Implementation-Branch>
+              <Implementation-Build>${buildNumber}</Implementation-Build>
               <Build-Timestamp>${timestamp}</Build-Timestamp>
               <Hudson-Build-Number>${BUILD_NUMBER}</Hudson-Build-Number>
               <Hudson-Project>${JOB_NAME}</Hudson-Project>
@@ -362,8 +347,7 @@
           <archive>
             <manifestEntries>
               <Implementation-Version>${project.version}</Implementation-Version>
-              <Implementation-Build>${git.revision}</Implementation-Build>
-              <Implementation-Branch>${git.branch}</Implementation-Branch>
+              <Implementation-Build>${buildNumber}</Implementation-Build>
               <Build-Timestamp>${timestamp}</Build-Timestamp>
               <Hudson-Build-Number>${BUILD_NUMBER}</Hudson-Build-Number>
               <Hudson-Project>${JOB_NAME}</Hudson-Project>
