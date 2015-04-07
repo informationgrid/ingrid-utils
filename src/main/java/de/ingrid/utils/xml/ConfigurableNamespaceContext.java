@@ -82,7 +82,7 @@ public class ConfigurableNamespaceContext implements NamespaceContext {
      * @see javax.xml.namespace.NamespaceContext#getPrefixes(java.lang.String)
      */
     @Override
-    public Iterator getPrefixes(String arg0) {
+    public Iterator<Object> getPrefixes(String arg0) {
         throw new UnsupportedOperationException();
     }
 

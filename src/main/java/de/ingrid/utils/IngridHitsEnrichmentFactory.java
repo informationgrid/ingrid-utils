@@ -27,9 +27,9 @@ import java.util.List;
 
 public class IngridHitsEnrichmentFactory {
 
-	private List _enrichmentCollection = new ArrayList();
+	private List<IIngridHitEnrichment> _enrichmentCollection = new ArrayList<IIngridHitEnrichment>();
 
-	public List getIngridHitsEnrichmentCollection() {
+	public List<IIngridHitEnrichment> getIngridHitsEnrichmentCollection() {
 		return _enrichmentCollection;
 	}
 	

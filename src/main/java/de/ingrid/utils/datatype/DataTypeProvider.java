@@ -47,7 +47,7 @@ public class DataTypeProvider implements IDataTypeProvider {
     }
 
     public DataType[] getDataTypes() {
-        List datatypes = new ArrayList();
+        List<Object> datatypes = new ArrayList<Object>();
         readInDatatypes(datatypes);
 
         return (DataType[]) datatypes.toArray(new DataType[datatypes.size()]);
@@ -67,8 +67,8 @@ public class DataTypeProvider implements IDataTypeProvider {
     }
 
     private DataType[] getIncludedDataTypes(DataType[] dataTypes, DataType dataType) {
-        List includedDataTypeNames = dataType.get("include");
-        List includedDataTypes = new ArrayList(includedDataTypeNames.size());
+        List<Object> includedDataTypeNames = dataType.get("include");
+        List<DataType> includedDataTypes = new ArrayList<DataType>(includedDataTypeNames.size());
         if (!includedDataTypeNames.isEmpty()) {
             for (int i = 0; i < includedDataTypeNames.size(); i++) {
                 includedDataTypes.add(getMatchingDataType(dataTypes, (String) includedDataTypeNames.get(i)));
@@ -86,7 +86,7 @@ public class DataTypeProvider implements IDataTypeProvider {
         throw new IllegalStateException("could not found datatype with name '" + dataTypeName + "'");
     }
 
-    private void readInDatatypes(List datatypes) {
+    private void readInDatatypes(List<Object> datatypes) {
         FileReader fileReader = null;
         try {
             fileReader = new FileReader(_datatypeFile);

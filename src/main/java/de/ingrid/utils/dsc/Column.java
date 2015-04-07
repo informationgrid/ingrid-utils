@@ -30,6 +30,7 @@ package de.ingrid.utils.dsc;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * bean for database column information.
@@ -66,7 +67,7 @@ public class Column extends UniqueObject implements Serializable {
 
 	private String fType;
 
-	private ArrayList fFilters = new ArrayList();
+	private List<Filter> fFilters = new ArrayList<Filter>();
 
 	private boolean fToIndex;
 
@@ -230,7 +231,7 @@ public class Column extends UniqueObject implements Serializable {
 	 */
 	public void addFilter(Filter filter) {
 		if (fFilters == null) {
-			fFilters = new ArrayList();
+			fFilters = new ArrayList<Filter>();
 		}
 		fFilters.add(filter);
 	}

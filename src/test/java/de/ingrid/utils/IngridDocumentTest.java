@@ -69,7 +69,7 @@ public class IngridDocumentTest extends TestCase {
         IngridDocument document = new IngridDocument("aId", "content");
         document.addToList(key,"1");
         document.addToList(key,"2");
-        List list=document.getArrayList(key);
+        List<Object> list=document.getArrayList(key);
         assertTrue(list.contains("1"));
         assertTrue(list.contains("2"));
         

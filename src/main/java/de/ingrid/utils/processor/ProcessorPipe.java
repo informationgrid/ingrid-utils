@@ -29,6 +29,7 @@ package de.ingrid.utils.processor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -51,9 +52,9 @@ public class ProcessorPipe implements Serializable {
 
     private static Log log = LogFactory.getLog(ProcessorPipe.class);
 
-    private ArrayList fPreProcessors = new ArrayList();
+    private List<IPreProcessor> fPreProcessors = new ArrayList<IPreProcessor>();
 
-    private ArrayList fPostProcessors = new ArrayList();
+    private List<IPostProcessor> fPostProcessors = new ArrayList<IPostProcessor>();
 
     /**
      */

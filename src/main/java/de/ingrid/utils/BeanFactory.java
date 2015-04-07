@@ -33,7 +33,7 @@ public class BeanFactory {
 
     private static final Log LOG = LogFactory.getLog(BeanFactory.class);
     
-    private  Map _beans = new HashMap();
+    private  Map<String, Object> _beans = new HashMap<String, Object>();
 
     public void addBean(String name, Object object) throws IOException {
         if (_beans.containsKey(name)) {

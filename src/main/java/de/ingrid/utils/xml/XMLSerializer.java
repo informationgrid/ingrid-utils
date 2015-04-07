@@ -63,7 +63,7 @@ public class XMLSerializer {
      * @param name
      * @param clazz
      */
-    public void aliasClass(String name, Class clazz) {
+    public void aliasClass(String name, Class<?> clazz) {
         this.fXStream.alias(name, clazz);
     }
 

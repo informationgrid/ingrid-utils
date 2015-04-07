@@ -43,15 +43,21 @@ import java.util.Set;
  * @author chef
  * @version $Revision: 1.3 $
  */
-public class IngridDocument extends HashMap implements Externalizable {
+public class IngridDocument extends HashMap<Object, Object> implements Externalizable {
 
    
     private static final long serialVersionUID = 2L;
 
     /**
-     * Comment for <code>DOCUMENT_ID</code>
+     * Deprecated: The ID of the document as an integer. Use DOCUMENT_UID instead.
      */
+    @Deprecated
 	public static final Integer DOCUMENT_ID = new Integer(0);
+    
+    /**
+     * This is the unique ID of a document, which can be any string value.
+     */
+    public static final String DOCUMENT_UID = "_id";
 
     /**
      * Comment for <code>DOCUMENT_CONTENT</code>
@@ -65,7 +71,9 @@ public class IngridDocument extends HashMap implements Externalizable {
      * @param content
      */
     public IngridDocument(Serializable id, Serializable content) {
+        // TODO: will be removed in a later version
         put(DOCUMENT_ID, id);
+        put(DOCUMENT_UID, id);
         put(DOCUMENT_CONTENT, content);
     }
 
@@ -82,7 +90,7 @@ public class IngridDocument extends HashMap implements Externalizable {
     public void writeExternal(ObjectOutput out) throws IOException {
         int numberOfKeys = keySet().size();
         out.writeInt(numberOfKeys);
-        Iterator iterator = keySet().iterator();
+        Iterator<Object> iterator = keySet().iterator();
         while (iterator.hasNext()) {
             Serializable key = (Serializable) iterator.next();
             out.writeObject(key);
@@ -127,6 +135,7 @@ public class IngridDocument extends HashMap implements Externalizable {
     /**
      * @return the id of this document
      */
+    //@Deprecated
     public Serializable getId() {
         return (Serializable) get(DOCUMENT_ID);
     }
@@ -195,14 +204,15 @@ public class IngridDocument extends HashMap implements Externalizable {
      * @return casts the value of a key to an arraylist
      * @throws ClassCastException
      */
-    public ArrayList getArrayList(Object key) {
+    @SuppressWarnings("unchecked")
+    public List<Object> getArrayList(Object key) {
         try {
-            return (ArrayList) get(key);
+            return (List<Object>) get(key);
         } catch (ClassCastException e) {
             throw new IllegalArgumentException(
-          "value to key is not an arraylist: "
-          + key.getClass().getName() + "(" + key.toString() + ") :"
-          + get(key).getClass().getName() + "(" + get(key).toString() + ")");
+              "value to key is not an arraylist: "
+              + key.getClass().getName() + "(" + key.toString() + ") :"
+              + get(key).getClass().getName() + "(" + get(key).toString() + ")");
         }
     }
     
@@ -213,7 +223,7 @@ public class IngridDocument extends HashMap implements Externalizable {
      */
     public boolean removeFromList(Object key, Object value) {
         boolean contained=false;
-        List list=getArrayList(key);
+        List<?> list=getArrayList(key);
         if(list!=null) {
             contained= list.remove(value);
             if(list.isEmpty()){
@@ -231,9 +241,9 @@ public class IngridDocument extends HashMap implements Externalizable {
      * @param value
      */
     public void addToList(Object key, Object value) {
-        ArrayList arrayList = getArrayList(key);
+        List<Object> arrayList = getArrayList(key);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
             put(key, arrayList);
         }
         arrayList.add(value);
@@ -330,11 +340,10 @@ public class IngridDocument extends HashMap implements Externalizable {
         // just nothing .. :-)
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        Set keys = keySet();
+        Set<Object> keys = keySet();
         builder.append("{");
         for (Object key : keys) {
             Object value = get(key);

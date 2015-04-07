@@ -66,7 +66,7 @@ public class IngridHitTest extends TestCase {
 		ingridHit1.setScore(1.0f);
 		IngridHit ingridHit2 = new IngridHit();
 		ingridHit2.setScore(2.0f);
-		Set set = new LinkedHashSet();
+		Set<IngridHit> set = new LinkedHashSet<IngridHit>();
 		set.add(ingridHit1);
 		set.add(ingridHit2);
 		assertEquals(2, set.size());

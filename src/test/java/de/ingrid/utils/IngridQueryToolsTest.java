@@ -26,6 +26,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import de.ingrid.utils.IngridQueryTools;
+import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.RangeQuery;
@@ -81,7 +82,7 @@ public class IngridQueryToolsTest extends TestCase {
     public void testRemoveClauses() throws Exception {
         IngridQuery query = QueryStringParser.parse("c AND a OR (b NOT (weg)) or (a NOT (weg NOT (wegweg)))");
         // System.out.println(query.toString());
-        IngridQuery query2 = tools.removeClauses(query, true, true);
+        tools.removeClauses(query, true, true);
         // System.out.println(query2.toString());
     }
 
@@ -89,17 +90,17 @@ public class IngridQueryToolsTest extends TestCase {
     public void testGetTerms() throws Exception {
         IngridQuery query = QueryStringParser.parse("(a AND b) OR (c OR d OR f AND (a:1) OR c AND (a AND a:2))");
 
-        Vector v = tools.getTermsAsVector(query, false, false);
-        Iterator i = v.iterator();
-        assertEquals("c", ((TermQuery) i.next()).getTerm());
-        assertEquals("d", ((TermQuery) i.next()).getTerm());
-        assertEquals("f", ((TermQuery) i.next()).getTerm());
+        Vector<TermQuery> v = tools.getTermsAsVector(query, false, false);
+        Iterator<TermQuery> i = v.iterator();
+        assertEquals("c", i.next().getTerm());
+        assertEquals("d", i.next().getTerm());
+        assertEquals("f", i.next().getTerm());
 
         v = tools.getTermsAsVector(query, false, true);
         i = v.iterator();
-        assertEquals("a", ((TermQuery) i.next()).getTerm());
-        assertEquals("b", ((TermQuery) i.next()).getTerm());
-        assertEquals("a", ((TermQuery) i.next()).getTerm());
+        assertEquals("a", i.next().getTerm());
+        assertEquals("b", i.next().getTerm());
+        assertEquals("a", i.next().getTerm());
     }
 
     /**
@@ -108,19 +109,19 @@ public class IngridQueryToolsTest extends TestCase {
     public void testGetFields() throws Exception {
         IngridQuery query = QueryStringParser.parse("(t:f OR t:4) OR (b:a OR b:a OR (b:c) OR ((a:i) AND (wasser))))");
 
-        Vector v = this.tools.getFieldsAsVector(query, false, true);
-        Iterator i = v.iterator();
+        Vector<FieldQuery> v = this.tools.getFieldsAsVector(query, false, true);
+        Iterator<FieldQuery> i = v.iterator();
         assertEquals("a", ((FieldQuery) i.next()).getFieldName());
         assertFalse(i.hasNext());
 
         query = QueryStringParser.parse("(t:f OR t:4) OR (b:a OR b:a OR (b:c) NOT ((a:i) AND (wasser))))");
         v = this.tools.getFieldsAsVector(query, false, false);
         i = v.iterator();
-        assertEquals("t", ((FieldQuery) i.next()).getFieldName());
-        assertEquals("t", ((FieldQuery) i.next()).getFieldName());
-        assertEquals("b", ((FieldQuery) i.next()).getFieldName());
-        assertEquals("b", ((FieldQuery) i.next()).getFieldName());
-        assertEquals("b", ((FieldQuery) i.next()).getFieldName());
+        assertEquals("t", i.next().getFieldName());
+        assertEquals("t", i.next().getFieldName());
+        assertEquals("b", i.next().getFieldName());
+        assertEquals("b", i.next().getFieldName());
+        assertEquals("b", i.next().getFieldName());
         assertFalse(i.hasNext());
     }
 
@@ -131,8 +132,8 @@ public class IngridQueryToolsTest extends TestCase {
         IngridQuery query = QueryStringParser
                 .parse("(t:f* OR t:4*) OR (b:a* OR b:a* OR (b:c*) OR ((a:i*) AND (wasser*))))");
 
-        Vector v = this.tools.getWildCardsAsVector(query);
-        Iterator i = v.iterator();
+        Vector<IngridQuery> v = this.tools.getWildCardsAsVector(query);
+        Iterator<IngridQuery> i = v.iterator();
         assertEquals(6, v.size());
         assertEquals("t", ((WildCardFieldQuery) i.next()).getFieldName());
         assertEquals("t", ((WildCardFieldQuery) i.next()).getFieldName());
@@ -149,19 +150,19 @@ public class IngridQueryToolsTest extends TestCase {
         IngridQuery query = QueryStringParser
                 .parse("(t:[20 TO 30] OR t:[40 TO 50]) OR (b:[2000 TO 2006] OR b:[1939 TO 1945] AND (wasser))))");
 
-        Vector v = tools.getRangesAsVector(query);
-        Iterator i = v.iterator();
-        assertEquals("t", ((RangeQuery) i.next()).getRangeName());
-        assertEquals("t", ((RangeQuery) i.next()).getRangeName());
-        assertEquals("b", ((RangeQuery) i.next()).getRangeName());
-        assertEquals("b", ((RangeQuery) i.next()).getRangeName());
+        Vector<RangeQuery> v = tools.getRangesAsVector(query);
+        Iterator<RangeQuery> i = v.iterator();
+        assertEquals("t", i.next().getRangeName());
+        assertEquals("t", i.next().getRangeName());
+        assertEquals("b", i.next().getRangeName());
+        assertEquals("b", i.next().getRangeName());
 
     }
 
     /***/
     public void testGetClauses() throws Exception {
         IngridQuery query = QueryStringParser.parse("A AND (A AND B) AND ((B AND C AND (C AND D)))");
-        Vector v = tools.getClausesAsVector(query, false, true);
+        Vector<ClauseQuery> v = tools.getClausesAsVector(query, false, true);
         assertEquals(3, v.size()); // (( ... )) is now handled as ( ...)
         v = tools.getClausesAsVector(query);
         assertEquals(3, v.size());
@@ -191,7 +192,7 @@ public class IngridQueryToolsTest extends TestCase {
     public void testGetByName() throws Exception {
         IngridQuery query = QueryStringParser
                 .parse("(a AND b OR (t1:gesucht AND (e OR t2:gesucht)) AND c) OR (b) AND (a OR b OR t2:gesucht)");
-        Vector v = tools.getFieldByKey(query, "t1");
+        Vector<FieldQuery> v = tools.getFieldByKey(query, "t1");
         assertEquals(1, v.size());
         v = tools.getFieldByKey(query, "t2");
         assertEquals(2, v.size());

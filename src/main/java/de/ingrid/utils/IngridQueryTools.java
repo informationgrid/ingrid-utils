@@ -181,10 +181,10 @@ public class IngridQueryTools {
      * @param key The key to search for
      * @return <code>Vector</code> with specified <code>FieldQuery</code>(s)
      */
-    public Vector getFieldByKey(final IngridQuery query, final String key) {
-        Vector v = new Vector();
+    public Vector<FieldQuery> getFieldByKey(final IngridQuery query, final String key) {
+        Vector<FieldQuery> v = new Vector<FieldQuery>();
         for (int i = 0; i < query.getClauses().length; i++) {
-            Vector res = getFieldByKey(query.getClauses()[i], key);
+            Vector<FieldQuery> res = getFieldByKey(query.getClauses()[i], key);
             if (res != null) {
                 v.addAll(res);
             }
@@ -207,10 +207,10 @@ public class IngridQueryTools {
      * @param key[] The keys to search for
      * @return <code>Vector</code> with specified <code>FieldQuery</code>(s)
      */
-    public Vector getFieldsByKeys(final IngridQuery query, final String[] key) {
-    	Vector v = new Vector();
+    public Vector<FieldQuery> getFieldsByKeys(final IngridQuery query, final String[] key) {
+    	Vector<FieldQuery> v = new Vector<FieldQuery>();
         for (int i = 0; i < query.getClauses().length; i++) {
-            Vector res = getFieldsByKeys(query.getClauses()[i], key);
+            Vector<FieldQuery> res = getFieldsByKeys(query.getClauses()[i], key);
             if (res != null) {
                 v.addAll(res);
             }
@@ -241,7 +241,7 @@ public class IngridQueryTools {
      * @return <code>String[]</code> with field values
      */
     public String[] getFieldValueByKey(final IngridQuery query, final String key, final String ph) {
-        Vector v = getFieldByKey(query, key);
+        Vector<FieldQuery> v = getFieldByKey(query, key);
         if (v.size() == 0) {
         	String[] s = new String[1];
         	s[0] = ph;
@@ -265,7 +265,7 @@ public class IngridQueryTools {
      * @return <code>String[]</code> with field values
      */
     public String[] getFieldValueByKey(final IngridQuery query, final String key) {
-        Vector v = getFieldByKey(query, key);
+        Vector<FieldQuery> v = getFieldByKey(query, key);
         String[] s = new String[v.size()];
         for (int i = 0; i < v.size(); i++) {
             s[i] = ((FieldQuery) v.get(i)).getFieldValue();
@@ -285,7 +285,7 @@ public class IngridQueryTools {
      * @return <code>String[]</code> with field values
      */
     public String[] getFieldValuesByKeys(final IngridQuery query, final String[] key) {
-        Vector v = getFieldsByKeys(query, key);
+        Vector<FieldQuery> v = getFieldsByKeys(query, key);
         String[] s = new String[v.size()];
         for (int i = 0; i < v.size(); i++) {
             s[i] = ((FieldQuery) v.get(i)).getFieldValue();
@@ -301,11 +301,11 @@ public class IngridQueryTools {
      * @param query The Query to extract the fields of
      * @return All found fields as <code>Hashtable</code>
      */
-    public Hashtable getFieldsAsHashtable(final IngridQuery query) {
-    	Hashtable ht = new Hashtable();
-    	Vector fields = getFieldsAsVector(query);
+    public Hashtable<String, String> getFieldsAsHashtable(final IngridQuery query) {
+    	Hashtable<String, String> ht = new Hashtable<String, String>();
+    	Vector<FieldQuery> fields = getFieldsAsVector(query);
     	FieldQuery fq = null;
-    	for (Enumeration e = fields.elements(); e.hasMoreElements(); ) {
+    	for (Enumeration<FieldQuery> e = fields.elements(); e.hasMoreElements(); ) {
     		fq = (FieldQuery)e.nextElement();
     		ht.put(fq.getFieldName(), fq.getFieldValue());
     	}
@@ -321,8 +321,8 @@ public class IngridQueryTools {
      * @param required Condition two
      * @return <code>Vector</code> with extracted <code>TermQuery</code>
      */
-    public Vector getTermsAsVector(final IngridQuery query, final boolean prohibited, final boolean required) {
-        Vector extracted = new Vector();
+    public Vector<TermQuery> getTermsAsVector(final IngridQuery query, final boolean prohibited, final boolean required) {
+        Vector<TermQuery> extracted = new Vector<TermQuery>();
         
         // look for recurivly found terms to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
@@ -350,7 +350,7 @@ public class IngridQueryTools {
      * @return <code>String[]</code> with extracted <code>TermQuery</code>
      */
     public String[] getTerms(final IngridQuery query, final boolean prohibited, final boolean required) {
-        Vector v = getTermsAsVector(query, prohibited, required);
+        Vector<TermQuery> v = getTermsAsVector(query, prohibited, required);
         String[] s = new String[v.size()];
         for (int i = 0; i < v.size(); i++) {
             s[i] = ((TermQuery) v.get(i)).getTerm();
@@ -365,8 +365,8 @@ public class IngridQueryTools {
      * @param query The query to get the terms from
      * @return <code>Vector</code> with extracted <code>TermQuery</code>
      */
-    public Vector getTermsAsVector(final IngridQuery query) {
-        Vector extracted = new Vector();
+    public Vector<TermQuery> getTermsAsVector(final IngridQuery query) {
+        Vector<TermQuery> extracted = new Vector<TermQuery>();
         
         // look for recurivly found terms to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
@@ -389,10 +389,10 @@ public class IngridQueryTools {
      * @return <code>String[]</code> with extracted <code>TermQuery</code>
      */
     public String[] getTerms(final IngridQuery query) {
-        Vector v = getTermsAsVector(query);
+        Vector<TermQuery> v = getTermsAsVector(query);
         String[] s = new String[v.size()];
         for (int i = 0; i < v.size(); i++) {
-            s[i] = ((TermQuery) v.get(i)).getTerm();
+            s[i] = v.get(i).getTerm();
         }
         return s;
     }
@@ -406,8 +406,8 @@ public class IngridQueryTools {
      * @param required Condition two
      * @return <code>Vector</code> with extracted <code>FiledQuery</code>
      */
-    public Vector getFieldsAsVector(final IngridQuery query, final boolean prohibited, final boolean required) {
-        Vector extracted = new Vector();
+    public Vector<FieldQuery> getFieldsAsVector(final IngridQuery query, final boolean prohibited, final boolean required) {
+        Vector<FieldQuery> extracted = new Vector<FieldQuery>();
         
         // look for recurivly found fields to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
@@ -431,8 +431,8 @@ public class IngridQueryTools {
      * @param query The query to get the fields from
      * @return <code>Vector</code> with extracted <code>FiledQuery</code>
      */
-    public Vector getFieldsAsVector(final IngridQuery query) {
-        Vector extracted = new Vector();
+    public Vector<FieldQuery> getFieldsAsVector(final IngridQuery query) {
+        Vector<FieldQuery> extracted = new Vector<FieldQuery>();
         
         // look for recurivly found fields to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
@@ -455,9 +455,9 @@ public class IngridQueryTools {
      * @param query The query to get the wildcardqueries from
      * @return <code>Vector</code> with extracted WildCardQuery
      */
-    public Vector getWildCardsAsVector(final IngridQuery query) {
+    public Vector<IngridQuery> getWildCardsAsVector(final IngridQuery query) {
      
-    	Vector extracted = new Vector();
+    	Vector<IngridQuery> extracted = new Vector<IngridQuery>();
         
     	extracted.addAll(getWildCardTermsAsVector(query));
     	extracted.addAll(getWildCardFieldsAsVector(query));
@@ -473,8 +473,8 @@ public class IngridQueryTools {
      * @param query The query to get the wildcardfieldqueries from
      * @return <code>Vector</code> with extracted <code>WildCardFieldQuery</code>
      */
-    public Vector getWildCardFieldsAsVector(final IngridQuery query) {
-        Vector extracted = new Vector();
+    public Vector<WildCardFieldQuery> getWildCardFieldsAsVector(final IngridQuery query) {
+        Vector<WildCardFieldQuery> extracted = new Vector<WildCardFieldQuery>();
         
         // look for recurivly found terms to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
@@ -497,8 +497,8 @@ public class IngridQueryTools {
      * @param query The query to get the wildcardtermqueries from
      * @return <code>Vector</code> with extracted <code>WildCardTermQuery</code>
      */
-    public Vector getWildCardTermsAsVector(final IngridQuery query) {
-        Vector extracted = new Vector();
+    public Vector<WildCardTermQuery> getWildCardTermsAsVector(final IngridQuery query) {
+        Vector<WildCardTermQuery> extracted = new Vector<WildCardTermQuery>();
         
         // look for recurivly found terms to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
@@ -522,8 +522,8 @@ public class IngridQueryTools {
      * @param query The query to get the rangequeries from
      * @return <code>Vector</code> with extracted <code>RangeQuery</code>
      */
-    public Vector getRangesAsVector(final IngridQuery query) {
-        Vector extracted = new Vector();
+    public Vector<RangeQuery> getRangesAsVector(final IngridQuery query) {
+        Vector<RangeQuery> extracted = new Vector<RangeQuery>();
         
         // look for recurivly found terms to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
@@ -548,8 +548,8 @@ public class IngridQueryTools {
      * @param required Condition two
      * @return <code>Vector</code> with extracted <code>ClauseQuery</code>
      */
-    public Vector getClausesAsVector(final IngridQuery query, final boolean prohibited, final boolean required) {
-    	Vector extracted = new Vector();
+    public Vector<ClauseQuery> getClausesAsVector(final IngridQuery query, final boolean prohibited, final boolean required) {
+    	Vector<ClauseQuery> extracted = new Vector<ClauseQuery>();
         
         // look for recurivly found clauses to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
@@ -574,8 +574,8 @@ public class IngridQueryTools {
      * @param query The query to get the clauses from
      * @return <code>Vector</code> with extracted <code>ClauseQuery</code>
      */
-    public Vector getClausesAsVector(final IngridQuery query) {
-        Vector extracted = new Vector();
+    public Vector<ClauseQuery> getClausesAsVector(final IngridQuery query) {
+        Vector<ClauseQuery> extracted = new Vector<ClauseQuery>();
         
         // looking for recurivly found clauses to add to the result
         for (int i = 0; i < query.getClauses().length; i++) {
@@ -621,8 +621,8 @@ public class IngridQueryTools {
      * @param query The query to get the clauses from
      * @return <code>Vector</code> with extracted <code>ClauseQuery</code>
      */
-    public Vector getLevelClauses(final IngridQuery query) {
-        Vector extracted = new Vector();
+    public Vector<ClauseQuery> getLevelClauses(final IngridQuery query) {
+        Vector<ClauseQuery> extracted = new Vector<ClauseQuery>();
         
         // add fields of the current clause
         ClauseQuery[] clauses = query.getClauses();

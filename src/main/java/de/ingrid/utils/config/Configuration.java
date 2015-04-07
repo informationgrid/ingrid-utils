@@ -48,7 +48,7 @@ import de.ingrid.utils.xml.XMLSerializer;
  */
 public class Configuration {
 
-    private List properties = new ArrayList();
+    private List<Property> properties = new ArrayList<Property>();
 
     /**
      * @return number of key value tubles in this configuration
