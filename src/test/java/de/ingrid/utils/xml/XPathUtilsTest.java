@@ -44,6 +44,8 @@ import org.xml.sax.SAXException;
  *
  */
 public class XPathUtilsTest extends TestCase {
+    
+    de.ingrid.utils.xpath.XPathUtils xpathUtils = new de.ingrid.utils.xpath.XPathUtils();
 
 	/**
 	 * Test method for {@link de.ingrid.utils.xml.XPathUtils#createElementFromXPath(org.w3c.dom.Node, java.lang.String)}.
@@ -56,19 +58,19 @@ public class XPathUtilsTest extends TestCase {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1></child1></test>".getBytes("UTF-8")));
-		XPathUtils.createElementFromXPath(doc.getDocumentElement(), "/test/child1/grandchild1/grandgrandchild1");
-		assertTrue(XPathUtils.nodeExists(doc.getDocumentElement(), "/test/child1/grandchild1/grandgrandchild1"));
+		xpathUtils.createElementFromXPath(doc.getDocumentElement(), "/test/child1/grandchild1/grandgrandchild1");
+		assertTrue(xpathUtils.nodeExists(doc.getDocumentElement(), "/test/child1/grandchild1/grandgrandchild1"));
 
-		Node n = XPathUtils.createElementFromXPath(doc.getDocumentElement(), "/test/child1");
+		Node n = xpathUtils.createElementFromXPath(doc.getDocumentElement(), "/test/child1");
 		assertEquals("child1", n.getNodeName());
-		n = XPathUtils.createElementFromXPath(n, "newChild");
+		n = xpathUtils.createElementFromXPath(n, "newChild");
 		assertEquals("newChild", n.getNodeName());
-		n = XPathUtils.createElementFromXPath(n, "/test/newRootChild");
+		n = xpathUtils.createElementFromXPath(n, "/test/newRootChild");
 		assertEquals("newRootChild", n.getNodeName());
-		assertTrue(XPathUtils.nodeExists(doc.getDocumentElement(), "/test/newRootChild"));
+		assertTrue(xpathUtils.nodeExists(doc.getDocumentElement(), "/test/newRootChild"));
 		
 		try {
-			n = XPathUtils.createElementFromXPath(n, "/newRootChild");
+			n = xpathUtils.createElementFromXPath(n, "/newRootChild");
 			fail("must throw IllegalArgumentException.");
 		} catch (IllegalArgumentException e) {
 		}
@@ -78,11 +80,11 @@ public class XPathUtilsTest extends TestCase {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1></child1></test>".getBytes("UTF-8")));
-		XPathUtils.createElementFromXPath(doc.getDocumentElement(), "/test/child1/grandchild1/grandgrandchild1");
-		assertEquals(1, XPathUtils.getNodeList(doc, "/test/child1/grandchild1/grandgrandchild1").getLength());
-		XPathUtils.createElementFromXPathAsSibling(doc.getDocumentElement(), "/test/child1/grandchild1/grandgrandchild1");
-		assertEquals(1, XPathUtils.getNodeList(doc, "/test/child1/grandchild1").getLength());
-		assertEquals(2, XPathUtils.getNodeList(doc, "/test/child1/grandchild1/grandgrandchild1").getLength());
+		xpathUtils.createElementFromXPath(doc.getDocumentElement(), "/test/child1/grandchild1/grandgrandchild1");
+		assertEquals(1, xpathUtils.getNodeList(doc, "/test/child1/grandchild1/grandgrandchild1").getLength());
+		xpathUtils.createElementFromXPathAsSibling(doc.getDocumentElement(), "/test/child1/grandchild1/grandgrandchild1");
+		assertEquals(1, xpathUtils.getNodeList(doc, "/test/child1/grandchild1").getLength());
+		assertEquals(2, xpathUtils.getNodeList(doc, "/test/child1/grandchild1/grandgrandchild1").getLength());
 	}
 
 }

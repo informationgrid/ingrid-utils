@@ -104,7 +104,8 @@ public abstract class AbstractIPlugOperatorInjector implements
 			return stringBuffer.toString();
 		}
 
-		@Override
+		@SuppressWarnings("unchecked")
+        @Override
 		public void readExternal(ObjectInput in) throws IOException,
 				ClassNotFoundException {
 			_partners = (Map<String, Partner>) in.readObject();
@@ -207,7 +208,8 @@ public abstract class AbstractIPlugOperatorInjector implements
 			return buffer.toString();
 		}
 
-		@Override
+		@SuppressWarnings("unchecked")
+        @Override
 		public void readExternal(ObjectInput in) throws IOException,
 				ClassNotFoundException {
 			_shortName = (String) in.readObject();
@@ -334,10 +336,11 @@ public abstract class AbstractIPlugOperatorInjector implements
 			Set<String> providerSet) {
 		IPlugOperator operator = new IPlugOperator();
 
-		List allPartnerWithProvider = getAllPartnerWithProvider();
+		List<?> allPartnerWithProvider = getAllPartnerWithProvider();
 
 		for (Object object : allPartnerWithProvider) {
-			Map partnerMap = (Map) object;
+			@SuppressWarnings("unchecked")
+            Map<Object, Object> partnerMap = (Map<Object, Object>) object;
 			String partnerId = (String) partnerMap.get("partnerid");
 			String partnerName = (String) partnerMap.get("name");
 
@@ -352,9 +355,11 @@ public abstract class AbstractIPlugOperatorInjector implements
 				continue;
 			}
 
-			List providerList = (List) partnerMap.get("providers");
+			@SuppressWarnings("unchecked")
+            List<Object> providerList = (List<Object>) partnerMap.get("providers");
 			for (Object object2 : providerList) {
-				Map providerMap = (Map) object2;
+				@SuppressWarnings("unchecked")
+                Map<Object, Object> providerMap = (Map<Object, Object>) object2;
 				String providerId = (String) providerMap.get("providerid");
 				String providerName = (String) providerMap.get("name");
 
@@ -392,8 +397,8 @@ public abstract class AbstractIPlugOperatorInjector implements
 		return operator;
 	}
 
-	private List getAllPartnerWithProvider() {
-		List list = new ArrayList();
+	private List<Object> getAllPartnerWithProvider() {
+		List<Object> list = new ArrayList<Object>();
 		try {
 			if (_bus != null) {
 				String query = "datatype:management management_request_type:1";

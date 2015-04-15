@@ -62,7 +62,7 @@ public class XPathUtils {
 		if (myInstance == null) {
 			myInstance = new XPathUtils();
 		}
-		myInstance.nsContext = nsContext;
+		XPathUtils.nsContext = nsContext;
 
 		return myInstance;
 	}

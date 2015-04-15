@@ -46,12 +46,24 @@ public class IngridHitDetail extends IngridHit {
      * @param summary
      */
     public IngridHitDetail(IngridHit hit, String title, String summary) {
-        super(hit.getPlugId(), hit.getDocumentId(), hit.getDataSourceId(), hit.getScore());
+        super();
+        setPlugId( hit.getPlugId() );
+        setDocumentId( hit.getDocumentId() );
+        setDataSourceId(hit.getDataSourceId());
+        setScore(hit.getScore());
+        
         put(TITLE, title);
         put(SUMMARY, summary);
     }
 
+    @Deprecated
     public IngridHitDetail(String plugId, int documentId, int dataSourceId, float score, String title, String summary) {
+        super(plugId, documentId,dataSourceId, score);
+        put(TITLE, title);
+        put(SUMMARY, summary);
+    }
+    
+    public IngridHitDetail(String plugId, String documentId, int dataSourceId, float score, String title, String summary) {
         super(plugId, documentId,dataSourceId, score);
         put(TITLE, title);
         put(SUMMARY, summary);

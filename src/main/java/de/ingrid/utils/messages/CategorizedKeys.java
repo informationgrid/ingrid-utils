@@ -32,13 +32,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class CategorizedKeys {
 
-    private static HashMap fCache = new HashMap();
+    private static Map<String, CategorizedKeys> fCache = new HashMap<String, CategorizedKeys>();
 
-    private HashMap fCategories = new HashMap();
+    private Map<String, Properties> fCategories = new HashMap<String, Properties>();
 
     private CategorizedKeys(String bundle_name) throws IOException {
       InputStream resourceAsStream = CategorizedKeys.class.getResourceAsStream(bundle_name);
@@ -60,9 +61,9 @@ public class CategorizedKeys {
         Properties properties = new Properties();
         properties.load(inputStream);
 
-        Enumeration enumeration = properties.keys();
+        Enumeration<Object> enumeration = properties.keys();
         while (enumeration.hasMoreElements()) {
-            String element = (String) enumeration.nextElement();
+            String element = (String)enumeration.nextElement();
             int pointPos = element.indexOf(".");
             String categoryName = element.substring(0, pointPos);
             String keyName = element.substring(pointPos + 1, element.length());

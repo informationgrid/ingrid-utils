@@ -46,6 +46,8 @@ import junit.framework.TestCase;
  *
  */
 public class XMLUtilsTest extends TestCase {
+    
+    de.ingrid.utils.xpath.XPathUtils xpathUtils = new de.ingrid.utils.xpath.XPathUtils();
 
 	/**
 	 * Test method for {@link de.ingrid.utils.xml.XMLUtils#toString(org.w3c.dom.Document)}.
@@ -85,18 +87,18 @@ public class XMLUtilsTest extends TestCase {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1>Hallo</child1><child2>Hello</child2></test>".getBytes("UTF-8")));
-		NodeList nl = XPathUtils.getNodeList(doc, "/test/child1");
+		NodeList nl = xpathUtils.getNodeList(doc, "/test/child1");
 		assertEquals(1, nl.getLength());
 		Node n = doc.createElement("child1");
-		Node refNode = XPathUtils.getNode(doc, "/test/child1");
+		Node refNode = xpathUtils.getNode(doc, "/test/child1");
 		XMLUtils.insertAfter(n, refNode);
-		nl = XPathUtils.getNodeList(doc, "/test/child1");
+		nl = xpathUtils.getNodeList(doc, "/test/child1");
 		assertEquals(2, nl.getLength());
 		
 		n = doc.createElement("child2");
-		refNode = XPathUtils.getNode(doc, "/test/child2");
+		refNode = xpathUtils.getNode(doc, "/test/child2");
 		XMLUtils.insertAfter(n, refNode);
-		nl = XPathUtils.getNodeList(doc, "/test/child2");
+		nl = xpathUtils.getNodeList(doc, "/test/child2");
 		assertEquals(2, nl.getLength());
 		System.out.println(XMLUtils.toString(doc));
 		

@@ -239,7 +239,7 @@ public class IngridQuery extends IngridDocument {
      * @return true if query contains a field with the given name
      */
     public boolean containsField(String fieldName) {
-        ArrayList fields = getArrayList(FIELD_KEY);
+        List<Object> fields = getArrayList(FIELD_KEY);
         if (fields != null) {
             int size = fields.size();
             for (int i = 0; i < size; i++) {
@@ -257,7 +257,7 @@ public class IngridQuery extends IngridDocument {
      * @param fieldQuery
      */
     public void removeField(FieldQuery fieldQuery) {
-        ArrayList fields = getArrayList(FIELD_KEY);
+        List<Object> fields = getArrayList(FIELD_KEY);
         if (fields != null) {
             fields.remove(fieldQuery);
         }
@@ -268,7 +268,7 @@ public class IngridQuery extends IngridDocument {
      * @return null or a removed field query with the given field name (first one in fields list)
      */
     public FieldQuery removeField(String fieldName) {
-        ArrayList fields = getArrayList(FIELD_KEY);
+        List<Object> fields = getArrayList(FIELD_KEY);
         if (fields != null) {
             int size = fields.size();
             for (int i = 0; i < size; i++) {
@@ -286,7 +286,7 @@ public class IngridQuery extends IngridDocument {
      * @param dataType
      */
     public void removeDataType(String dataType) {
-        ArrayList arrayList = getArrayList(DATA_TYPE);
+        List<Object> arrayList = getArrayList(DATA_TYPE);
         if (arrayList != null) {
             int count = arrayList.size();
             for (int i = 0; i < count; i++) {
@@ -304,7 +304,7 @@ public class IngridQuery extends IngridDocument {
      * @return array of field queries
      */
     public FieldQuery[] getFields() {
-        ArrayList arrayList = getArrayList(FIELD_KEY);
+        List<Object> arrayList = getArrayList(FIELD_KEY);
         if (arrayList == null) {
             return new FieldQuery[0];
         }
@@ -353,7 +353,7 @@ public class IngridQuery extends IngridDocument {
      * @return array of term queries
      */
     public TermQuery[] getTerms() {
-        ArrayList arrayList = getArrayList(TERM_KEY);
+        List<Object> arrayList = getArrayList(TERM_KEY);
         if (arrayList == null) {
             return new TermQuery[0];
         }
@@ -404,7 +404,7 @@ public class IngridQuery extends IngridDocument {
      * @return an array of range queries
      */
     public RangeQuery[] getRangeQueries() {
-        ArrayList arrayList = getArrayList(RANGE_KEY);
+        List<Object> arrayList = getArrayList(RANGE_KEY);
         if (arrayList == null) {
             return new RangeQuery[0];
         }
@@ -415,7 +415,7 @@ public class IngridQuery extends IngridDocument {
      * @return an array of range queries
      */
     public WildCardFieldQuery[] getWildCardFieldQueries() {
-        ArrayList arrayList = getArrayList(WILDCARD_FIELD_KEY);
+        List<Object> arrayList = getArrayList(WILDCARD_FIELD_KEY);
         if (arrayList == null) {
             return new WildCardFieldQuery[0];
         }
@@ -426,7 +426,7 @@ public class IngridQuery extends IngridDocument {
      * @return an array of range queries
      */
     public WildCardTermQuery[] getWildCardTermQueries() {
-        ArrayList arrayList = getArrayList(WILDCARD_TERM_KEY);
+        List<Object> arrayList = getArrayList(WILDCARD_TERM_KEY);
         if (arrayList == null) {
             return new WildCardTermQuery[0];
         }
@@ -437,7 +437,7 @@ public class IngridQuery extends IngridDocument {
      * @return an array of range queries
      */
     public FuzzyFieldQuery[] getFuzzyFieldQueries() {
-        ArrayList arrayList = getArrayList(FUZZY_FIELD_KEY);
+        List<Object> arrayList = getArrayList(FUZZY_FIELD_KEY);
         if (arrayList == null) {
             return new FuzzyFieldQuery[0];
         }
@@ -448,7 +448,7 @@ public class IngridQuery extends IngridDocument {
      * @return an array of range queries
      */
     public FuzzyTermQuery[] getFuzzyTermQueries() {
-        ArrayList arrayList = getArrayList(FUZZY_TERM_KEY);
+        List<Object> arrayList = getArrayList(FUZZY_TERM_KEY);
         if (arrayList == null) {
             return new FuzzyTermQuery[0];
         }
@@ -469,7 +469,7 @@ public class IngridQuery extends IngridDocument {
      * @return array of clause queries
      */
     public ClauseQuery[] getClauses() {
-        ArrayList arrayList = getArrayList(CLAUSE_KEY);
+        List<Object> arrayList = getArrayList(CLAUSE_KEY);
         if (arrayList == null) {
             return new ClauseQuery[0];
         }
@@ -484,7 +484,7 @@ public class IngridQuery extends IngridDocument {
      *            Clause to be removed
      */
     public void removeClause(ClauseQuery clauseQuery) {
-        ArrayList arrayList = getArrayList(CLAUSE_KEY);
+        List<Object> arrayList = getArrayList(CLAUSE_KEY);
         if (arrayList != null) {
             arrayList.remove(clauseQuery);
         }
@@ -526,9 +526,9 @@ public class IngridQuery extends IngridDocument {
         appendToString(buffer, getFuzzyTermQueries());
 
         buffer.append(" providers: ");
-        ArrayList arrayList = getArrayList(PROVIDER);
+        List<Object> arrayList = getArrayList(PROVIDER);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
         }
         IngridQuery[] provider = (IngridQuery[]) arrayList.toArray(new IngridQuery[arrayList.size()]);
         appendToString(buffer, provider);
@@ -536,7 +536,7 @@ public class IngridQuery extends IngridDocument {
         buffer.append(" partners: ");
         arrayList = getArrayList(PARTNER);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
         }
         IngridQuery[] partner = (IngridQuery[]) arrayList.toArray(new IngridQuery[arrayList.size()]);
         appendToString(buffer, partner);
@@ -592,7 +592,7 @@ public class IngridQuery extends IngridDocument {
     public String[] getPositiveDataTypes() {
         FieldQuery[] fields = getDataTypes();
         int count = fields.length;
-        ArrayList arraylist = new ArrayList();
+        List<String> arraylist = new ArrayList<String>();
         for (int i = 0; i < count; i++) {
             if (fields[i].getFieldName().toLowerCase().equals(DATA_TYPE) && !fields[i].isProhibited()) {
                 arraylist.add(fields[i].getFieldValue());
@@ -605,9 +605,9 @@ public class IngridQuery extends IngridDocument {
      * @return all data types
      */
     public FieldQuery[] getDataTypes() {
-        ArrayList arrayList = getArrayList(DATA_TYPE);
+        List<Object> arrayList = getArrayList(DATA_TYPE);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
         }
         
         IngridQuery[] clauses = getClauses();
@@ -627,7 +627,7 @@ public class IngridQuery extends IngridDocument {
     public String[] getNegativeDataTypes() {
         FieldQuery[] fields = getDataTypes();
         int count = fields.length;
-        ArrayList arraylist = new ArrayList();
+        List<String> arraylist = new ArrayList<String>();
         for (int i = 0; i < count; i++) {
             if (fields[i].getFieldName().toLowerCase().equals(DATA_TYPE) && fields[i].isProhibited()) {
                 arraylist.add(fields[i].getFieldValue());
@@ -736,10 +736,10 @@ public class IngridQuery extends IngridDocument {
     }
 
     private String[] getFields(String name, boolean prohibited) {
-        ArrayList arrayList = getArrayList(name);
-        ArrayList list = new ArrayList();
+        List<Object> arrayList = getArrayList(name);
+        List<String> list = new ArrayList<String>();
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
         }
         for (int i = 0; i < arrayList.size(); i++) {
             FieldQuery query = (FieldQuery) arrayList.get(i);
@@ -763,11 +763,11 @@ public class IngridQuery extends IngridDocument {
      * @return all iplugs the query is restricted to
      */
     public String[] getIPlugs() {
-        ArrayList plugTerms = getArrayList(IPLUGS);
+        List<Object> plugTerms = getArrayList(IPLUGS);
         if (plugTerms == null) {
             return new String[0];
         }
-        List iplugs = new ArrayList(plugTerms.size());
+        List<String> iplugs = new ArrayList<String>(plugTerms.size());
         for (int i = 0; i < plugTerms.size(); i++) {
             FieldQuery query = (FieldQuery) plugTerms.get(i);
             iplugs.add(query.getFieldValue().toLowerCase());
@@ -779,12 +779,12 @@ public class IngridQuery extends IngridDocument {
      * @return An array which contains the query itself and all its clauses.
      */
     public IngridQuery[] getAllClauses() {
-        List clauses = new ArrayList();
+        List<IngridQuery> clauses = new ArrayList<IngridQuery>();
         fillWithClausesRecursiv(clauses, this);
         return (IngridQuery[]) clauses.toArray(new IngridQuery[clauses.size()]);
     }
 
-    private void fillWithClausesRecursiv(List clauses, IngridQuery query) {
+    private void fillWithClausesRecursiv(List<IngridQuery> clauses, IngridQuery query) {
         ClauseQuery[] queries = query.getClauses();
         for (int i = 0; i < queries.length; i++) {
             fillWithClausesRecursiv(clauses, queries[i]);
@@ -793,7 +793,7 @@ public class IngridQuery extends IngridDocument {
     }
     
     public boolean isRejected() {
-        List fields = getArrayList("field");
+        List<Object> fields = getArrayList("field");
         if (fields != null && fields.toString().contains(QUERY_DENY)) {
             return true;
         }

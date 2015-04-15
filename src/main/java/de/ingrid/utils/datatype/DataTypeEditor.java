@@ -42,9 +42,9 @@ public class DataTypeEditor extends PropertyEditorSupport {
             DataType dataType = (DataType) object;
             ret = dataType.getName() + ".";
             ret += dataType.getDisplayName();
-            Set metaDatas = dataType.getMetaDatas();
-            for (Iterator iterator = metaDatas.iterator(); iterator.hasNext();) {
-                Pair pair = (Pair) iterator.next();
+            Set<Pair> metaDatas = dataType.getMetaDatas();
+            for (Iterator<Pair> iterator = metaDatas.iterator(); iterator.hasNext();) {
+                Pair pair = iterator.next();
                 ret += "." + pair.getKey() + ":" + pair.getValue();
             }
         }

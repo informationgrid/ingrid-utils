@@ -48,7 +48,7 @@ public class DataTypeProviderTest extends TestCase {
 
     public void testIncludedDatatype() throws Exception {
         File providerFile = new File("target/tests/datatype-test.provider");
-        List lines = new ArrayList();
+        List<String> lines = new ArrayList<String>();
         lines.add("foo1.foo1Display.include:foo2");
         lines.add("foo2.foo2Display.hidden:true");
         TestUtils.writeFile(providerFile, lines);
@@ -67,7 +67,7 @@ public class DataTypeProviderTest extends TestCase {
 
     public void testIncluded2Datatypes() throws Exception {
         File providerFile = new File("target/tests/datatype-test.provider");
-        List lines = new ArrayList();
+        List<String> lines = new ArrayList<String>();
         lines.add("foo1.foo1Display.include:foo2.include:foo3");
         lines.add("foo2.foo2Display.hidden:true");
         lines.add("foo3.foo3Display.hidden:true");

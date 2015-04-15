@@ -22,27 +22,33 @@
  */
 package de.ingrid.utils.tool;
 
-import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
+/**
+ * Due to the deprecated dependency to "XmlBeanFactory", this class has been
+ * marked deprecated, too.
+ * @author Andre
+ *
+ */
 public class SpringUtil {
 
-    private XmlBeanFactory _xmlBeanFactory;
+    private ClassPathXmlApplicationContext context;
 
     public SpringUtil(String fileName) {
         Resource resource = new ClassPathResource(fileName);
         if (resource.exists()) {
-            _xmlBeanFactory = new XmlBeanFactory(resource);
+            //_xmlBeanFactory = new XmlBeanFactory(resource);
+            context = new ClassPathXmlApplicationContext(fileName);
         }
     }
 
     @SuppressWarnings("unchecked")
     public <T> T getBean(String beanName, Class<T> clazz) {
         T t = null;
-        if (_xmlBeanFactory != null) {
-            Object bean = _xmlBeanFactory.getBean(beanName);
-            t = (T) bean;
+        if (context != null) {
+            t = (T) context.getBean( beanName );
         }
         return t;
     }

@@ -76,7 +76,7 @@ public class Wfs200NamespaceContext implements NamespaceContext {
 	 * @see javax.xml.namespace.NamespaceContext#getPrefixes(java.lang.String)
 	 */
 	@Override
-	public Iterator getPrefixes(String namespaceURI) {
+	public Iterator<Object> getPrefixes(String namespaceURI) {
 		throw new UnsupportedOperationException();
 	}
 

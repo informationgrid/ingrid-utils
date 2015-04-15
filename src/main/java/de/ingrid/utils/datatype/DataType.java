@@ -34,7 +34,7 @@ public class DataType {
 
     private String _displayName;
 
-    private Set _metaDatas = new LinkedHashSet();
+    private Set<Pair> _metaDatas = new LinkedHashSet<Pair>();
 
     public class Pair {
         private Object _key;
@@ -84,7 +84,7 @@ public class DataType {
         _metaDatas.add(new Pair(key, value));
     }
 
-    public Set getMetaDatas() {
+    public Set<Pair> getMetaDatas() {
         return _metaDatas;
     }
 
@@ -92,10 +92,10 @@ public class DataType {
         return _metaDatas.contains(new Pair(key, value));
     }
 
-    public List get(String key) {
-        List values = new ArrayList();
-        for (Iterator iterator = _metaDatas.iterator(); iterator.hasNext();) {
-            Pair pair = (Pair) iterator.next();
+    public List<Object> get(String key) {
+        List<Object> values = new ArrayList<Object>();
+        for (Iterator<Pair> iterator = _metaDatas.iterator(); iterator.hasNext();) {
+            Pair pair = iterator.next();
             if (pair.getKey().equals(key)) {
                 values.add(pair.getValue());
             }

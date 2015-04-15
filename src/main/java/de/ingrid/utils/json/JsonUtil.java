@@ -71,8 +71,7 @@ public class JsonUtil {
                     return new ArrayList<IngridDocument>();
                 }
 
-                @SuppressWarnings("unchecked")
-                public Map createObjectContainer() {
+                public Map<Object, Object> createObjectContainer() {
                     return new IngridDocument();
                 }
 

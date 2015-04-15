@@ -166,7 +166,7 @@ public class PlugDescription extends IngridDocument {
      *            The connection to set.
      */
     public void setConnection(IDataSourceConnection connection) {
-        ArrayList arrayList = getArrayList(CONNECTION);
+        List<Object> arrayList = getArrayList(CONNECTION);
         if (arrayList == null) {
             addToList(CONNECTION, connection);
             arrayList = getArrayList(CONNECTION);
@@ -178,9 +178,9 @@ public class PlugDescription extends IngridDocument {
      * @return Returns the connections.
      */
     public IDataSourceConnection[] getConnections() {
-        ArrayList arrayList = getArrayList(CONNECTION);
+        List<Object> arrayList = getArrayList(CONNECTION);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
         }
         return (IDataSourceConnection[]) arrayList.toArray(new IDataSourceConnection[arrayList.size()]);
     }
@@ -199,7 +199,7 @@ public class PlugDescription extends IngridDocument {
      * @param connection
      */
     public void removeConnection(IDataSourceConnection connection) {
-        ArrayList arrayList = getArrayList(CONNECTION);
+        List<Object> arrayList = getArrayList(CONNECTION);
         if (arrayList != null) {
             arrayList.remove(connection);
         }
@@ -657,9 +657,9 @@ public class PlugDescription extends IngridDocument {
     }
 
     private String[] getArrayListAsArray(String key) {
-        List list = getArrayList(key);
+        List<Object> list = getArrayList(key);
         if (list == null) {
-            list = new ArrayList();
+            list = new ArrayList<Object>();
         }
         return (String[]) list.toArray(new String[list.size()]);
     }
@@ -677,9 +677,9 @@ public class PlugDescription extends IngridDocument {
      * @return all provider
      */
     public String[] getProviders() {
-        ArrayList arrayList = getArrayList(PROVIDER);
+        List<Object> arrayList = getArrayList(PROVIDER);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
         }
         return (String[]) arrayList.toArray(new String[arrayList.size()]);
     }

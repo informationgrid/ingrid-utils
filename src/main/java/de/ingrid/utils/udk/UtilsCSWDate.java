@@ -25,13 +25,10 @@
  */
 package de.ingrid.utils.udk;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import de.ingrid.utils.udk.UtilsDate;
 
 /**
  * This class contains date conversion helper functions.

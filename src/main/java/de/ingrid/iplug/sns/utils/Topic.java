@@ -245,6 +245,7 @@ public class Topic extends IngridHitDetail {
      * @param topic
      */
     public void addSuccessor(Topic topic) {
+        @SuppressWarnings("unchecked")
         Set<Topic> set = (Set<Topic>) get(TOPIC_SUCCESSORS);
         set.add(topic);
     }

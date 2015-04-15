@@ -103,9 +103,8 @@ public class Record extends IngridDocument {
     /**
      * @return ge number of columns
      */
-    @SuppressWarnings("unchecked")
     public int numberOfColumns() {
-        List list = getArrayList(COLUMNS);
+        List<Object> list = getArrayList(COLUMNS);
         if (list == null) {
             return 0;
         }
@@ -149,9 +148,9 @@ public class Record extends IngridDocument {
      * @param subRecords
      */
     public void addSubRecords(Record[] subRecords) {
-        ArrayList arrayList = getArrayList(SUB_RECORDS);
+        List<Object> arrayList = getArrayList(SUB_RECORDS);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
             put(SUB_RECORDS, arrayList);
         }
         arrayList.addAll(Arrays.asList(subRecords));
@@ -163,9 +162,9 @@ public class Record extends IngridDocument {
      * @param subRecord
      */
     public void addSubRecord(Record subRecord) {
-        ArrayList arrayList = getArrayList(SUB_RECORDS);
+        List<Object> arrayList = getArrayList(SUB_RECORDS);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
             put(SUB_RECORDS, arrayList);
         }
         arrayList.add(subRecord);
@@ -176,7 +175,7 @@ public class Record extends IngridDocument {
      * @return the subRecords.
      */
     public Record[] getSubRecords() {
-        ArrayList arrayList = getArrayList(SUB_RECORDS);
+        List<Object> arrayList = getArrayList(SUB_RECORDS);
         if (arrayList != null) {
             return (Record[]) arrayList.toArray(new Record[arrayList.size()]);
         }
@@ -262,9 +261,9 @@ public class Record extends IngridDocument {
     }
 
     public Column[] getColumns() {
-        ArrayList arrayList = getArrayList(COLUMNS);
+        List<Object> arrayList = getArrayList(COLUMNS);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
         }
         // Record[] subRecords = getSubRecords();
         // for (int i = 0; i < subRecords.length; i++) {
@@ -280,10 +279,10 @@ public class Record extends IngridDocument {
      * @return
      * ArrayList of values
      */
-    public ArrayList getValues() {
-        ArrayList arrayList = getArrayList(VALUES);
+    public List<Object> getValues() {
+        List<Object> arrayList = getArrayList(VALUES);
         if (arrayList == null) {
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
         }
         return arrayList;
     }

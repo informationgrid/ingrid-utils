@@ -23,6 +23,7 @@
 package de.ingrid.utils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * An container for iplug hits This container does not contain any document details just the information that are
@@ -63,6 +64,7 @@ public class IngridHit extends IngridDocument {
      */
     public IngridHit() {
         // default constructor for serialization
+        setDate(0);
     }
 
     /**
@@ -71,7 +73,17 @@ public class IngridHit extends IngridDocument {
      * @param dataSourceId
      * @param score
      */
+    @Deprecated
     public IngridHit(String plugId, int documentId, int dataSourceId, float score) {
+        // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
+        setPlugId(plugId);
+        setDocumentId( documentId );
+        setDataSourceId(dataSourceId);
+        setScore(score);
+        setDate(0);
+    }
+    
+    public IngridHit(String plugId, String documentId, int dataSourceId, float score) {
         // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
         setPlugId(plugId);
         setDocumentId(documentId);
@@ -87,14 +99,24 @@ public class IngridHit extends IngridDocument {
      * @param dataSourceId
      * @param date
      */
+    @Deprecated
     public IngridHit(String plugId, int documentId, int dataSourceId, int date) {
-      // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
-      setPlugId(plugId);
-      setDocumentId(documentId);
-      setDataSourceId(dataSourceId);
-      setDate(date);
-      setScore(0.0f);
-  }
+        // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
+        setPlugId(plugId);
+        setDocumentId(documentId);
+        setDataSourceId(dataSourceId);
+        setDate(date);
+        setScore(0.0f);
+    }
+    
+    public IngridHit(String plugId, String documentId, int dataSourceId, int date) {
+        // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
+        setPlugId(plugId);
+        //setDocumentId(documentId);
+        setDataSourceId(dataSourceId);
+        setDate(date);
+        setScore(0.0f);
+    }
     
 
     /**
@@ -124,19 +146,38 @@ public class IngridHit extends IngridDocument {
     
 
     /**
+     * Deprecated: Use getDocumentUId() instead.
      * @return a provider specific document id
      */
-    public int getDocumentId() {
-        return getInt(DOCUMENT_ID);
+    public String getDocumentId() {
+        return String.valueOf( get(DOCUMENT_ID) );
+    }
+    
+    /**
+     * Get the unique ID of the document.
+     * @return the ID as a string
+     */
+    public String getDocumentUId() {
+        return getString(DOCUMENT_UID);
     }
 
     /**
-     * sets a provider specific document id
+     * Deprecated: sets a provider specific document id
+     * Use setDocumentId(String) instead.
      * 
      * @param documentId
      */
+    @Deprecated
     public void setDocumentId(int documentId) {
-        putInt(DOCUMENT_ID, documentId);
+        put(DOCUMENT_ID, String.valueOf( documentId));
+    }
+    
+    /**
+     * Set the ID of a document, which will be used to identify it.
+     * @param documentUId is the unique ID
+     */
+    public void setDocumentId(String documentId) {
+        put(DOCUMENT_ID, documentId);
     }
 
     /**
@@ -183,7 +224,7 @@ public class IngridHit extends IngridDocument {
      * @return values that is used to group hits
      */
     public String[] getGroupedFields(){
-      ArrayList arrayList = getArrayList(GROUPED_BY_FIELD);
+      List<?> arrayList = getArrayList(GROUPED_BY_FIELD);
       if(arrayList!=null){
           return (String[]) arrayList.toArray(new String[arrayList.size()]);
       }
@@ -202,9 +243,9 @@ public class IngridHit extends IngridDocument {
      * @return all members of this group
      */
     public IngridHit[] getGroupHits() {
-        ArrayList arrayList = getArrayList(GROUP_HIT);
+        List<?> arrayList = getArrayList(GROUP_HIT);
         if(arrayList==null){
-            arrayList = new ArrayList();
+            arrayList = new ArrayList<Object>();
         }
         return (IngridHit[]) arrayList.toArray(new IngridHit[arrayList.size()]);
     }

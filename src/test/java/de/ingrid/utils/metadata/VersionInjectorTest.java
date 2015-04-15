@@ -23,7 +23,6 @@
 package de.ingrid.utils.metadata;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import junit.framework.TestCase;
 

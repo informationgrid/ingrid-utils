@@ -27,10 +27,10 @@ import java.util.TreeMap;
 
 public class SortedCategorizedKeys {
 
-	public static Map getSortedCategorizedKeys(CategorizedKeys catKeys,
+	public static Map<String, String> getSortedCategorizedKeys(CategorizedKeys catKeys,
 			String category) {
 
-		Map map = new TreeMap();
+		Map<String, String> map = new TreeMap<String, String>();
 		String[] keysForCategory = catKeys.getKeysForCategory(category);
 		for (int i = 0; i < keysForCategory.length; i++) {
 			String keyForCategory = keysForCategory[i];
