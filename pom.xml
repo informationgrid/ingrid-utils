@@ -1,3 +1,7 @@
+<!--
+    This base pom is used as parent pom for defining repositories, plugins ...
+    NOTICE: DO NOT add any dependency management cause these versions then can NOT BE OVERRIDDEN in subpoms via import pom mechanism !
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.ingrid</groupId>
@@ -5,15 +9,6 @@
   <packaging>pom</packaging>
   <version>3.6.0-SNAPSHOT</version>
   <name>ingrid-base-pom</name>
-  <description>
-    This base pom can be used as parent pom for defining the INGRID dependencies, repositories, plugins ...
-    NOTICE: DO NOT add non ingrid dependencies (external jars) cause these dependency versions can NOT BE OVERRIDDEN in subpoms via import pom mechanism !
-    see ingrid-import-pom for details
-  </description>
-<!-- other poms as submodules so they will be build and installed -->
-  <modules>
-    <module>ingrid-import-pom</module>
-  </modules>
   <scm>
     <connection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</connection>
     <developerConnection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</developerConnection>
