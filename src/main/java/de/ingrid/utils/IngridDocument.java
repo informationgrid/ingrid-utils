@@ -51,8 +51,9 @@ public class IngridDocument extends HashMap<Object, Object> implements Externali
     /**
      * Deprecated: The ID of the document as an integer. Use DOCUMENT_UID instead.
      */
-    @Deprecated
-	public static final Integer DOCUMENT_ID = new Integer(0);
+    //@Deprecated
+	//public static final Integer DOCUMENT_ID = new Integer(0);
+    public static final String DOCUMENT_ID = "0";
     
     /**
      * This is the unique ID of a document, which can be any string value.

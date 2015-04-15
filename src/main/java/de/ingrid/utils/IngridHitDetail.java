@@ -49,7 +49,6 @@ public class IngridHitDetail extends IngridHit {
         super();
         setPlugId( hit.getPlugId() );
         setDocumentId( hit.getDocumentId() );
-        setDocumentUId( hit.getDocumentUId() );
         setDataSourceId(hit.getDataSourceId());
         setScore(hit.getScore());
         

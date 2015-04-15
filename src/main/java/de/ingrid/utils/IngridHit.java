@@ -77,7 +77,7 @@ public class IngridHit extends IngridDocument {
     public IngridHit(String plugId, int documentId, int dataSourceId, float score) {
         // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
         setPlugId(plugId);
-        setDocumentId(documentId);
+        setDocumentId( documentId );
         setDataSourceId(dataSourceId);
         setScore(score);
         setDate(0);
@@ -86,7 +86,7 @@ public class IngridHit extends IngridDocument {
     public IngridHit(String plugId, String documentId, int dataSourceId, float score) {
         // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
         setPlugId(plugId);
-        setDocumentUId(documentId);
+        setDocumentId(documentId);
         setDataSourceId(dataSourceId);
         setScore(score);
         setDate(0);
@@ -112,7 +112,7 @@ public class IngridHit extends IngridDocument {
     public IngridHit(String plugId, String documentId, int dataSourceId, int date) {
         // FIXME: documentId mismatch here an int in the parent a serializable; this isn't consistent
         setPlugId(plugId);
-        setDocumentUId(documentId);
+        //setDocumentId(documentId);
         setDataSourceId(dataSourceId);
         setDate(date);
         setScore(0.0f);
@@ -149,9 +149,8 @@ public class IngridHit extends IngridDocument {
      * Deprecated: Use getDocumentUId() instead.
      * @return a provider specific document id
      */
-    @Deprecated
-    public int getDocumentId() {
-        return getInt(DOCUMENT_ID);
+    public String getDocumentId() {
+        return String.valueOf( get(DOCUMENT_ID) );
     }
     
     /**
@@ -170,15 +169,15 @@ public class IngridHit extends IngridDocument {
      */
     @Deprecated
     public void setDocumentId(int documentId) {
-        putInt(DOCUMENT_ID, documentId);
+        put(DOCUMENT_ID, String.valueOf( documentId));
     }
     
     /**
      * Set the ID of a document, which will be used to identify it.
      * @param documentUId is the unique ID
      */
-    public void setDocumentUId(String documentUId) {
-        put(DOCUMENT_UID, documentUId);
+    public void setDocumentId(String documentId) {
+        put(DOCUMENT_ID, documentId);
     }
 
     /**
