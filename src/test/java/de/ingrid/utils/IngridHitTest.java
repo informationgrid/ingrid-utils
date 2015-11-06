@@ -22,6 +22,7 @@
  */
 package de.ingrid.utils;
 
+import java.security.MessageDigest;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -60,6 +61,31 @@ public class IngridHitTest extends TestCase {
 		ingridHit2.setHitId("foo");
 		assertEquals(ingridHit1.hashCode(), ingridHit2.hashCode());
 	}
+	
+	public void testHashcodeDoc() throws Exception {
+        IngridHit ingridHit1 = new IngridHit();
+        IngridHit ingridHit2 = new IngridHit();
+        
+        String id1 = "AVAfEoX2iQXAcup3Hmwg";
+        String id2 = "AVAfEoX2iQXAcup3HmxH";
+        
+        ingridHit1.setDocumentId( id1 );
+        ingridHit2.setDocumentId( id2 );
+        //ingridHit1.setHitId( "AVAfEoX2iQXAcup3Hmwg" );
+        //ingridHit2.setHitId( "AVAfEoX2iQXAcup3HmxH" );
+        
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        messageDigest.update(ingridHit1.getDocumentUId().getBytes());
+        String encryptedId1 = new String(messageDigest.digest());
+        MessageDigest messageDigest2 = MessageDigest.getInstance("SHA-256");
+        messageDigest2.update(ingridHit2.getDocumentUId().getBytes());
+        String encryptedId2 = new String(messageDigest.digest());
+        
+        assertFalse( encryptedId1.equals( encryptedId2 ) );
+        assertFalse( encryptedId1.hashCode() == encryptedId2.hashCode() );
+        
+        //assertFalse(ingridHit1.hashCode() == ingridHit2.hashCode());
+    }
 
 	public void testContains() throws Exception {
 		IngridHit ingridHit1 = new IngridHit();

@@ -22,6 +22,8 @@
  */
 package de.ingrid.utils;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,7 +119,7 @@ public class IngridHit extends IngridDocument {
         setDate(date);
         setScore(0.0f);
     }
-    
+    //
 
     /**
      * @param date
@@ -286,7 +288,24 @@ public class IngridHit extends IngridDocument {
     }
 	
 	public int hashCode() {
-		return containsKey(HIT_ID) ? getHitId().hashCode() : super.hashCode();
+		return containsKey(DOCUMENT_ID) ? calcHashFromId( getDocumentId() ) : super.hashCode();
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	private int calcHashFromId(String id) {
+	    int hash = 0;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            messageDigest.update(id.getBytes());
+            hash = new String(messageDigest.digest()).hashCode();
+        } catch (NoSuchAlgorithmException e) {
+            hash = id.hashCode();
+        }
+        return hash;
 	}
 
 	public boolean equals(Object o) {
