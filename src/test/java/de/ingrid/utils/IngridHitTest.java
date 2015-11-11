@@ -37,12 +37,12 @@ public class IngridHitTest extends TestCase {
 		ingridHit2.setScore(2.0f);
 		assertFalse(ingridHit1.equals(ingridHit2));
 
-		ingridHit1.setHitId("foo");
-		ingridHit2.setHitId("bar");
+		ingridHit1.setDocumentId("foo");
+		ingridHit2.setDocumentId("bar");
 		assertFalse(ingridHit1.equals(ingridHit2));
 
-		ingridHit1.setHitId("foo");
-		ingridHit2.setHitId("foo");
+		ingridHit1.setDocumentId("foo");
+		ingridHit2.setDocumentId("foo");
 		assertTrue(ingridHit1.equals(ingridHit2));
 	}
 
@@ -53,12 +53,12 @@ public class IngridHitTest extends TestCase {
 		ingridHit2.setScore(2.0f);
 		assertFalse(ingridHit1.hashCode() == ingridHit2.hashCode());
 
-		ingridHit1.setHitId("foo");
-		ingridHit2.setHitId("bar");
+		ingridHit1.setDocumentId("foo");
+		ingridHit2.setDocumentId("bar");
 		assertFalse(ingridHit1.hashCode() == ingridHit2.hashCode());
 
-		ingridHit1.setHitId("foo");
-		ingridHit2.setHitId("foo");
+		ingridHit1.setDocumentId("foo");
+		ingridHit2.setDocumentId("foo");
 		assertEquals(ingridHit1.hashCode(), ingridHit2.hashCode());
 	}
 	
@@ -71,20 +71,20 @@ public class IngridHitTest extends TestCase {
         
         ingridHit1.setDocumentId( id1 );
         ingridHit2.setDocumentId( id2 );
-        //ingridHit1.setHitId( "AVAfEoX2iQXAcup3Hmwg" );
-        //ingridHit2.setHitId( "AVAfEoX2iQXAcup3HmxH" );
         
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-        messageDigest.update(ingridHit1.getDocumentUId().getBytes());
+        messageDigest.update(ingridHit1.getDocumentId().getBytes());
         String encryptedId1 = new String(messageDigest.digest());
         MessageDigest messageDigest2 = MessageDigest.getInstance("SHA-256");
-        messageDigest2.update(ingridHit2.getDocumentUId().getBytes());
+        messageDigest2.update(ingridHit2.getDocumentId().getBytes());
         String encryptedId2 = new String(messageDigest.digest());
         
+        // the normal hashCode-function has a collision
+        assertTrue( id1.hashCode() == id2.hashCode() );
+
+        // but the new function shouldn't have that!
         assertFalse( encryptedId1.equals( encryptedId2 ) );
         assertFalse( encryptedId1.hashCode() == encryptedId2.hashCode() );
-        
-        //assertFalse(ingridHit1.hashCode() == ingridHit2.hashCode());
     }
 
 	public void testContains() throws Exception {
@@ -99,8 +99,8 @@ public class IngridHitTest extends TestCase {
 		assertTrue(set.contains(ingridHit1));
 		assertTrue(set.contains(ingridHit2));
 
-		ingridHit1.setHitId("foo");
-		ingridHit2.setHitId("bar");
+		ingridHit1.setDocumentId("foo");
+		ingridHit2.setDocumentId("bar");
 		set.clear();
 		set.add(ingridHit1);
 		set.add(ingridHit2);
@@ -108,8 +108,8 @@ public class IngridHitTest extends TestCase {
 		assertTrue(set.contains(ingridHit1));
 		assertTrue(set.contains(ingridHit2));
 
-		ingridHit1.setHitId("foo");
-		ingridHit2.setHitId("foo");
+		ingridHit1.setDocumentId("foo");
+		ingridHit2.setDocumentId("foo");
 		set.clear();
 		assertTrue(set.add(ingridHit1));
 		assertFalse(set.add(ingridHit2));

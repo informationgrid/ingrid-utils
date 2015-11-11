@@ -55,6 +55,7 @@ public class IngridHit extends IngridDocument {
     
     private static final String GROUP_TOTAL_HIT_LENGTH = "groupTotalHitLength";
 
+    @Deprecated
 	private static final String HIT_ID = "hitId";
 	
 	private static final String HIT_DETAIL = "hitDetail";
@@ -260,10 +261,20 @@ public class IngridHit extends IngridDocument {
         putInt(GROUP_TOTAL_HIT_LENGTH, groupTotalHitLength);
     }
     
+    /**
+     * Set the HitID.
+     * @deprecated The HitId is never used, instead use documentId!
+     */
+    @Deprecated
     public void setHitId(String id) {
 		put(HIT_ID, id);
 	}
 
+    /**
+     * Get the HitID.
+     * @deprecated The HitId is never used, instead use documentId!
+     */
+    @Deprecated
 	public String getHitId() {
 		return (String) get(HIT_ID);
 	}
@@ -310,7 +321,7 @@ public class IngridHit extends IngridDocument {
 
 	public boolean equals(Object o) {
 		IngridHit otherHit = (IngridHit) o;
-		return containsKey(HIT_ID) ? getHitId().equals(otherHit.getHitId())
+		return containsKey(DOCUMENT_ID) ? getDocumentId().equals(otherHit.getDocumentId())
 				: super.equals(o);
 	}
 }
