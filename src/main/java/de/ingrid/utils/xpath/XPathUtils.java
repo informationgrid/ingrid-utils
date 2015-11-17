@@ -22,6 +22,8 @@
  */
 package de.ingrid.utils.xpath;
 
+import java.util.ArrayList;
+
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -280,5 +282,59 @@ public class XPathUtils {
 			log.error("Error creating record ids.", e);
 		}
 		return new String[0];
-	}	
+	}
+
+    /** Get siblings of a node.
+     * @param source Root node
+     * @param xpathExpression get siblings of this node(s)
+     * @param siblingNodeName name of the sibling nodes to return, pass null if all siblings matter
+     * @param includeSelection include the node of which the siblings are detected 
+     * @return ArrayList of sibling nodes
+     */
+    public ArrayList<Node> getSiblingsFromXPath(Object source, String xpathExpression, String siblingNodeName, boolean includeSelection) {
+        ArrayList<Node> retList = new ArrayList<Node>();
+
+        NodeList nodeList = getNodeList(source, xpathExpression);
+        if(nodeList == null) {
+            return retList;
+        }
+
+        // remember parents to parse children only once
+        ArrayList<Node> parentsParsed = new ArrayList<Node>();
+
+        // process all found nodes, may have same parent !
+        for (int i=0; i < nodeList.getLength(); i++) {
+            Node selectedNode = nodeList.item(i);
+            
+            // if parent already processed then skip
+            Node parentNode = selectedNode.getParentNode();
+            if (parentNode == null || parentsParsed.contains( parentNode )) {
+                continue;
+            }
+
+            // process children, remember parent
+            parentsParsed.add( parentNode );
+            NodeList children = parentNode.getChildNodes();
+            for (int j=0; j<children.getLength(); j++) {
+                Node child = children.item(j);
+
+                // exclude starting node ?
+                if (!includeSelection) {
+                    if (child.equals( selectedNode )) {
+                        continue;
+                    }
+                }
+                // exclude siblings not of given name
+                if (siblingNodeName != null) {
+                    if (!child.getNodeName().equals( siblingNodeName )) {
+                        continue;
+                    }
+                }
+                if (!retList.contains( child )) {
+                    retList.add(child);                        
+                }
+            }
+        }
+        return retList;
+    }
 }

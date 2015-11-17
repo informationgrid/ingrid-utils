@@ -1,104 +1,104 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<groupId>de.ingrid</groupId>
-		<artifactId>ingrid-base-pom</artifactId>
-		<version>3.5.1</version>
-	</parent>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.ingrid</groupId>
-	<artifactId>ingrid-utils</artifactId>
-	<packaging>jar</packaging>
-	<version>3.6.1-SNAPSHOT</version>
-	<name>ingrid-utils</name>
-	<scm>
-		<connection>scm:git:git@github.com:informationgrid/ingrid-utils.git</connection>
-		<developerConnection>scm:git:git@github.com:informationgrid/ingrid-utils.git</developerConnection>
-	  <tag>HEAD</tag>
+    <parent>
+        <groupId>de.ingrid</groupId>
+        <artifactId>ingrid-base-pom</artifactId>
+        <version>3.6.0.3</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>de.ingrid</groupId>
+    <artifactId>ingrid-utils</artifactId>
+    <packaging>jar</packaging>
+    <version>3.6.1</version>
+    <name>ingrid-utils</name>
+    <scm>
+        <connection>scm:git:git@github.com:informationgrid/ingrid-utils.git</connection>
+        <developerConnection>scm:git:git@github.com:informationgrid/ingrid-utils.git</developerConnection>
+      <tag>HEAD</tag>
   </scm>
-	<repositories>
-		<!--
-			Repo of parent pom needed, parent pom may not be installed locally
-			yet
-		-->
-		<repository>
-			<id>de.ingrid.all</id>
-			<name>Maven2 Repo InGrid</name>
-			<url>https://dev.informationgrid.eu/archiva/repository/ingrid-all</url>
-		</repository>
-		<repository>
-			<id>jetspeed-repository</id>
-			<name>jetspeed-repository</name>
-			<url>http://www.bluesunrise.com/maven2</url>
-		</repository>
-	</repositories>
-	<dependencies>
-		<dependency>
-			<groupId>com.thoughtworks.xstream</groupId>
-			<artifactId>xstream</artifactId>
-			<version>1.4.4</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.0.4</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>4.1.6.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>4.1.6.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>4.1.6.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1</version>
-		</dependency>
-	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>javacc-maven-plugin</artifactId>
-				<version>2.5</version>
-				<executions>
-					<execution>
-						<id>javacc</id>
-						<goals>
-							<goal>javacc</goal>
-						</goals>
-						<configuration>
-							<sourceDirectory>src/main/java/de/ingrid/utils/queryparser</sourceDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
+    <repositories>
+        <!--
+            Repo of parent pom needed, parent pom may not be installed locally
+            yet
+        -->
+        <repository>
+            <id>de.ingrid.all</id>
+            <name>Maven2 Repo InGrid</name>
+            <url>https://dev.informationgrid.eu/archiva/repository/ingrid-all</url>
+        </repository>
+        <repository>
+            <id>jetspeed-repository</id>
+            <name>jetspeed-repository</name>
+            <url>http://www.bluesunrise.com/maven2</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>4.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javacc-maven-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>javacc</id>
+                        <goals>
+                            <goal>javacc</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirectory>src/main/java/de/ingrid/utils/queryparser</sourceDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>
                 <configuration>
                     <excludes>
-                    	<!-- this file contains UTF8 characters which is converted in a wrong way when applying a license -->
+                        <!-- this file contains UTF8 characters which is converted in a wrong way when applying a license -->
                         <exclude>**/queryparser/QueryStringParserTest.java</exclude>
-                        <exclude>**/target/generated-sources/**/*.properties</exclude>
+                        <exclude>**/javacc/**/*.java</exclude>
                         <exclude>**/*.properties</exclude>
                         <exclude>**/*.json</exclude>
                         <exclude>**/*.sql</exclude>
@@ -106,6 +106,15 @@
                     </excludes>
                 </configuration>
             </plugin>
-		</plugins>
-	</build>
+            <plugin>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>1.0-m5.1</version>
+                <configuration>
+                    <defaultOriginUrl>https://github.com/informationgrid/ingrid-utils</defaultOriginUrl>
+                    <noDeploy>true</noDeploy>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
