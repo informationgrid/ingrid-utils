@@ -127,16 +127,18 @@ public class QueryUtil {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Create a deep copy of the following query: " + query);
         }
-        ObjectOutputStream oos = null;
-        ObjectInputStream ois = null;
-        try {
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            oos = new ObjectOutputStream(bos);
+        
+        try (
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(bos);      
+                ByteArrayInputStream bin = new ByteArrayInputStream(bos.toByteArray());
+                ObjectInputStream ois = new ObjectInputStream(bin);
+                
+        ) {
+            
             // serialize and pass the object
             oos.writeObject(query);
             oos.flush();
-            ByteArrayInputStream bin = new ByteArrayInputStream(bos.toByteArray());
-            ois = new ObjectInputStream(bin);
 
             // create the new object
             IngridQuery deepCopy = (IngridQuery) ois.readObject();
@@ -148,9 +150,6 @@ public class QueryUtil {
         } catch (Exception e) {
             LOG.error("Problems creating deep copy of IngridQuery '" + query + "'" + e);
             throw (e);
-        } finally {
-            oos.close();
-            ois.close();
         }
     }
 

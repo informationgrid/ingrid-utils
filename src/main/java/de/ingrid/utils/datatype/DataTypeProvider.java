@@ -87,25 +87,17 @@ public class DataTypeProvider implements IDataTypeProvider {
     }
 
     private void readInDatatypes(List<Object> datatypes) {
-        FileReader fileReader = null;
-        try {
-            fileReader = new FileReader(_datatypeFile);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+        try (
+                FileReader fileReader = new FileReader(_datatypeFile);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                
+        ) {
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
                 datatypes.add(extractDatatype(line));
             }
-            bufferedReader.close();
         } catch (IOException e) {
             LOG.warn("can not load datatype file.", e);
-        } finally {
-            try {
-                if (fileReader != null) {
-                    fileReader.close();
-                }
-            } catch (IOException e) {
-                LOG.warn("can not close datatype-resource-stream.", e);
-            }
         }
     }
 

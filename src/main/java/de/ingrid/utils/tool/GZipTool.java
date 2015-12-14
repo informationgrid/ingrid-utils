@@ -56,14 +56,14 @@ public class GZipTool {
 
         String result = null;
 
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        BufferedOutputStream bufos = null;
-        try {
-            bufos = new BufferedOutputStream(new GZIPOutputStream(bos));
+        try (
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                GZIPOutputStream gzos = new GZIPOutputStream(bos);
+                BufferedOutputStream bufos = new BufferedOutputStream(gzos);
+        ) {
             bufos.write(str.getBytes());
-            bufos.close();
+            bufos.close(); // must be closed to access bytes of bos
             result = new String(Base64.encodeBase64String(bos.toByteArray()));
-            bos.close();
         } catch (IOException e) {
             LOG.error("Unable to GZIP String. Returning original string.", e);
         }
@@ -82,22 +82,19 @@ public class GZipTool {
 
         String result = null;
 
-        ByteArrayOutputStream bos;
-        try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(Base64
-                    .decodeBase64(str));
-            BufferedInputStream bufis = new BufferedInputStream(
-                    new GZIPInputStream(bis));
-            bos = new ByteArrayOutputStream();
+        try (
+                ByteArrayInputStream bis = new ByteArrayInputStream(Base64
+                        .decodeBase64(str));
+                GZIPInputStream gzis = new GZIPInputStream(bis);
+                BufferedInputStream bufis = new BufferedInputStream(gzis);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ) {
             byte[] buf = new byte[1024];
             int len;
             while ((len = bufis.read(buf)) > 0) {
                 bos.write(buf, 0, len);
             }
             result = bos.toString();
-            bis.close();
-            bufis.close();
-            bos.close();
         } catch (Exception e) {
             LOG.error("Unable to UNGZIP String. Returning the original string", e);
             return str;

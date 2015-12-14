@@ -54,17 +54,18 @@ public class XMLSerializer {
      *  
      */
     public XMLSerializer() {
-        this.fXStream = new XStream();
+	this.fXStream = new XStream();
     }
 
     /**
-     * sets an alias name of a class, that is used until serialization as node name
+     * sets an alias name of a class, that is used until serialization as node
+     * name
      * 
      * @param name
      * @param clazz
      */
     public void aliasClass(String name, Class<?> clazz) {
-        this.fXStream.alias(name, clazz);
+	this.fXStream.alias(name, clazz);
     }
 
     /**
@@ -73,14 +74,15 @@ public class XMLSerializer {
      * @throws IOException
      */
     public void serialize(Object object, File target) throws IOException {
-        FileWriter writer = new FileWriter(target);
-        String xml = this.fXStream.toXML(object);
+	try (FileWriter writer = new FileWriter(target)) {
 
-        //TODO: log here or disable this output
-        System.out.println(xml);
+	    String xml = this.fXStream.toXML(object);
 
-        writer.write(xml);
-        writer.close();
+	    // TODO: log here or disable this output
+	    System.out.println(xml);
+
+	    writer.write(xml);
+	}
     }
 
     /**
@@ -89,8 +91,8 @@ public class XMLSerializer {
      * @throws IOException
      */
     public Object deSerialize(File target) throws IOException {
-        String xml = getContents(target);
-        return this.fXStream.fromXML(xml);
+	String xml = getContents(target);
+	return this.fXStream.fromXML(xml);
     }
 
     /**
@@ -99,8 +101,8 @@ public class XMLSerializer {
      * @throws IOException
      */
     public Object deSerialize(InputStream inputStream) throws IOException {
-    	String xml = getContents(inputStream);
-        return this.fXStream.fromXML(xml);
+	String xml = getContents(inputStream);
+	return this.fXStream.fromXML(xml);
     }
 
     /**
@@ -109,7 +111,10 @@ public class XMLSerializer {
      * @throws IOException
      */
     public static String getContents(File aFile) throws IOException {
-        return readContent(new BufferedReader(new FileReader(aFile)));
+	try (FileReader fr = new FileReader(aFile);
+		BufferedReader br = new BufferedReader(fr);) {
+	    return readContent(br);
+	}
     }
 
     /**
@@ -117,25 +122,25 @@ public class XMLSerializer {
      * @return text content from a inputstream
      * @throws IOException
      */
-    public static String getContents(InputStream inputStream) throws IOException {
-        return readContent(new BufferedReader(new InputStreamReader(inputStream, "UTF-8")));
+    public static String getContents(InputStream inputStream)
+	    throws IOException {
+	try (InputStreamReader isr = new InputStreamReader(inputStream, "UTF-8");
+		BufferedReader br = new BufferedReader(isr);
+
+	) {
+	    return readContent(br);
+	}
     }
 
     private static String readContent(BufferedReader input) throws IOException {
-    	StringBuffer contents = new StringBuffer();
-        try {
-            String line = null; // not declared within while loop
-            while ((line = input.readLine()) != null) {
-                contents.append(line);
-                contents.append(System.getProperty("line.separator"));
-            }
+	StringBuffer contents = new StringBuffer();
+	String line = null; // not declared within while loop
+	while ((line = input.readLine()) != null) {
+	    contents.append(line);
+	    contents.append(System.getProperty("line.separator"));
+	}
 
-        } finally {
-            if (input != null) {
-                input.close();
-            }
-        }
-        return contents.toString();
+	return contents.toString();
     }
 
 }
