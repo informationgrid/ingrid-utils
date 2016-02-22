@@ -31,7 +31,7 @@ package de.ingrid.utils;
  * @author sg
  * @version $Revision: 1.3 $
  */
-public interface IPlug extends ISearcher, IDetailer {
+public interface IPlug extends ISearcher, IDetailer, ICaller {
 
     /**
      * Will be invoked directly after instantiating the Iplug Object by the IPlugServer, better use this method than a
