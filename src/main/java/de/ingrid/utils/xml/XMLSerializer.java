@@ -36,6 +36,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import org.apache.log4j.Logger;
+
 import com.thoughtworks.xstream.XStream;
 
 /**
@@ -47,6 +49,8 @@ import com.thoughtworks.xstream.XStream;
  * @version $Revision: 1.3 $
  */
 public class XMLSerializer {
+    
+    private final Logger log = Logger.getLogger( XMLSerializer.class );
 
     private XStream fXStream;
 
@@ -78,8 +82,7 @@ public class XMLSerializer {
 
 	    String xml = this.fXStream.toXML(object);
 
-	    // TODO: log here or disable this output
-	    System.out.println(xml);
+	    if (log.isDebugEnabled()) log.debug( xml );
 
 	    writer.write(xml);
 	}
