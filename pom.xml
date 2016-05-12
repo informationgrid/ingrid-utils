@@ -7,7 +7,7 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.6.0.3</version>
+  <version>3.6.2</version>
   <name>ingrid-base-pom</name>
   <scm>
     <connection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</connection>
@@ -34,8 +34,8 @@
         <version>3.0</version>
         <configuration>
           <encoding>UTF-8</encoding>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.7</source>
+          <target>1.7</target>
         </configuration>
       </plugin>
       <plugin>
@@ -142,6 +142,7 @@
         <artifactId>jgitflow-maven-plugin</artifactId>
         <version>1.0-m5.1</version>
         <configuration>
+          <defaultOriginUrl>https://github.com/informationgrid/ingrid-base-pom</defaultOriginUrl>
           <noDeploy>true</noDeploy>
         </configuration>
       </plugin>
