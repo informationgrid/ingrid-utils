@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2015 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2016 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -87,25 +87,17 @@ public class DataTypeProvider implements IDataTypeProvider {
     }
 
     private void readInDatatypes(List<Object> datatypes) {
-        FileReader fileReader = null;
-        try {
-            fileReader = new FileReader(_datatypeFile);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+        try (
+                FileReader fileReader = new FileReader(_datatypeFile);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                
+        ) {
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
                 datatypes.add(extractDatatype(line));
             }
-            bufferedReader.close();
         } catch (IOException e) {
             LOG.warn("can not load datatype file.", e);
-        } finally {
-            try {
-                if (fileReader != null) {
-                    fileReader.close();
-                }
-            } catch (IOException e) {
-                LOG.warn("can not close datatype-resource-stream.", e);
-            }
         }
     }
 

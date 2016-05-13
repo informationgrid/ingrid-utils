@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2015 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2016 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -36,6 +36,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import org.apache.log4j.Logger;
+
 import com.thoughtworks.xstream.XStream;
 
 /**
@@ -47,6 +49,8 @@ import com.thoughtworks.xstream.XStream;
  * @version $Revision: 1.3 $
  */
 public class XMLSerializer {
+    
+    private final Logger log = Logger.getLogger( XMLSerializer.class );
 
     private XStream fXStream;
 
@@ -54,17 +58,18 @@ public class XMLSerializer {
      *  
      */
     public XMLSerializer() {
-        this.fXStream = new XStream();
+	this.fXStream = new XStream();
     }
 
     /**
-     * sets an alias name of a class, that is used until serialization as node name
+     * sets an alias name of a class, that is used until serialization as node
+     * name
      * 
      * @param name
      * @param clazz
      */
     public void aliasClass(String name, Class<?> clazz) {
-        this.fXStream.alias(name, clazz);
+	this.fXStream.alias(name, clazz);
     }
 
     /**
@@ -73,14 +78,14 @@ public class XMLSerializer {
      * @throws IOException
      */
     public void serialize(Object object, File target) throws IOException {
-        FileWriter writer = new FileWriter(target);
-        String xml = this.fXStream.toXML(object);
+	try (FileWriter writer = new FileWriter(target)) {
 
-        //TODO: log here or disable this output
-        System.out.println(xml);
+	    String xml = this.fXStream.toXML(object);
 
-        writer.write(xml);
-        writer.close();
+	    if (log.isDebugEnabled()) log.debug( xml );
+
+	    writer.write(xml);
+	}
     }
 
     /**
@@ -89,8 +94,8 @@ public class XMLSerializer {
      * @throws IOException
      */
     public Object deSerialize(File target) throws IOException {
-        String xml = getContents(target);
-        return this.fXStream.fromXML(xml);
+	String xml = getContents(target);
+	return this.fXStream.fromXML(xml);
     }
 
     /**
@@ -99,8 +104,8 @@ public class XMLSerializer {
      * @throws IOException
      */
     public Object deSerialize(InputStream inputStream) throws IOException {
-    	String xml = getContents(inputStream);
-        return this.fXStream.fromXML(xml);
+	String xml = getContents(inputStream);
+	return this.fXStream.fromXML(xml);
     }
 
     /**
@@ -109,7 +114,10 @@ public class XMLSerializer {
      * @throws IOException
      */
     public static String getContents(File aFile) throws IOException {
-        return readContent(new BufferedReader(new FileReader(aFile)));
+	try (FileReader fr = new FileReader(aFile);
+		BufferedReader br = new BufferedReader(fr);) {
+	    return readContent(br);
+	}
     }
 
     /**
@@ -117,25 +125,25 @@ public class XMLSerializer {
      * @return text content from a inputstream
      * @throws IOException
      */
-    public static String getContents(InputStream inputStream) throws IOException {
-        return readContent(new BufferedReader(new InputStreamReader(inputStream, "UTF-8")));
+    public static String getContents(InputStream inputStream)
+	    throws IOException {
+	try (InputStreamReader isr = new InputStreamReader(inputStream, "UTF-8");
+		BufferedReader br = new BufferedReader(isr);
+
+	) {
+	    return readContent(br);
+	}
     }
 
     private static String readContent(BufferedReader input) throws IOException {
-    	StringBuffer contents = new StringBuffer();
-        try {
-            String line = null; // not declared within while loop
-            while ((line = input.readLine()) != null) {
-                contents.append(line);
-                contents.append(System.getProperty("line.separator"));
-            }
+	StringBuffer contents = new StringBuffer();
+	String line = null; // not declared within while loop
+	while ((line = input.readLine()) != null) {
+	    contents.append(line);
+	    contents.append(System.getProperty("line.separator"));
+	}
 
-        } finally {
-            if (input != null) {
-                input.close();
-            }
-        }
-        return contents.toString();
+	return contents.toString();
     }
 
 }

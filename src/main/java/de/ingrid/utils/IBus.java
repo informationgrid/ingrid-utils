@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2015 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2016 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -42,7 +42,7 @@ import de.ingrid.utils.query.IngridQuery;
  * @version $Revision: 1.2 $
  * 
  */
-public interface IBus extends Serializable, IDetailer, IRecordLoader {
+public interface IBus extends Serializable, IDetailer, IRecordLoader, ICaller {
     /**
      * Multicast the query to all connected IPlugs and return founded results.
      * 
@@ -106,4 +106,6 @@ public interface IBus extends Serializable, IDetailer, IRecordLoader {
     IngridHits searchAndDetail(IngridQuery query, int hitsPerPage,
 			int currentPage, int startHit, int maxMilliseconds,
 			String[] requestedFields) throws Exception;
+    
+    IngridDocument call(IngridCall targetInfo) throws Exception;
 }

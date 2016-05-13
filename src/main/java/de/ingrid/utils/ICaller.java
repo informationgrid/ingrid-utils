@@ -22,8 +22,16 @@
  */
 package de.ingrid.utils;
 
+/**
+ * General Caller interface for IBus and Iplug
+ * 
+ */
+public interface ICaller {
 
-public interface IIngridHitEnrichment {
-
-	void enrichment(IngridHit ingridHit);
+	/**
+	 * Call a generic method of the IPlug with a given parameter.
+	 * 
+	 * @throws Exception
+	 */
+	public IngridDocument call(IngridCall targetInfo) throws Exception;
 }
