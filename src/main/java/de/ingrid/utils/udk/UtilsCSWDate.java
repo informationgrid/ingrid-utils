@@ -26,6 +26,9 @@
 package de.ingrid.utils.udk;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.SimpleTimeZone;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -40,6 +43,11 @@ public class UtilsCSWDate {
 	
     private final static Log log = LogFactory.getLog(UtilsDate.class);
 	
+    /** Type of Pattern for date formatter */
+    private enum PatternType {
+        IGC,
+        CSW;
+    }
 	public static boolean isCSWDate(String dateString) {
 		return getDatePattern(dateString) != null;
 	}
@@ -96,36 +104,132 @@ public class UtilsCSWDate {
 		return result;
 	}
 	
-	public static String mapFromIgcToIso8601(String igcDate) {
+	public static String mapFromIgcToIso8601(String inIgcDateString) {
         SimpleDateFormat df = new SimpleDateFormat();
         SimpleDateFormat cswFormat = new SimpleDateFormat();
+        Date parsedDate = null;
+
         try {
-            if (igcDate.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]")) {
-                df.applyPattern("yyyyMMddHHmmss");
-                cswFormat.applyPattern("yyyy-MM-dd'T'HH:mm:ss");
-                return cswFormat.format(df.parse(igcDate));
-            } else if (igcDate.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9][0-9][0-9][0-9]")) {
-                df.applyPattern("yyyyMMddHHmmssSSS");
-                cswFormat.applyPattern("yyyy-MM-dd'T'HH:mm:ss");
-                return cswFormat.format(df.parse(igcDate));
-            } else if (igcDate.matches("[0-9][0-9][0-9][0-9]0000")) {
-                df.applyPattern("yyyy");
-                cswFormat.applyPattern("yyyy");
-                return cswFormat.format(df.parse(igcDate.substring(0, 4)));
-            } else if (igcDate.matches("[0-9][0-9][0-9][0-9][0-1][0-9]00")) {
-                df.applyPattern("yyyyMM");
-                cswFormat.applyPattern("yyyy-MM");
-                return cswFormat.format(df.parse(igcDate.substring(0, 6)));
-            } else if (igcDate.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9]")) {
-                df.applyPattern("yyyyMMdd");
-                cswFormat.applyPattern("yyyy-MM-dd");
-                return cswFormat.format(df.parse(igcDate));
+            String igcDate = fixIgcDateString(inIgcDateString);
+
+            String igcPattern = getPatternFromIgcDateString(igcDate, PatternType.IGC);
+            if (igcPattern != null) {
+                df.applyPattern(igcPattern);
+                parsedDate = df.parse(igcDate);                
+            }
+
+            if (parsedDate != null) {
+                String cswPattern = getPatternFromIgcDateString(igcDate, PatternType.CSW);
+                cswFormat.applyPattern(cswPattern);
+                return cswFormat.format(parsedDate);                
             }
         } catch (Exception e) {
-            log.error("Parsing CSW date failed (" + igcDate + ").", e);
+            log.error("mapFromIgcToIso8601 failed (" + inIgcDateString + ").", e);
         }
+
         return null;
-	    
 	}
-	
+
+    /** Handle problem of summertime before summertime was introduced !
+     * see https://dev.informationgrid.eu/redmine/issues/439
+     * @param inIgcDateString date string as stored in database
+     * @return fixed date string as stored in catalog
+     */
+    public static String fixIgcDateString(String inIgcDateString) {
+        SimpleDateFormat df = new SimpleDateFormat();
+        Date parsedDate = null;
+
+        try {
+            String igcPattern = getPatternFromIgcDateString(inIgcDateString, PatternType.IGC);
+            
+            if (igcPattern != null) {
+                df.applyPattern(igcPattern);
+                parsedDate = df.parse(inIgcDateString);                
+            }
+
+            if (parsedDate != null) {
+                // NOTICE: Handle problem of summertime before summertime was introduced !
+                // see https://dev.informationgrid.eu/redmine/issues/439
+
+                // Stored Date from frontend is "wrong" if date is in summer before summertime was introduced !!!
+                // e.g. if "1.7.1968" is picked then  "30.6. 23:00 CET" is stored instead of "1.7. 00:00" !!!
+                // PICKED -> Delivered Date -> Stored Date String -> ok ?
+                // "01.07.1968" -> "Sun Jun 30 23:00:00 CET 1968" -> 19680630230000000 -> !!! WRONG !!!
+                // "01.02.1968" -> "Thu Feb 01 00:00:00 CET 1968" -> 19680201000000000 -> ok
+                // "01.02.2005" -> "Tue Feb 01 00:00:00 CET 2005" (Winter) -> 20050201000000000 -> ok
+                // "01.07.2005" -> "Fri Jul 01 00:00:00 CEST 2005" (CEST=Summertime) -> 20050701000000000 -> ok
+                // So we have to add one hour to older dates where summertime is not taken into account !
+
+                // create own time zone with summertime (MEZ)
+                // CET timezone does IGNORE older dates !
+                SimpleTimeZone myMEZ = new SimpleTimeZone( +1*60*60*1000, "myCET" );
+                myMEZ.setStartRule( Calendar.MARCH, -1, Calendar.SUNDAY, 2*60*60*1000 );
+                myMEZ.setEndRule( Calendar.OCTOBER, -1, Calendar.SUNDAY, 2*60*60*1000 );
+
+                // create date via calendar with our timezone and check offset of timezone
+                Calendar calendar = Calendar.getInstance(myMEZ);
+                calendar.setTimeInMillis(parsedDate.getTime());
+                String tzoneOffsetString = new SimpleDateFormat("Z").format(calendar.getTime());
+                
+                // if date is in summertime and offset is not 2 hours then we have an old date where date was delivered -1 hour !
+                if (myMEZ.inDaylightTime(calendar.getTime()) && !tzoneOffsetString.equals("+0200")) {
+                    int myHour = calendar.get( Calendar.HOUR_OF_DAY );
+                    calendar.set( Calendar.HOUR_OF_DAY, myHour+1 );
+                }
+
+                return df.format(calendar.getTime());                
+            }
+        } catch (Exception e) {
+            log.error("fixIgcDateString failed (" + inIgcDateString + ").", e);
+        }
+
+        return null;
+    }
+    
+    private static String getPatternFromIgcDateString(String igcDateString, PatternType pType) {
+        try {
+            
+            if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]")) {
+                if (pType == PatternType.IGC) {
+                    return "yyyyMMddHHmmss";
+                }
+                if (pType == PatternType.CSW) {
+                    return "yyyy-MM-dd'T'HH:mm:ss";
+                }
+            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9][0-9][0-9][0-9]")) {
+                if (pType == PatternType.IGC) {
+                    return "yyyyMMddHHmmssSSS";
+                }
+                if (pType == PatternType.CSW) {
+                    return "yyyy-MM-dd'T'HH:mm:ss";
+                }
+            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9]0000")) {
+                if (pType == PatternType.IGC) {
+                    return "yyyy";
+                }
+                if (pType == PatternType.CSW) {
+                    return "yyyy";
+                }
+            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9]00")) {
+                if (pType == PatternType.IGC) {
+                    return "yyyyMM";
+                }
+                if (pType == PatternType.CSW) {
+                    return "yyyy-MM";
+                }
+            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9]")) {
+                if (pType == PatternType.IGC) {
+                    return "yyyyMMdd";
+                }
+                if (pType == PatternType.CSW) {
+                    return "yyyy-MM-dd";
+                }
+            }
+        } catch (Exception e) {
+            log.error("getPatternFromIgcDateString failed (" + igcDateString + ", " + pType + ").", e);
+        }
+
+        return null;        
+    }
+    
 }
