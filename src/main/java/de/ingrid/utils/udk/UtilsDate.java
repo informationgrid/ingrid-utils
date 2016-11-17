@@ -118,6 +118,15 @@ public class UtilsDate {
             } else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]")) {
                 df.applyPattern("yyyy-MM");
                 result = df.parse(dateString);
+            } else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]:[0-5][0-9]")) {
+                df.applyPattern("yyyy-MM-dd HH:mm:ss");
+                result = df.parse(dateString);
+            } else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9]")) {
+                df.applyPattern("yyyy-MM-dd'T'HH:mm:ss");
+                result = df.parse(dateString);
+            } else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9].*[0-2][0-9]:[0-5][0-9]")) {
+                df.applyPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
+                result = df.parse(dateString);
             } else if (dateString.matches("[0-9][0-9][0-9][0-9]")) {
                 df.applyPattern("yyyy");
                 result = df.parse(dateString);
