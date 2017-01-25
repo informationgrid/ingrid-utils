@@ -13,8 +13,8 @@
     <scm>
         <connection>scm:git:git@github.com:informationgrid/ingrid-utils.git</connection>
         <developerConnection>scm:git:git@github.com:informationgrid/ingrid-utils.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
     <repositories>
         <!--
             Repo of parent pom needed, parent pom may not be installed locally
