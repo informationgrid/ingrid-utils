@@ -49,7 +49,17 @@ public class UtilsCSWDate {
         CSW;
     }
 	public static boolean isCSWDate(String dateString) {
-		return getDatePattern(dateString) != null;
+		// try to detect non standard date pattern that may exist in ISO files
+	    if (getDatePattern(dateString) != null) {
+		    return true;
+		}
+
+        try {
+            javax.xml.bind.DatatypeConverter.parseDateTime( dateString );
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
 	}
 
 	public static String getDateWithoutTime(String dateString) {
@@ -61,16 +71,22 @@ public class UtilsCSWDate {
 
 	public static String getQueryDateStyle(String dateString) {
 		
-		String srcPattern = getDatePattern(dateString);
+		String destString = mapDateFromIso8601ToIndex(dateString);
 		
-		if (srcPattern != null) {
-			return UtilsDate.convertDateString(dateString, srcPattern, "yyyyMMdd");
+		if (destString != null) {
+			return getDateWithoutTime(destString);
 		} else {
 			log.warn("Unrecognizes date type: " + dateString);
 			return dateString;
 		}
 	}
 	
+	/**
+	 * Detect non standard date pattern that might exists in ISO files.
+	 * 
+	 * @param dateString
+	 * @return
+	 */
 	public static String getDatePattern(String dateString) {
 		String datePattern = null;
 		if (dateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9]")) {
@@ -79,31 +95,50 @@ public class UtilsCSWDate {
 			datePattern = "yyyy-MM-dd";
 		} else if (dateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9]T[0-2][0-9][0-5][0-9][0-5][0-9]")) {
 			datePattern = "yyyyMMdd'T'HHmmss";
-		} else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9]")) {
-			datePattern = "yyyy-MM-dd'T'HH:mm:ss";
-		} else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9]\\.[0-9]+")) {
-			datePattern = "yyyy-MM-dd'T'HH:mm:ss.sss";
-		} else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9]\\.[0-9]+Z")) {
-			datePattern = "yyyy-MM-dd'T'HH:mm:ss.sssZ";
 		}
 		return datePattern;
 	}
 	
+    /**
+     * Transform a given date string into the internal used DateTime
+     * representation 'yyyyMMddHHmmssSSS'. The date string should be formatted
+     * in ISO 8601 Format. Some exceptions are allowed because some pattern were
+     * observed to exist in ISO data files and should be converted.
+     * 
+     * The local standard time is used, if no time zone is supplied.
+     * 
+     * @param dateIso8601
+     * @return
+     */
 	public static String mapDateFromIso8601ToIndex(String dateIso8601) {
 		String result = null;
 		if (dateIso8601 != null && dateIso8601.length() > 0) {
+	        // try to detect non standard date pattern that may exist in ISO files
 			String srcPattern = UtilsCSWDate.getDatePattern(dateIso8601);
 			if (srcPattern != null && srcPattern.length() > 0) {
 				result = UtilsDate.convertDateString(dateIso8601, srcPattern, "yyyyMMddHHmmssSSS");
 			} else {
+	            try {
+	                Calendar cal = javax.xml.bind.DatatypeConverter.parseDateTime(dateIso8601);
+	                SimpleDateFormat portalFormat = new SimpleDateFormat("yyyy");
+	                portalFormat.applyPattern("yyyyMMddHHmmssSSS");
+	                result = portalFormat.format(cal.getTime());
+	            } catch (Exception e) {
 				if (log.isDebugEnabled()) {
 					log.debug("Error converting date '" + dateIso8601 + "'. Does it conform to the ISO 8601 format?");
 				}
 			}
 		}
+		}
 		return result;
 	}
 	
+	/**
+	 * Transform date strings of possible internal representations into ISO 8601 compliant formats.
+	 * 
+	 * @param igcDate
+	 * @return
+	 */
 	public static String mapFromIgcToIso8601(String inIgcDateString) {
         SimpleDateFormat df = new SimpleDateFormat();
         SimpleDateFormat cswFormat = new SimpleDateFormat();
@@ -201,21 +236,7 @@ public class UtilsCSWDate {
                     return "yyyyMMddHHmmssSSS";
                 }
                 if (pType == PatternType.CSW) {
-                    return "yyyy-MM-dd'T'HH:mm:ss";
-                }
-            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9]0000")) {
-                if (pType == PatternType.IGC) {
-                    return "yyyy";
-                }
-                if (pType == PatternType.CSW) {
-                    return "yyyy";
-                }
-            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9]00")) {
-                if (pType == PatternType.IGC) {
-                    return "yyyyMM";
-                }
-                if (pType == PatternType.CSW) {
-                    return "yyyy-MM";
+                    return "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
                 }
             } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9]")) {
                 if (pType == PatternType.IGC) {

@@ -45,6 +45,15 @@ public class UtilsCSWDateTest extends TestCase {
 		assertEquals("20061012", UtilsCSWDate.getQueryDateStyle("20061012T121247"));
 	}
 	
+    public final void testMapDateFromIso8601ToIndex() {
+        assertEquals("20170113170148830", UtilsCSWDate.mapDateFromIso8601ToIndex("2017-01-13T17:01:48.83+01:00"));
+        assertEquals("20020115210748110", UtilsCSWDate.mapDateFromIso8601ToIndex("2002-01-15T20:07:48.11Z"));
+        assertEquals("20010115200748110", UtilsCSWDate.mapDateFromIso8601ToIndex("2001-01-15T20:07:48.11"));
+        assertEquals("20061012000000000", UtilsCSWDate.mapDateFromIso8601ToIndex("20061012"));
+        assertEquals("20060101000000000", UtilsCSWDate.mapDateFromIso8601ToIndex("2006"));
+        assertEquals("20030115200748000", UtilsCSWDate.mapDateFromIso8601ToIndex("20030115T200748"));
+    }
+	
     public final void testMapFromIgcToIso8601() {
         // NOTICE: Handle problem of summertime before summertime was introduced !
         // see https://dev.informationgrid.eu/redmine/issues/439
@@ -63,52 +72,57 @@ public class UtilsCSWDateTest extends TestCase {
         // Datum in Sommer muss eine Stunde dazu bekommen, da geliefertes Datum von Frontend
         // die Winterzeit war, also eine Stunde abgezogen wurde !
         // d.h. Tag wechselt in Sommerzeit !
-        assertEquals("1968-01-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("19680131230000000"));
-        assertEquals("1968-02-29T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("19680229230000000"));
+        assertEquals("1968-01-31T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19680131230000000"));
+        assertEquals("1968-02-29T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19680229230000000"));
         // here date changes to next day due to 1 hour added (fix wintertime date from frontend !)
-        assertEquals("1968-04-01T00:00:00", UtilsCSWDate.mapFromIgcToIso8601("19680331230000000"));
-        assertEquals("1968-05-01T00:00:00", UtilsCSWDate.mapFromIgcToIso8601("19680430230000000"));
-        assertEquals("1968-06-01T00:00:00", UtilsCSWDate.mapFromIgcToIso8601("19680531230000000"));
-        assertEquals("1968-07-01T00:00:00", UtilsCSWDate.mapFromIgcToIso8601("19680630230000000"));
-        assertEquals("1968-08-01T00:00:00", UtilsCSWDate.mapFromIgcToIso8601("19680731230000000"));
-        assertEquals("1968-09-01T00:00:00", UtilsCSWDate.mapFromIgcToIso8601("19680831230000000"));
-        assertEquals("1968-10-01T00:00:00", UtilsCSWDate.mapFromIgcToIso8601("19680930230000000"));
+        assertEquals("1968-04-01T00:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19680331230000000"));
+        assertEquals("1968-05-01T00:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19680430230000000"));
+        assertEquals("1968-06-01T00:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19680531230000000"));
+        assertEquals("1968-07-01T00:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19680630230000000"));
+        assertEquals("1968-08-01T00:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19680731230000000"));
+        assertEquals("1968-09-01T00:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19680831230000000"));
+        assertEquals("1968-10-01T00:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19680930230000000"));
         // here wintertime again, data from frontend is correct
-        assertEquals("1968-10-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("19681031230000000"));
-        assertEquals("1968-11-30T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("19681130230000000"));
-        assertEquals("1968-12-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("19681231230000000"));
+        assertEquals("1968-10-31T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19681031230000000"));
+        assertEquals("1968-11-30T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19681130230000000"));
+        assertEquals("1968-12-31T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("19681231230000000"));
 
         // Mit existierender Sommerzeit (2000)
         // Tests mit erster Tag des Monats 23:00
         // Datum 1:1 übernehmen
-        assertEquals("2000-01-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20000101230000000"));
-        assertEquals("2000-02-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20000201230000000"));
-        assertEquals("2000-03-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20000301230000000"));
-        assertEquals("2000-04-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20000401230000000"));
-        assertEquals("2000-05-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20000501230000000"));
-        assertEquals("2000-06-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20000601230000000"));
-        assertEquals("2000-07-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20000701230000000"));
-        assertEquals("2000-08-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20000801230000000"));
-        assertEquals("2000-09-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20000901230000000"));
-        assertEquals("2000-10-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20001001230000000"));
-        assertEquals("2000-11-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20001101230000000"));
-        assertEquals("2000-12-01T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20001201230000000"));
+        assertEquals("2000-01-01T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20000101230000000"));
+        assertEquals("2000-02-01T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20000201230000000"));
+        assertEquals("2000-03-01T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20000301230000000"));
+        assertEquals("2000-04-01T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20000401230000000"));
+        assertEquals("2000-05-01T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20000501230000000"));
+        assertEquals("2000-06-01T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20000601230000000"));
+        assertEquals("2000-07-01T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20000701230000000"));
+        assertEquals("2000-08-01T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20000801230000000"));
+        assertEquals("2000-09-01T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20000901230000000"));
+        assertEquals("2000-10-01T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20001001230000000"));
+        assertEquals("2000-11-01T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20001101230000000"));
+        assertEquals("2000-12-01T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20001201230000000"));
 
         // Mit existierender Sommerzeit (2010)
         // Tests mit letzter Tag des Monats 23:00 Uhr
         // Datum 1:1 übernehmen
-        assertEquals("2010-01-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20100131230000000"));
-        assertEquals("2010-02-28T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20100228230000000"));
-        assertEquals("2010-03-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20100331230000000"));
-        assertEquals("2010-04-30T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20100430230000000"));
-        assertEquals("2010-05-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20100531230000000"));
-        assertEquals("2010-06-30T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20100630230000000"));
-        assertEquals("2010-07-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20100731230000000"));
-        assertEquals("2010-08-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20100831230000000"));
-        assertEquals("2010-09-30T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20100930230000000"));
-        assertEquals("2010-10-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20101031230000000"));
-        assertEquals("2010-11-30T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20101130230000000"));
-        assertEquals("2010-12-31T23:00:00", UtilsCSWDate.mapFromIgcToIso8601("20101231230000000"));
+        assertEquals("2010-01-31T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20100131230000000"));
+        assertEquals("2010-02-28T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20100228230000000"));
+        assertEquals("2010-03-31T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20100331230000000"));
+        assertEquals("2010-04-30T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20100430230000000"));
+        assertEquals("2010-05-31T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20100531230000000"));
+        assertEquals("2010-06-30T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20100630230000000"));
+        assertEquals("2010-07-31T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20100731230000000"));
+        assertEquals("2010-08-31T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20100831230000000"));
+        assertEquals("2010-09-30T23:00:00.000+0200", UtilsCSWDate.mapFromIgcToIso8601("20100930230000000"));
+        assertEquals("2010-10-31T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20101031230000000"));
+        assertEquals("2010-11-30T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20101130230000000"));
+        assertEquals("2010-12-31T23:00:00.000+0100", UtilsCSWDate.mapFromIgcToIso8601("20101231230000000"));
+        
+        assertEquals("2017-01-23", UtilsCSWDate.mapFromIgcToIso8601("20170123"));
+        assertEquals("2016-03-12T13:10:45", UtilsCSWDate.mapFromIgcToIso8601("20160312131045"));
+        assertEquals("2016-03-12T13:10:45.143+0100", UtilsCSWDate.mapFromIgcToIso8601("20160312131045143"));
+        
     }
 
     public final void testFixIgcDateString() {
@@ -187,5 +201,6 @@ public class UtilsCSWDateTest extends TestCase {
         assertEquals("20101031230000000", UtilsCSWDate.fixIgcDateString("20101031230000000"));
         assertEquals("20101130230000000", UtilsCSWDate.fixIgcDateString("20101130230000000"));
         assertEquals("20101231230000000", UtilsCSWDate.fixIgcDateString("20101231230000000"));
+    
     }
 }
