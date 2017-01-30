@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2016 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2017 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -117,6 +117,15 @@ public class UtilsDate {
                 result = df.parse(dateString);
             } else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]")) {
                 df.applyPattern("yyyy-MM");
+                result = df.parse(dateString);
+            } else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]:[0-5][0-9]")) {
+                df.applyPattern("yyyy-MM-dd HH:mm:ss");
+                result = df.parse(dateString);
+            } else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9]")) {
+                df.applyPattern("yyyy-MM-dd'T'HH:mm:ss");
+                result = df.parse(dateString);
+            } else if (dateString.matches("[0-9][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-5][0-9]:[0-5][0-9].*[0-2][0-9]:[0-5][0-9]")) {
+                df.applyPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
                 result = df.parse(dateString);
             } else if (dateString.matches("[0-9][0-9][0-9][0-9]")) {
                 df.applyPattern("yyyy");

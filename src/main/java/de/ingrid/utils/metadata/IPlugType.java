@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2016 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2017 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -24,5 +24,5 @@ package de.ingrid.utils.metadata;
 
 public enum IPlugType {
 
-    IPLUG_SE, IPLUG_DSC, IPLUG_SNS, IPLUG_TAMINO, IPLUG_FPN, IPLUG_G2K, IPLUG_CSW, IPLUG_CSW_DSC, IPLUG_WFS_DSC, IPLUG_DSC_MAPCLIENT, IPLUG_OPENSEARCH, IPLUG_BASE, IPLUG_EXCEL, IPLUG_XML, OTHER
+    IPLUG_SE, IPLUG_DSC, IPLUG_SNS, IPLUG_TAMINO, IPLUG_FPN, IPLUG_G2K, IPLUG_CSW, IPLUG_CSW_DSC, IPLUG_WFS_DSC, IPLUG_DSC_MAPCLIENT, IPLUG_OPENSEARCH, IPLUG_BASE, IPLUG_EXCEL, IPLUG_XML, IPLUG_CKAN, OTHER
 }
