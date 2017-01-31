@@ -42,6 +42,8 @@ public class UtilsCSWDate {
 
 	
     private final static Log log = LogFactory.getLog(UtilsDate.class);
+    
+    private final static  SimpleDateFormat YYYY = new SimpleDateFormat("yyyy");
 	
     /** Type of Pattern for date formatter */
     private enum PatternType {
@@ -55,8 +57,12 @@ public class UtilsCSWDate {
 		}
 
         try {
-            javax.xml.bind.DatatypeConverter.parseDateTime( dateString );
-            return true;
+            Calendar c = javax.xml.bind.DatatypeConverter.parseDateTime( dateString );
+            // check if the year of the parsed date fits the source datestring
+            // we need to make this check, because DatatypeConverter.parseDateTime also
+            // accepts source strings like '20061012000000000' and parses this to 
+            // '275323773-06-28T19:08:16'
+            return YYYY.format( c.getTime()).equals( dateString.substring( 0, 4 ) );
         } catch (Exception e) {
             return false;
         }
