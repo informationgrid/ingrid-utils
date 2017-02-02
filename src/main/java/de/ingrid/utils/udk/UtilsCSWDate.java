@@ -242,7 +242,7 @@ public class UtilsCSWDate {
                     return "yyyyMMddHHmmssSSS";
                 }
                 if (pType == PatternType.CSW) {
-                    return "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+                    return "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
                 }
             } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9]")) {
                 if (pType == PatternType.IGC) {
