@@ -35,7 +35,7 @@ import de.ingrid.utils.ElasticDocument;
 import de.ingrid.utils.json.JsonUtil;
 
 /**
- * Helper class encapsulating functionality on Lucene Index (e.g. used in
+ * Helper class encapsulating functionality for manipulating an ElasticDocument (e.g. used in
  * mapping script). Must be instantiated to be thread safe.
  * 
  * @author Martin
@@ -48,16 +48,30 @@ public class IndexUtils {
 
     private static String CONTENT_FIELD_NAME = "content";
 
-    /** the Lucene Document where the fields are added ! */
-    private ElasticDocument luceneDoc = null;
+    /** the ElasticDocument where the fields are added ! */
+    private ElasticDocument elasticDoc = null;
 
-    // @Deprecated
-    // private static Stemmer _defaultStemmer;
 
-    public IndexUtils(ElasticDocument luceneDoc) {
-        this.luceneDoc = luceneDoc;
+    
+    /**
+     * Constructor, initializes the utility class with an elastic search document.
+     * 
+     * @param elasticDoc
+     */
+    public IndexUtils(ElasticDocument elasticDoc) {
+        this.elasticDoc = elasticDoc;
     }
 
+    
+    /**
+     * Returns the elastic search Document.
+     * 
+     * @return
+     */
+    public ElasticDocument getDocument() {
+        return this.elasticDoc;
+    }
+    
     /**
      * Add a index field with the value to the index document. If analyzed=true
      * the field will be TOKENIZE, if analyze=false not (use this for IDs). The
@@ -73,14 +87,14 @@ public class IndexUtils {
         if (value == null) {
             value = "";
         }
-        this.luceneDoc.put( fieldName, value );
-        if (analyzed && !value.isEmpty()) this.luceneDoc.put( CONTENT_FIELD_NAME, value );
+        this.elasticDoc.put( fieldName, value );
+        if (analyzed && !value.isEmpty()) this.elasticDoc.put( CONTENT_FIELD_NAME, value );
     }
 
     /**
      * Store a index field with the value to the index document. will not be
      * tokenized. Invokes the private add method, mainly for storing an idf as
-     * string, the wms indexer stores the idf already in the lucene index for
+     * string, the wms indexer stores the idf already in the elastic index for
      * faster fetching.
      * 
      * @param fieldName
@@ -109,7 +123,7 @@ public class IndexUtils {
         double val = 0;
         try {
             val = Double.parseDouble( value );
-            luceneDoc.put( fieldName, val );
+            elasticDoc.put( fieldName, val );
         } catch (Exception e) {
             if (log.isDebugEnabled()) {
                 log.debug( "Value '" + value + "' is not a number. Ignoring field '" + fieldName + "'." );
@@ -128,7 +142,7 @@ public class IndexUtils {
      */
     public void add(String fieldName, String value) throws IOException {
         if (log.isDebugEnabled()) {
-            log.debug( "Add field '" + fieldName + "' with value '" + value + "' to lucene document" );
+            log.debug( "Add field '" + fieldName + "' with value '" + value + "' to elastic document" );
         }
 
         add( fieldName, value, true );
@@ -139,7 +153,7 @@ public class IndexUtils {
             log.debug( "Add all fields to document" );
         }
 
-        luceneDoc.putAll( map );
+        elasticDoc.putAll( map );
     }
 
     public void addAllFromJSON(String jsonStr) throws ParseException {       
@@ -161,7 +175,7 @@ public class IndexUtils {
             log.debug( "Removed ALL fields with name '" + fieldName + "'." );
         }
 
-        luceneDoc.remove( fieldName );
+        elasticDoc.remove( fieldName );
     }
 
     /**
@@ -172,6 +186,6 @@ public class IndexUtils {
      * @param boost
      */
     public void addDocumentBoost(float boost) {
-        luceneDoc.put( BOOST, boost );
+        elasticDoc.put( BOOST, boost );
     }
 }
