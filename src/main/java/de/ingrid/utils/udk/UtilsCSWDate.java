@@ -266,6 +266,8 @@ public class UtilsCSWDate {
             log.error("getPatternFromIgcDateString failed (" + igcDateString + ", " + pType + ").", e);
         }
 
+        log.warn("Could NOT determine pattern from IGC date string '" + igcDateString + "' we return null !");
+
         return null;        
     }
     
