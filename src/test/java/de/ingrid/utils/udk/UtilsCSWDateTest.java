@@ -123,7 +123,7 @@ public class UtilsCSWDateTest extends TestCase {
         assertEquals("2010-12-31T23:00:00.000+01:00", UtilsCSWDate.mapFromIgcToIso8601("20101231230000000"));
         
         assertEquals("2017-01-23", UtilsCSWDate.mapFromIgcToIso8601("20170123"));
-        assertEquals("2016-03-12T13:10:45", UtilsCSWDate.mapFromIgcToIso8601("20160312131045"));
+        assertEquals("2016-03-12T13:10:45+01:00", UtilsCSWDate.mapFromIgcToIso8601("20160312131045"));
         assertEquals("2016-03-12T13:10:45.143+01:00", UtilsCSWDate.mapFromIgcToIso8601("20160312131045143"));
         
     }

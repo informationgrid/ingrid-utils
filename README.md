@@ -18,6 +18,12 @@ mvn eclipse:eclipse
 
 and import project into eclipse.
 
+You can also import this project as Maven-Project but since sources are generated you have to add the path
+```
+target/generated-sources/javacc
+```
+to the build path. With a "mvn compile" command the sources will be generated.
+
 Support
 -------
 

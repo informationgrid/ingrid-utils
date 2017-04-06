@@ -235,7 +235,7 @@ public class UtilsCSWDate {
                     return "yyyyMMddHHmmss";
                 }
                 if (pType == PatternType.CSW) {
-                    return "yyyy-MM-dd'T'HH:mm:ss";
+                    return "yyyy-MM-dd'T'HH:mm:ssXXX";
                 }
             } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9][0-9][0-9][0-9]")) {
                 if (pType == PatternType.IGC) {
@@ -251,10 +251,22 @@ public class UtilsCSWDate {
                 if (pType == PatternType.CSW) {
                     return "yyyy-MM-dd";
                 }
+            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9]")) {
+                // e.g. only year set in t011_obj_literature.publish_year but mapped to gmd:editionDate
+                if (pType == PatternType.IGC) {
+                    // used to transform igc date, e.g. 1995, into java date !
+                    return "yyyy";
+                }
+                if (pType == PatternType.CSW) {
+                    // used to transform java date from above to ISO XML
+                    return "yyyy-MM-dd";
+                }                
             }
         } catch (Exception e) {
             log.error("getPatternFromIgcDateString failed (" + igcDateString + ", " + pType + ").", e);
         }
+
+        log.warn("Could NOT determine pattern from IGC date string '" + igcDateString + "' we return null !");
 
         return null;        
     }
