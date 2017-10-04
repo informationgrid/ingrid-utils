@@ -94,6 +94,11 @@ public class UtilsLanguageCodelist {
 		languageCodelist_de.put(363, "Russisch");
 		languageCodelist_de.put(413, "Schwedisch");
 		languageCodelist_de.put(284, "Maltesisch");
+        languageCodelist_de.put(467, "Sorbisch");
+        languageCodelist_de.put(182, "Obersorbisch");
+        languageCodelist_de.put(113, "Niedersorbisch");
+        languageCodelist_de.put(142, "Friesisch");
+        languageCodelist_de.put(306, "Niedersächsisch");
 	}
 
 	/** MAP: IGC language code (150, 123, ...) to name of language in english <IGC language code, language name in english> */
@@ -123,6 +128,11 @@ public class UtilsLanguageCodelist {
 		languageCodelist_en.put(363, "Russian");
 		languageCodelist_en.put(413, "Swedish");
 		languageCodelist_en.put(284, "Maltese");
+        languageCodelist_en.put(467, "Sorbian");
+        languageCodelist_en.put(182, "Upper Sorbian");
+        languageCodelist_en.put(113, "Lower Sorbian");
+        languageCodelist_en.put(142, "Western Frisian");
+        languageCodelist_en.put(306, "Low Saxon");
 	}
 
 	/** MAP: ISO 639-1 language "shortcut" ("de", "en") to IGC language code <ISO 639-1 "shortcut", IGC language code>*/
@@ -152,6 +162,12 @@ public class UtilsLanguageCodelist {
 		languageISO639_1ToIGCCode.put("ru", 363);
 		languageISO639_1ToIGCCode.put("sv", 413);
 		languageISO639_1ToIGCCode.put("mt", 284);
+        languageISO639_1ToIGCCode.put("fy", 142);
+// NO ISO 639-1 codes for following languages !
+//      languageISO639_1ToIGCCode.put("wen", 467);
+//      languageISO639_1ToIGCCode.put("hsb", 182);
+//      languageISO639_1ToIGCCode.put("dsb", 113);
+//      languageISO639_1ToIGCCode.put("nds", 306);
 	}
 
 	/** MAP: ISO 639-2 language shortcut ("ger", "deu", "eng") to IGC language code <ISO 639-2 shortcut, IGC language code>*/
@@ -185,6 +201,11 @@ public class UtilsLanguageCodelist {
 		languageISO639_2ToIGCCode.put("rus", 363);
 		languageISO639_2ToIGCCode.put("swe", 413);
 		languageISO639_2ToIGCCode.put("mlt", 284);
+        languageISO639_2ToIGCCode.put("wen", 467);
+        languageISO639_2ToIGCCode.put("hsb", 182);
+        languageISO639_2ToIGCCode.put("dsb", 113);
+        languageISO639_2ToIGCCode.put("fry", 142);
+        languageISO639_2ToIGCCode.put("nds", 306);
 	}
 	
 
