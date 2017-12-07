@@ -188,4 +188,13 @@ public class IndexUtils {
     public void addDocumentBoost(float boost) {
         elasticDoc.put( BOOST, boost );
     }
+
+    /**
+     * Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key or mapped value is null.
+     * 
+     * @param fieldName The field name to check the value of
+     */
+    public void get(String fieldName) {
+        elasticDoc.get( fieldName );
+    }
 }
