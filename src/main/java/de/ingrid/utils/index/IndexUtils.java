@@ -33,6 +33,7 @@ import org.json.simple.parser.ParseException;
 
 import de.ingrid.utils.ElasticDocument;
 import de.ingrid.utils.json.JsonUtil;
+import java.util.HashMap;
 
 /**
  * Helper class encapsulating functionality for manipulating an ElasticDocument (e.g. used in
@@ -46,7 +47,7 @@ public class IndexUtils {
 
     private static final String BOOST = "boost";
 
-    private static String CONTENT_FIELD_NAME = "content";
+    private static final String CONTENT_FIELD_NAME = "content";
 
     /** the ElasticDocument where the fields are added ! */
     private ElasticDocument elasticDoc = null;
@@ -73,10 +74,11 @@ public class IndexUtils {
     }
     
     /**
-     * Add a index field with the value to the index document. If analyzed=true
-     * the field will be TOKENIZE, if analyze=false not (use this for IDs). The
+     * Map the index field with the value in the index document. The field will
+     * be TOKENIZEd If analyzed=true, otherwise not (use this for IDs). The
      * field will be stored and added to a separate "content" field
-     * (ADD_TO_CONTENT_FIELD) by default.
+     * (ADD_TO_CONTENT_FIELD) by default. The index field will be converted to
+     * lowercase before being added to the index.
      * 
      * @param fieldName
      *            name of the field in the index
@@ -87,6 +89,7 @@ public class IndexUtils {
         if (value == null) {
             value = "";
         }
+        fieldName = fieldName.toLowerCase();
         this.elasticDoc.put( fieldName, value );
         if (analyzed && !value.isEmpty()) this.elasticDoc.put( CONTENT_FIELD_NAME, value );
     }
@@ -152,8 +155,13 @@ public class IndexUtils {
         if (log.isDebugEnabled()) {
             log.debug( "Add all fields to document" );
         }
+        Map<String, Object> lcMap = new HashMap<>();
+        for(Map.Entry<? extends String, ? extends Object> entry: map.entrySet()) {
+            elasticDoc.put(
+                    entry.getKey().toLowerCase(),
+                    entry.getValue());
+        }
 
-        elasticDoc.putAll( map );
     }
 
     public void addAllFromJSON(String jsonStr) throws ParseException {       
