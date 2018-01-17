@@ -15,20 +15,17 @@
         <tag>HEAD</tag>
     </scm>
     <repositories>
-        <!--
-            Repo of parent pom needed, parent pom may not be installed locally
-            yet
-        -->
-        <repository>
-            <id>de.ingrid.all</id>
-            <name>Maven2 Repo InGrid</name>
-            <url>https://dev.informationgrid.eu/archiva/repository/ingrid-all</url>
-        </repository>
-        <repository>
-            <id>jetspeed-repository</id>
-            <name>jetspeed-repository</name>
-            <url>http://www.bluesunrise.com/maven2</url>
-        </repository>
+        <!-- Repo of parent pom needed, parent pom may not be installed locally yet -->
+      <repository>
+        <id>nexus</id>
+        <name>Nexus Repo</name>
+        <url>https://nexus.informationgrid.eu/repository/maven-public</url>
+      </repository>
+      <repository>
+        <id>jetspeed-repository</id>
+        <name>jetspeed-repository</name>
+        <url>http://www.bluesunrise.com/maven2</url>
+      </repository>
     </repositories>
     <dependencies>
         <dependency>
