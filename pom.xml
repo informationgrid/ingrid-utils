@@ -7,7 +7,7 @@
   <groupId>de.ingrid</groupId>
   <artifactId>ingrid-base-pom</artifactId>
   <packaging>pom</packaging>
-  <version>4.1.0</version>
+  <version>4.2.1</version>
   <name>ingrid-base-pom</name>
   <scm>
     <connection>scm:git:git@github.com:informationgrid/ingrid-base-pom.git</connection>
@@ -154,23 +154,23 @@
   </build>
   <repositories>
     <repository>
-      <id>de.ingrid.m2</id>
-      <name>Maven2 Repo InGrid</name>
-      <url>https://dev.informationgrid.eu/archiva/repository/ingrid-all</url>
+      <id>nexus</id>
+      <name>Nexus Repo InGrid</name>
+      <url>https://nexus.informationgrid.eu/repository/maven-public/</url>
     </repository>
   </repositories>
   <distributionManagement>
     <repository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>de.ingrid.m2</id>
-      <name>InGrid Repo Maven2</name>
-      <url>file:///srv/www/htdocs/ingrid/maven2</url>
+      <!-- <uniqueVersion>false</uniqueVersion> -->
+      <id>nexus</id>
+      <name>Nexus Repo InGrid</name>
+      <url>https://nexus.informationgrid.eu/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>de.ingrid.m2</id>
-      <name>InGrid Repo Maven2</name>
-      <url>file:///srv/www/htdocs/ingrid/maven2</url>
+      <!-- <uniqueVersion>false</uniqueVersion> -->
+      <id>nexus</id>
+      <name>Nexus Repo InGrid Snapshot</name>
+      <url>https://nexus.informationgrid.eu/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 
