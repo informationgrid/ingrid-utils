@@ -305,7 +305,8 @@ public abstract class AbstractIPlugOperatorInjector implements
 
 	@Override
 	public void injectMetaDatas(Metadata metadata) {
-		try {
+		// TODO: adapt to new structure
+		/*try {
 			IPlugOperatorFinder operatorFinder = createOperatorFinder();
 			Set<String> partnerSet = operatorFinder.findPartner();
 			Set<String> providerSet = operatorFinder.findProvider();
@@ -321,7 +322,7 @@ public abstract class AbstractIPlugOperatorInjector implements
 
 		} catch (IOException e) {
 			LOG.warn(e.getMessage(), e);
-		}
+		}*/
 
 	}
 
