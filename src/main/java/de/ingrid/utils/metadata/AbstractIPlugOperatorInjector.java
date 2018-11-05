@@ -411,7 +411,7 @@ public abstract class AbstractIPlugOperatorInjector implements
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOG.error("Error getting partner with providers", e);
 		}
 		return list;
 	}

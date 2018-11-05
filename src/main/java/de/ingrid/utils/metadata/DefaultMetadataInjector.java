@@ -28,8 +28,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import de.ingrid.utils.PlugDescription;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class DefaultMetadataInjector implements IMetadataInjector {
+
+	private static Log log = LogFactory.getLog(DefaultMetadataInjector.class);
 
 	private MetadataAnnotation _metaDataAnnotation;
 
@@ -62,7 +66,7 @@ public class DefaultMetadataInjector implements IMetadataInjector {
 			date = _metaDataAnnotation != null ? _format
 					.parse(_metaDataAnnotation.date()) : _releaseDate;
 		} catch (ParseException e) {
-			e.printStackTrace();
+			log.error("Error getting release date", e);
 		}
 		return date;
 	}
