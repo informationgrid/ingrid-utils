@@ -2,12 +2,12 @@
     <parent>
         <groupId>de.ingrid</groupId>
         <artifactId>ingrid-base-pom</artifactId>
-        <version>4.1.0</version>
+        <version>4.2.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>ingrid-utils</artifactId>
     <packaging>jar</packaging>
-    <version>4.1.5</version>
+    <version>4.6.0</version>
     <name>ingrid-utils</name>
     <scm>
         <connection>scm:git:git@github.com:informationgrid/ingrid-utils.git</connection>
@@ -15,20 +15,17 @@
         <tag>HEAD</tag>
     </scm>
     <repositories>
-        <!--
-            Repo of parent pom needed, parent pom may not be installed locally
-            yet
-        -->
-        <repository>
-            <id>de.ingrid.all</id>
-            <name>Maven2 Repo InGrid</name>
-            <url>https://dev.informationgrid.eu/archiva/repository/ingrid-all</url>
-        </repository>
-        <repository>
-            <id>jetspeed-repository</id>
-            <name>jetspeed-repository</name>
-            <url>http://www.bluesunrise.com/maven2</url>
-        </repository>
+        <!-- Repo of parent pom needed, parent pom may not be installed locally yet -->
+      <repository>
+        <id>nexus</id>
+        <name>Nexus Repo</name>
+        <url>https://nexus.informationgrid.eu/repository/maven-public</url>
+      </repository>
+      <repository>
+        <id>jetspeed-repository</id>
+        <name>jetspeed-repository</name>
+        <url>http://www.bluesunrise.com/maven2</url>
+      </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -69,7 +66,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
         <dependency>
