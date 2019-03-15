@@ -27,6 +27,8 @@ package de.ingrid.utils.iplug;
 
 import java.util.ArrayList;
 
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
+
 import de.ingrid.utils.PlugDescription;
 
 /**
@@ -96,6 +98,16 @@ public class IPlugVersionInspector {
             }
         }
         return false;
+    }
+    
+    public static boolean compareVersion(String checkVersion, String maxVersion) {
+        DefaultArtifactVersion version = new DefaultArtifactVersion(checkVersion);
+        DefaultArtifactVersion max = new DefaultArtifactVersion(maxVersion);
+
+        if (version.compareTo(max) < 0) {
+            return false;
+        }
+        return true;
     }
 
 }
