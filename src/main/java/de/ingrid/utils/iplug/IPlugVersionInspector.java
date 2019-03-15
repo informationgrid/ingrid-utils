@@ -101,11 +101,16 @@ public class IPlugVersionInspector {
     }
     
     public static boolean compareVersion(String checkVersion, String maxVersion) {
-        DefaultArtifactVersion version = new DefaultArtifactVersion(checkVersion);
-        DefaultArtifactVersion max = new DefaultArtifactVersion(maxVersion);
+        /*
+         * 
+         */
+        if(!checkVersion.equals("unknown")) {
+            DefaultArtifactVersion version = new DefaultArtifactVersion(checkVersion);
+            DefaultArtifactVersion max = new DefaultArtifactVersion(maxVersion);
 
-        if (version.compareTo(max) < 0) {
-            return false;
+            if (version.compareTo(max) < 0) {
+                return false;
+            }
         }
         return true;
     }

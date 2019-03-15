@@ -35,7 +35,7 @@ public class IPlugVersionInspectorTest extends TestCase {
         assertFalse(IPlugVersionInspector.compareVersion("1.2.0-SNAPSHOT", "1.2.0"));
         assertTrue(IPlugVersionInspector.compareVersion("1.2.0", "1.2.0-SNAPSHOT"));
         assertTrue(IPlugVersionInspector.compareVersion("1.2.0", "1.2.0"));
-        assertFalse(IPlugVersionInspector.compareVersion("unknown", "1.2.0"));
+        assertTrue(IPlugVersionInspector.compareVersion("unknown", "1.2.0"));
     }
 
 }
