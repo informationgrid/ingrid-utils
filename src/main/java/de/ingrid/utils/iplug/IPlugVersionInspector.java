@@ -102,7 +102,8 @@ public class IPlugVersionInspector {
     
     public static boolean compareVersion(String checkVersion, String maxVersion) {
         /*
-         * 
+         * Local iplug deployment get "unknown" as version, 
+         * so the function always return true. 
          */
         if(!checkVersion.equals("unknown")) {
             DefaultArtifactVersion version = new DefaultArtifactVersion(checkVersion);
