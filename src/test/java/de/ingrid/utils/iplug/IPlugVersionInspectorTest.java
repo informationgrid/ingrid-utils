@@ -20,49 +20,22 @@
  * limitations under the Licence.
  * **************************************************#
  */
-/*
- * Copyright (c) 1997-2005 by media style GmbH
- * 
- * $Source: /cvs/asp-search/src/java/com/ms/aspsearch/PermissionDeniedException.java,v $
- */
+package de.ingrid.utils.iplug;
 
-package de.ingrid.utils.query;
+import org.json.simple.parser.ParseException;
 
+import junit.framework.TestCase;
 
-/**
- * Term queries are queries having just one term.
- * 
- * created on 09.08.2005
- * 
- * @author sg
- * @version $Revision: 1.3 $
- */
-public class TermQuery extends IngridQuery {
+public class IPlugVersionInspectorTest extends TestCase {
 
-    private static final long serialVersionUID = 10L;
-
-    /**
-     * Constructs a term query
-     */
-    public TermQuery(boolean required, boolean prohibited, String term) {
-        super(required, prohibited, IngridQuery.TERM, term);
+    public void testCompareVersion() throws ParseException {
+        assertFalse(IPlugVersionInspector.compareVersion("1.1.0", "1.1.11"));
+        assertTrue(IPlugVersionInspector.compareVersion("1.1.0", "1.0.9"));
+        assertFalse(IPlugVersionInspector.compareVersion("1.1.0-SNAPSHOT", "1.2.0"));
+        assertFalse(IPlugVersionInspector.compareVersion("1.2.0-SNAPSHOT", "1.2.0"));
+        assertTrue(IPlugVersionInspector.compareVersion("1.2.0", "1.2.0-SNAPSHOT"));
+        assertTrue(IPlugVersionInspector.compareVersion("1.2.0", "1.2.0"));
+        assertTrue(IPlugVersionInspector.compareVersion("unknown", "1.2.0"));
     }
 
-    /**
-     * 
-     */
-    public TermQuery() {
-        // be serializable
-    }
-
-    /**
-     * @return the query term
-     */
-    public String getTerm() {
-        return (String) getContent();
-    }
-    
-    public int hashCode() {
-        return 31 + super.hashCode() + getTerm().hashCode();
-    }
 }

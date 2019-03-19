@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2018 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2019 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -26,6 +26,8 @@
 package de.ingrid.utils.iplug;
 
 import java.util.ArrayList;
+
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 
 import de.ingrid.utils.PlugDescription;
 
@@ -96,6 +98,22 @@ public class IPlugVersionInspector {
             }
         }
         return false;
+    }
+    
+    public static boolean compareVersion(String checkVersion, String maxVersion) {
+        /*
+         * Local iplug deployment get "unknown" as version, 
+         * so the function always return true. 
+         */
+        if(!checkVersion.equals("unknown")) {
+            DefaultArtifactVersion version = new DefaultArtifactVersion(checkVersion);
+            DefaultArtifactVersion max = new DefaultArtifactVersion(maxVersion);
+
+            if (version.compareTo(max) < 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
