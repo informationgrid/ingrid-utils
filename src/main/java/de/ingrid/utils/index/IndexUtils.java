@@ -20,20 +20,16 @@
  * limitations under the Licence.
  * **************************************************#
  */
-/**
- * 
- */
 package de.ingrid.utils.index;
-
-import java.io.IOException;
-import java.util.Map;
-
-import org.apache.log4j.Logger;
-import org.json.simple.parser.ParseException;
 
 import de.ingrid.utils.ElasticDocument;
 import de.ingrid.utils.json.JsonUtil;
-import java.util.HashMap;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
+import java.util.Map;
 
 /**
  * Helper class encapsulating functionality for manipulating an ElasticDocument (e.g. used in
@@ -43,7 +39,7 @@ import java.util.HashMap;
  */
 public class IndexUtils {
 
-    private static final Logger log = Logger.getLogger( IndexUtils.class );
+    private static final Logger log = LogManager.getLogger( IndexUtils.class );
 
     private static final String BOOST = "boost";
 
@@ -85,7 +81,7 @@ public class IndexUtils {
      * @param value
      *            content of the field !
      */
-    public void add(String fieldName, String value, boolean analyzed) throws IOException {
+    public void add(String fieldName, String value, boolean analyzed) {
         if (value == null) {
             value = "";
         }
@@ -122,7 +118,7 @@ public class IndexUtils {
      * @param value
      *            content of the field !
      */
-    public void addNumeric(String fieldName, String value) throws IOException {
+    public void addNumeric(String fieldName, String value) {
         double val = 0;
         try {
             val = Double.parseDouble( value );
@@ -143,7 +139,7 @@ public class IndexUtils {
      *            content of the field !
      * @throws IOException
      */
-    public void add(String fieldName, String value) throws IOException {
+    public void add(String fieldName, String value) {
         if (log.isDebugEnabled()) {
             log.debug( "Add field '" + fieldName + "' with value '" + value + "' to elastic document" );
         }
@@ -155,7 +151,6 @@ public class IndexUtils {
         if (log.isDebugEnabled()) {
             log.debug( "Add all fields to document" );
         }
-        Map<String, Object> lcMap = new HashMap<>();
         for(Map.Entry<? extends String, ? extends Object> entry: map.entrySet()) {
             elasticDoc.put(
                     entry.getKey().toLowerCase(),

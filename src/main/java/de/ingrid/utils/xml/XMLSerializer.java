@@ -36,9 +36,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import org.apache.log4j.Logger;
-
 import com.thoughtworks.xstream.XStream;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Serialize and de serialize objects to / from xml
@@ -50,7 +50,7 @@ import com.thoughtworks.xstream.XStream;
  */
 public class XMLSerializer {
     
-    private final Logger log = Logger.getLogger( XMLSerializer.class );
+    private final Logger log = LogManager.getLogger( XMLSerializer.class );
 
     private XStream fXStream;
 
