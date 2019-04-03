@@ -20,9 +20,22 @@
  * limitations under the Licence.
  * **************************************************#
  */
-package de.ingrid.utils.metadata;
+package de.ingrid.utils.iplug;
 
-public enum IPlugType {
+import org.json.simple.parser.ParseException;
 
-    IPLUG_SE, IPLUG_DSC, IPLUG_SNS, IPLUG_TAMINO, IPLUG_FPN, IPLUG_G2K, IPLUG_CSW, IPLUG_CSW_DSC, IPLUG_WFS_DSC, IPLUG_DSC_MAPCLIENT, IPLUG_OPENSEARCH, IPLUG_BASE, IPLUG_EXCEL, IPLUG_XML, IPLUG_CKAN, IPLUG_IGE, OTHER
+import junit.framework.TestCase;
+
+public class IPlugVersionInspectorTest extends TestCase {
+
+    public void testCompareVersion() throws ParseException {
+        assertFalse(IPlugVersionInspector.compareVersion("1.1.0", "1.1.11"));
+        assertTrue(IPlugVersionInspector.compareVersion("1.1.0", "1.0.9"));
+        assertFalse(IPlugVersionInspector.compareVersion("1.1.0-SNAPSHOT", "1.2.0"));
+        assertFalse(IPlugVersionInspector.compareVersion("1.2.0-SNAPSHOT", "1.2.0"));
+        assertTrue(IPlugVersionInspector.compareVersion("1.2.0", "1.2.0-SNAPSHOT"));
+        assertTrue(IPlugVersionInspector.compareVersion("1.2.0", "1.2.0"));
+        assertTrue(IPlugVersionInspector.compareVersion("unknown", "1.2.0"));
+    }
+
 }
