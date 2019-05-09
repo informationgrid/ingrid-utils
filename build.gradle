@@ -1,0 +1,59 @@
+buildscript {
+    dependencies {
+        classpath 'io.github.robwin:jgitflow-gradle-plugin:0.6.0'
+    }
+}
+plugins {
+    id 'java-library'
+    id 'distribution'
+    id 'maven-publish'
+    id "ca.coglinc.javacc" version "2.4.0"
+    id "com.github.hierynomus.license" version "0.15.0"
+    id 'net.nemerosa.versioning' version '2.6.1'
+}
+apply plugin: 'io.github.robwin.jgitflow'
+
+version = '5.1.0GRADLE-SNAPSHOT'
+apply from: 'parent.gradle'
+
+group 'de.ingrid'
+
+description = 'Basic utitility library for InGrid project'
+
+repositories {
+    maven {
+        url 'https://nexus.informationgrid.eu/repository/maven-public'
+    }
+}
+
+dependencies {
+    api 'com.thoughtworks.xstream:xstream:1.4.8'
+    api 'commons-logging:commons-logging:1.0.4'
+    api 'commons-codec:commons-codec:1.4'
+    api 'org.springframework:spring-beans:4.3.20.RELEASE'
+    api 'org.apache.logging.log4j:log4j-core:2.8.2'
+    api 'com.googlecode.json-simple:json-simple:1.1'
+    api 'org.apache.maven:maven-artifact:3.6.0'
+    api 'org.springframework:spring-context:4.3.20.RELEASE'
+    testCompile 'junit:junit:4.12'
+}
+
+compileJavacc {
+    inputDirectory = file('src/main/java/de/ingrid/utils/queryparser')
+    outputDirectory = file(project.buildDir.absolutePath + '/generated-sources/javacc')
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            pom {
+                scm {
+                    url = 'https://github.com/informationgrid/ingrid-utils'
+                    connection = 'scm:git:git@github.com:informationgrid/ingrid-utils.git'
+                    developerConnection = 'scm:git:git@github.com:informationgrid/ingrid-utils.git'
+                }
+            }
+            from components.java
+        }
+    }
+}

@@ -1,0 +1,42 @@
+// check out: https://docs.gradle.org/current/userguide/managing_dependency_configurations.html
+
+//apply plugin: 'net.nemerosa.versioning'
+apply plugin: 'com.github.hierynomus.license'
+
+compileJava.options.encoding = 'UTF-8'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+license {
+    ignoreFailures = true
+//    strictCheck = true
+    ext.year = Calendar.getInstance().get(Calendar.YEAR)
+    ext.name = "${project.name}"
+    excludes(["**/*.xml", "**/*.xsd", "**/*.properties", "**/*.json", "**/*.sql"])
+}
+
+jar {
+    manifest {
+        attributes(
+                'Implementation-Version': "${version}",
+//                'Implementation-Build': versioning.info.commit,
+                'Build-Timestamp': new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date())
+        )
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = 'Nexus wemove'
+            def releasesRepoUrl = 'https://nexus.informationgrid.eu/repository/maven-releases'
+            def snapshotsRepoUrl = 'https://nexus.informationgrid.eu/repository/maven-snapshots'
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username = "$mavenUser"
+                password = "$mavenPassword"
+            }
+        }
+    }
+}
