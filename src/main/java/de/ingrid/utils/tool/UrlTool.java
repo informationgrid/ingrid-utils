@@ -55,7 +55,7 @@ public class UrlTool {
      * @throws MalformedURLException
      * @throws URISyntaxException
      */
-    public static String getIdnUrlWithEncodedPath(String urlStr) throws MalformedURLException, URISyntaxException {
+    public static String getEncodedUnicodeUrl(String urlStr) throws MalformedURLException, URISyntaxException {
 
         // return if ascii only url
         // this also returns for already encoded urls
@@ -92,7 +92,7 @@ public class UrlTool {
      * @throws MalformedURLException
      * @throws URISyntaxException
      */
-    public static String getDecodedIdnUrl(String urlStr) throws MalformedURLException, URISyntaxException {
+    public static String getDecodedUnicodeUrl(String urlStr) throws MalformedURLException, URISyntaxException {
 
         URI uri = new URI(urlStr);
 

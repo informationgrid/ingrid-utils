@@ -33,30 +33,30 @@ public class UrlToolTest {
     @Test
     public void getIdnUrlWithEncodedPath() throws MalformedURLException, URISyntaxException {
 
-        Assert.assertEquals("http://www.domain.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fz%C3%BCge", UrlTool.getIdnUrlWithEncodedPath("http://www.domain.de/Fön/Frisur?muß=ja&preis=groß#Außzüge"));
+        Assert.assertEquals("http://www.domain.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fz%C3%BCge", UrlTool.getEncodedUnicodeUrl("http://www.domain.de/Fön/Frisur?muß=ja&preis=groß#Außzüge"));
 
-        Assert.assertEquals("http://www.xn--schnheit-p4a.de/", UrlTool.getIdnUrlWithEncodedPath("http://www.schönheit.de/"));
+        Assert.assertEquals("http://www.xn--schnheit-p4a.de/", UrlTool.getEncodedUnicodeUrl("http://www.schönheit.de/"));
 
-        Assert.assertEquals("http://www.xn--sigkeiten-g1a23a.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fz%C3%BCge", UrlTool.getIdnUrlWithEncodedPath("http://www.süßigkeiten.de/Fön/Frisur?muß=ja&preis=groß#Außzüge"));
+        Assert.assertEquals("http://www.xn--sigkeiten-g1a23a.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fz%C3%BCge", UrlTool.getEncodedUnicodeUrl("http://www.süßigkeiten.de/Fön/Frisur?muß=ja&preis=groß#Außzüge"));
 
-        Assert.assertEquals( "http://www.geilenkirchen.de/stadtplanung/bauleitplanung/rechtskraeftige-bauleitpl%C3%A4ne/", UrlTool.getIdnUrlWithEncodedPath("http://www.geilenkirchen.de/stadtplanung/bauleitplanung/rechtskraeftige-bauleitpl%C3%A4ne/"));
+        Assert.assertEquals( "http://www.geilenkirchen.de/stadtplanung/bauleitplanung/rechtskraeftige-bauleitpl%C3%A4ne/", UrlTool.getEncodedUnicodeUrl("http://www.geilenkirchen.de/stadtplanung/bauleitplanung/rechtskraeftige-bauleitpl%C3%A4ne/"));
 
-        Assert.assertEquals( "http://www.geilenkirchen.de/stadtplanung/bauleitplanung/rechtskraeftige-bauleitpl%C3%A4ne/", UrlTool.getIdnUrlWithEncodedPath("http://www.geilenkirchen.de/stadtplanung/bauleitplanung/rechtskraeftige-bauleitpläne/"));
+        Assert.assertEquals( "http://www.geilenkirchen.de/stadtplanung/bauleitplanung/rechtskraeftige-bauleitpl%C3%A4ne/", UrlTool.getEncodedUnicodeUrl("http://www.geilenkirchen.de/stadtplanung/bauleitplanung/rechtskraeftige-bauleitpläne/"));
 
-        Assert.assertEquals("http://www.xn--schnheit-p4a.de:8800/", UrlTool.getIdnUrlWithEncodedPath("http://www.schönheit.de:8800/"));
+        Assert.assertEquals("http://www.xn--schnheit-p4a.de:8800/", UrlTool.getEncodedUnicodeUrl("http://www.schönheit.de:8800/"));
 
-        Assert.assertEquals("https://www.xn--schnheit-p4a.de/", UrlTool.getIdnUrlWithEncodedPath("https://www.schönheit.de/"));
+        Assert.assertEquals("https://www.xn--schnheit-p4a.de/", UrlTool.getEncodedUnicodeUrl("https://www.schönheit.de/"));
 
     }
 
     @Test
     public void getDecodedIdnUrl() throws MalformedURLException, URISyntaxException {
 
-        Assert.assertEquals("http://www.süßigkeiten.de/Fön/Frisur?muß=ja&preis=groß#Außzüge", UrlTool.getDecodedIdnUrl("http://www.xn--sigkeiten-g1a23a.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fz%C3%BCge"));
+        Assert.assertEquals("http://www.süßigkeiten.de/Fön/Frisur?muß=ja&preis=groß#Außzüge", UrlTool.getDecodedUnicodeUrl("http://www.xn--sigkeiten-g1a23a.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fz%C3%BCge"));
 
-        Assert.assertEquals("http://www.schönheit.de:8800/", UrlTool.getDecodedIdnUrl("http://www.xn--schnheit-p4a.de:8800/"));
+        Assert.assertEquals("http://www.schönheit.de:8800/", UrlTool.getDecodedUnicodeUrl("http://www.xn--schnheit-p4a.de:8800/"));
 
-        Assert.assertEquals("https://www.schönheit.de/", UrlTool.getDecodedIdnUrl("https://www.xn--schnheit-p4a.de/"));
+        Assert.assertEquals("https://www.schönheit.de/", UrlTool.getDecodedUnicodeUrl("https://www.xn--schnheit-p4a.de/"));
     }
 
 }
