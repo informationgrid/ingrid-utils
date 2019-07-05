@@ -47,6 +47,11 @@ public class UrlToolTest {
 
         Assert.assertEquals("https://www.xn--schnheit-p4a.de/", UrlTool.getEncodedUnicodeUrl("https://www.schönheit.de/"));
 
+        Assert.assertEquals("http://www.xn--sigkeiten-g1a23a.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fz%C3%BCge", UrlTool.getEncodedUnicodeUrl("http://www.xn--sigkeiten-g1a23a.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fz%C3%BCge"));
+
+        // mixing of encoded/decoded URL parts are not supported
+        Assert.assertNotEquals("http://www.xn--sigkeiten-g1a23a.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fz%C3%BCge", UrlTool.getEncodedUnicodeUrl("http://www.xn--sigkeiten-g1a23a.de/F%C3%B6n/Frisur?mu%C3%9F=ja&preis=gro%C3%9F#Au%C3%9Fzüge"));
+
     }
 
     @Test
@@ -57,6 +62,14 @@ public class UrlToolTest {
         Assert.assertEquals("http://www.schönheit.de:8800/", UrlTool.getDecodedUnicodeUrl("http://www.xn--schnheit-p4a.de:8800/"));
 
         Assert.assertEquals("https://www.schönheit.de/", UrlTool.getDecodedUnicodeUrl("https://www.xn--schnheit-p4a.de/"));
+
+        Assert.assertEquals("https://www.schönheit.de:80/", UrlTool.getDecodedUnicodeUrl("https://www.xn--schnheit-p4a.de:80/"));
+
+        Assert.assertEquals("http://www.süßigkeiten.de/Fön/Frisur?muß=ja&preis=groß#Außzüge", UrlTool.getDecodedUnicodeUrl("http://www.süßigkeiten.de/Fön/Frisur?muß=ja&preis=groß#Außzüge"));
+
+        Assert.assertEquals("http://www.süßigkeiten.de/Fön/Frisur?muß=ja&preis=groß#Außzüge", UrlTool.getDecodedUnicodeUrl("http://www.xn--sigkeiten-g1a23a.de/Fön/Frisur?muß=ja&preis=groß#Außz%C3%BCge"));
+
+        Assert.assertEquals("http://www.süßigkeiten.de/Fön/Frisur?muß=ja&preis=groß#Außzüge", UrlTool.getDecodedUnicodeUrl("http://www.süßigkeiten.de/F%C3%B6n/Frisur?muß=ja&preis=groß#Außzüge"));
     }
 
 }

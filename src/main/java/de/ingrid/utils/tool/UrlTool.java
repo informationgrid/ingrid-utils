@@ -50,7 +50,10 @@ public class UrlTool {
      *      <li>the path, query and anchor is US-ASCII encoded</li>
      *    </ul>
      *
-     *    If the url was already encoded, return the URL as is.
+     *    <p>If the url was already encoded, return the URL as is.</p>
+     *    <br>
+     *    <p><strong>CAUTION: Mixing encoded and decoded url parts is not supported!</strong></p>
+     *
      *
      * @throws MalformedURLException
      * @throws URISyntaxException
@@ -98,16 +101,20 @@ public class UrlTool {
 
         final IDNA.Info idnaInfo = new IDNA.Info();
         final StringBuilder idnaOutput = new StringBuilder();
-        IDNA.getUTS46Instance(IDNA.NONTRANSITIONAL_TO_UNICODE).nameToUnicode(uri.getHost(), idnaOutput, idnaInfo);
+
+        try {
+            IDNA.getUTS46Instance(IDNA.NONTRANSITIONAL_TO_UNICODE).nameToUnicode(uri.getAuthority(), idnaOutput, idnaInfo);
+        } catch (Exception e) {
+            // use original host name as the hostname cannot be encoded
+            idnaOutput.append(uri.getAuthority());
+        }
 
         String s = uri.getScheme() + "://"
                 + (uri.getUserInfo() != null ? uri.getUserInfo() : "")
                 + idnaOutput.toString()
-                + (uri.getPort() != -1 && uri.getPort() != 80 ? ":" + uri.getPort() : "")
                 + uri.getPath()
                 + (uri.getQuery() != null ? "?" + uri.getQuery() : "")
                 + (uri.getFragment() != null ? "#" + uri.getFragment() : "");
-
 
         return s;
     }
