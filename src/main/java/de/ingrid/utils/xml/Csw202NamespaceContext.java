@@ -39,6 +39,7 @@ public class Csw202NamespaceContext implements NamespaceContext {
 	public static String NAMESPACE_URI_CSW = "http://www.opengis.net/cat/csw/2.0.2";
 	public static String NAMESPACE_URI_OGC = "http://www.opengis.net/ogc";
 	public static String NAMESPACE_URI_GMD = "http://www.isotc211.org/2005/gmd";
+	public static String NAMESPACE_URI_GMX = "http://www.isotc211.org/2005/gmx";
 	public static String NAMESPACE_URI_GCO = "http://www.isotc211.org/2005/gco";
 	public static String NAMESPACE_URI_SRV = "http://www.isotc211.org/2005/srv";
 	public static String NAMESPACE_URI_ISO = "http://www.opengis.net/cat/csw/apiso/1.0";
@@ -62,6 +63,8 @@ public class Csw202NamespaceContext implements NamespaceContext {
             return NAMESPACE_URI_OGC;
 		} else if (prefix.equals("gmd")) {
             return NAMESPACE_URI_GMD;
+		} else if (prefix.equals("gmx")) {
+            return NAMESPACE_URI_GMX;
 		} else if (prefix.equals("gco")) {
             return NAMESPACE_URI_GCO;
 		} else if (prefix.equals("srv")) {
