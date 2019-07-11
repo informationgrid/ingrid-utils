@@ -43,10 +43,12 @@ pipeline {
                     mavenSettingsConfig: '2529f595-4ac5-44c6-8b4f-f79b5c3f4bae'
                 ) {
                     // sh "git branch | grep "release/" | xargs git branch -D"
+                    // sh "git tag -d 5.1.0.1"
                     sh "mvn jgitflow:release-start -DreleaseVersion=${params.releaseVersion} -DdevelopmentVersion=${params.nextVersion}-SNAPSHOT -DallowUntracked -DperformRelease=true"
                     sh "mvn jgitflow:release-finish -DallowUntracked"
-                    sh "git push origin master --tags"
-                    sh "git push origin develop --tags"
+                }
+                withCredentials([usernamePassword(credentialsId: '77647a76-a18e-4ce0-8433-a61ab69bbe9f', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    sh "git push --all --tags https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/informationgrid/ingrid-utils"
                 }
             }
         }
