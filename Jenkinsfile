@@ -38,6 +38,8 @@ pipeline {
                 expression { params.RELEASE }
             }
             steps {
+                sh "git pull"
+
                 withMaven(
                     maven: 'Maven3',
                     mavenSettingsConfig: '2529f595-4ac5-44c6-8b4f-f79b5c3f4bae'
