@@ -38,6 +38,7 @@ pipeline {
                 expression { params.RELEASE }
             }
             steps {
+                sh "git checkout origin develop"
                 sh "git pull"
 
                 withMaven(
