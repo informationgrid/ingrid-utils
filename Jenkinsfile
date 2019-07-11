@@ -38,6 +38,9 @@ pipeline {
                 expression { params.RELEASE }
             }
             steps {
+                sh "git checkout develop"
+                sh "git pull"
+
                 withMaven(
                     maven: 'Maven3',
                     mavenSettingsConfig: '2529f595-4ac5-44c6-8b4f-f79b5c3f4bae'
@@ -49,6 +52,7 @@ pipeline {
                 }
                 withCredentials([usernamePassword(credentialsId: '77647a76-a18e-4ce0-8433-a61ab69bbe9f', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                     sh "git push --all https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/informationgrid/ingrid-utils"
+                    sh "git push --tags"
                 }
             }
         }
