@@ -1,12 +1,22 @@
 pipeline {
     agent any
 
+    parameters {
+        booleanParam(name: "RELEASE", description: "Build a release from current commit.", defaultValue: false)
+        string(name: 'releaseVersion', defaultValue: '0.0.1', description: 'What is the version of the release?')
+        string(name: 'nextVersion', defaultValue: '0.0.2', description: 'What is the next development version? "-SNAPSHOT" will be appended automatically!')
+        booleanParam(name: "deleteOldReleaseBranch", description: "Should the release branch from a previous aborted release be deleted.", defaultValue: false)
+    }
+
     options {
         buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '5'))
     }
 
     stages {
         stage('Build') {
+            when {
+                not { expression { params.RELEASE } }
+            }
             steps {
                 withMaven(
                     // Maven installation declared in the Jenkins "Global Tool Configuration"
@@ -22,6 +32,25 @@ pipeline {
                 } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs reports...
             }
         }
+
+        stage("Release") {
+            when {
+                expression { params.RELEASE }
+            }
+            steps {
+                withMaven(
+                    maven: 'Maven3',
+                    mavenSettingsConfig: '2529f595-4ac5-44c6-8b4f-f79b5c3f4bae'
+                ) {
+                    // sh "git branch | grep "release/" | xargs git branch -D"
+                    sh "mvn jgitflow:release-start -DreleaseVersion=${params.releaseVersion} -DdevelopmentVersion=${params.nextVersion}-SNAPSHOT -DallowUntracked -DperformRelease=true"
+                    sh "mvn jgitflow:release-finish -DallowUntracked"
+                    sh "git push origin master --tags"
+                    sh "git push origin develop --tags"
+                }
+            }
+        }
+
         stage ('SonarQube Analysis'){
             steps {
                 withMaven(
