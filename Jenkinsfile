@@ -39,10 +39,12 @@ pipeline {
                 expression { params.undoFailedRelease }
             }
             steps {
+                sh "git checkout master && git reset --hard origin/master && git pull"
+                sh "git checkout develop && git reset --hard origin/develop && git pull"
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "git checkout master && git reset --hard origin/master && git pull"
-                    sh "git checkout develop && git reset --hard origin/develop && git pull"
                     sh "git tag -d ${params.releaseVersion}"
+                }
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh 'git branch | grep "release/" | xargs git branch -D'
                 }
             }
