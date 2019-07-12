@@ -40,10 +40,10 @@ pipeline {
             }
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "git checkout master && git reset --hard origin/master"
-                    sh "git checkout develop && git reset --hard origin/develop"
-                    sh 'git branch | grep "release/" | xargs git branch -D'
+                    sh "git checkout master && git reset --hard origin/master && git pull"
+                    sh "git checkout develop && git reset --hard origin/develop && git pull"
                     sh "git tag -d ${params.releaseVersion}"
+                    sh 'git branch | grep "release/" | xargs git branch -D'
                 }
             }
         }
