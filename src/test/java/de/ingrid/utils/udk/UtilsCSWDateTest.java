@@ -40,6 +40,7 @@ public class UtilsCSWDateTest extends TestCase {
         assertEquals(true, UtilsCSWDate.isCSWDate("2016-03-01T00:00:00.000+01:00"));
         assertEquals(false, UtilsCSWDate.isCSWDate("2016-03-01T00:00:00.000+0100"));
         assertEquals(false, UtilsCSWDate.isCSWDate("20061012000000000"));
+        assertEquals(true, UtilsCSWDate.isCSWDate("2009-12-31T23:00:00+00:00"));
 	}
 	
 	
