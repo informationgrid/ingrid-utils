@@ -60,7 +60,7 @@ public class UtilsCSWDate {
         try {
             Calendar c = javax.xml.bind.DatatypeConverter.parseDateTime( dateString );
             Instant instant = c.toInstant();
-            ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, ZoneId.of(c.getTimeZone().getID()));
+            ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, c.getTimeZone().toZoneId());
             String year = Integer.toString(zonedDateTime.getYear());
 
             // check if the year of the parsed date fits the source datestring
