@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2019 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2020 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -26,6 +26,9 @@
 package de.ingrid.utils.udk;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.SimpleTimeZone;
@@ -42,9 +45,7 @@ public class UtilsCSWDate {
 
 	
     private final static Log log = LogFactory.getLog(UtilsDate.class);
-    
-    private final static  SimpleDateFormat YYYY = new SimpleDateFormat("yyyy");
-	
+
     /** Type of Pattern for date formatter */
     private enum PatternType {
         IGC,
@@ -58,11 +59,15 @@ public class UtilsCSWDate {
 
         try {
             Calendar c = javax.xml.bind.DatatypeConverter.parseDateTime( dateString );
+            Instant instant = c.toInstant();
+            ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, c.getTimeZone().toZoneId());
+            String year = Integer.toString(zonedDateTime.getYear());
+
             // check if the year of the parsed date fits the source datestring
             // we need to make this check, because DatatypeConverter.parseDateTime also
             // accepts source strings like '20061012000000000' and parses this to 
             // '275323773-06-28T19:08:16'
-            return YYYY.format( c.getTime()).equals( dateString.substring( 0, 4 ) );
+            return year.equals( dateString.substring( 0, 4 ) );
         } catch (Exception e) {
             return false;
         }
