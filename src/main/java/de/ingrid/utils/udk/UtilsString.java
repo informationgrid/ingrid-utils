@@ -48,5 +48,29 @@ public class UtilsString {
 			return val;		
 		}
 	}
+	
+    public static String gmlPosListToWktCoordinates(String posList) {
+        return gmlPosListToWktCoordinates(posList, null);
+    }
 
+    public static String gmlPosListToWktCoordinates(String posList, String type) {
+        if (posList == null || posList.isEmpty()) {
+            return "";
+        }
+
+        posList = posList.replace("/[\r\n]/g", "");
+        String coords = "";
+        String[] arr = posList.split(" ");
+        for(int i=0; i<arr.length; i+=2) {
+            if (!coords.isEmpty()) {
+                coords += ", ";
+            }
+            coords += arr[i] + " " + arr[i+1];
+        }
+        if(type != null) {
+            return type + " (" + coords + ")";
+        } else {
+            return "(" + coords + ")";
+        }
+    }
 }
