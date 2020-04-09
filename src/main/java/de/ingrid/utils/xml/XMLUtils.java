@@ -33,12 +33,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Text;
+import org.w3c.dom.*;
 
 public final class XMLUtils {
 
@@ -102,13 +97,20 @@ public final class XMLUtils {
 	
 	/**
 	 * Removes a node from an XML tree.
+	 *
 	 * @param node is the node to remove from the tree
-	 * @return the parent node of the deleted node
+	 * @return The parent node of the deleted node. In case of an attribute, the owner element of the attribute.
 	 */
 	public static Node remove(Node node) {
-	    Node parent = node.getParentNode();
-	    parent.removeChild( node );
-	    return parent;
+		if (node instanceof Attr) {
+			Element owner = ((Attr)node).getOwnerElement();
+			owner.removeAttributeNode(((Attr)node));
+			return owner;
+		} else {
+			Node parent = node.getParentNode();
+			parent.removeChild(node);
+			return parent;
+		}
 	}
 
 	/**
