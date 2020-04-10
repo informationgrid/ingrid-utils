@@ -41,12 +41,19 @@ public final class XMLUtils {
 	
 	public static String toString(Document document)
 			throws TransformerException {
+		return toString(document, true);
+	}
+
+	public static String toString(Document document, boolean indent)
+			throws TransformerException {
 		StringWriter stringWriter = new StringWriter();
 		StreamResult streamResult = new StreamResult(stringWriter);
 		TransformerFactory transformerFactory = TransformerFactory
 				.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		if (indent) {
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		}
 		transformer.setOutputProperty(
 				"{http://xml.apache.org/xslt}indent-amount", "2");
 		transformer.setOutputProperty(OutputKeys.METHOD, "xml");
