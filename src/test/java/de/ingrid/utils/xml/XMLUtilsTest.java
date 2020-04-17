@@ -104,4 +104,18 @@ public class XMLUtilsTest extends TestCase {
 		
 	}
 
+	public void testRemoveNode() throws ParserConfigurationException, IOException, SAXException {
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		DocumentBuilder db = dbf.newDocumentBuilder();
+		Document doc = db.parse(new ByteArrayInputStream("<test><child1 a=\"1\">Hallo</child1><child2>Hello</child2></test>".getBytes("UTF-8")));
+		Node n = xpathUtils.getNode(doc, "//child2");
+		Node result = XMLUtils.remove(n);
+		assertEquals(false, xpathUtils.nodeExists(doc, "//child2"));
+		assertEquals("test", result.getNodeName());
+		n = xpathUtils.getNode(doc, "//child1/@a");
+		result = XMLUtils.remove(n);
+		assertEquals(false, xpathUtils.nodeExists(doc, "//child2/@a"));
+		assertEquals("child1", result.getNodeName());
+	}
+
 }
