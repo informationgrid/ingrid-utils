@@ -50,8 +50,10 @@ public class Csw202NamespaceContext implements NamespaceContext {
 	public static String NAMESPACE_URI_DC = "http://purl.org/dc/elements/1.1/";
 	public static String NAMESPACE_URI_INSPIRE_DS = "http://inspire.ec.europa.eu/schemas/inspire_ds/1.0";
 	public static String NAMESPACE_URI_INSPIRE_COMMON = "http://inspire.ec.europa.eu/schemas/common/1.0";
-	
-	
+	public static String NAMESPACE_URI_XSI = "http://www.w3.org/2001/XMLSchema-instance";
+	public static String NAMESPACE_URI_IGCTX = "http://informationgrid.eu/schemas/igctx";
+
+
 	/* (non-Javadoc)
 	 * @see javax.xml.namespace.NamespaceContext#getNamespaceURI(java.lang.String)
 	 */
@@ -85,6 +87,10 @@ public class Csw202NamespaceContext implements NamespaceContext {
 		    return NAMESPACE_URI_INSPIRE_DS;
 		} else if (prefix.equals("inspire_common")) {
 		    return NAMESPACE_URI_INSPIRE_COMMON;
+		} else if (prefix.equals("xsi")) {
+			return NAMESPACE_URI_XSI;
+		} else if (prefix.equals("igctx")) {
+			return NAMESPACE_URI_IGCTX;
 		} else {
             return XMLConstants.NULL_NS_URI;
 		}
