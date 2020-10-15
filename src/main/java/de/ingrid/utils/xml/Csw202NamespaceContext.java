@@ -51,7 +51,7 @@ public class Csw202NamespaceContext implements NamespaceContext {
 	public static String NAMESPACE_URI_INSPIRE_DS = "http://inspire.ec.europa.eu/schemas/inspire_ds/1.0";
 	public static String NAMESPACE_URI_INSPIRE_COMMON = "http://inspire.ec.europa.eu/schemas/common/1.0";
 	public static String NAMESPACE_URI_XSI = "http://www.w3.org/2001/XMLSchema-instance";
-	public static String NAMESPACE_URI_IGCTX = "http://informationgrid.eu/schemas/igctx";
+	public static String NAMESPACE_URI_IGCTX = "https://www.ingrid-oss.eu/schemas/igctx";
 
 
 	/* (non-Javadoc)
