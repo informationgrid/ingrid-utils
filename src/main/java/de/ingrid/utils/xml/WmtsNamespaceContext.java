@@ -38,7 +38,7 @@ public class WmtsNamespaceContext implements NamespaceContext {
 	public static String NAMESPACE_URI_WMTS = "http://www.opengis.net/wmts/1.0";
 	public static String NAMESPACE_URI_OWS11 = "http://www.opengis.net/ows/1.1";
 	public static String NAMESPACE_URI_XSI = "http://www.w3.org/2001/XMLSchema-instance";
-	public static String NAMESPACE_URI_GML = "http://www.opengis.net/gml";
+	public static String NAMESPACE_URI_GML = "http://www.opengis.net/gml/3.2";
 	public static String NAMESPACE_URI_XLINK = "http://www.w3.org/1999/xlink";
 	
 	/* (non-Javadoc)

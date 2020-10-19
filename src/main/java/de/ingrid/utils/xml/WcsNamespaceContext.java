@@ -39,7 +39,7 @@ public class WcsNamespaceContext implements NamespaceContext {
 	public static String NAMESPACE_URI_WCS = "http://www.opengis.net/wcs";
 	public static String NAMESPACE_URI_DEGREE = "http://www.deegree.org";
 	public static String NAMESPACE_URI_XLINK = "http://www.w3.org/1999/xlink";
-	public static String NAMESPACE_URI_GML = "http://www.opengis.net/gml";
+	public static String NAMESPACE_URI_GML = "http://www.opengis.net/gml/3.2";
 	
 	
 	/* (non-Javadoc)
