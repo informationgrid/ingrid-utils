@@ -239,8 +239,11 @@ public class UtilsCSWDate {
     
     private static String getPatternFromIgcDateString(String igcDateString, PatternType pType) {
         try {
-            
-            if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]")) {
+
+            if (igcDateString == null) {
+                log.warn("IGC Datestring is null");
+                return null;
+            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]")) {
                 if (pType == PatternType.IGC) {
                     return "yyyyMMddHHmmss";
                 }
