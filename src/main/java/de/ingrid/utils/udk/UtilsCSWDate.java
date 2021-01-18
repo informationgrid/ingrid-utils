@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2020 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2021 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -239,8 +239,11 @@ public class UtilsCSWDate {
     
     private static String getPatternFromIgcDateString(String igcDateString, PatternType pType) {
         try {
-            
-            if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]")) {
+
+            if (igcDateString == null) {
+                log.warn("IGC Datestring is null");
+                return null;
+            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]")) {
                 if (pType == PatternType.IGC) {
                     return "yyyyMMddHHmmss";
                 }
