@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2020 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2021 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -57,17 +57,22 @@ public class UtilsCSWDate {
 		    return true;
 		}
 
+
         try {
+            // Note that W3C XML Schema 1.0 validation does not allow for the year field to have a value of zero.
             Calendar c = javax.xml.bind.DatatypeConverter.parseDateTime( dateString );
             Instant instant = c.toInstant();
+
             ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, c.getTimeZone().toZoneId());
-            String year = Integer.toString(zonedDateTime.getYear());
+            int year = zonedDateTime.getYear();
 
             // check if the year of the parsed date fits the source datestring
             // we need to make this check, because DatatypeConverter.parseDateTime also
-            // accepts source strings like '20061012000000000' and parses this to 
+            // accepts source strings like '20061012000000000' and parses this to
             // '275323773-06-28T19:08:16'
-            return year.equals( dateString.substring( 0, 4 ) );
+            // Format Number to be 4 long and add negative sign if needed (e.g.:   0100  -0430 0025 etc.)
+            String  expectedYearString =  (year <= 0) ? String.format("-%04d", Math.abs(year-1)): String.format("%04d", Math.abs(year));
+            return dateString.startsWith(expectedYearString);
         } catch (Exception e) {
             return false;
         }
@@ -136,7 +141,7 @@ public class UtilsCSWDate {
 	                result = portalFormat.format(cal.getTime());
 	            } catch (Exception e) {
 				if (log.isDebugEnabled()) {
-					log.debug("Error converting date '" + dateIso8601 + "'. Does it conform to the ISO 8601 format?");
+                    log.debug("Error converting date '" + dateIso8601 + "'. Does it conform to the ISO 8601 format?");
 				}
 			}
 		}
@@ -147,7 +152,7 @@ public class UtilsCSWDate {
 	/**
 	 * Transform date strings of possible internal representations into ISO 8601 compliant formats.
 	 * 
-	 * @param igcDate
+	 * @param inIgcDateString
 	 * @return
 	 */
 	public static String mapFromIgcToIso8601(String inIgcDateString) {
@@ -234,8 +239,11 @@ public class UtilsCSWDate {
     
     private static String getPatternFromIgcDateString(String igcDateString, PatternType pType) {
         try {
-            
-            if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]")) {
+
+            if (igcDateString == null) {
+                log.warn("IGC Datestring is null");
+                return null;
+            } else if (igcDateString.matches("[0-9][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]")) {
                 if (pType == PatternType.IGC) {
                     return "yyyyMMddHHmmss";
                 }
