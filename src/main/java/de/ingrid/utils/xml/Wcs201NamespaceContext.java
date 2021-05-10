@@ -38,6 +38,7 @@ public class Wcs201NamespaceContext implements NamespaceContext {
 	public static String NAMESPACE_URI_GML = "http://www.opengis.net/gml/3.2";
 	public static String NAMESPACE_URI_OWS = "http://www.opengis.net/ows/2.0";
 	public static String NAMESPACE_URI_GMLCOV = "http://www.opengis.net/gmlcov/1.0";
+	public static String NAMESPACE_URI_CRS = "http://www.opengis.net/wcs/crs/1.0";
 
 
 	/* (non-Javadoc)
@@ -58,6 +59,8 @@ public class Wcs201NamespaceContext implements NamespaceContext {
 				return NAMESPACE_URI_OWS;
 			case "gmlcov":
 				return NAMESPACE_URI_GMLCOV;
+			case "crs":
+				return NAMESPACE_URI_CRS;
 			default:
 				return XMLConstants.NULL_NS_URI;
 		}
