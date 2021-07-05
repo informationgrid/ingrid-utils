@@ -148,6 +148,8 @@ public class IngridQuery extends IngridDocument {
     /***/
     public static final String QUERY_DENY = "metainfo:query_deny";
 
+    public static final String ORIGIN = "origin";
+
     private transient IngridQuery fLastAddedQuery;
     
     private boolean _wasAnd = false;
