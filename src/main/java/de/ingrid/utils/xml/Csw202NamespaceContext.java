@@ -44,7 +44,8 @@ public class Csw202NamespaceContext implements NamespaceContext {
 	public static String NAMESPACE_URI_SRV = "http://www.isotc211.org/2005/srv";
 	public static String NAMESPACE_URI_ISO = "http://www.opengis.net/cat/csw/apiso/1.0";
 	public static String NAMESPACE_URI_XLINK = "http://www.w3.org/1999/xlink";
-	public static String NAMESPACE_URI_GML = "http://www.opengis.net/gml";
+	public static String NAMESPACE_URI_GML_311 = "http://www.opengis.net/gml";
+	public static String NAMESPACE_URI_GML = "http://www.opengis.net/gml/3.2";
 	public static String NAMESPACE_URI_OWS = "http://www.opengis.net/ows";
 	public static String NAMESPACE_URI_DCT = "http://purl.org/dc/terms/";
 	public static String NAMESPACE_URI_DC = "http://purl.org/dc/elements/1.1/";
@@ -77,6 +78,8 @@ public class Csw202NamespaceContext implements NamespaceContext {
             return NAMESPACE_URI_XLINK;
 		} else if (prefix.equals("gml")) {
             return NAMESPACE_URI_GML;
+		} else if (prefix.equals("gml311")) {
+            return NAMESPACE_URI_GML_311;
 		} else if (prefix.equals("ows")) {
             return NAMESPACE_URI_OWS;
 		} else if (prefix.equals("dct")) {

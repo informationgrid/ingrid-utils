@@ -38,7 +38,7 @@ public class Wfs110NamespaceContext implements NamespaceContext {
 
 	public static String NAMESPACE_URI_WFS = "http://www.opengis.net/wfs";
 	public static String NAMESPACE_URI_OWS = "http://www.opengis.net/ows";
-	public static String NAMESPACE_URI_GML = "http://www.opengis.net/gml";
+	public static String NAMESPACE_URI_GML = "http://www.opengis.net/gml/3.2";
 	public static String NAMESPACE_URI_OGC = "http://www.opengis.net/ogc";
 	public static String NAMESPACE_URI_XLINK = "http://www.w3.org/1999/xlink";
 	public static String NAMESPACE_URI_INSPIRE_COMMON = "http://inspire.ec.europa.eu/schemas/common/1.0";
