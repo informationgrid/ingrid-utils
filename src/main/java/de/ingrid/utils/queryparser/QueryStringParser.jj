@@ -39,7 +39,9 @@ public class QueryStringParser {
      */
     public static IngridQuery parse(String queryString) throws ParseException {
     	QueryStringParser parser = new QueryStringParser(new StringReader(queryString));
-    	return parser.parse();
+    	IngridQuery query = parser.parse();
+    	query.put(IngridQuery.ORIGIN, queryString);
+    	return query;
     }
 }
 
@@ -65,7 +67,7 @@ PARSER_END(QueryStringParser)
 
 
 <DEFAULT> TOKEN : {
-  <AND:       ("AND" | "&&" | "+") >
+   <AND:       ("AND" | "&&" | "+") >
 | <OR:        ("OR" | "||") >
 | <NOT:       ("NOT" | "!" | "-") >
 | <LPAREN:    "(" >
@@ -110,9 +112,9 @@ IngridQuery parse() :
 		Token token;
 		IngridQuery query = new IngridQuery();
 	}
-	{	
-	 
-		
+	{
+
+
 		(
 			LOOKAHEAD(2) term(query, true, false)
 			| LOOKAHEAD(3) facets(query)
@@ -123,7 +125,7 @@ IngridQuery parse() :
 			| LOOKAHEAD(30) singleClause(query)
 			
 		)*
-	
+
 		{return  query;}
 	}
 
