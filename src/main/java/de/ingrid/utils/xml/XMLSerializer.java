@@ -37,6 +37,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -58,7 +59,8 @@ public class XMLSerializer {
      *  
      */
     public XMLSerializer() {
-	this.fXStream = new XStream();
+		this.fXStream = new XStream();
+		fXStream.addPermission(AnyTypePermission.ANY);
     }
 
     /**
