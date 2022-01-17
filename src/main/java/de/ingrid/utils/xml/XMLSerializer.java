@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2021 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -37,6 +37,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -58,7 +59,8 @@ public class XMLSerializer {
      *  
      */
     public XMLSerializer() {
-	this.fXStream = new XStream();
+		this.fXStream = new XStream();
+		fXStream.addPermission(AnyTypePermission.ANY);
     }
 
     /**

@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-iplug-se-iplug
  * ==================================================
- * Copyright (C) 2014 - 2021 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -23,6 +23,7 @@
 package de.ingrid.utils.statusprovider;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -317,6 +318,7 @@ public class StatusProvider {
 
         // serialize the Configuration instance to xml
         XStream xstream = new XStream();
+        xstream.addPermission(AnyTypePermission.ANY);
         String xml = xstream.toXML( states );
 
         // write the configuration to a temporary file first
@@ -382,6 +384,7 @@ public class StatusProvider {
             String xml = content.toString();
             if (xml.length() > 0) {
                 XStream xstream = new XStream();
+                xstream.addPermission(AnyTypePermission.ANY);
 
                 try {
                     this.states = (LinkedHashMap<String, State>) xstream.fromXML( xml );
