@@ -38,12 +38,20 @@ public class QueryStringParser {
      * @throws ParseException
      */
     public static IngridQuery parse(String queryString) throws ParseException {
+        return parse(queryString, false);
+    }
+
+    public static IngridQuery parse(String queryString, boolean hasCascade) throws ParseException {
     	QueryStringParser parser = new QueryStringParser(new StringReader(queryString));
     	IngridQuery query = new IngridQuery();
         try{
             query = parser.parse();
         } catch (ParseException pe){
-
+            if (!hasCascade) {
+                query = parse("\"" + queryString + "\"", true);
+            } else {
+                throw new ParseException("QueryStringParser class");
+            }
         }
     	query.put(IngridQuery.ORIGIN, queryString);
     	return query;
