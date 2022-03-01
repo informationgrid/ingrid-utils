@@ -46,14 +46,20 @@ public class QueryStringParser {
     	IngridQuery query = new IngridQuery();
         try{
             query = parser.parse();
-        } catch (ParseException pe){
+            query.put(IngridQuery.ORIGIN, queryString);
+        } catch (ParseException e){
+            if (!hasCascade) {
+                query = parse("\"" + queryString + "\"", true);
+            } else {
+                throw new ParseException("QueryStringParser class");
+            }
+        } catch (TokenMgrError e){
             if (!hasCascade) {
                 query = parse("\"" + queryString + "\"", true);
             } else {
                 throw new ParseException("QueryStringParser class");
             }
         }
-    	query.put(IngridQuery.ORIGIN, queryString);
     	return query;
     }
 }
