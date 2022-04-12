@@ -38,9 +38,28 @@ public class QueryStringParser {
      * @throws ParseException
      */
     public static IngridQuery parse(String queryString) throws ParseException {
+        return parse(queryString, false);
+    }
+
+    public static IngridQuery parse(String queryString, boolean hasCascade) throws ParseException {
     	QueryStringParser parser = new QueryStringParser(new StringReader(queryString));
-    	IngridQuery query = parser.parse();
-    	query.put(IngridQuery.ORIGIN, queryString);
+    	IngridQuery query = new IngridQuery();
+        try{
+            query = parser.parse();
+            query.put(IngridQuery.ORIGIN, queryString);
+        } catch (ParseException e){
+            if (!hasCascade) {
+                query = parse("\"" + queryString + "\"", true);
+            } else {
+                throw new ParseException("QueryStringParser class");
+            }
+        } catch (TokenMgrError e){
+            if (!hasCascade) {
+                query = parse("\"" + queryString + "\"", true);
+            } else {
+                throw new ParseException("QueryStringParser class");
+            }
+        }
     	return query;
     }
 }
@@ -107,7 +126,7 @@ PARSER_END(QueryStringParser)
 }
 
 IngridQuery parse() :
-	{ 
+	{
 		// variables
 		Token token;
 		IngridQuery query = new IngridQuery();
@@ -123,7 +142,7 @@ IngridQuery parse() :
 			| LOOKAHEAD(5) range(query, true , false)
 			| LOOKAHEAD(30) clause(query)
 			| LOOKAHEAD(30) singleClause(query)
-			
+
 		)*
 
 		{return  query;}
@@ -150,12 +169,12 @@ IngridQuery parse() :
             } catch (org.json.simple.parser.ParseException e) {
                 throw(new ParseException(e.getMessage()));
             }
-                
+
         }
     }
 
-	
-// term	
+
+// term
 	void term(IngridQuery q, boolean required, boolean prohibited ) :
 	{
 		Token t;
@@ -186,9 +205,9 @@ IngridQuery parse() :
 			}
 		}
 	}
-	
 
-	
+
+
 // field
 	void field(IngridQuery q, boolean required, boolean prohibited ) :
 	{
@@ -210,7 +229,7 @@ IngridQuery parse() :
 			} else {
 				term = value.image;
 			}
-			
+
 			if(fuzzy){
 				q.addFuzzyFieldQuery(new FuzzyFieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), term));
 			}else{
@@ -218,7 +237,7 @@ IngridQuery parse() :
 			}
 		}
 	}
-	
+
 
 // range queries
 
@@ -229,17 +248,17 @@ IngridQuery parse() :
 		Token goop2;
 		boolean in;
 	}
-	
+
 	{
 		(<AND> {required =true; } | <OR>{required = false; q.setLastQueryUnrequired(); } | <NOT> {prohibited =true; })?
 		key=<FIELD>
 		<RANGEIN_START> ( goop1=<RANGEIN_GOOP>|goop1=<RANGEIN_QUOTED> )
 	    [ <RANGEIN_TO> ] ( goop2=<RANGEIN_GOOP>|goop2=<RANGEIN_QUOTED> )
-	    <RANGEIN_END> 
+	    <RANGEIN_END>
 		{q.addRangeQuery(new RangeQuery(required,prohibited, key.image.substring(0, key.image.length() -1).toLowerCase(), goop1.image, goop2.image, true ));}
 	}
-	
-	
+
+
 // wildcard queries
 	void wildCard(IngridQuery q, boolean required, boolean prohibited) :
 	{
@@ -252,13 +271,13 @@ IngridQuery parse() :
 		(value=<WILDTERM>|value=<PREFIXTERM>)
 		{q.addWildCardFieldQuery(new WildCardFieldQuery( required, prohibited,  key.image.substring(0, key.image.length() -1).toLowerCase(), value.image));}
 	}
-	
+
 
 // clause...
 	void singleClause(IngridQuery q) :
 	{
 		Token t;
-		boolean required = true;	
+		boolean required = true;
 		boolean prohibited = false;
 	}
 	{
@@ -272,18 +291,18 @@ IngridQuery parse() :
 				| LOOKAHEAD(5) range(q, required , prohibited)
 				| LOOKAHEAD(30) singleClause(q)
 				| LOOKAHEAD(30) clause(q)
-				
+
 		)
-		<RPAREN> 
+		<RPAREN>
 	}
-		
+
 
 // clause...
 	void clause(IngridQuery q) :
-	{   
+	{
 		ClauseQuery query;
 		Token t;
-		boolean required = true;	
+		boolean required = true;
 		boolean prohibited = false;
 	}
 	{
@@ -291,7 +310,7 @@ IngridQuery parse() :
 		{query =  new ClauseQuery( required, prohibited );}
 		<LPAREN>
 		 (
-		 		LOOKAHEAD(3) term(query, true , false) 
+		 		LOOKAHEAD(3) term(query, true , false)
 				| LOOKAHEAD(3) wildCard(query, true , false)
 				| LOOKAHEAD(3) field(query, true , false)
 				| LOOKAHEAD(5) range(query, true , false)
@@ -299,15 +318,15 @@ IngridQuery parse() :
 				| LOOKAHEAD(30) clause(query)
 		)
 		(
-		 		LOOKAHEAD(3) term(query, true, false) 
+		 		LOOKAHEAD(3) term(query, true, false)
 				| LOOKAHEAD(3) wildCard(query, true , false)
 				| LOOKAHEAD(3) field(query, true , false)
 				| LOOKAHEAD(5) range(query, true , false)
 				| LOOKAHEAD(30) singleClause(query)
 				| LOOKAHEAD(30) clause(query)
 		)+
-		 
-		<RPAREN> 
+
+		<RPAREN>
 		{q.addClause(query);}
-	}	
-	
+	}
+
