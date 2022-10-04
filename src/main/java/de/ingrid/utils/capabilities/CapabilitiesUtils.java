@@ -111,17 +111,18 @@ public class CapabilitiesUtils {
             mappedType = "CSW";
     	}
         String parameters = "";
-        
+
         if (url.toLowerCase().indexOf("request=getcapabilities") == -1) {
             if (url.indexOf("?") == -1) {
-                parameters = "?";
+                // if getCapabilities-URL does not contain '?' it'll be not modified (#3369)
+                return "";
             }
             // if url or parameters already contains a ? or & at the end then do not add another one!
             if (!(url.lastIndexOf("?") == url.length() - 1 || parameters.length() > 0)
                     && !(url.lastIndexOf("&") == url.length() - 1)) {
                 parameters = "&";
             }
-            
+
             parameters += "REQUEST=GetCapabilities";
         }
         if (url.toLowerCase().indexOf("service=") == -1) {
