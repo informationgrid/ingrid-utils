@@ -82,4 +82,16 @@ public class StringUtil {
     public static boolean containsString(String[] stringArray, String stringToContain) {
     	return Arrays.asList(stringArray).contains(stringToContain);
     }
+    
+    public static boolean containsLetters(String string) {
+        if (string == null || string.isEmpty()) {
+            return false;
+        }
+        for (int i = 0; i < string.length(); ++i) {
+            if (Character.isLetter(string.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
