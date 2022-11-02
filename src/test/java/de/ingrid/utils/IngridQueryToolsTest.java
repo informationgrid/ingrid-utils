@@ -25,7 +25,6 @@ package de.ingrid.utils;
 import java.util.Iterator;
 import java.util.Vector;
 
-import de.ingrid.utils.IngridQueryTools;
 import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;

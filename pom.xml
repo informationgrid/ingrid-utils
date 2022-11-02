@@ -9,6 +9,7 @@
     <packaging>jar</packaging>
     <version>5.15.0-SNAPSHOT</version>
     <properties>
+        <java.version>17</java.version>
         <log4j2.version>2.17.1</log4j2.version>
         <spring.version>4.3.21.RELEASE</spring.version>
     </properties>
@@ -114,23 +115,6 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.openrewrite.maven</groupId>
-                <artifactId>rewrite-maven-plugin</artifactId>
-                <version>4.35.1</version>
-                <configuration>
-                    <activeRecipes>
-                        <recipe>org.openrewrite.java.migrate.Java8toJava11</recipe>
-                    </activeRecipes>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.openrewrite.recipe</groupId>
-                        <artifactId>rewrite-migrate-java</artifactId>
-                        <version>1.4.2</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
