@@ -22,17 +22,20 @@
  */
 package de.ingrid.utils.capabilities;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class CapabilitiesUtilsTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CapabilitiesUtilsTest {
 
     private String urlWithoutParams;
     private String urlWithRequestParam;
     private String urlWithServiceParam;
     private String urlWithAllParams;
 
-    protected void setUp() throws Exception {
-        super.setUp();
+    @BeforeEach
+    public void setUp() throws Exception {
 
         urlWithoutParams = "http://www.test.com/no-Params";
         urlWithRequestParam = "http://www.test.com/some-Params?REQUEST=getCapabilities";
@@ -40,6 +43,7 @@ public class CapabilitiesUtilsTest extends TestCase {
         urlWithAllParams = "http://www.test.com/all-Params?REQUEST=getCapabilities&SERVICE=WFS";
     }
 
+    @Test
     public void testGetAdditionalCapabilitiesParameterString() {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams ));
         assertEquals( "&SERVICE=CSW",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithRequestParam ));
@@ -47,6 +51,7 @@ public class CapabilitiesUtilsTest extends TestCase {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams ));
     }
 
+    @Test
     public void testGetAdditionalCapabilitiesParameterStringServiceType() {
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, CapabilitiesUtils.ServiceType.CSW ));
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, CapabilitiesUtils.ServiceType.WMS ));
@@ -73,6 +78,7 @@ public class CapabilitiesUtilsTest extends TestCase {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams, CapabilitiesUtils.ServiceType.WFS ));
     }
 
+    @Test
     public void testGetAdditionalCapabilitiesParameterStringInt() {
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, 1 ));
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, 2 ));
@@ -99,6 +105,7 @@ public class CapabilitiesUtilsTest extends TestCase {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams, 3 ));
     }
 
+    @Test
     public void testGetAdditionalCapabilitiesParameterStringString() {
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, "view" ));
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, "download" ));

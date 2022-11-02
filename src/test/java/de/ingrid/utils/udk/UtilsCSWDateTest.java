@@ -25,15 +25,18 @@
  */
 package de.ingrid.utils.udk;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author joachim
  *
  */
-public class UtilsCSWDateTest extends TestCase {
+public class UtilsCSWDateTest {
 
-	public final void testIsCSWDate() {
+    @Test
+    public final void testIsCSWDate() {
 		assertEquals(true, UtilsCSWDate.isCSWDate("20061012"));
 		assertEquals(true, UtilsCSWDate.isCSWDate("2001-01-15T20:07:48.11"));
 		assertEquals(true, UtilsCSWDate.isCSWDate("2001-01-15T20:07:48.11Z"));
@@ -42,13 +45,15 @@ public class UtilsCSWDateTest extends TestCase {
         assertEquals(false, UtilsCSWDate.isCSWDate("20061012000000000"));
         assertEquals(true, UtilsCSWDate.isCSWDate("2009-12-31T23:00:00+00:00"));
 	}
-	
-	
-	public final void testGetDBDateStyle() {
+
+
+    @Test
+    public final void testGetDBDateStyle() {
 		assertEquals("20061012", UtilsCSWDate.getQueryDateStyle("2006-10-12"));
 		assertEquals("20061012", UtilsCSWDate.getQueryDateStyle("20061012T121247"));
 	}
-	
+
+    @Test
     public final void testMapDateFromIso8601ToIndex() {
         assertEquals("20170113170148830", UtilsCSWDate.mapDateFromIso8601ToIndex("2017-01-13T17:01:48.83+01:00"));
         assertEquals("20020115210748110", UtilsCSWDate.mapDateFromIso8601ToIndex("2002-01-15T20:07:48.11Z"));
@@ -57,7 +62,8 @@ public class UtilsCSWDateTest extends TestCase {
         assertEquals("20060101000000000", UtilsCSWDate.mapDateFromIso8601ToIndex("2006"));
         assertEquals("20030115200748000", UtilsCSWDate.mapDateFromIso8601ToIndex("20030115T200748"));
     }
-	
+
+    @Test
     public final void testMapFromIgcToIso8601() {
         // NOTICE: Handle problem of summertime before summertime was introduced !
         // see https://dev.informationgrid.eu/redmine/issues/439
@@ -129,6 +135,7 @@ public class UtilsCSWDateTest extends TestCase {
         
     }
 
+    @Test
     public final void testFixIgcDateString() {
         // NOTICE: Handle problem of summertime before summertime was introduced !
         // see https://dev.informationgrid.eu/redmine/issues/439

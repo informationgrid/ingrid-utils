@@ -24,10 +24,13 @@ package de.ingrid.utils.tool;
 
 import java.io.IOException;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class GZipToolTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+public class GZipToolTest {
+
+    @Test
     public void testGZIP() throws IOException {
         
         String str = "Und ich duese, duese, duese, duese im Sauseschritt...";

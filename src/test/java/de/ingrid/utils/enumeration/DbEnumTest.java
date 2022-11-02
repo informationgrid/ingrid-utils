@@ -28,9 +28,11 @@
 
 package de.ingrid.utils.enumeration;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class DbEnumTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class DbEnumTest {
 
 	public enum IdcPermission implements IDbEnum {
 		// Entity Permissions
@@ -64,6 +66,7 @@ public class DbEnumTest extends TestCase {
 		String description;
 	}
 
+    @Test
     public void testDbEnum() throws Exception {
 		IdcPermission idcPerm = DbEnumUtil.mapDatabaseToEnumConst(IdcPermission.class, "write");
         assertEquals(idcPerm, IdcPermission.WRITE_SINGLE);

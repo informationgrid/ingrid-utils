@@ -22,10 +22,13 @@
  */
 package de.ingrid.utils.tool;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class StringUtilTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+public class StringUtilTest {
+
+    @Test
     public void testReplaceLineFeeds() {
     	String inString = "line1\nline2\rline3\n\r";
 //    	System.out.println("testReplaceLineFeeds with String '" + inString + "'");

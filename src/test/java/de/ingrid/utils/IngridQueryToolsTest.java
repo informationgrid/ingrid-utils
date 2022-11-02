@@ -33,19 +33,24 @@ import de.ingrid.utils.query.RangeQuery;
 import de.ingrid.utils.query.TermQuery;
 import de.ingrid.utils.query.WildCardFieldQuery;
 import de.ingrid.utils.queryparser.QueryStringParser;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /***/
-public class IngridQueryToolsTest extends TestCase {
+public class IngridQueryToolsTest {
 
     IngridQueryTools tools = null;
 
     /***/
-    protected void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() throws Exception {
         tools = new IngridQueryTools();
     }
 
     /***/
+    @Test
     public void testHasMethods() throws Exception {
         IngridQuery query = QueryStringParser.parse("fisch AND t01:test OR (hund OR katze)");
         assertTrue(tools.hasTerms(query));
@@ -79,6 +84,7 @@ public class IngridQueryToolsTest extends TestCase {
     }
 
     /***/
+    @Test
     public void testRemoveClauses() throws Exception {
         IngridQuery query = QueryStringParser.parse("c AND a OR (b NOT (weg)) or (a NOT (weg NOT (wegweg)))");
         // System.out.println(query.toString());
@@ -87,6 +93,7 @@ public class IngridQueryToolsTest extends TestCase {
     }
 
     /***/
+    @Test
     public void testGetTerms() throws Exception {
         IngridQuery query = QueryStringParser.parse("(a AND b) OR (c OR d OR f AND (a:1) OR c AND (a AND a:2))");
 
@@ -106,6 +113,7 @@ public class IngridQueryToolsTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testGetFields() throws Exception {
         IngridQuery query = QueryStringParser.parse("(t:f OR t:4) OR (b:a OR b:a OR (b:c) OR ((a:i) AND (wasser))))");
 
@@ -127,6 +135,7 @@ public class IngridQueryToolsTest extends TestCase {
 
     /**
      * @throws Exception */
+    @Test
     public void testGetWildCards() throws Exception {
 
         IngridQuery query = QueryStringParser
@@ -145,6 +154,7 @@ public class IngridQueryToolsTest extends TestCase {
     }
 
     /***/
+    @Test
     public void testGetRanges() throws Exception {
 
         IngridQuery query = QueryStringParser
@@ -160,6 +170,7 @@ public class IngridQueryToolsTest extends TestCase {
     }
 
     /***/
+    @Test
     public void testGetClauses() throws Exception {
         IngridQuery query = QueryStringParser.parse("A AND (A AND B) AND ((B AND C AND (C AND D)))");
         Vector<ClauseQuery> v = tools.getClausesAsVector(query, false, true);
@@ -189,6 +200,7 @@ public class IngridQueryToolsTest extends TestCase {
     }
 
     /***/
+    @Test
     public void testGetByName() throws Exception {
         IngridQuery query = QueryStringParser
                 .parse("(a AND b OR (t1:gesucht AND (e OR t2:gesucht)) AND c) OR (b) AND (a OR b OR t2:gesucht)");

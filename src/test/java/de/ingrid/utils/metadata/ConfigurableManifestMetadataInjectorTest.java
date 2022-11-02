@@ -27,18 +27,22 @@ package de.ingrid.utils.metadata;
 
 import java.util.Date;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author joachim
  *
  */
-public class ConfigurableManifestMetadataInjectorTest extends TestCase {
+public class ConfigurableManifestMetadataInjectorTest {
 
-	/**
-	 * Test method for {@link de.ingrid.utils.metadata.ConfigurableManifestMetadataInjector#ConfigurableManifestMetadataInjector(java.lang.String)}.
-	 */
-	public void testConfigurableManifestMetadataInjector() {
+    /**
+     * Test method for {@link de.ingrid.utils.metadata.ConfigurableManifestMetadataInjector#ConfigurableManifestMetadataInjector(java.lang.String)}.
+     */
+    @Test
+    public void testConfigurableManifestMetadataInjector() {
 		ConfigurableManifestMetadataInjector mi = new ConfigurableManifestMetadataInjector("org.springframework.beans.factory.xml.XmlBeanFactory");
 		Metadata metadata = new Metadata();
 		mi.injectMetaDatas(metadata);

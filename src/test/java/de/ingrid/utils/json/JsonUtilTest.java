@@ -25,12 +25,13 @@ package de.ingrid.utils.json;
 import java.util.List;
 
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.IngridDocument;
 
-public class JsonUtilTest extends TestCase {
+public class JsonUtilTest {
 
+    @Test
     public void testParseJsonToIngrid() throws ParseException {
         List<IngridDocument> result = JsonUtil.parseJsonToListOfIngridDocument("[\n" + 
         		"    {\n" + 

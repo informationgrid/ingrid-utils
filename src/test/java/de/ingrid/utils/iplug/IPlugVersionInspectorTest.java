@@ -23,11 +23,14 @@
 package de.ingrid.utils.iplug;
 
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class IPlugVersionInspectorTest extends TestCase {
+public class IPlugVersionInspectorTest {
 
+    @Test
     public void testCompareVersion() throws ParseException {
         assertFalse(IPlugVersionInspector.compareVersion("1.1.0", "1.1.11"));
         assertTrue(IPlugVersionInspector.compareVersion("1.1.0", "1.0.9"));

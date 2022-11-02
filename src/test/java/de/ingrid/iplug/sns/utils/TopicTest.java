@@ -27,7 +27,10 @@
  */
 package de.ingrid.iplug.sns.utils;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * 
@@ -35,13 +38,15 @@ import junit.framework.TestCase;
  *
  * @author hs
  */
-public class TopicTest extends TestCase {
+public class TopicTest {
     private static final String NAME = "name";
     private static final String ID = "id";
+
     /**
      * 
      */
-    public void testTopic(){
+    @Test
+    public void testTopic() {
         Topic topic = new Topic(null, 0, null, null, null, null);
         assertNotNull(topic);
         valid(null, topic.get(Topic.TOPIC_ID));
@@ -53,10 +58,12 @@ public class TopicTest extends TestCase {
         assertNotNull(topic);
         valid(NAME, topic.get(Topic.TOPIC_NAME)); 
     }
+
     /**
      * 
      */
-    public void testGetter(){
+    @Test
+    public void testGetter() {
         Topic topic = new Topic(null, 0, null, null, null, null);
         valid(null, topic.getTopicID());
         valid(null, topic.getTopicName());
@@ -65,11 +72,12 @@ public class TopicTest extends TestCase {
         topic = new Topic(null,0, ID, NAME, null, null);
         valid(NAME, topic.getTopicName()); 
     }
-    
+
     /**
      * 
      */
-    public void testSetter(){
+    @Test
+    public void testSetter() {
         // tests initial setting
         Topic topic = new Topic(null, 0,null, null, null, null);
         topic.setTopicID(ID);

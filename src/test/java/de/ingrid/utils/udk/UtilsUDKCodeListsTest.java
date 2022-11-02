@@ -25,10 +25,13 @@
  */
 package de.ingrid.utils.udk;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class UtilsUDKCodeListsTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+public class UtilsUDKCodeListsTest {
+
+    @Test
     public void testCodeList505ToUDK() {
         /* mapping of UDK addresstypes to CSW address types
         
@@ -57,6 +60,7 @@ public class UtilsUDKCodeListsTest extends TestCase {
         assertEquals(UtilsUDKCodeLists.codeList505ToUDK("10"), "9");
     }
 
+    @Test
     public void testUdkToCodeList505() {
         /* mapping of UDK addresstypes to CSW address types
         

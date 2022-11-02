@@ -24,12 +24,15 @@ package de.ingrid.utils.datatype;
 
 import java.beans.PropertyEditor;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class DataTypeEditorTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DataTypeEditorTest {
 
     PropertyEditor fEditor = new DataTypeEditor();
 
+    @Test
     public void testDataType() throws Exception {
         fEditor.setAsText("foo.bar.visible:false.type:catalog");
 
@@ -43,6 +46,7 @@ public class DataTypeEditorTest extends TestCase {
         assertEquals("foo.bar.visible:false.type:catalog", fEditor.getAsText());
     }
 
+    @Test
     public void testIncludedDataType() throws Exception {
         fEditor.setAsText("foo.bar.visible:false.type:catalog.include:foo2");
 

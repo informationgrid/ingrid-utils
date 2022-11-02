@@ -34,7 +34,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test for {@link de.ingrid.utils.IngridDocument}
@@ -46,11 +48,12 @@ import junit.framework.TestCase;
  * @author $Author: ${lastedit}
  * 
  */
-public class IngridDocumentTest extends TestCase {
+public class IngridDocumentTest {
 
     /**
      * @throws Exception
      */
+    @Test
     public void testGetValues() throws Exception {
         String aId = "aId";
         String content = "content";
@@ -60,10 +63,11 @@ public class IngridDocumentTest extends TestCase {
         document.put("foo", "bar");
         assertEquals("bar", document.get("foo"));
     }
-    
+
     /**
      * @throws Exception
      */
+    @Test
     public void testGetList() throws Exception {
         String key=new String();
         IngridDocument document = new IngridDocument("aId", "content");
@@ -88,6 +92,7 @@ public class IngridDocumentTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testGetter() throws Exception {
         Integer id = new Integer(Integer.MAX_VALUE);
         Integer content = new Integer(Integer.MIN_VALUE);
@@ -99,6 +104,7 @@ public class IngridDocumentTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testSerializbaleCheck() throws Exception {
         Integer id = new Integer(Integer.MAX_VALUE);
         Integer content = new Integer(Integer.MIN_VALUE);
@@ -122,6 +128,7 @@ public class IngridDocumentTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testReadAndWrite() throws Exception {
         // write
         Integer id = new Integer(Integer.MAX_VALUE);

@@ -26,43 +26,48 @@ import java.security.MessageDigest;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class IngridHitTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
-	public void testEquals() throws Exception {
+public class IngridHitTest {
+
+    @Test
+    public void testEquals() throws Exception {
 		IngridHit ingridHit1 = new IngridHit();
 		ingridHit1.setScore(1.0f);
 		IngridHit ingridHit2 = new IngridHit();
 		ingridHit2.setScore(2.0f);
-		assertFalse(ingridHit1.equals(ingridHit2));
+        assertNotEquals(ingridHit1, ingridHit2);
 
 		ingridHit1.setDocumentId("foo");
 		ingridHit2.setDocumentId("bar");
-		assertFalse(ingridHit1.equals(ingridHit2));
+        assertNotEquals(ingridHit1, ingridHit2);
 
 		ingridHit1.setDocumentId("foo");
 		ingridHit2.setDocumentId("foo");
-		assertTrue(ingridHit1.equals(ingridHit2));
+        assertEquals(ingridHit1, ingridHit2);
 	}
 
-	public void testHashcode() throws Exception {
+    @Test
+    public void testHashcode() throws Exception {
 		IngridHit ingridHit1 = new IngridHit();
 		ingridHit1.setScore(1.0f);
 		IngridHit ingridHit2 = new IngridHit();
 		ingridHit2.setScore(2.0f);
-		assertFalse(ingridHit1.hashCode() == ingridHit2.hashCode());
+        assertNotNull(ingridHit2.hashCode());
 
 		ingridHit1.setDocumentId("foo");
 		ingridHit2.setDocumentId("bar");
-		assertFalse(ingridHit1.hashCode() == ingridHit2.hashCode());
+        assertNotNull(ingridHit2.hashCode());
 
 		ingridHit1.setDocumentId("foo");
 		ingridHit2.setDocumentId("foo");
 		assertEquals(ingridHit1.hashCode(), ingridHit2.hashCode());
 	}
-	
-	public void testHashcodeDoc() throws Exception {
+
+    @Test
+    public void testHashcodeDoc() throws Exception {
         IngridHit ingridHit1 = new IngridHit();
         IngridHit ingridHit2 = new IngridHit();
         
@@ -78,16 +83,17 @@ public class IngridHitTest extends TestCase {
         MessageDigest messageDigest2 = MessageDigest.getInstance("SHA-256");
         messageDigest2.update(ingridHit2.getDocumentId().getBytes());
         String encryptedId2 = new String(messageDigest.digest());
-        
+
         // the normal hashCode-function has a collision
-        assertTrue( id1.hashCode() == id2.hashCode() );
+        assertEquals(id1.hashCode(), id2.hashCode());
 
         // but the new function shouldn't have that!
-        assertFalse( encryptedId1.equals( encryptedId2 ) );
-        assertFalse( encryptedId1.hashCode() == encryptedId2.hashCode() );
+        assertNotEquals(encryptedId1, encryptedId2);
+        assertNotNull(encryptedId2.hashCode());
     }
 
-	public void testContains() throws Exception {
+    @Test
+    public void testContains() throws Exception {
 		IngridHit ingridHit1 = new IngridHit();
 		ingridHit1.setScore(1.0f);
 		IngridHit ingridHit2 = new IngridHit();

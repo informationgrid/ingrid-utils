@@ -24,9 +24,11 @@ package de.ingrid.utils.index;
 
 import de.ingrid.utils.ElasticDocument;
 import java.io.IOException;
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  *
@@ -36,7 +38,7 @@ public class IndexUtilsTests {
 
     private IndexUtils idxUtils;
 
-    @Before
+    @BeforeEach
     public void init() {
         ElasticDocument doc = new ElasticDocument();
         idxUtils = new IndexUtils(doc);
@@ -49,16 +51,16 @@ public class IndexUtilsTests {
      * @see <a href="https://redmine.informationgrid.eu/issues/944">Issue 944</a>
      */
     @Test
-    public void testCaseInsensitiveIndexing() throws IOException {
+    void testCaseInsensitiveIndexing() throws IOException {
         String testValue = "mock";
         String [] testKeys = {
-            "lowercase",
-            "UPPERCASE",
-            "lowerCamelCase",
-            "UpperCamelCase",
-            "SNAKE_UPPER_CASE"
+                "lowercase",
+                "UPPERCASE",
+                "lowerCamelCase",
+                "UpperCamelCase",
+                "SNAKE_UPPER_CASE"
         };
-        for(String key: testKeys) {
+        for (String key : testKeys) {
             idxUtils.add(key, testValue);
         }
         ElasticDocument doc = idxUtils.getDocument();
