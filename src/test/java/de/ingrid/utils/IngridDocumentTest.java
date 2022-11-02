@@ -94,8 +94,8 @@ public class IngridDocumentTest {
      */
     @Test
     public void testGetter() throws Exception {
-        Integer id = new Integer(Integer.MAX_VALUE);
-        Integer content = new Integer(Integer.MIN_VALUE);
+        Integer id = Integer.valueOf(Integer.MAX_VALUE);
+        Integer content = Integer.valueOf(Integer.MIN_VALUE);
         IngridDocument document = new IngridDocument(id, content);
         assertEquals(document.getId(), id);
         assertEquals(document.getContent(), content);
@@ -106,8 +106,8 @@ public class IngridDocumentTest {
      */
     @Test
     public void testSerializbaleCheck() throws Exception {
-        Integer id = new Integer(Integer.MAX_VALUE);
-        Integer content = new Integer(Integer.MIN_VALUE);
+        Integer id = Integer.valueOf(Integer.MAX_VALUE);
+        Integer content = Integer.valueOf(Integer.MIN_VALUE);
         IngridDocument document = new IngridDocument(id, content);
         try {
             document.put(new Object(), null);
@@ -131,8 +131,8 @@ public class IngridDocumentTest {
     @Test
     public void testReadAndWrite() throws Exception {
         // write
-        Integer id = new Integer(Integer.MAX_VALUE);
-        Integer content = new Integer(Integer.MIN_VALUE);
+        Integer id = Integer.valueOf(Integer.MAX_VALUE);
+        Integer content = Integer.valueOf(Integer.MIN_VALUE);
         IngridDocument writeDocument = new IngridDocument(id, content);
         ByteArrayOutputStream byteArrayStream = new ByteArrayOutputStream();
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayStream);

@@ -43,6 +43,11 @@
             <version>1.0.4</version>
         </dependency>
         <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+        <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.4</version>
@@ -56,6 +61,24 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.2</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -97,14 +120,14 @@
                 <version>4.35.1</version>
                 <configuration>
                     <activeRecipes>
-                        <recipe>org.openrewrite.java.testing.junit5.JUnit5BestPractices</recipe>
+                        <recipe>org.openrewrite.java.migrate.Java8toJava11</recipe>
                     </activeRecipes>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.openrewrite.recipe</groupId>
-                        <artifactId>rewrite-testing-frameworks</artifactId>
-                        <version>1.29.0</version>
+                        <artifactId>rewrite-migrate-java</artifactId>
+                        <version>1.4.2</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -147,6 +170,14 @@
                 <configuration>
                     <defaultOriginUrl>https://github.com/informationgrid/ingrid-utils</defaultOriginUrl>
                     <noDeploy>true</noDeploy>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jdeprscan-plugin</artifactId>
+                <version>3.0.0-alpha-1</version>
+                <configuration>
+                    <release>11</release>
                 </configuration>
             </plugin>
         </plugins>
