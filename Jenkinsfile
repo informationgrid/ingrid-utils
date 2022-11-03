@@ -29,11 +29,8 @@ pipeline {
                     // Maven settings and global settings can also be defined in Jenkins Global Tools Configuration
                     mavenSettingsConfig: '2529f595-4ac5-44c6-8b4f-f79b5c3f4bae'
                 ) {
-                    withEnv(["JAVA_HOME=${ tool 'jdk17' }/jdk-17"]) {
-                        // Run the maven build
-                        sh 'mvn clean deploy -Dmaven.test.failure.ignore=true'
-                    }
-
+                    // Run the maven build
+                    sh 'mvn clean deploy -Dmaven.test.failure.ignore=true'
                 } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs reports...
             }
         }
@@ -68,10 +65,8 @@ pipeline {
                     maven: 'Maven3',
                     mavenSettingsConfig: '2529f595-4ac5-44c6-8b4f-f79b5c3f4bae'
                 ) {
-                    withEnv(["JAVA_HOME=${ tool 'jdk17' }/jdk-17"]) {
-                        sh "mvn jgitflow:release-start -DreleaseVersion=${params.releaseVersion} -DdevelopmentVersion=${params.nextVersion}-SNAPSHOT -DallowUntracked -DperformRelease=true"
-                        sh "mvn jgitflow:release-finish -DallowUntracked"
-                    }
+                    sh "mvn jgitflow:release-start -DreleaseVersion=${params.releaseVersion} -DdevelopmentVersion=${params.nextVersion}-SNAPSHOT -DallowUntracked -DperformRelease=true"
+                    sh "mvn jgitflow:release-finish -DallowUntracked"
                 }
                 withCredentials([usernamePassword(credentialsId: '77647a76-a18e-4ce0-8433-a61ab69bbe9f', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                     sh "git push --all https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/informationgrid/ingrid-utils"
@@ -86,10 +81,8 @@ pipeline {
                     maven: 'Maven3',
                     mavenSettingsConfig: '2529f595-4ac5-44c6-8b4f-f79b5c3f4bae'
                 ) {
-                    withEnv(["JAVA_HOME=${ tool 'jdk17' }/jdk-17"]) {
-                        withSonarQubeEnv('Wemove SonarQube') {
-                            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.0.905:sonar'
-                        }
+                    withSonarQubeEnv('Wemove SonarQube') {
+                        sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.0.905:sonar'
                     }
                 }
             }
