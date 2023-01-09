@@ -31,10 +31,13 @@ package de.ingrid.utils.configuration;
 import java.io.File;
 
 import de.ingrid.utils.config.Configuration;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class ConfigurationTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+public class ConfigurationTest {
+
+    @Test
     public void testAddProperty() throws Exception {
         Configuration configuration = new Configuration();
         assertEquals(0, configuration.size());
@@ -47,6 +50,7 @@ public class ConfigurationTest extends TestCase {
         assertEquals(12, configuration.getAsInt(key, 23));
     }
 
+    @Test
     public void testLoadConfiguration() throws Exception {
         Configuration configuration = new Configuration();
         for (int i = 0; i < 20; i++) {

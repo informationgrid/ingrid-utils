@@ -27,7 +27,9 @@
  */
 package de.ingrid.iplug.sns.utils;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * 
@@ -35,16 +37,17 @@ import junit.framework.TestCase;
  *
  * @author hs
  */
-public class DetailedTopicTest extends TestCase {
+public class DetailedTopicTest {
     private static final String ADMIN = "KREIS065";
     private static final String TYPE = "anyType";
     private static final String TO = "2005";
     private static final String FROM = "2003";
-    
+
     /**
      * 
      */
-    public void testGetter(){
+    @Test
+    public void testGetter() {
         DetailedTopic metaData = new DetailedTopic(null, 0, null, null, null, null);
         valid(null, metaData.getFrom());
         valid(null, metaData.getTo());
@@ -59,11 +62,12 @@ public class DetailedTopicTest extends TestCase {
         valid(TYPE, metaData.getType());
         valid(ADMIN, metaData.getAdministrativeID());
     }
-    
+
     /**
      * 
      */
-    public void testSetter(){
+    @Test
+    public void testSetter() {
         DetailedTopic metaData = new DetailedTopic(null, 0, null, null, null, null);
         // tests initial setting
         metaData.setFrom(FROM);

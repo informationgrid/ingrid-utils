@@ -25,46 +25,53 @@
  */
 package de.ingrid.utils.udk;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.udk.UtilsLanguageCodelist.ISO_639_2_Type;
+import org.junit.jupiter.api.Test;
 
-public class UtilsLanguageCodeListTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+public class UtilsLanguageCodeListTest {
 
 	/** IGC code of german language (= entryId in syslist).
 	 * IGC codes are determined by doc of Kst, 
 	 * see ingrid-udk-importer\trunk\doc\syslist\ISO 639-2 Language Code List - Codes for the representation of names of languages (Library of Congress).doc */
 	private static Integer IGC_CODE_DE = 150;
 	private static Integer IGC_CODE_EN = 123;
-	
+
+    @Test
     public void testGetCodeFromShortcut() {
     	assertEquals(IGC_CODE_DE, UtilsLanguageCodelist.getCodeFromShortcut("de"));
     	assertEquals(IGC_CODE_EN, UtilsLanguageCodelist.getCodeFromShortcut("en"));
-    	assertEquals(new Integer(101), UtilsLanguageCodelist.getCodeFromShortcut("cs"));
-    	assertEquals(new Integer(312), UtilsLanguageCodelist.getCodeFromShortcut("nn"));
-    	assertEquals(new Integer(137), UtilsLanguageCodelist.getCodeFromShortcut("fr"));
+    	assertEquals(Integer.valueOf(101), UtilsLanguageCodelist.getCodeFromShortcut("cs"));
+    	assertEquals(Integer.valueOf(312), UtilsLanguageCodelist.getCodeFromShortcut("nn"));
+    	assertEquals(Integer.valueOf(137), UtilsLanguageCodelist.getCodeFromShortcut("fr"));
     	assertNull(UtilsLanguageCodelist.getCodeFromShortcut("99"));
     }
 
+    @Test
     public void testGetCodeFromIso639_2() {
     	assertEquals(IGC_CODE_DE, UtilsLanguageCodelist.getCodeFromIso639_2("deu"));
     	assertEquals(IGC_CODE_DE, UtilsLanguageCodelist.getCodeFromIso639_2("ger"));
     	assertEquals(IGC_CODE_EN, UtilsLanguageCodelist.getCodeFromIso639_2("eng"));
-    	assertEquals(new Integer(101), UtilsLanguageCodelist.getCodeFromIso639_2("cze"));
-    	assertEquals(new Integer(312), UtilsLanguageCodelist.getCodeFromIso639_2("nno"));
-    	assertEquals(new Integer(137), UtilsLanguageCodelist.getCodeFromIso639_2("fre"));
+    	assertEquals(Integer.valueOf(101), UtilsLanguageCodelist.getCodeFromIso639_2("cze"));
+    	assertEquals(Integer.valueOf(312), UtilsLanguageCodelist.getCodeFromIso639_2("nno"));
+    	assertEquals(Integer.valueOf(137), UtilsLanguageCodelist.getCodeFromIso639_2("fre"));
     	assertNull(UtilsLanguageCodelist.getCodeFromIso639_2("999"));
     }
 
+    @Test
     public void testGetNameFromCode() {
     	assertEquals("Deutsch", UtilsLanguageCodelist.getNameFromCode(IGC_CODE_DE, "de"));
     	assertEquals("German", UtilsLanguageCodelist.getNameFromCode(IGC_CODE_DE, "en"));
     	assertEquals("Englisch", UtilsLanguageCodelist.getNameFromCode(IGC_CODE_EN, "de"));
-    	assertEquals("Tschechisch", UtilsLanguageCodelist.getNameFromCode(new Integer(101), "de"));
-    	assertEquals("Czech", UtilsLanguageCodelist.getNameFromCode(new Integer(101), "en"));
-    	assertEquals("Norwegisch", UtilsLanguageCodelist.getNameFromCode(new Integer(312), "de"));
+    	assertEquals("Tschechisch", UtilsLanguageCodelist.getNameFromCode(Integer.valueOf(101), "de"));
+    	assertEquals("Czech", UtilsLanguageCodelist.getNameFromCode(Integer.valueOf(101), "en"));
+    	assertEquals("Norwegisch", UtilsLanguageCodelist.getNameFromCode(Integer.valueOf(312), "de"));
     	assertNull(UtilsLanguageCodelist.getNameFromCode(99999, "de"));
     }
 
+    @Test
     public void testGetNameFromShortcut() {
     	assertEquals("Deutsch", UtilsLanguageCodelist.getNameFromShortcut("de", "de"));
     	assertEquals("German", UtilsLanguageCodelist.getNameFromShortcut("de", "en"));
@@ -76,6 +83,7 @@ public class UtilsLanguageCodeListTest extends TestCase {
     	assertNull(UtilsLanguageCodelist.getNameFromShortcut("99", "de"));
     }
 
+    @Test
     public void testGetNameFromIso639_2() {
     	assertEquals("Deutsch", UtilsLanguageCodelist.getNameFromIso639_2("deu", "de"));
     	assertEquals("German", UtilsLanguageCodelist.getNameFromIso639_2("deu", "en"));
@@ -89,6 +97,7 @@ public class UtilsLanguageCodeListTest extends TestCase {
     	assertNull(UtilsLanguageCodelist.getNameFromIso639_2("999", "de"));
     }
 
+    @Test
     public void testGetShortcutFromCode() {
     	assertEquals("de", UtilsLanguageCodelist.getShortcutFromCode(IGC_CODE_DE));
     	assertEquals("en", UtilsLanguageCodelist.getShortcutFromCode(IGC_CODE_EN));
@@ -98,6 +107,7 @@ public class UtilsLanguageCodeListTest extends TestCase {
     	assertNull(UtilsLanguageCodelist.getShortcutFromCode(-1));
     }
 
+    @Test
     public void testGetLanguageISO639_2FromIGCCode() {
     	assertEquals("ger", UtilsLanguageCodelist.getLanguageISO639_2FromIGCCode(
     			IGC_CODE_DE, ISO_639_2_Type.BIBLIOGRAPHIC_CODE));

@@ -22,13 +22,16 @@
  */
 package de.ingrid.utils.tool;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class SNSUtilTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class SNSUtilTest {
 
     /*
      * Test method for 'de.ingrid.utils.tool.SNSUtil.transformSpacialReference(String)'
      */
+    @Test
     public void testTransformSpacialReference() {
         assertEquals("1234567", SNSUtil.transformSpacialReference("ags:", "ags:1234567"));
         assertEquals("BUNDESLAND12", SNSUtil.transformSpacialReference("ags:", "BUNDESLAND12"));

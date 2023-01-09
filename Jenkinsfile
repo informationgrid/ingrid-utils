@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    
+
     tools {
-        jdk 'jdk8'
+        jdk 'jdk17'
     }
 
     parameters {
@@ -29,10 +29,8 @@ pipeline {
                     // Maven settings and global settings can also be defined in Jenkins Global Tools Configuration
                     mavenSettingsConfig: '2529f595-4ac5-44c6-8b4f-f79b5c3f4bae'
                 ) {
-
                     // Run the maven build
                     sh 'mvn clean deploy -Dmaven.test.failure.ignore=true'
-
                 } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs reports...
             }
         }

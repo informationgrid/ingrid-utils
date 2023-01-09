@@ -24,11 +24,15 @@ package de.ingrid.utils.metadata;
 
 import java.text.SimpleDateFormat;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class VersionInjectorTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-	public void testInjectVersion() throws Exception {
+public class VersionInjectorTest {
+
+    @Test
+    public void testInjectVersion() throws Exception {
 		IMetadataInjector injector = new DefaultMetadataInjector();
 
 		Metadata metadata = new Metadata();

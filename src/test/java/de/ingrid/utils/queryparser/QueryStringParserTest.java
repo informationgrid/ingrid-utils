@@ -32,12 +32,14 @@ import java.io.ByteArrayInputStream;
 import java.io.StringReader;
 import java.util.List;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.IngridDocument;
 import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.query.TermQuery;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test cases for {@link QueryStringParser} created on 21.07.2005
@@ -46,12 +48,13 @@ import de.ingrid.utils.query.TermQuery;
  * @author hs
  */
 
-public class QueryStringParserTest extends TestCase {
+public class QueryStringParserTest {
 
     /**
      *
      * @throws Exception
      */
+    @Test
     public void testSimpleTerms() throws Exception {
         String q = "hallo  welt";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -68,6 +71,7 @@ public class QueryStringParserTest extends TestCase {
      *
      * @throws Exception
      */
+    @Test
     public void testSimpleOr() throws Exception {
         String q = "hallo OR welt";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -81,6 +85,7 @@ public class QueryStringParserTest extends TestCase {
      *
      * @throws Exception
      */
+    @Test
     public void testSimpleAND() throws Exception {
         String q = "hallo && welt";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -90,6 +95,7 @@ public class QueryStringParserTest extends TestCase {
         testSimpleLogic(parser, QueryStringParserConstants.AND);
     }
 
+    @Test
     public void testSimpleAndOr() throws Exception {
         String q = "ameise AND fische OR wasser";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -116,6 +122,7 @@ public class QueryStringParserTest extends TestCase {
         assertFalse(terms[2].isRequred());
     }
 
+    @Test
     public void testComplexClauses() throws Exception {
         String q = "ameise AND (fische OR wasser) OR (luft AND erde OR feuer)";
         IngridQuery query = QueryStringParser.parse(q);
@@ -178,6 +185,7 @@ public class QueryStringParserTest extends TestCase {
      *
      * @throws Exception
      */
+    @Test
     public void testSimpleNot() throws Exception {
         String q = "hallo NOT welt";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -190,6 +198,7 @@ public class QueryStringParserTest extends TestCase {
         testSimpleLogic(parser, QueryStringParserConstants.NOT);
     }
 
+    @Test
     private void testSimpleLogic(QueryStringParser parser, int logic) {
         Token token;
         for (int i = 0; i < 3; i++) {
@@ -206,6 +215,7 @@ public class QueryStringParserTest extends TestCase {
      *
      * @throws Exception
      */
+    @Test
     public void testFields() throws Exception {
         String q = "field:Value";
         QueryStringParser parser = new QueryStringParser(new StringReader(q));
@@ -219,6 +229,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testPartnerFields() throws Exception {
         IngridQuery query = QueryStringParser.parse("query partner:bw partner:he");
         assertEquals(2, query.getPositivePartner().length);
@@ -235,6 +246,7 @@ public class QueryStringParserTest extends TestCase {
      *
      * @throws Exception
      */
+    @Test
     public void testQueries() throws Exception {
         IngridQuery q = parse("fische");
         testTerms(q.getTerms(), new String[] { "fische" }, new boolean[][] { { true, false } });
@@ -268,6 +280,7 @@ public class QueryStringParserTest extends TestCase {
         testFields(q.getClauses()[0].getFields(), new String[] { "ort:Halle", "land:germany" });
     }
 
+    @Test
     private static void testTerms(TermQuery[] termQuery, String[] terms, boolean[][] booleans) {
         assertEquals(terms.length, termQuery.length);
         for (int i = 0; i < termQuery.length; i++) {
@@ -277,6 +290,7 @@ public class QueryStringParserTest extends TestCase {
         }
     }
 
+    @Test
     private static void testFields(FieldQuery[] fieldQuery, String[] fields) {
         assertEquals(fields.length, fieldQuery.length);
         for (int i = 0; i < fieldQuery.length; i++) {
@@ -303,6 +317,7 @@ public class QueryStringParserTest extends TestCase {
      *
      * @throws Exception
      */
+    @Test
     public void testStaticQueryParsing() throws Exception {
         IngridQuery query = QueryStringParser.parse("a query");
         assertNotNull(query);
@@ -312,6 +327,7 @@ public class QueryStringParserTest extends TestCase {
      *
      * @throws Exception
      */
+    @Test
     public void testDataType() throws Exception {
         IngridQuery query = QueryStringParser.parse("datatype:news wetter ort:Berlin");
         assertEquals("news", query.getPositiveDataTypes()[0]);
@@ -320,6 +336,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testMoreQueries() throws Exception {
         IngridQuery query = QueryStringParser.parse("ort:Halle OR ort:Darmstadt");
         assertEquals(2, query.getFields().length);
@@ -335,6 +352,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testWildCardFieldQueries() throws Exception {
         IngridQuery query = QueryStringParser.parse("ort:Ha*lle  ort:Darmst?dt");
         assertEquals(2, query.getWildCardFieldQueries().length);
@@ -345,6 +363,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testWildCardTermQueries() throws Exception {
         IngridQuery query = QueryStringParser.parse("wa*sser");
         assertEquals(1, query.getWildCardTermQueries().length);
@@ -356,6 +375,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testFuzzyTerms() throws Exception {
         IngridQuery query=QueryStringParser.parse("query");
         assertEquals(0, query.getFuzzyTermQueries().length);
@@ -368,6 +388,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testFuzzyFields() throws Exception {
         IngridQuery query=QueryStringParser.parse("f:field");
         assertEquals(0, query.getFuzzyFieldQueries().length);
@@ -380,24 +401,26 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testCoordinateQueries() throws Exception {
 
         IngridQuery query = QueryStringParser.parse("x1:31.0");
 
-        assertEquals("Query contains no fields.", 1, query.getFields().length);
-        assertEquals("The expected field 'x1:31.0' does not exist.", "x1:31.0", query.getFields()[0].getContent()
-                .toString());
+        assertEquals(1, query.getFields().length, "Query contains no fields.");
+        assertEquals("x1:31.0", query.getFields()[0].getContent()
+                .toString(), "The expected field 'x1:31.0' does not exist.");
 
         query = QueryStringParser.parse("x1:-31.0");
 
-        assertEquals("Query contains no fields.", 1, query.getFields().length);
-        assertEquals("The expected field 'x1:-31.0' does not exist.", "x1:-31.0", query.getFields()[0].getContent()
-                .toString());
+        assertEquals(1, query.getFields().length, "Query contains no fields.");
+        assertEquals("x1:-31.0", query.getFields()[0].getContent()
+                .toString(), "The expected field 'x1:-31.0' does not exist.");
     }
 
     /**
      * @throws Exception
      */
+    @Test
     public void testRanked() throws Exception {
         assertTrue(QueryStringParser.parse("bla ranking:score").isScoreRanked());
         assertTrue(QueryStringParser.parse("bla ranking:date").isDateRanked());
@@ -407,6 +430,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testPhrase() throws Exception {
         String qSt = "\"halle saale\"";
         IngridQuery query = QueryStringParser.parse(qSt);
@@ -419,6 +443,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testRangeQuery() throws Exception {
         String qSt = "date:[12 TO 23]";
         IngridQuery query = QueryStringParser.parse(qSt);
@@ -432,6 +457,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testMoreRangeQueries() throws Exception {
         String qSt = "time:[9 TO 5] AND ( date:[12 TO 23] OR date:[25 TO 30] )";
         IngridQuery query = QueryStringParser.parse(qSt);
@@ -441,6 +467,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testBooleanFieldQueries() throws Exception {
         String q = "aa field:value";
         IngridQuery query = QueryStringParser.parse(q);
@@ -454,6 +481,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testOr() throws Exception {
         IngridQuery query = QueryStringParser.parse("wasser OR erde");
         assertEquals(query.getTerms().length, 2);
@@ -471,6 +499,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testOrWithClause() throws Exception {
         IngridQuery query = QueryStringParser.parse("(wasser OR feuer) OR erde");
         for (int i = 0; i < query.getTerms().length; i++) {
@@ -484,6 +513,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testOrWithSingleClause() throws Exception {
         IngridQuery query = QueryStringParser.parse("a OR (-b)");
         assertFalse(query.getTerms()[0].isRequred());
@@ -495,6 +525,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testNOT() throws Exception {
         IngridQuery query = QueryStringParser.parse("b NOT b");
         assertTrue(query.getTerms()[0].isRequred());
@@ -506,6 +537,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testParserVsApi() throws Exception {
         String s = "wasser +datatype:topics +(topic:gentechnik topic:abfall) ";
         IngridQuery q1 = QueryStringParser.parse(s);
@@ -523,6 +555,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testStarngeClauses() throws Exception {
         IngridQuery query = QueryStringParser.parse("( foo )");
         assertEquals(1, query.getTerms().length);
@@ -531,6 +564,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testTermsFieldsWITH_QUOTING() throws Exception {
         String q = "\"hallo  welt\" feld:\"/dsc_other:df\"";
 
@@ -548,6 +582,7 @@ public class QueryStringParserTest extends TestCase {
         }
     }
 
+    @Test
     public void testParseProviderName() throws Exception {
         IngridQuery query = QueryStringParser.parse("http provider:ni_lk-row");
         assertEquals("ni_lk-row", query.getPositiveProvider()[0]);
@@ -556,6 +591,7 @@ public class QueryStringParserTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testTermsFieldsAndTermsWithSlash() throws Exception {
         String q = "hallo/welt feld:\"/kug-group:kug-iplug-sns\"";
 
@@ -573,6 +609,7 @@ public class QueryStringParserTest extends TestCase {
         }
     }
 
+    @Test
     public void testUTF8Terms() throws Exception {
         String q = "Начало";
         try {
@@ -590,12 +627,13 @@ public class QueryStringParserTest extends TestCase {
         try {
             IngridQuery query = QueryStringParser.parse(q);
             TermQuery[] terms = query.getTerms();
-            assertTrue(terms[0].getTerm().equals(q));
+            assertEquals(terms[0].getTerm(), q);
         } catch (Exception e ) {
             fail("No UTF-8 support in QueryParser!");
         }
     }
 
+    @Test
     public void testTermsFieldsAndTermsWithUrl() throws Exception {
         String q = "\"hallo/welt\" feld:\"http://www.wemove.com/index.html\"";
 
@@ -614,6 +652,7 @@ public class QueryStringParserTest extends TestCase {
     }
 
     @SuppressWarnings("unchecked")
+    @Test
     public void testFacetFields() throws Exception {
         String q = "wasser #:#[{\"key\":\"value\"}]#";
 

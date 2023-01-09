@@ -28,12 +28,15 @@
 
 package de.ingrid.utils.messages;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class CategorizedKeysTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CategorizedKeysTest {
 
     private static final String BUNDLE_NAME = "/de/ingrid/utils/messages/messages.properties"; //$NON-NLS-1$
 
+    @Test
     public void testGetValue() throws Exception {
         CategorizedKeys keys = CategorizedKeys.get(BUNDLE_NAME);
         String value = keys.getString("aKey0");
@@ -42,6 +45,7 @@ public class CategorizedKeysTest extends TestCase {
         assertEquals("aValue1", value1);
     }
 
+    @Test
     public void testGetCategories() throws Exception {
         CategorizedKeys keys = CategorizedKeys.get(BUNDLE_NAME);
         String[] categories = keys.getCategories();

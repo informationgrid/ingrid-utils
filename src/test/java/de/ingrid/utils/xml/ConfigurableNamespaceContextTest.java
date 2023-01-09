@@ -25,17 +25,20 @@
  */
 package de.ingrid.utils.xml;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author joachim
  *
  */
-public class ConfigurableNamespaceContextTest extends TestCase {
+public class ConfigurableNamespaceContextTest {
 
     /**
      * Test method for {@link de.ingrid.utils.xml.ConfigurableNamespaceContext#getNamespaceURI(java.lang.String)}.
      */
+    @Test
     public void testGetNamespaceURI() {
         ConfigurableNamespaceContext cnc = new ConfigurableNamespaceContext();
         cnc.addNamespaceContext(new Csw202NamespaceContext());

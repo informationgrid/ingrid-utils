@@ -29,22 +29,26 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.PlugDescription;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author joachim@wemove.com
  * 
  */
-public class ManifestMetadataInjectorTest extends TestCase {
+public class ManifestMetadataInjectorTest {
 
-	/**
-	 * Test method for
-	 * {@link de.ingrid.utils.metadata.ManifestMetadataInjector#injectMetaDatas(de.ingrid.utils.metadata.Metadata)}.
-	 * 
-	 * @throws Exception
-	 */
-	public void testInjectMetaDatas() throws Exception {
+    /**
+     * Test method for
+     * {@link de.ingrid.utils.metadata.ManifestMetadataInjector#injectMetaDatas(de.ingrid.utils.metadata.Metadata)}.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void testInjectMetaDatas() throws Exception {
 		PlugDescription pd = new PlugDescription();
 		pd.setIPlugClass("org.springframework.beans.factory.xml.XmlBeanFactory");
 		ManifestMetadataInjector mdi = new ManifestMetadataInjector();

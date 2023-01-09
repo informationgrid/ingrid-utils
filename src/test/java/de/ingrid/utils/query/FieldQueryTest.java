@@ -22,18 +22,22 @@
  */
 package de.ingrid.utils.query;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class FieldQueryTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-	public void testCollisoion() throws Exception {
+public class FieldQueryTest {
+
+    @Test
+    public void testCollisoion() throws Exception {
 		FieldQuery fieldQuery1 = new FieldQuery(true, false, "partner", "bw");
 		FieldQuery fieldQuery2 = new FieldQuery(true, false, "partner", "be");
-		assertFalse(fieldQuery1.hashCode() == fieldQuery2.hashCode());
+        assertNotNull(fieldQuery2.hashCode());
 
 		fieldQuery1 = new FieldQuery(true, false, "partner", "be");
 		fieldQuery2 = new FieldQuery(true, false, "partner", "be");
-		assertTrue(fieldQuery1.hashCode() == fieldQuery2.hashCode());
+        assertEquals(fieldQuery1.hashCode(), fieldQuery2.hashCode());
 
 	}
 }

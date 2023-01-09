@@ -25,18 +25,21 @@
  */
 package de.ingrid.utils.udk;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author joachim
  *
  */
-public class UtilsStringTest extends TestCase {
+public class UtilsStringTest {
 
-	/**
-	 * Test method for {@link de.ingrid.utils.udk.UtilsString#transformNumberStrToIGCNumber(java.lang.String)}.
-	 */
-	public void testTransformNumberStrToIGCNumber() {
+    /**
+     * Test method for {@link de.ingrid.utils.udk.UtilsString#transformNumberStrToIGCNumber(java.lang.String)}.
+     */
+    @Test
+    public void testTransformNumberStrToIGCNumber() {
 		assertEquals("2.2", UtilsString.transformNumberStrToIGCNumber("2,2"));
 		assertEquals("67.4", UtilsString.transformNumberStrToIGCNumber("67,4"));
 		assertEquals("67.4", UtilsString.transformNumberStrToIGCNumber("67.4"));
