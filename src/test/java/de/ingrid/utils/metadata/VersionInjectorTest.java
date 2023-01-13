@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -24,11 +24,15 @@ package de.ingrid.utils.metadata;
 
 import java.text.SimpleDateFormat;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class VersionInjectorTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-	public void testInjectVersion() throws Exception {
+public class VersionInjectorTest {
+
+    @Test
+    public void testInjectVersion() throws Exception {
 		IMetadataInjector injector = new DefaultMetadataInjector();
 
 		Metadata metadata = new Metadata();

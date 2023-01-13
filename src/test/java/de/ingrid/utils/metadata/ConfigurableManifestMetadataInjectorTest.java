@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -27,18 +27,22 @@ package de.ingrid.utils.metadata;
 
 import java.util.Date;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author joachim
  *
  */
-public class ConfigurableManifestMetadataInjectorTest extends TestCase {
+public class ConfigurableManifestMetadataInjectorTest {
 
-	/**
-	 * Test method for {@link de.ingrid.utils.metadata.ConfigurableManifestMetadataInjector#ConfigurableManifestMetadataInjector(java.lang.String)}.
-	 */
-	public void testConfigurableManifestMetadataInjector() {
+    /**
+     * Test method for {@link de.ingrid.utils.metadata.ConfigurableManifestMetadataInjector#ConfigurableManifestMetadataInjector(java.lang.String)}.
+     */
+    @Test
+    public void testConfigurableManifestMetadataInjector() {
 		ConfigurableManifestMetadataInjector mi = new ConfigurableManifestMetadataInjector("org.springframework.beans.factory.xml.XmlBeanFactory");
 		Metadata metadata = new Metadata();
 		mi.injectMetaDatas(metadata);

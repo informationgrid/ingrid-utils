@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -31,10 +31,13 @@ package de.ingrid.utils.configuration;
 import java.io.File;
 
 import de.ingrid.utils.config.Configuration;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class ConfigurationTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+public class ConfigurationTest {
+
+    @Test
     public void testAddProperty() throws Exception {
         Configuration configuration = new Configuration();
         assertEquals(0, configuration.size());
@@ -47,6 +50,7 @@ public class ConfigurationTest extends TestCase {
         assertEquals(12, configuration.getAsInt(key, 23));
     }
 
+    @Test
     public void testLoadConfiguration() throws Exception {
         Configuration configuration = new Configuration();
         for (int i = 0; i < 20; i++) {

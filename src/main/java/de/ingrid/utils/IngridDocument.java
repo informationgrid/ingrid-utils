@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -63,7 +63,7 @@ public class IngridDocument extends HashMap<Object, Object> implements Externali
     /**
      * Comment for <code>DOCUMENT_CONTENT</code>
      */
-	public static final Integer DOCUMENT_CONTENT = new Integer(1);
+	public static final Integer DOCUMENT_CONTENT = Integer.valueOf(1);
 
     /**
      * Construtor for normal usage
@@ -155,7 +155,7 @@ public class IngridDocument extends HashMap<Object, Object> implements Externali
      * @param value
      */
     public void putInt(Object key, int value) {
-        put(key, new Integer(value));
+        put(key, Integer.valueOf(value));
 
     }
 
@@ -181,7 +181,7 @@ public class IngridDocument extends HashMap<Object, Object> implements Externali
      * @param value
      */
     public void putLong(Object key, long value) {
-        put(key, new Long(value));
+        put(key, Long.valueOf(value));
 
     }
 
@@ -270,7 +270,7 @@ public class IngridDocument extends HashMap<Object, Object> implements Externali
      * @param value
      */
     public void putBoolean(String key, boolean value) {
-        put(key, new Boolean(value));
+        put(key, Boolean.valueOf(value));
 
     }
 
@@ -299,7 +299,7 @@ public class IngridDocument extends HashMap<Object, Object> implements Externali
 	 * @param value
 	 */
 	public void putFloat(String key, float value) {
-		put(key, new Float(value));
+		put(key, Float.valueOf(value));
 	}
 
 	/**

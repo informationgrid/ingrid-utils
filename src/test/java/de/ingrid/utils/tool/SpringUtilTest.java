@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -22,13 +22,16 @@
  */
 package de.ingrid.utils.tool;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.IIngridHitEnrichment;
 import de.ingrid.utils.IngridHit;
+import org.junit.jupiter.api.Test;
 
-public class SpringUtilTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
-	public void testLoadBean() throws Exception {
+public class SpringUtilTest {
+
+    @Test
+    public void testLoadBean() throws Exception {
 		SpringUtil util = new SpringUtil("spring-test1.xml");
 		IngridHit ingridHit = util.getBean("hit", IngridHit.class);
 		IIngridHitEnrichment hitEnrichment = util.getBean("hitEnrichment",

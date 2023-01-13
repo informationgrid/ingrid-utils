@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -28,13 +28,16 @@
 
 package de.ingrid.utils.processor;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.IngridDocument;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.queryparser.QueryStringParser;
+import org.junit.jupiter.api.Test;
 
-public class ProcessorPipeTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
+public class ProcessorPipeTest {
+
+    @Test
     public void testAddPreProcessor() throws Exception {
         ProcessorPipe pipe = new ProcessorPipe();
         pipe.addPreProcessor(new DummyPreProcessor());
@@ -43,6 +46,7 @@ public class ProcessorPipeTest extends TestCase {
         assertTrue(preProcessors[0] instanceof DummyPreProcessor);
     }
 
+    @Test
     public void testRemovePreProcessor() throws Exception {
         ProcessorPipe pipe = new ProcessorPipe();
         DummyPreProcessor processor = new DummyPreProcessor();
@@ -55,6 +59,7 @@ public class ProcessorPipeTest extends TestCase {
 
     }
 
+    @Test
     public void testPreprocess() throws Exception {
         ProcessorPipe pipe = new ProcessorPipe();
         pipe.addPreProcessor(new DummyPreProcessor());
@@ -64,6 +69,7 @@ public class ProcessorPipeTest extends TestCase {
         assertNotNull(query.get("marker"));
     }
 
+    @Test
     public void testAddPostProcessor() throws Exception {
         ProcessorPipe pipe = new ProcessorPipe();
         pipe.addPostProcessor(new DummyPostProcessor());
@@ -72,6 +78,7 @@ public class ProcessorPipeTest extends TestCase {
         assertTrue(postProcessors[0] instanceof DummyPostProcessor);
     }
 
+    @Test
     public void testRemovePostProcessor() throws Exception {
         ProcessorPipe pipe = new ProcessorPipe();
         DummyPostProcessor processor = new DummyPostProcessor();
@@ -84,6 +91,7 @@ public class ProcessorPipeTest extends TestCase {
 
     }
 
+    @Test
     public void testPostprocess() throws Exception {
         ProcessorPipe pipe = new ProcessorPipe();
         pipe.addPostProcessor(new DummyPostProcessor());

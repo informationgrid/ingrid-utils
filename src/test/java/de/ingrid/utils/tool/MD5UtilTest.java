@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -33,7 +33,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test for {@link MD5Util}.
@@ -45,11 +47,12 @@ import junit.framework.TestCase;
  * @author $Author: ${lastedit}
  * 
  */
-public class MD5UtilTest extends TestCase {
+public class MD5UtilTest {
 
     /**
      * @throws IOException
      */
+    @Test
     public void testGetMD5() throws IOException {
         File file1 = new File("target/file1");
         File file2 = new File("target/file2");

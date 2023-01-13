@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -23,11 +23,14 @@
 package de.ingrid.utils.iplug;
 
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class IPlugVersionInspectorTest extends TestCase {
+public class IPlugVersionInspectorTest {
 
+    @Test
     public void testCompareVersion() throws ParseException {
         assertFalse(IPlugVersionInspector.compareVersion("1.1.0", "1.1.11"));
         assertTrue(IPlugVersionInspector.compareVersion("1.1.0", "1.0.9"));

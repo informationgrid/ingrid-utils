@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -21,7 +21,7 @@
  * **************************************************#
  */
 /**
- * 
+ *
  */
 package de.ingrid.utils.xml;
 
@@ -33,18 +33,18 @@ import javax.xml.namespace.NamespaceContext;
 /**
  * NamespaceContext representing the IGC profile. Maps the namespace URI
  * http://www.portalu.de/igc-profile to the prefix "igcp".
- * 
- * 
+ *
+ *
  * @author joachim
- * 
+ *
  */
 public class IgcProfileNamespaceContext implements NamespaceContext {
 
 	public static String NAMESPACE_URI_IGCP = "http://www.portalu.de/igc-profile";
-	
+
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * javax.xml.namespace.NamespaceContext#getNamespaceURI(java.lang.String)
      */
@@ -59,7 +59,7 @@ public class IgcProfileNamespaceContext implements NamespaceContext {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see javax.xml.namespace.NamespaceContext#getPrefix(java.lang.String)
      */
     @Override
@@ -69,11 +69,11 @@ public class IgcProfileNamespaceContext implements NamespaceContext {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see javax.xml.namespace.NamespaceContext#getPrefixes(java.lang.String)
      */
     @Override
-    public Iterator<Object> getPrefixes(String namespaceURI) {
+    public Iterator<String> getPrefixes(String namespaceURI) {
         throw new UnsupportedOperationException();
     }
 

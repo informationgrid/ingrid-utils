@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -24,7 +24,6 @@ package de.ingrid.utils.processor.impl;
 
 import java.io.File;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.IConfigurable;
 import de.ingrid.utils.PlugDescription;
 import de.ingrid.utils.QueryExtension;
@@ -34,15 +33,21 @@ import de.ingrid.utils.query.FieldQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.queryparser.QueryStringParser;
 import de.ingrid.utils.xml.XMLSerializer;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class QueryExtensionPreProcessorTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class QueryExtensionPreProcessorTest {
 
     private static final String _busUrl = "testBusUrl";
 
     private File _file;
 
-    @Override
-    protected void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() throws Exception {
         _file = File.createTempFile("plugdescription", ".xml");
         final PlugDescription plugDescription = new PlugDescription();
         final QueryExtensionContainer container = new QueryExtensionContainer();
@@ -55,11 +60,12 @@ public class QueryExtensionPreProcessorTest extends TestCase {
         new XMLSerializer().serialize(plugDescription, _file);
     }
 
-    @Override
-    protected void tearDown() throws Exception {
+    @AfterEach
+    public void tearDown() throws Exception {
         assertTrue(_file.delete());
     }
 
+    @Test
     public void testProcessorWithoutExtension() throws Exception {
         final IPreProcessor preProcessor = new QueryExtensionPreProcessor();
 
@@ -79,6 +85,7 @@ public class QueryExtensionPreProcessorTest extends TestCase {
         assertEquals(0, fields.length);
     }
 
+    @Test
     public void testProcessorWithExtension() throws Exception {
         final IPreProcessor preProcessor = new QueryExtensionPreProcessor();
 

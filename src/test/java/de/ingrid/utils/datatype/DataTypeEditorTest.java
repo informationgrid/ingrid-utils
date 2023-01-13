@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -24,12 +24,15 @@ package de.ingrid.utils.datatype;
 
 import java.beans.PropertyEditor;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class DataTypeEditorTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DataTypeEditorTest {
 
     PropertyEditor fEditor = new DataTypeEditor();
 
+    @Test
     public void testDataType() throws Exception {
         fEditor.setAsText("foo.bar.visible:false.type:catalog");
 
@@ -43,6 +46,7 @@ public class DataTypeEditorTest extends TestCase {
         assertEquals("foo.bar.visible:false.type:catalog", fEditor.getAsText());
     }
 
+    @Test
     public void testIncludedDataType() throws Exception {
         fEditor.setAsText("foo.bar.visible:false.type:catalog.include:foo2");
 

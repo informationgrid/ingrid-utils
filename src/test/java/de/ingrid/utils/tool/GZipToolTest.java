@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -24,10 +24,13 @@ package de.ingrid.utils.tool;
 
 import java.io.IOException;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class GZipToolTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+public class GZipToolTest {
+
+    @Test
     public void testGZIP() throws IOException {
         
         String str = "Und ich duese, duese, duese, duese im Sauseschritt...";

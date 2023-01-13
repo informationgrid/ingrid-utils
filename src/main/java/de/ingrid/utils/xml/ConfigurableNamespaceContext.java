@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -21,7 +21,7 @@
  * **************************************************#
  */
 /**
- * 
+ *
  */
 package de.ingrid.utils.xml;
 
@@ -35,10 +35,10 @@ import javax.xml.namespace.NamespaceContext;
 /**
  * This class acts as a container for namespaces. It can be used to supply
  * different namespace contexts to a XPATH instance.
- * 
- * 
+ *
+ *
  * @author joachim@wemove.com
- * 
+ *
  */
 public class ConfigurableNamespaceContext implements NamespaceContext {
 
@@ -50,7 +50,7 @@ public class ConfigurableNamespaceContext implements NamespaceContext {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * javax.xml.namespace.NamespaceContext#getNamespaceURI(java.lang.String)
      */
@@ -68,7 +68,7 @@ public class ConfigurableNamespaceContext implements NamespaceContext {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see javax.xml.namespace.NamespaceContext#getPrefix(java.lang.String)
      */
     @Override
@@ -78,11 +78,11 @@ public class ConfigurableNamespaceContext implements NamespaceContext {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see javax.xml.namespace.NamespaceContext#getPrefixes(java.lang.String)
      */
     @Override
-    public Iterator<Object> getPrefixes(String arg0) {
+    public Iterator<String> getPrefixes(String arg0) {
         throw new UnsupportedOperationException();
     }
 

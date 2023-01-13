@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -21,7 +21,7 @@
  * **************************************************#
  */
 /**
- * 
+ *
  */
 package de.ingrid.utils.xml;
 
@@ -39,8 +39,8 @@ public class Wcs11NamespaceContext implements NamespaceContext {
 	public static String NAMESPACE_URI_WCS11 = "http://www.opengis.net/wcs/1.1";
 	public static String NAMESPACE_URI_OWS11 = "http://www.opengis.net/ows/1.1";
 	public static String NAMESPACE_URI_XLINK = "http://www.w3.org/1999/xlink";
-	
-	
+
+
 	/* (non-Javadoc)
 	 * @see javax.xml.namespace.NamespaceContext#getNamespaceURI(java.lang.String)
 	 */
@@ -69,7 +69,7 @@ public class Wcs11NamespaceContext implements NamespaceContext {
 	 * @see javax.xml.namespace.NamespaceContext#getPrefixes(java.lang.String)
 	 */
 	@Override
-	public Iterator<Object> getPrefixes(String namespaceURI) {
+	public Iterator<String> getPrefixes(String namespaceURI) {
 		throw new UnsupportedOperationException();
 	}
 

@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -25,12 +25,13 @@ package de.ingrid.utils.json;
 import java.util.List;
 
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.IngridDocument;
 
-public class JsonUtilTest extends TestCase {
+public class JsonUtilTest {
 
+    @Test
     public void testParseJsonToIngrid() throws ParseException {
         List<IngridDocument> result = JsonUtil.parseJsonToListOfIngridDocument("[\n" + 
         		"    {\n" + 

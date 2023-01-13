@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -21,6 +21,11 @@
  * **************************************************#
  */
 package de.ingrid.utils.capabilities;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import de.ingrid.utils.tool.StringUtil;
 
 public class CapabilitiesUtils {
     
@@ -131,6 +136,18 @@ public class CapabilitiesUtils {
         return parameters;
     }
 
+    public static String extractServiceFromServiceTypeVersion(String serviceTypeVersion) {
+        Pattern pattern = Pattern.compile("(?<=(\\:| ))(.*?)(?=\\ )");
+        Matcher matcher = pattern.matcher(serviceTypeVersion);
+        if (StringUtil.containsLetters(serviceTypeVersion) && matcher.find()) {
+            String match = matcher.group(0);
+            if(match != null && !match.isEmpty()) {
+                return match;
+            }
+        }
+        return null;
+    }
+    
     /**
      * Determine the URL-Parameter to request a getCapabilities document.
      * @param type is the id of the codelist entry (entry id of codelist 5100).

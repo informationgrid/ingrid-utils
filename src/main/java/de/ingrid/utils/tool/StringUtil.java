@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -81,5 +81,17 @@ public class StringUtil {
      */
     public static boolean containsString(String[] stringArray, String stringToContain) {
     	return Arrays.asList(stringArray).contains(stringToContain);
+    }
+    
+    public static boolean containsLetters(String string) {
+        if (string == null || string.isEmpty()) {
+            return false;
+        }
+        for (int i = 0; i < string.length(); ++i) {
+            if (Character.isLetter(string.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 }

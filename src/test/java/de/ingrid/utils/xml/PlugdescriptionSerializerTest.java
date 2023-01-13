@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -24,24 +24,30 @@ package de.ingrid.utils.xml;
 
 import java.io.File;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.PlugDescription;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class PlugdescriptionSerializerTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class PlugdescriptionSerializerTest {
 
     private File _target = new File(System.getProperty("java.io.tmpdir"), "" + System.currentTimeMillis());
 
-    @Override
-    protected void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() throws Exception {
         assertTrue(_target.mkdirs());
     }
 
-    @Override
-    protected void tearDown() throws Exception {
+    @AfterEach
+    public void tearDown() throws Exception {
         assertTrue(new File(_target, "pd.xml").delete());
         assertTrue(_target.delete());
     }
 
+    @Test
     public void testGetDeSerializedFrom() throws Exception {
         PlugdescriptionSerializer plugdescriptionSerializer = new PlugdescriptionSerializer();
 

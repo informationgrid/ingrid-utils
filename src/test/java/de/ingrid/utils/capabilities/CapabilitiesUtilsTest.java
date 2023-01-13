@@ -2,17 +2,17 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
  * EUPL (the "Licence");
- *
+ * 
  * You may not use this work except in compliance with the Licence.
  * You may obtain a copy of the Licence at:
- *
+ * 
  * http://ec.europa.eu/idabc/eupl5
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the Licence is distributed on an "AS IS" basis,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,17 +22,20 @@
  */
 package de.ingrid.utils.capabilities;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class CapabilitiesUtilsTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CapabilitiesUtilsTest {
 
     private String urlWithoutParams;
     private String urlWithRequestParam;
     private String urlWithServiceParam;
     private String urlWithAllParams;
 
-    protected void setUp() throws Exception {
-        super.setUp();
+    @BeforeEach
+    public void setUp() throws Exception {
 
         urlWithoutParams = "http://www.test.com/no-Params";
         urlWithRequestParam = "http://www.test.com/some-Params?REQUEST=getCapabilities";
@@ -40,6 +43,7 @@ public class CapabilitiesUtilsTest extends TestCase {
         urlWithAllParams = "http://www.test.com/all-Params?REQUEST=getCapabilities&SERVICE=WFS";
     }
 
+    @Test
     public void testGetAdditionalCapabilitiesParameterString() {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams ));
         assertEquals( "&SERVICE=CSW",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithRequestParam ));
@@ -47,6 +51,7 @@ public class CapabilitiesUtilsTest extends TestCase {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams ));
     }
 
+    @Test
     public void testGetAdditionalCapabilitiesParameterStringServiceType() {
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, CapabilitiesUtils.ServiceType.CSW ));
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, CapabilitiesUtils.ServiceType.WMS ));
@@ -73,6 +78,7 @@ public class CapabilitiesUtilsTest extends TestCase {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams, CapabilitiesUtils.ServiceType.WFS ));
     }
 
+    @Test
     public void testGetAdditionalCapabilitiesParameterStringInt() {
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, 1 ));
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, 2 ));
@@ -99,6 +105,7 @@ public class CapabilitiesUtilsTest extends TestCase {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams, 3 ));
     }
 
+    @Test
     public void testGetAdditionalCapabilitiesParameterStringString() {
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, "view" ));
         assertEquals( "", CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithoutParams, "download" ));

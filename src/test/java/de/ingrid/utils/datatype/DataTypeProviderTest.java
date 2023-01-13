@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -27,11 +27,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.TestUtils;
+import org.junit.jupiter.api.Test;
 
-public class DataTypeProviderTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
+public class DataTypeProviderTest {
+
+    @Test
     public void testLoadDatatypes() throws Exception {
         File providerFile = new File("target/tests/datatype-test.provider");
         TestUtils.writeFile(providerFile, Arrays.asList(new String[] { "foo.bar.hidden:true" }));
@@ -46,6 +49,7 @@ public class DataTypeProviderTest extends TestCase {
         assertTrue(dataType.contains("hidden", "true"));
     }
 
+    @Test
     public void testIncludedDatatype() throws Exception {
         File providerFile = new File("target/tests/datatype-test.provider");
         List<String> lines = new ArrayList<String>();
@@ -65,6 +69,7 @@ public class DataTypeProviderTest extends TestCase {
         assertEquals(0, datatypeProvider.getIncludedDataTypes(dataTypes[1]).length);
     }
 
+    @Test
     public void testIncluded2Datatypes() throws Exception {
         File providerFile = new File("target/tests/datatype-test.provider");
         List<String> lines = new ArrayList<String>();

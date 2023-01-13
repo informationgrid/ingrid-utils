@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -41,7 +41,9 @@
 package de.ingrid.utils.query;
 
 import de.ingrid.utils.queryparser.QueryStringParser;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * IngridQueryTest
@@ -53,12 +55,13 @@ import junit.framework.TestCase;
  * @author $Author: ${lastedit}
  * 
  */
-public class IngridQueryTest extends TestCase {
+public class IngridQueryTest {
 
     /**
      * 
      * @throws Exception
      */
+    @Test
     public void testQuery() throws Exception {
         IngridQuery query = new IngridQuery();
         query.addClause(new ClauseQuery(true, false));
@@ -73,6 +76,7 @@ public class IngridQueryTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testRemoveDataTypes() throws Exception {
         IngridQuery query = new IngridQuery();
         FieldQuery dataType = new FieldQuery(true, false, IngridQuery.DATA_TYPE, "bla");
@@ -85,6 +89,7 @@ public class IngridQueryTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testRemoveClause() throws Exception {
         IngridQuery query = new IngridQuery();
         ClauseQuery clause = new ClauseQuery(false, true);
@@ -96,6 +101,7 @@ public class IngridQueryTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDataTypes() throws Exception {
         IngridQuery query = new IngridQuery(true, true, IngridQuery.TERM, "ba");
         assertTrue(query.isProhibited());
@@ -125,6 +131,7 @@ public class IngridQueryTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testProvider() throws Exception {
         IngridQuery query = new IngridQuery();
         assertEquals(query.getPositiveProvider().length, 0);
@@ -135,6 +142,7 @@ public class IngridQueryTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testIPugs() throws Exception {
         IngridQuery query = new IngridQuery();
         assertEquals(query.getIPlugs().length, 0);

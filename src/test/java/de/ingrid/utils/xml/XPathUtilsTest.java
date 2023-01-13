@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -33,28 +33,30 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import junit.framework.TestCase;
-
+import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author joachim
  *
  */
-public class XPathUtilsTest extends TestCase {
+public class XPathUtilsTest {
     
     de.ingrid.utils.xpath.XPathUtils xpathUtils = new de.ingrid.utils.xpath.XPathUtils();
 
-	/**
-	 * Test method for {@link de.ingrid.utils.xml.XPathUtils#createElementFromXPath(org.w3c.dom.Node, java.lang.String)}.
-	 * @throws ParserConfigurationException 
-	 * @throws IOException 
-	 * @throws SAXException 
-	 * @throws UnsupportedEncodingException 
-	 */
-	public void testCreateElementFromXPath() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException {
+    /**
+     * Test method for {@link de.ingrid.utils.xml.XPathUtils#createElementFromXPath(org.w3c.dom.Node, java.lang.String)}.
+     * @throws ParserConfigurationException 
+     * @throws IOException 
+     * @throws SAXException 
+     * @throws UnsupportedEncodingException 
+     */
+    @Test
+    public void testCreateElementFromXPath() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1></child1></test>".getBytes("UTF-8")));
@@ -75,8 +77,9 @@ public class XPathUtilsTest extends TestCase {
 		} catch (IllegalArgumentException e) {
 		}
 	}
-	
-	public void testCreateElementFromXPathAsSibling() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException {
+
+    @Test
+    public void testCreateElementFromXPathAsSibling() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1></child1></test>".getBytes("UTF-8")));

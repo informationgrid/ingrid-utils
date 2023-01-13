@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -34,30 +34,33 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author joachim
  *
  */
-public class XMLUtilsTest extends TestCase {
+public class XMLUtilsTest {
     
     de.ingrid.utils.xpath.XPathUtils xpathUtils = new de.ingrid.utils.xpath.XPathUtils();
 
-	/**
-	 * Test method for {@link de.ingrid.utils.xml.XMLUtils#toString(org.w3c.dom.Document)}.
-	 * @throws ParserConfigurationException 
-	 * @throws IOException 
-	 * @throws SAXException 
-	 * @throws UnsupportedEncodingException 
-	 * @throws TransformerException 
-	 */
-	public void testToStringDocument() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException, TransformerException {
+    /**
+     * Test method for {@link de.ingrid.utils.xml.XMLUtils#toString(org.w3c.dom.Document)}.
+     * @throws ParserConfigurationException 
+     * @throws IOException 
+     * @throws SAXException 
+     * @throws UnsupportedEncodingException 
+     * @throws TransformerException 
+     */
+    @Test
+    public void testToStringDocument() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException, TransformerException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1>Hallo</child1></test>".getBytes("UTF-8")));
@@ -68,22 +71,24 @@ public class XMLUtilsTest extends TestCase {
         assertTrue(xml.length() > 0);
 	}
 
-	/**
-	 * Test method for {@link de.ingrid.utils.xml.XMLUtils#createOrReplaceTextNode(javax.xml.soap.Node, java.lang.String)}.
-	 * @throws ParserConfigurationException 
-	 * @throws IOException 
-	 * @throws SAXException 
-	 * @throws UnsupportedEncodingException 
-	 */
-	public void testCreateOrReplaceTextNode() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException {
+    /**
+     * Test method for {@link de.ingrid.utils.xml.XMLUtils#createOrReplaceTextNode(javax.xml.soap.Node, java.lang.String)}.
+     * @throws ParserConfigurationException 
+     * @throws IOException 
+     * @throws SAXException 
+     * @throws UnsupportedEncodingException 
+     */
+    @Test
+    public void testCreateOrReplaceTextNode() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1>Hallo</child1></test>".getBytes("UTF-8")));
 		Node n = XMLUtils.createOrReplaceTextNode(doc.getDocumentElement().getFirstChild(), "Welt");
 		assertEquals("Welt", n.getTextContent());
 	}
-	
-	public void testInsertAfter() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException, TransformerException {
+
+    @Test
+    public void testInsertAfter() throws ParserConfigurationException, UnsupportedEncodingException, SAXException, IOException, TransformerException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1>Hallo</child1><child2>Hello</child2></test>".getBytes("UTF-8")));
@@ -104,7 +109,8 @@ public class XMLUtilsTest extends TestCase {
 		
 	}
 
-	public void testRemoveNode() throws ParserConfigurationException, IOException, SAXException {
+    @Test
+    public void testRemoveNode() throws ParserConfigurationException, IOException, SAXException {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.parse(new ByteArrayInputStream("<test><child1 a=\"1\">Hallo</child1><child2>Hello</child2></test>".getBytes("UTF-8")));

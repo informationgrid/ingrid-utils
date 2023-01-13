@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -30,11 +30,14 @@ package de.ingrid.utils.xml;
 
 import java.io.File;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.config.Property;
+import org.junit.jupiter.api.Test;
 
-public class XMLSerializerTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+public class XMLSerializerTest {
+
+    @Test
     public void testWriteDescription() throws Exception {
         DummyBean description = getDescription();
         File target = new File(System.getProperty("java.io.tmpdir"), "test.xml");

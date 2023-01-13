@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -42,10 +42,12 @@ package de.ingrid.utils;
 
 import java.util.Arrays;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.query.ClauseQuery;
 import de.ingrid.utils.query.IngridQuery;
 import de.ingrid.utils.queryparser.QueryStringParser;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test for {@link de.ingrid.utils.query.IngridQuery} 
@@ -57,12 +59,13 @@ import de.ingrid.utils.queryparser.QueryStringParser;
  * @author $Author: ${lastedit}
  *  
  */
-public class IngridQueryTest extends TestCase {
+public class IngridQueryTest {
 
     /**
      * 
      */
-    public void testAllClauses(){
+    @Test
+    public void testAllClauses() {
         IngridQuery query=new IngridQuery(true,true,1,"clause0");
         assertEquals(1, query.getAllClauses().length);
         ClauseQuery clause1=new ClauseQuery(true,true);
@@ -79,8 +82,9 @@ public class IngridQueryTest extends TestCase {
         assertTrue(Arrays.asList(query.getAllClauses()).contains(clause11));
         
     }
-    
-    
+
+
+    @Test
     public void testHashCode() throws Exception {
 
         IngridQuery query1 = QueryStringParser.parse("foo:bar");
@@ -92,8 +96,8 @@ public class IngridQueryTest extends TestCase {
         query1 = QueryStringParser.parse("foo:bar1");
         query2 = QueryStringParser.parse("foo:bar2");
 
-        assertFalse(query1.hashCode() == query2.hashCode());
-        assertFalse(query1.equals(query2));
+        assertNotNull(query2.hashCode());
+        assertNotEquals(query1, query2);
 
     }
 }

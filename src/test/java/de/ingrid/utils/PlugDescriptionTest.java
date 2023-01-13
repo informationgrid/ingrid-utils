@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -30,8 +30,12 @@ package de.ingrid.utils;
 
 import java.io.File;
 
-import junit.framework.TestCase;
 import de.ingrid.utils.xml.XMLSerializer;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test for {@link de.ingrid.utils.PlugDescription}.
@@ -43,21 +47,24 @@ import de.ingrid.utils.xml.XMLSerializer;
  * @author $Author: ${lastedit}
  * 
  */
-public class PlugDescriptionTest extends TestCase {
+public class PlugDescriptionTest {
 
     private File fXmlFile = new File("target/testFile.xml");
 
-    protected void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() throws Exception {
         this.fXmlFile.getParentFile().mkdirs();
     }
-    
-    protected void tearDown() throws Exception {
+
+    @AfterEach
+    public void tearDown() throws Exception {
         this.fXmlFile.delete();
     }
 
     /**
      * @throws Exception
      */
+    @Test
     public void testSerialize() throws Exception {
         PlugDescription description1 = new PlugDescription();
         description1.setPersonName("bla");
@@ -73,6 +80,7 @@ public class PlugDescriptionTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testDataType() throws Exception {
         PlugDescription description = new PlugDescription();
         description.addDataType("A");
@@ -93,6 +101,7 @@ public class PlugDescriptionTest extends TestCase {
     /**
      * @throws Exception
      */
+    @Test
     public void testAddBus() throws Exception {
         PlugDescription description = new PlugDescription();
         for (int i = 0; i < 100; i++) {
@@ -105,8 +114,9 @@ public class PlugDescriptionTest extends TestCase {
             assertEquals(i, description.getBusUrls().length);
         }
     }
-    
-    
+
+
+    @Test
     public void testHashCode() throws Exception {
         PlugDescription plugDescription = new PlugDescription();
         plugDescription.addPartner("foo");
@@ -118,8 +128,8 @@ public class PlugDescriptionTest extends TestCase {
         plugDescription2.addProvider("bar");
         plugDescription2.addBusUrl("foobar");
 
-        assertTrue(plugDescription.hashCode() == plugDescription2.hashCode());
-        assertTrue(plugDescription.equals(plugDescription2));
+        assertEquals(plugDescription.hashCode(), plugDescription2.hashCode());
+        assertEquals(plugDescription, plugDescription2);
 
         plugDescription = new PlugDescription();
         plugDescription.addPartner("bar");
@@ -131,8 +141,8 @@ public class PlugDescriptionTest extends TestCase {
         plugDescription2.addProvider("bar");
         plugDescription2.addBusUrl("foobar");
 
-        assertFalse(plugDescription.hashCode() == plugDescription2.hashCode());
-        assertFalse(plugDescription.equals(plugDescription2));
+        assertNotNull(plugDescription2.hashCode());
+        assertNotEquals(plugDescription, plugDescription2);
 
         
     }

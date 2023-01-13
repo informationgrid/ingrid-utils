@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -29,15 +29,18 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import junit.framework.TestCase;
-
+import org.junit.jupiter.api.Test;
 import org.springframework.core.io.ClassPathResource;
 
 import de.ingrid.utils.query.FieldQuery;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import de.ingrid.utils.xml.PlugdescriptionSerializer;
 
-public class QueryExtensionContainerTest extends TestCase {
+public class QueryExtensionContainerTest {
 
+    @Test
     public void testReadNew() throws IOException, ClassNotFoundException {
         final PlugdescriptionSerializer serializer = new PlugdescriptionSerializer();
         final InputStream stream = new ClassPathResource("new_queryextension.xml").getInputStream();
@@ -46,6 +49,7 @@ public class QueryExtensionContainerTest extends TestCase {
         doContainerTest(pd.getQueryExtensionContainer());
     }
 
+    @Test
     public void testReadOld() throws IOException {
         final PlugdescriptionSerializer serializer = new PlugdescriptionSerializer();
         final InputStream stream = new ClassPathResource("old_queryextension.xml").getInputStream();

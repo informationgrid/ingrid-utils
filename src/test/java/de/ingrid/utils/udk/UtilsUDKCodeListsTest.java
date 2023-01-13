@@ -2,7 +2,7 @@
  * **************************************************-
  * ingrid-utils
  * ==================================================
- * Copyright (C) 2014 - 2022 wemove digital solutions GmbH
+ * Copyright (C) 2014 - 2023 wemove digital solutions GmbH
  * ==================================================
  * Licensed under the EUPL, Version 1.1 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
@@ -25,10 +25,13 @@
  */
 package de.ingrid.utils.udk;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class UtilsUDKCodeListsTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+public class UtilsUDKCodeListsTest {
+
+    @Test
     public void testCodeList505ToUDK() {
         /* mapping of UDK addresstypes to CSW address types
         
@@ -57,6 +60,7 @@ public class UtilsUDKCodeListsTest extends TestCase {
         assertEquals(UtilsUDKCodeLists.codeList505ToUDK("10"), "9");
     }
 
+    @Test
     public void testUdkToCodeList505() {
         /* mapping of UDK addresstypes to CSW address types
         
