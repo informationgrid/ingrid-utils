@@ -172,6 +172,7 @@ public class CapabilitiesUtilsTest {
 
         assertEquals( "API Feature", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "API Feature" ));
         assertEquals( "Vector Tiles", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "Vector Tiles" ));
-        
+        assertEquals( "OGC-API Feature", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC-API Feature" ));
+        assertEquals( "OGC-API Feature", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC-API Feature, API" ));
     }
 }
