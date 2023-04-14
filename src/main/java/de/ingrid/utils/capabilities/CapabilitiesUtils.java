@@ -137,10 +137,22 @@ public class CapabilitiesUtils {
     }
 
     public static String extractServiceFromServiceTypeVersion(String serviceTypeVersion) {
-        Pattern pattern = Pattern.compile("(?<=(\\:| ))(.*?)(?=\\ )");
-        Matcher matcher = pattern.matcher(serviceTypeVersion);
-        if (StringUtil.containsLetters(serviceTypeVersion) && matcher.find()) {
-            String match = matcher.group(0);
+        String tmpVersion = serviceTypeVersion.split(",")[0];
+        Pattern pattern = Pattern.compile("(((?<=\\:| )|^))([a-zA-Z]+?)( [0-9]|$|,)");
+        Matcher matcher = pattern.matcher(tmpVersion);
+        if (StringUtil.containsOnlyLetters(tmpVersion)) {
+            if(tmpVersion.toLowerCase().indexOf("ogc ") > -1 || tmpVersion.toLowerCase().indexOf("ogc:") > -1) {
+                if(matcher.find()) {
+                    String match = matcher.group(3);
+                    if(match != null && !match.isEmpty()) {
+                        return match;
+                    }
+                }
+            } else {
+                return tmpVersion;
+            }
+        } else if (StringUtil.containsLetters(tmpVersion) && matcher.find()) {
+            String match = matcher.group(3);
             if(match != null && !match.isEmpty()) {
                 return match;
             }

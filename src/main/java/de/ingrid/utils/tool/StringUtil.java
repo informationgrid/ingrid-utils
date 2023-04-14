@@ -94,4 +94,17 @@ public class StringUtil {
         }
         return false;
     }
+    public static boolean containsOnlyLetters(String string) {
+        boolean onlyLetters = true;
+        if (string == null || string.isEmpty()) {
+            return false;
+        }
+        for (int i = 0; i < string.length(); ++i) {
+            if (Character.isDigit(string.charAt(i))) {
+                onlyLetters = false;
+                break;
+            }
+        }
+        return onlyLetters;
+    }
 }

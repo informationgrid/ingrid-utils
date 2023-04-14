@@ -124,5 +124,55 @@ public class CapabilitiesUtilsTest {
         assertEquals( "",  CapabilitiesUtils.getMissingCapabilitiesParameter( urlWithAllParams, "discovery" ));
     }
 
+    @Test
+    public void testExtractServiceFromServiceTypeVersion() {
 
+        // WMS
+        assertEquals( "WMS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WMS 1.1.1" ));
+        assertEquals( "WMS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WMS 1.1.1" ));
+        assertEquals( "WMS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WMS 1.3.0" ));
+        assertEquals( "WMS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WMS 1.3.0" ));
+        assertEquals( "WMS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WMS 1.1.1, OGC WMS 1.3.0" ));
+        assertEquals( "WMS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WMS 1.1.1 OGC WMS 1.3.0" ));
+        assertEquals( "WMS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "WMS 1.1.1" ));
+        assertEquals( "WMS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "WMS 1.1.1, WMS 1.3.0" ));
+        // CSW
+        assertEquals( "CSW", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:CSW 2.0.2" ));
+        assertEquals( "CSW", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC CSW 2.0.2" ));
+        assertEquals( "CSW", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:CSW 2.0.2, OGC:CSW 2.0.0" ));
+        assertEquals( "CSW", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC CSW 2.0.2 OGC CSW 2.0.0" ));
+        assertEquals( "CSW", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "CSW 2.0.2" ));
+        assertEquals( "CSW", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "CSW 2.0.2, CSW 2.0.0" ));
+       // WCS
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WCS 1.1.0" ));
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WCS 1.1.0" ));
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WCS 1.1.1" ));
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WCS 1.1.1" ));
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WCS 1.1.2" ));
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WCS 1.1.2" ));
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WCS 2.0.1" ));
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WCS 2.0.1" ));
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WCS 1.1.0, OGC:WCS 1.1.1, OGC:WCS 2.0.1" ));
+        assertEquals( "WCS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WCS 1.1.0 OGC WCS 1.1.1 OGC WCS 2.0.1" ));
+        // WFS
+        assertEquals( "WFS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WFS 2.0" ));
+        assertEquals( "WFS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WFS 2.0" ));
+        assertEquals( "WFS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WFS" ));
+        assertEquals( "WFS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WFS 2.0, OGC:WFS 2.1" ));
+        assertEquals( "WFS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WFS 2.0 OGC WFS 2.1" ));
+        // WMTS
+        assertEquals( "WMTS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC:WMTS 1.0.0" ));
+        assertEquals( "WMTS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WMTS 1.0.0" ));
+
+        assertEquals( null, CapabilitiesUtils.extractServiceFromServiceTypeVersion( "1.1.1" ));
+        assertEquals( null, CapabilitiesUtils.extractServiceFromServiceTypeVersion( "1.1.1, 1.3.0" ));
+        assertEquals( "WFS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WFS" ));
+        assertEquals( "WFS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WFS OGC WFS" ));
+        assertEquals( "WFS", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC WFS, OGC WFS" ));
+
+        assertEquals( "API Feature", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "API Feature" ));
+        assertEquals( "Vector Tiles", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "Vector Tiles" ));
+        assertEquals( "OGC-API Feature", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC-API Feature" ));
+        assertEquals( "OGC-API Feature", CapabilitiesUtils.extractServiceFromServiceTypeVersion( "OGC-API Feature, API" ));
+    }
 }
