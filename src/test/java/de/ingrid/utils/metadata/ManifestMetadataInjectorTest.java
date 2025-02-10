@@ -7,12 +7,12 @@
  * Licensed under the EUPL, Version 1.2 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
  * EUPL (the "Licence");
- * 
+ *
  * You may not use this work except in compliance with the Licence.
  * You may obtain a copy of the Licence at:
- * 
+ *
  * https://joinup.ec.europa.eu/software/page/eupl
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the Licence is distributed on an "AS IS" basis,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,7 +21,7 @@
  * **************************************************#
  */
 /**
- * 
+ *
  */
 package de.ingrid.utils.metadata;
 
@@ -37,14 +37,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author joachim@wemove.com
- * 
+ *
  */
 public class ManifestMetadataInjectorTest {
 
     /**
      * Test method for
      * {@link de.ingrid.utils.metadata.ManifestMetadataInjector#injectMetaDatas(de.ingrid.utils.metadata.Metadata)}.
-     * 
+     *
      * @throws Exception
      */
     @Test
@@ -57,7 +57,8 @@ public class ManifestMetadataInjectorTest {
 		mdi.injectMetaDatas(metadata);
 		assertNotNull(metadata.getVersion());
 		assertEquals(IPlugType.OTHER, metadata.getPlugType());
-		assertEquals(new Date(0L), metadata.getReleaseDate());
+		assertEquals(new GregorianCalendar(1970, Calendar.JANUARY, 1, 0, 0, 0).getTime()
+				, metadata.getReleaseDate());
 		System.out.println("injected Metadata: " + metadata);
 
 		// test wrong package/missing MANIFEST
