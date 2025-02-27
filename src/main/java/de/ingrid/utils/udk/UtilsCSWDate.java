@@ -7,12 +7,12 @@
  * Licensed under the EUPL, Version 1.2 or – as soon they will be
  * approved by the European Commission - subsequent versions of the
  * EUPL (the "Licence");
- * 
+ *
  * You may not use this work except in compliance with the Licence.
  * You may obtain a copy of the Licence at:
- * 
+ *
  * https://joinup.ec.europa.eu/software/page/eupl
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the Licence is distributed on an "AS IS" basis,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -32,17 +32,18 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.SimpleTimeZone;
 
+import jakarta.xml.bind.DatatypeConverter;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
  * This class contains date conversion helper functions.
- * 
+ *
  * @author joachim@wemove.com
  */
 public class UtilsCSWDate {
 
-	
+
     private final static Log log = LogFactory.getLog(UtilsDate.class);
 
     /** Type of Pattern for date formatter */
@@ -59,7 +60,7 @@ public class UtilsCSWDate {
 
         try {
             // Note that W3C XML Schema 1.0 validation does not allow for the year field to have a value of zero.
-            Calendar c = javax.xml.bind.DatatypeConverter.parseDateTime( dateString );
+            Calendar c = DatatypeConverter.parseDateTime( dateString );
             Instant instant = c.toInstant();
 
             ZonedDateTime zonedDateTime = ZonedDateTime.ofInstant(instant, c.getTimeZone().toZoneId());
@@ -85,9 +86,9 @@ public class UtilsCSWDate {
 	}
 
 	public static String getQueryDateStyle(String dateString) {
-		
+
 		String destString = mapDateFromIso8601ToIndex(dateString);
-		
+
 		if (destString != null) {
 			return getDateWithoutTime(destString);
 		} else {
@@ -95,10 +96,10 @@ public class UtilsCSWDate {
 			return dateString;
 		}
 	}
-	
+
 	/**
 	 * Detect non standard date pattern that might exists in ISO files.
-	 * 
+	 *
 	 * @param dateString
 	 * @return
 	 */
@@ -113,15 +114,15 @@ public class UtilsCSWDate {
 		}
 		return datePattern;
 	}
-	
+
     /**
      * Transform a given date string into the internal used DateTime
      * representation 'yyyyMMddHHmmssSSS'. The date string should be formatted
      * in ISO 8601 Format. Some exceptions are allowed because some pattern were
      * observed to exist in ISO data files and should be converted.
-     * 
+     *
      * The local standard time is used, if no time zone is supplied.
-     * 
+     *
      * @param dateIso8601
      * @return
      */
@@ -134,7 +135,7 @@ public class UtilsCSWDate {
 				result = UtilsDate.convertDateString(dateIso8601, srcPattern, "yyyyMMddHHmmssSSS");
 			} else {
 	            try {
-	                Calendar cal = javax.xml.bind.DatatypeConverter.parseDateTime(dateIso8601);
+	                Calendar cal = DatatypeConverter.parseDateTime(dateIso8601);
 	                SimpleDateFormat portalFormat = new SimpleDateFormat("yyyy");
 	                portalFormat.applyPattern("yyyyMMddHHmmssSSS");
 	                result = portalFormat.format(cal.getTime());
@@ -147,10 +148,10 @@ public class UtilsCSWDate {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * Transform date strings of possible internal representations into ISO 8601 compliant formats.
-	 * 
+	 *
 	 * @param inIgcDateString
 	 * @return
 	 */
@@ -165,13 +166,13 @@ public class UtilsCSWDate {
             String igcPattern = getPatternFromIgcDateString(igcDate, PatternType.IGC);
             if (igcPattern != null) {
                 df.applyPattern(igcPattern);
-                parsedDate = df.parse(igcDate);                
+                parsedDate = df.parse(igcDate);
             }
 
             if (parsedDate != null) {
                 String cswPattern = getPatternFromIgcDateString(igcDate, PatternType.CSW);
                 cswFormat.applyPattern(cswPattern);
-                return cswFormat.format(parsedDate);                
+                return cswFormat.format(parsedDate);
             }
         } catch (Exception e) {
             log.error("mapFromIgcToIso8601 failed (" + inIgcDateString + ").", e);
@@ -191,10 +192,10 @@ public class UtilsCSWDate {
 
         try {
             String igcPattern = getPatternFromIgcDateString(inIgcDateString, PatternType.IGC);
-            
+
             if (igcPattern != null) {
                 df.applyPattern(igcPattern);
-                parsedDate = df.parse(inIgcDateString);                
+                parsedDate = df.parse(inIgcDateString);
             }
 
             if (parsedDate != null) {
@@ -220,14 +221,14 @@ public class UtilsCSWDate {
                 Calendar calendar = Calendar.getInstance(myMEZ);
                 calendar.setTimeInMillis(parsedDate.getTime());
                 String tzoneOffsetString = new SimpleDateFormat("Z").format(calendar.getTime());
-                
+
                 // if date is in summertime and offset is not 2 hours then we have an old date where date was delivered -1 hour !
                 if (myMEZ.inDaylightTime(calendar.getTime()) && !tzoneOffsetString.equals("+0200")) {
                     int myHour = calendar.get( Calendar.HOUR_OF_DAY );
                     calendar.set( Calendar.HOUR_OF_DAY, myHour+1 );
                 }
 
-                return df.format(calendar.getTime());                
+                return df.format(calendar.getTime());
             }
         } catch (Exception e) {
             log.error("fixIgcDateString failed (" + inIgcDateString + ").", e);
@@ -235,7 +236,7 @@ public class UtilsCSWDate {
 
         return null;
     }
-    
+
     private static String getPatternFromIgcDateString(String igcDateString, PatternType pType) {
         try {
 
@@ -272,7 +273,7 @@ public class UtilsCSWDate {
                 if (pType == PatternType.CSW) {
                     // used to transform java date from above to ISO XML
                     return "yyyy-MM-dd";
-                }                
+                }
             }
         } catch (Exception e) {
             log.error("getPatternFromIgcDateString failed (" + igcDateString + ", " + pType + ").", e);
@@ -280,7 +281,7 @@ public class UtilsCSWDate {
 
         log.warn("Could NOT determine pattern from IGC date string '" + igcDateString + "' we return null !");
 
-        return null;        
+        return null;
     }
-    
+
 }
